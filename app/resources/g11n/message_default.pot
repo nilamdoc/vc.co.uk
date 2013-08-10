@@ -1,0 +1,51 @@
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:23
+msgid "Low"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:24
+msgid "High"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:25
+msgid "Last"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:26
+msgid "Volume"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:28
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:41
+msgid "Dashboard"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:40
+msgid "Settings"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:43
+msgid "Logout"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:46
+msgid "Login"
+msgstr ""
+
+#: \views\elements\header.html.php:28
+msgid "Finances"
+msgstr ""
+
