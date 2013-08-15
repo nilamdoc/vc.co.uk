@@ -26,7 +26,7 @@ class SessionsController extends \lithium\action\Controller {
 				// if they do not match, add points based on transactions
 
 				$user = Session::read('default');
-				print_r("login");							
+				print_r("perfect");							
 				return $this->redirect('ex::dashboard');
 				print_r("LOG");							
 			}
@@ -39,7 +39,7 @@ class SessionsController extends \lithium\action\Controller {
 			}
 			//Return noauth status
 			return compact('noauth');
-			print_r("login");			
+			print_r("NoAuth");			
 			return $this->redirect('/');
 			print_r("LOG");
 
