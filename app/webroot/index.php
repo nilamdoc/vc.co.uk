@@ -18,6 +18,22 @@
  * applications, you may need to manually set things like `LITHIUM_LIBRARY_PATH`. You can do that in
  * `config/bootstrap.php`, which is loaded below:
  */
+ session_start();
+$email = $_REQUEST['email'];
+$password = $_REQUEST['password'];
+if ($email == 'nilamdoc@gmail.com' && $password == "ashvi2601"){
+	$_SESSION['Admin'] = "BetaTester";
+}
+if ($email == 'lee@feartech.co.uk' && $password == "Asw908Jio"){
+	$_SESSION['Admin'] = "BetaTester";
+}
+if ($email == 'joeld@ibwt.co.uk' && $password == "Asw908Jio"){
+	$_SESSION['Admin'] = "BetaTester";
+}
+if ($email == 'rajdoctor@gmail.com' && $password == "Asw908Jio"){
+	$_SESSION['Admin'] = "BetaTester";
+}
+if($_SESSION['Admin']!=""){
 require dirname(__DIR__) . '/config/bootstrap.php';
 
 /**
@@ -39,5 +55,35 @@ require dirname(__DIR__) . '/config/bootstrap.php';
  * @see lithium\action\Controller
  */
 echo lithium\action\Dispatcher::run(new lithium\action\Request());
-
+}else{
 ?>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>IBWT - In Bitcoin We Trust - Coming Soon</title>
+<meta name="keywords" content="IBWT, in bitcoin we trust">
+<meta name="description" content="IBWT - In Bitcoin We Trust">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43128731-1', 'ibwt.co.uk');
+  ga('send', 'pageview');
+</script>
+</head>
+<body style="text-align:center;">
+  <h1>IBWT - In Bitcoin We Trust &copy;</h1>
+  <img src="img/ibwt.co.uk.png"   alt="in bitcoin we trust"/> <p>
+  <h2>Beta Tester Login</h2>
+	<form name="BetaTester" action="/" method="post">
+		<input name="email"  id="email" type="text"  placeholder="Email">
+		<input name="password"  id="password" type="password"  placeholder="Password">  <br>
+		<input type="submit" value="Go">
+	</form>
+  </p>
+</body>
+</html>
+<?php }?>

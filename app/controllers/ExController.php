@@ -16,6 +16,11 @@ use lithium\util\String;
 use lithium\security\Auth;
 use lithium\storage\Session;
 
+use \lithium\template\View;
+use \Swift_MailTransport;
+use \Swift_Mailer;
+use \Swift_Message;
+use \Swift_Attachment;
 
 class ExController extends \lithium\action\Controller {
 
@@ -51,6 +56,7 @@ class ExController extends \lithium\action\Controller {
 				$details = Details::find('first',
 					array('conditions'=>array('user_id'=>$id))
 				)->save($data);
+				
 			}
 			if($Action == "Sell"){
 				$PendingAction = 'Buy';			
@@ -93,7 +99,9 @@ class ExController extends \lithium\action\Controller {
 			$orders = Orders::create();			
 			$orders->save($data);
 			$order_id = $orders->_id;
-			
+
+			$this->SendEmails($order_id,$user['_id']);
+
 			$PendingOrders = Orders::find('all',
 				array(
 					'conditions'=> array(
@@ -137,7 +145,8 @@ class ExController extends \lithium\action\Controller {
 
 						$this->updateBalance($order_id);
 						$this->updateBalance($PO['_id']);
-						
+						$this->SendOrderCompleteEmails($order_id,$user['_id']);
+						$this->SendOrderCompleteEmails($PO['_id'],$PO['user_id']);						
 						break;
 					}
 					
@@ -153,7 +162,6 @@ class ExController extends \lithium\action\Controller {
 						$orders = Orders::find('first',
 							array('conditions'=>array('_id'=>$PO['_id']))
 						)->save($data);
-						print_r('Modified Past PO');						
 						$data = array(
 							'Amount' => (float)$PO['Amount'] - (float)($Amount),
 							'Action' => $PO['Action'],
@@ -179,10 +187,11 @@ class ExController extends \lithium\action\Controller {
 						$orders = Orders::find('first',
 							array('conditions'=>array('_id'=>$order_id))
 						)->save($data);
-						print_r('Modified New PO');
 						//To update Balance						
 						$this->updateBalance($order_id);
 						$this->updateBalance($PO['_id']);
+						$this->SendOrderCompleteEmails($order_id,$user['_id']);
+						$this->SendOrderCompleteEmails($PO['_id'],$PO['user_id']);						
 
 						break;
 					}
@@ -228,6 +237,8 @@ class ExController extends \lithium\action\Controller {
 						$orders->save($data);
 						$this->updateBalance($order_id);
 						$this->updateBalance($PO['_id']);
+						$this->SendOrderCompleteEmails($order_id,$user['_id']);
+						$this->SendOrderCompleteEmails($PO['_id'],$PO['user_id']);						
 						break;
 					}
 			}
@@ -396,8 +407,10 @@ class ExController extends \lithium\action\Controller {
 			$YourCompleteOrders['Sell'] = $this->YourCompleteOrders($id,'Sell',substr($t['trade'],0,3),substr($t['trade'],4,3));			
 		}
 		$Commissions = $this->TotalCommissions($id);
+		$CompletedCommissions = $this->CompletedTotalCommissions($id);		
 		$RequestFriends = $this->RequestFriend($id);
-		return compact('details','YourOrders','Commissions','YourCompleteOrders','RequestFriends');
+		
+		return compact('details','YourOrders','Commissions','CompletedCommissions','YourCompleteOrders','RequestFriends');
 	}
 
 	public function TotalCommissions($id){
@@ -414,6 +427,32 @@ class ExController extends \lithium\action\Controller {
 				)),
 				array('$match'=>array(
 					'Completed'=>'N',
+					'user_id'=>$id
+					)),
+				array('$group' => array( '_id' => array(
+						'CommissionCurrency'=>'$CommissionCurrency',						
+						),
+					'Commission' => array('$sum' => '$CommissionAmount'),  
+					'No' => array('$sum'=>1)					
+				)),
+			)
+		));
+		return $Commissions;
+	}
+	public function CompletedTotalCommissions($id){
+		$mongodb = Connections::get('default')->connection;
+		$Commissions = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Completed'=>'$Completed',
+					'user_id'=>'$user_id',					
+					'CommissionAmount'=>'$Commission.Amount',
+					'CommissionCurrency'=>'$Commission.Currency',					
+				)),
+				array('$match'=>array(
+					'Completed'=>'Y',
 					'user_id'=>$id
 					)),
 				array('$group' => array( '_id' => array(
@@ -561,10 +600,15 @@ class ExController extends \lithium\action\Controller {
 		$Action = $Orders['Action'];
 		
 			$balance = 'balance.'.$CommissionCurrency;
+/* 			print_r("---------------<br>");
+			print_r("Balance".$balance."<br>");
+			print_r("DetailsBalance".$details[$balance]."<br>");
+			print_r("CommissionAmount".$CommissionAmount."<br>");
+ */
 			$data = array(
 				$balance => (float)$details[$balance] - (float)$CommissionAmount,
 			);
-	
+//			print_r($data);
 			$details = Details::find('all', array(
 				'conditions' => array(
 					'user_id'=>$Orders['user_id'], 
@@ -579,10 +623,15 @@ class ExController extends \lithium\action\Controller {
 						'user_id'=>(string)$Orders['user_id'], 
 						)
 				));
-				
+/* 			print_r("Buy------------<br>");
+			print_r("Balance".$balance."<br>");
+			print_r("DetailsBalance".$details[$balance]."<br>");
+			print_r("Amount".$Amount."<br>");
+ */				
 				$data = array(
 					$balance => (float)$details[$balance] + (float)$Amount,
 				);
+//			print_r($data);			
 				$details = Details::find('all', array(
 					'conditions' => array(
 						'user_id'=>$Orders['user_id'], 
@@ -597,10 +646,17 @@ class ExController extends \lithium\action\Controller {
 						'user_id'=>(string)$Orders['user_id'], 
 						)
 				));
+/* 			print_r("Sell------------<br>");
+			print_r("Balance".$balance."<br>");
+			print_r("DetailsBalance".$details[$balance]."<br>");
+			print_r("Amount".$Amount."<br>");
+ */
 				
 				$data = array(
 					$balance => (float)$details[$balance] + (float)$Amount,
 				);
+//			print_r($data);
+
 				$details = Details::find('all', array(
 					'conditions' => array(
 						'user_id'=>$Orders['user_id'], 
@@ -637,6 +693,99 @@ class ExController extends \lithium\action\Controller {
 		));
 	return $RequestFriend;
 	
+	}
+	
+	public function AddFriend($hashuser_id,$user_id,$username){
+		if(String::hash($user_id)==$hashuser_id){
+			$user = Session::read('member');
+			$id = $user['_id'];
+			$details = Details::find('first',
+				array('conditions'=>array('user_id'=>$id))
+			);
+			$friends = $details['Friend'];
+			$addfriend = array();
+			foreach ($friends as $ra){
+				array_push($addfriend, $ra);
+			}
+			array_push($addfriend,$username);
+			$data = array('Friend'=>$addfriend);
+			print_r($data);
+			$details = Details::find('first',
+				array('conditions'=>array('user_id'=>$id))
+			)->save($data);
+		}
+		$this->redirect(array('controller'=>'ex','action'=>"dashboard/",'locale'=>$locale));				
+	}
+	
+	public function SendOrderCompleteEmails($order_id,$user_id){
+		$view  = new View(array(
+			'loader' => 'File',
+			'renderer' => 'File',
+			'paths' => array(
+				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+			)
+		));
+		$body = $view->render(
+			'template',
+			compact('order'),
+			array(
+				'controller' => 'ex',
+				'template'=>'Complete',
+				'type' => 'mail',
+				'layout' => false
+			)
+		);
+
+		$transport = Swift_MailTransport::newInstance();
+		$mailer = Swift_Mailer::newInstance($transport);
+
+		$message = Swift_Message::newInstance();
+		$message->setSubject("Your order is complete");
+		$message->setFrom(array(NOREPLY => 'Your order is complete'));
+		$message->setTo($user->email);
+		$message->addBcc(MAIL_1);
+		$message->addBcc(MAIL_2);			
+		$message->addBcc(MAIL_3);		
+
+		$message->setBody($body,'text/html');
+		$mailer->send($message);
+
+	}
+
+	public function SendEmails($order_id,$user_id){
+	
+		$view  = new View(array(
+			'loader' => 'File',
+			'renderer' => 'File',
+			'paths' => array(
+				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+			)
+		));
+		$body = $view->render(
+			'template',
+			compact('order'),
+			array(
+				'controller' => 'ex',
+				'template'=>'FriendRequest',
+				'type' => 'mail',
+				'layout' => false
+			)
+		);
+
+		$transport = Swift_MailTransport::newInstance();
+		$mailer = Swift_Mailer::newInstance($transport);
+
+		$message = Swift_Message::newInstance();
+		$message->setSubject("Your friend placed an order");
+		$message->setFrom(array(NOREPLY => 'Your friend placed an order'));
+		$message->setTo($user->email);
+		$message->addBcc(MAIL_1);
+		$message->addBcc(MAIL_2);			
+		$message->addBcc(MAIL_3);		
+
+		$message->setBody($body,'text/html');
+		$mailer->send($message);
+
 	}
 }
 

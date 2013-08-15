@@ -1,17 +1,22 @@
 // JS Document
-function UpdateDetails(){
-	GetDetails();
+function UpdateDetails(ex){
+	GetDetails(ex);
 	setInterval(function() {
-		GetDetails();
+		GetDetails(ex);
 	},20000);
 }
-function GetDetails(){
-	$.getJSON('/Updates/Rates/',
+function GetDetails(ex){
+	$.getJSON('/Updates/Rates/'+ex,
 		function(ReturnValues){
 			$("#LowPrice").html(ReturnValues['Low']);
 			$("#HighPrice").html(ReturnValues['High']);					
+			$("#LowestAskPrice").html(ReturnValues['High']);	
+			$("#BuyPriceper").val(ReturnValues['High'])
+			$("#HighestBidPrice").html(ReturnValues['Low']);
+			$("#SellPriceper").val(ReturnValues['Low'])
 			$("#LastPrice").html(ReturnValues['Last']);
-			var Volume = ReturnValues['VolumeBTC'] + " BTC / " + ReturnValues['VolumeOther'] + " " + ReturnValues['VolumeOtherUnit'];
+			var Volume = ReturnValues['VolumeFirst'] + " " + ReturnValues['VolumeFirstUnit'] +
+			" / " + ReturnValues['VolumeSecond'] + " " + ReturnValues['VolumeSecondUnit'];
 			$("#Volume").html(Volume);					
 		}
 	);
@@ -22,7 +27,8 @@ function BuyFormCalculate (){
 	SecondCurrency = $('#BuySecondCurrency').val();
 	BuyAmount = $('#BuyAmount').val();
 	BuyPriceper = $('#BuyPriceper').val();
-
+if(BuyAmount=="" || BuyAmount==0){return false;}
+if(BuyPriceper=="" || BuyPriceper==0){return false;}
 	TotalValue = BuyAmount * BuyPriceper;
 	TotalValue = TotalValue.toFixed(6);
 	$("#BuyTotal").html(TotalValue);
@@ -67,6 +73,8 @@ function SellFormCalculate (){
 	SecondCurrency = $('#SellSecondCurrency').val();
 	SellAmount = $('#SellAmount').val();
 	SellPriceper = $('#SellPriceper').val();
+if(SellAmount=="" || SellAmount==0){return false;}
+if(SellPriceper=="" || SellPriceper==0){return false;}
 
 	TotalValue = SellAmount * SellPriceper;
 	TotalValue = TotalValue.toFixed(6);

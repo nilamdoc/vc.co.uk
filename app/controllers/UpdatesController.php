@@ -8,6 +8,9 @@
 
 namespace app\controllers;
 use app\models\Parameters;
+use app\models\Details;
+use app\models\Orders;
+use lithium\data\Connections;
 
 class UpdatesController extends \lithium\action\Controller {
 
@@ -22,14 +25,105 @@ class UpdatesController extends \lithium\action\Controller {
 	public function to_json() {
 		return $this->render(array('json' => 'Hello World'));
 	}
-	public function Rates() {
+	public function Rates($FirstCurrency="BTC",$SecondCurrency="USD") {
+
+		$mongodb = Connections::get('default')->connection;
+		$Rates = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( 
+				'$project' => array(
+					'_id'=>0,
+					'Action' => '$Action',
+					'PerPrice'=>'$PerPrice',					
+					'Completed'=>'$Completed',					
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',	
+					'TransactDateTime' => '$Transact.DateTime',
+				)),
+				array('$match'=>array(
+					'Completed'=>'Y',					
+					'FirstCurrency' => $FirstCurrency,
+					'SecondCurrency' => $SecondCurrency,					
+					)),
+				array('$group' => array( '_id' => array(
+						'year'=>array('$year' => '$TransactDateTime'),
+						'month'=>array('$month' => '$TransactDateTime'),						
+						'day'=>array('$dayOfMonth' => '$TransactDateTime'),												
+						'hour'=>array('$hour' => '$TransactDateTime'),
+						),
+					'min' => array('$min' => '$PerPrice'), 
+					'max' => array('$max' => '$PerPrice'), 
+				)),
+				array('$sort'=>array(
+					'_id.year'=>-1,
+					'_id.month'=>-1,
+					'_id.day'=>-1,					
+					'_id.hour'=>-1,					
+				)),
+				array('$limit'=>1)
+			)
+		));
+
+		foreach($Rates['result'] as $r){
+			$Low = $r['min'];
+			$High = $r['max'];			
+		}
+
+		$Last = Orders::find('all',array(
+			'conditions'=>array(
+				'Completed'=>'Y',					
+				'FirstCurrency' => $FirstCurrency,
+				'SecondCurrency' => $SecondCurrency,					
+				),
+			'limit'=>1,
+			'order'=>array('Transact.DateTime'=>'DESC')
+		));
+		foreach($Last as $l){
+			$LastPrice = $l['PerPrice'];
+		}
+		
+		$TotalOrders = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Action'=>'$Action',					
+					'Amount'=>'$Amount',
+					'Completed'=>'$Completed',					
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',	
+					'TransactDateTime' => '$Transact.DateTime',					
+					'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),
+				)),
+				array('$match'=>array(
+					'Completed'=>'Y',	
+					'Action'=>'Buy',										
+					'FirstCurrency' => $FirstCurrency,
+					'SecondCurrency' => $SecondCurrency,					
+					)),
+				array('$group' => array( '_id' => array(
+					'year'=>array('$year' => '$TransactDateTime'),
+					'month'=>array('$month' => '$TransactDateTime'),						
+					),
+					'Amount' => array('$sum' => '$Amount'), 
+					'TotalAmount' => array('$sum' => '$TotalAmount'), 
+				)),
+				array('$sort'=>array(
+					'_id.year'=>-1,
+					'_id.month'=>-1,
+				)),
+				array('$limit'=>1)
+			)
+		));
 		return $this->render(array('json' => array(
-			'Low'=> rand(0,100),
-			'High' => rand(0,100),
-			'Last'=> rand(0,100),			
-			'VolumeBTC'=> rand(0,100),
-			'VolumeOther'=> rand(0,100),
-			'VolumeOtherUnit'=> 'USD',
+			'Low'=> $Low,
+			'High' => $High,
+			'Last'=> $LastPrice,			
+			'VolumeFirst'=> number_format($TotalOrders['result'][0]['Amount'],0),
+			'VolumeSecond'=> number_format($TotalOrders['result'][0]['TotalAmount'],0),
+			'VolumeFirstUnit'=> $FirstCurrency,			
+			'VolumeSecondUnit'=> $SecondCurrency,
 		)));
 	}
 	public function Commission(){

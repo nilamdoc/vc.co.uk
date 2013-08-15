@@ -1,3 +1,9 @@
+<?php
+use lithium\util\String;
+?>
+<?php use lithium\core\Environment; 
+if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environment::get('locale');}
+?>
 <div class="row" >
 	<div class="span11">
 		<div class="navbar">
@@ -52,6 +58,25 @@
 				    	    break;
 					    case "EUR":
 					        $EURComm = $C['Commission'];
+				    	    break;
+					}
+				}
+				foreach($CompletedCommissions['result'] as $C){
+					switch ($C['_id']['CommissionCurrency']){
+					    case "BTC":
+					        $CompletedBTCComm = $C['Commission'];
+				    	    break;
+					    case "LTC":
+					        $CompletedLTCComm = $C['Commission'];
+				    	    break;
+					    case "GBP":
+					        $CompletedGBPComm = $C['Commission'];
+				    	    break;
+					    case "USD":
+					        $CompletedUSDComm = $C['Commission'];
+				    	    break;
+					    case "EUR":
+					        $CompletedEURComm = $C['Commission'];
 				    	    break;
 					}
 				}
@@ -129,6 +154,15 @@
 					<td style="text-align:right "><?=number_format($ComSellWith['GBP'],4)?></td>										
 					<td></td>					
 				</tr>
+				<tr>
+					<td><strong><?=$t('Completed Order Commissions')?></strong></td>
+					<td style="text-align:right "><?=number_format($CompletedBTCComm,8)?></td>
+					<td style="text-align:right "><?=number_format($CompletedLTCComm,8)?></td>
+					<td style="text-align:right "><?=number_format($CompletedUSDComm,4)?></td>
+					<td style="text-align:right "><?=number_format($CompletedEURComm,4)?></td>
+					<td style="text-align:right "><?=number_format($CompletedGBPComm,4)?></td>
+					<td></td>										
+				</tr>
 
 
 <!--
@@ -177,19 +211,33 @@
 				</tr>
 			</thead>
 			<tbody>
-			<?php foreach($RequestFriends['result'] as $RF){?>
 				<tr>
-					<td><?=$RF['_id']['TransactUsername']?></td>
-					<td><a href="">Add as a friend</a></td>
-				</tr>
+					<td >
+			<?php foreach($RequestFriends['result'] as $RF){
+			$friend = array();
+			if($details['Friend']!=""){
+				foreach($details['Friend'] as $f){
+					array_push($friend, $f);
+				}
+			}
+			if(!in_array($RF['_id']['TransactUsername'],$friend,TRUE)){
+			  ?><a href="/<?=$locale?>/ex/AddFriend/<?=String::hash($RF['_id']['TransactUser_id'])?>/<?=$RF['_id']['TransactUser_id']?>/<?=$RF['_id']['TransactUsername']?>"
+				class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Add to receive alerts from <?=$RF['_id']['TransactUsername']?>"
+				style="font-weight:bold "><i class="icon-plus"></i> <?=$RF['_id']['TransactUsername']?></a>
+			<?php }else{?>
+			<span class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Already a friend <?=$RF['_id']['TransactUsername']?>">
+			<?=$RF['_id']['TransactUsername']?></span>
 			<?php }?>
+			<?php }?>
+					</td>
+				</tr>			
 			</tbody>
 		</table>
 	</div>
 	<div class="span6">
 		<div class="navbar">
 			<div class="navbar-inner">
-			<a class="brand" href="#"><?=$t('Accepted Friends')?> </a>
+			<a class="brand" href="#"><?=$t('Some thing else')?> </a>
 			</div>
 		</div>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">

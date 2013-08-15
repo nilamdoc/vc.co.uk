@@ -20,6 +20,7 @@ Session::config(array(
     'default' => array('adapter' => 'Php')
 ));
 
+
 Auth::config(array(
     'member' => array(
 		'adapter' => 'Form',
@@ -28,6 +29,7 @@ Auth::config(array(
 	    'filters' => array('password' => array('lithium\util\String', 'hash')),
         'validators' => array('password' => false)
 )));
+
 /**
  * Uncomment the lines below to enable forms-based authentication. This configuration will attempt
  * to authenticate users against a `Users` model. In a controller, run

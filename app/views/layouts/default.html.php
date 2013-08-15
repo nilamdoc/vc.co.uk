@@ -8,6 +8,7 @@
  */
  use lithium\storage\Session;
  use lithium\g11n\Message;
+ use lithium\core\Environment; 
 ?>
 <!doctype html>
 <html>
@@ -53,9 +54,32 @@
       }
     </style>
 </head>
-<body onLoad="UpdateDetails();">
+<?php
+//	print_r(strlen($_SERVER['REQUEST_URI']));
+if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environment::get('locale');}
+if(Session::read('ex')==""){
+		Session::write('ex','BTC/USD');
+	}else{
+
+		if(strlen($_SERVER['REQUEST_URI'])==16 || strlen($_SERVER['REQUEST_URI'])==13){
+
+		$request_uri = str_replace("/".$locale,"",$_SERVER['REQUEST_URI']);
+
+			if($locale==""){
+				$ex = str_replace("_","/",strtoupper(str_replace("/ex/x/","",$request_uri)));
+			}else{
+				$ex = str_replace("_","/",strtoupper(str_replace("/ex/x/","",$request_uri)));
+			}
+			Session::write('ex',$ex);			
+		}
+}
+$ex = Session::read('ex');
+?>
+<body onLoad="UpdateDetails('<?=$ex?>');">
 	<div id="container" class="container">
-		<?php 	echo $this->_render('element', 'header');?>
+		<?php 
+
+		echo $this->_render('element', 'header');?>
 		<?php 
 		extract(lithium\g11n\Message::aliases());
 		$user = Session::read('member'); ?>

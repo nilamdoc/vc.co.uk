@@ -47,7 +47,8 @@ use app\extensions\action\Functions;
 					<a href="/login" class="btn"><?=$t('Login')?></a>			
 			<?php }?>				
 			</ul>			
-			 
+
 		</div>
 	</div>
 </div>
+	<img src="/img/half-ibwt.co.uk.png" class="pull-right" style="margin-top:7px"> 	
