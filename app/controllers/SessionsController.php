@@ -37,16 +37,19 @@ class SessionsController extends \lithium\action\Controller {
 			}
 			//Return noauth status
 			return compact('noauth');
+			print_r("login");			
 			return $this->redirect('/');
+			print_r("login");
 
         // Handle failed authentication attempts
     }
 	 public function delete() {
         Auth::clear('member');
-		print_r("here");
+		print_r("logout");
 		Session::delete('default');
 		print_r("here");
         return $this->redirect('/');
+		print_r("Out");		
     }
 }
 ?>
