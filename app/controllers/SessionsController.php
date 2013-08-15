@@ -26,7 +26,9 @@ class SessionsController extends \lithium\action\Controller {
 				// if they do not match, add points based on transactions
 
 				$user = Session::read('default');
+				print_r("login");							
 				return $this->redirect('/ex/dashboard/');
+				print_r("LOG");							
 			}
 			//if theres still post data, and we weren't redirected above, then login failed
 
@@ -39,7 +41,7 @@ class SessionsController extends \lithium\action\Controller {
 			return compact('noauth');
 			print_r("login");			
 			return $this->redirect('/');
-			print_r("login");
+			print_r("LOG");
 
         // Handle failed authentication attempts
     }
