@@ -13,7 +13,7 @@ use app\extensions\action\Functions;
 			<span class="icon-bar"></span>
 			</a>
 			<!-- Be sure to leave the brand out there if you want it shown -->
-			<a class="brand" href="/"><img src="/img/VirtCurr.gif" alt="VirtCurr.com"></a>
+			<a class="brand" href="/"><img src="/img/ibwt.co.uk.gif" alt="ibwt.co.uk"></a>
 			<!-- Everything you want hidden at 940px or less, place within here -->
 		<div>
 
