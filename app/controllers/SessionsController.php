@@ -43,7 +43,9 @@ class SessionsController extends \lithium\action\Controller {
     }
 	 public function delete() {
         Auth::clear('member');
+		print_r("here");
 		Session::delete('default');
+		print_r("here");exit;		
         return $this->redirect('/');
     }
 }
