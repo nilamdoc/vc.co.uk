@@ -26,10 +26,11 @@ class UsersController extends \lithium\action\Controller {
 	public function signup() {	
 		$user = Users::create();
 		if(($this->request->data) && $user->save($this->request->data)) {	
+					print_r("Added2");
 			$verification = sha1($user->_id);
 			$oauth = new OAuth2();
 			$key_secret = $oauth->request_token();
-
+			print_r("Added3");
 			$data = array(
 				'user_id'=>(string)$user->_id,
 				'username'=>(string)$user->username,
@@ -44,8 +45,9 @@ class UsersController extends \lithium\action\Controller {
 				'balance.GBP' => (float)0,				
 			);
 			Details::create()->save($data);
+			print_r("Added5");			
 			$this->redirect('Users::email');	
-			
+			print_r("Added6");			
 			$view  = new View(array(
 				'loader' => 'File',
 				'renderer' => 'File',
@@ -76,7 +78,9 @@ class UsersController extends \lithium\action\Controller {
 			$message->addBcc(MAIL_3);		
 
 			$message->setBody($body,'text/html');
+			
 			$mailer->send($message);
+			print_r("Added7");
 			$this->redirect('Users::email');	
 			
 		}
