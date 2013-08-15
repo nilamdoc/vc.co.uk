@@ -27,7 +27,7 @@ class SessionsController extends \lithium\action\Controller {
 
 				$user = Session::read('default');
 				print_r("login");							
-				return $this->redirect('/ex/dashboard/');
+				return $this->redirect('ex::dashboard');
 				print_r("LOG");							
 			}
 			//if theres still post data, and we weren't redirected above, then login failed
@@ -50,7 +50,7 @@ class SessionsController extends \lithium\action\Controller {
 		print_r("logout");
 		Session::delete('default');
 		print_r("here");
-        return $this->redirect('/');
+        return $this->redirect('ex::dashboard');
 		print_r("Out");		
     }
 }
