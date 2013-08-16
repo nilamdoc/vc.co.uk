@@ -295,19 +295,19 @@ class Controller extends \lithium\core\Object {
 		$defaults = array('location' => null, 'status' => 302, 'head' => true, 'exit' => false);
 		$options += $defaults;
 		$params = compact('url', 'options');
-//print_r("1");
+print_r("1");
 		$this->_filter(__METHOD__, $params, function($self, $params) use ($router) {
 			$options = $params['options'];
 			$location = $options['location'] ?: $router::match($params['url'], $self->request);
 			$self->render(compact('location') + $options);
 		});
-//print_r("2");
+print_r("2");
 		if ($options['exit']) {
 			$this->response->render();
-//print_r("3");			
+print_r("3");			
 			$this->_stop();
 		}
-//print_r($this->response);		
+print_r($this->response);		
 		return $this->response;
 //print_r("5");		
 //exit;
