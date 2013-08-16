@@ -27,10 +27,10 @@ class SessionsController extends \lithium\action\Controller {
 
 				$user = Session::read('default');
 //				print_r("perfect");							
-				header('Location: https://' . $_SERVER['SERVER_NAME']."/ex/dashboard");
-				print_r("Did not come here");											
-				exit;
-//				return $this->redirect('ex::dashboard');
+//				header('Location: https://' . $_SERVER['SERVER_NAME']."/ex/dashboard");
+//				print_r("Did not come here");											
+//				exit;
+				return $this->redirect('ex::dashboard');
 //				print_r("LOG");							
 			}
 			//if theres still post data, and we weren't redirected above, then login failed
