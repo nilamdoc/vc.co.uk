@@ -17,7 +17,7 @@ class OAuth2 extends \lithium\action\Controller {
 	}
 
 	function __createConsumer(){
-		$provider = new OAuthProvider("rBitCoin");		
+		$provider = new OAuthProvider("ibwt.co.uk");		
 		$key = sha1($provider->generateToken(20,true));
 		$secret = sha1($provider->generateToken(20,true));
 		return compact('key','secret');
@@ -26,7 +26,7 @@ class OAuth2 extends \lithium\action\Controller {
 	public function __construct(){
 		
 		/* create our instance */
-		$this->oauth = new OAuthProvider();
+		$this->oauth = new OAuthProvider("ibwt.co.uk");
 		
 		/* setup check functions */
 		$this->oauth->consumerHandler(array($this,'checkConsumer'));
