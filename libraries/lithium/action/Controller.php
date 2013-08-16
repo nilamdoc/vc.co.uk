@@ -307,7 +307,7 @@ print_r("2");
 print_r("3");			
 			$this->_stop();
 		}
-print_r("4");		
+print_r($this->response);		
 		return $this->response;
 print_r("5");		
 exit;
