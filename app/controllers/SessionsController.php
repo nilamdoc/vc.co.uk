@@ -27,6 +27,8 @@ class SessionsController extends \lithium\action\Controller {
 
 				$user = Session::read('default');
 //				print_r("perfect");							
+				header('Location: https://' . $_SERVER['SERVER_NAME']."/ex/dashboard");
+				exit;
 				return $this->redirect('ex::dashboard');
 //				print_r("LOG");							
 			}
