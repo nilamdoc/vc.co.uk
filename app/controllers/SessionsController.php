@@ -26,7 +26,7 @@ class SessionsController extends \lithium\action\Controller {
 				// if they do not match, add points based on transactions
 
 				$user = Session::read('default');
-				print_r("perfect");							
+//				print_r("perfect");							
 				header('Location: https://' . $_SERVER['SERVER_NAME']."/ex/dashboard");
 				print_r("Did not come here");											
 				exit;
