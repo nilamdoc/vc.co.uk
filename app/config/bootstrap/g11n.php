@@ -198,5 +198,4 @@ Media::applyFilter('_handle', function($self, $params, $chain) {
 	$params['handler']['outputFilters'] += Message::aliases();
 	return $chain->next($self, $params, $chain);
 });
-
 ?>

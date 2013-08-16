@@ -51,4 +51,4 @@ use app\extensions\action\Functions;
 		</div>
 	</div>
 </div>
-	<img src="/img/half-ibwt.co.uk.png" class="pull-right" style="margin-top:7px"> 	
+	<img src="/img/half-ibwt.co.uk.png" class="pull-right" style="margin-top:7px">

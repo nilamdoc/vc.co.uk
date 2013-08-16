@@ -129,5 +129,4 @@ Libraries::add('li3_pdf');
 Libraries::add('swiftmailer', array(
 	'bootstrap' => 'swift_required.php'
 ));
-
 ?>

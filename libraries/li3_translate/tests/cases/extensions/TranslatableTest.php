@@ -105,3 +105,4 @@ class TranslatableTest extends \lithium\test\Unit {
 	
 	
 }	
+?>
