@@ -23,23 +23,6 @@ if (!isset($_SERVER['HTTPS'])) {
  * applications, you may need to manually set things like `LITHIUM_LIBRARY_PATH`. You can do that in
  * `config/bootstrap.php`, which is loaded below:
  */
-/*  session_start();
-$email = $_REQUEST['email'];
-$password = $_REQUEST['password'];
-if ($email == 'nilamdoc@gmail.com' && $password == "ashvi2601"){
-	$_SESSION['Admin'] = "BetaTester";
-}
-if ($email == 'lee@feartech.co.uk' && $password == "Asw908Jio"){
-	$_SESSION['Admin'] = "BetaTester";
-}
-if ($email == 'joeld@ibwt.co.uk' && $password == "Asw908Jio"){
-	$_SESSION['Admin'] = "BetaTester";
-}
-if ($email == 'rajdoctor@gmail.com' && $password == "Asw908Jio"){
-	$_SESSION['Admin'] = "BetaTester";
-}
-if($_SESSION['Admin']!=""){
- */
  require dirname(__DIR__) . '/config/bootstrap.php';
 
 /**
@@ -61,5 +44,5 @@ if($_SESSION['Admin']!=""){
  * @see lithium\action\Controller
  */
 echo lithium\action\Dispatcher::run(new lithium\action\Request());
-//}else{
-?><?php  // }?>
+
+?>
