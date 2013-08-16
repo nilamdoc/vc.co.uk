@@ -306,5 +306,5 @@ class Controller extends \lithium\core\Object {
 		}
 		return $this->response;
 	}
-}
+}  
 ?>
