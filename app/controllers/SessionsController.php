@@ -42,9 +42,9 @@ class SessionsController extends \lithium\action\Controller {
 			}
 			//Return noauth status
 			return compact('noauth');
-			print_r("NoAuth");			
+//			print_r("NoAuth");			
 			return $this->redirect('/');
-			print_r("LOG");
+//			print_r("LOG");
 
         // Handle failed authentication attempts
     }
