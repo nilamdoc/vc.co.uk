@@ -703,9 +703,12 @@ class ExController extends \lithium\action\Controller {
 				array('conditions'=>array('user_id'=>$id))
 			);
 			$friends = $details['Friend'];
+
 			$addfriend = array();
-			foreach ($friends as $ra){
-				array_push($addfriend, $ra);
+			if(count($friends)!=0){
+				foreach ($friends as $ra){
+					array_push($addfriend, $ra);
+				}
 			}
 			array_push($addfriend,$username);
 			$data = array('Friend'=>$addfriend);
@@ -714,7 +717,9 @@ class ExController extends \lithium\action\Controller {
 				array('conditions'=>array('user_id'=>$id))
 			)->save($data);
 		}
+		print_r("x");
 		$this->redirect(array('controller'=>'ex','action'=>"dashboard/",'locale'=>$locale));				
+		exit;
 	}
 	
 	public function SendOrderCompleteEmails($order_id,$user_id){
