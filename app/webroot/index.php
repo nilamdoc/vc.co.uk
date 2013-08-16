@@ -1,9 +1,9 @@
 <?php
-	if (!isset($_SERVER['HTTPS'])) {
-	
-		header('Location: https://' . $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
-		exit;
-	}
+if (!isset($_SERVER['HTTPS'])) {
+
+	header('Location: https://' . $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
+	exit;
+}
 /**
  * Lithium: the most rad php framework
  *
@@ -23,7 +23,7 @@
  * applications, you may need to manually set things like `LITHIUM_LIBRARY_PATH`. You can do that in
  * `config/bootstrap.php`, which is loaded below:
  */
- session_start();
+/*  session_start();
 $email = $_REQUEST['email'];
 $password = $_REQUEST['password'];
 if ($email == 'nilamdoc@gmail.com' && $password == "ashvi2601"){
@@ -39,7 +39,8 @@ if ($email == 'rajdoctor@gmail.com' && $password == "Asw908Jio"){
 	$_SESSION['Admin'] = "BetaTester";
 }
 if($_SESSION['Admin']!=""){
-require dirname(__DIR__) . '/config/bootstrap.php';
+ */
+ require dirname(__DIR__) . '/config/bootstrap.php';
 
 /**
  * The following will instantiate a new `Request` object and pass it off to the `Dispatcher` class.
@@ -60,9 +61,9 @@ require dirname(__DIR__) . '/config/bootstrap.php';
  * @see lithium\action\Controller
  */
 echo lithium\action\Dispatcher::run(new lithium\action\Request());
-}else{
+//}else{
 ?>
-<!doctype html>
+<!-- <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -90,5 +91,5 @@ echo lithium\action\Dispatcher::run(new lithium\action\Request());
 	</form>
   </p>
 </body>
-</html>
-<?php }?>
+</html> -->
+<?php  // }?>
