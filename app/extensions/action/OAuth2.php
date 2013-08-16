@@ -26,7 +26,7 @@ class OAuth2 extends \lithium\action\Controller {
 	public function __construct(){
 		
 		/* create our instance */
-		$this->oauth = new OAuthProvider("ibwt.co.uk");
+		$this->oauth = new OAuthProvider(array("oauth_signature_method" => OAUTH_SIG_METHOD_HMACSHA1));
 		
 		/* setup check functions */
 		$this->oauth->consumerHandler(array($this,'checkConsumer'));
