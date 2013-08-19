@@ -9,7 +9,7 @@ use app\extensions\action\Functions;
 
 use lithium\security\Auth;
 use lithium\storage\Session;
-use app\extensions\action\Smslane;
+use app\extensions\action\GoogleAuthenticator;
 use lithium\util\String;
 use MongoID;
 
@@ -26,8 +26,8 @@ class UsersController extends \lithium\action\Controller {
 	public function signup() {	
 		$user = Users::create();
 		if(($this->request->data) && $user->save($this->request->data)) {	
-
 			$verification = sha1($user->_id);
+			
 			$oauth = new OAuth2();
 			$key_secret = $oauth->request_token();
 
@@ -45,6 +45,10 @@ class UsersController extends \lithium\action\Controller {
 				'balance.GBP' => (float)0,				
 			);
 			Details::create()->save($data);
+
+			$email = $this->request->data['email'];
+			$name = $this->request->data['firstname'];
+			
 			$view  = new View(array(
 				'loader' => 'File',
 				'renderer' => 'File',
@@ -68,7 +72,7 @@ class UsersController extends \lithium\action\Controller {
 	
 			$message = Swift_Message::newInstance();
 			$message->setSubject("Verification of email from ".COMPANY_URL);
-			$message->setFrom(array('no-reply@rbitco.in' => 'Verification email '.COMPANY_URL));
+			$message->setFrom(array(NOREPLY => 'Verification email '.COMPANY_URL));
 			$message->setTo($user->email);
 			$message->addBcc(MAIL_1);
 			$message->addBcc(MAIL_2);			
@@ -140,5 +144,29 @@ class UsersController extends \lithium\action\Controller {
 		
 	
 	}
+	
+	public function ga(){
+		$ga = new GoogleAuthenticator();
+		
+		$secret = $ga->createSecret(64);
+		$secret = '547e9701d8fb7e6556fc8acbfa06382620af8d78';
+		echo "Secret is: ".$secret."\n\n";
+		
+		$qrCodeUrl = $ga->getQRCodeGoogleUrl(COMPANY_URL, $secret);
+		echo "Google Charts URL for the QR-Code: ".$qrCodeUrl."\n\n";
+		
+		
+		$oneCode = $ga->getCode($secret);
+		echo "Checking Code '$oneCode' and Secret '$secret':\n";
+		
+		$checkResult = $ga->verifyCode($secret, $oneCode, 2); // 2 = 2*30sec clock tolerance
+		if ($checkResult) {
+			echo 'OK';
+		} else {
+			echo 'FAILED';
+		}
+	}
+	
+	
 }
 ?>
