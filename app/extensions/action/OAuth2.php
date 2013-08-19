@@ -17,7 +17,7 @@ class OAuth2 extends \lithium\action\Controller {
 	}
 
 	function __createConsumer(){
-		$provider = new OAuthProvider("ibwt.co.uk");		
+		$provider = new OAuthProvider(array("oauth_signature_method" => OAUTH_SIG_METHOD_HMACSHA1));
 		$key = sha1($provider->generateToken(20,true));
 		$secret = sha1($provider->generateToken(20,true));
 		return compact('key','secret');
