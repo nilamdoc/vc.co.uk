@@ -4,6 +4,7 @@ namespace app\controllers;
 use lithium\security\Auth;
 use lithium\util\String;
 use app\models\Users;
+use app\models\Details;
 use lithium\storage\Session;
 use app\extensions\action\Functions;
 
@@ -18,20 +19,22 @@ class SessionsController extends \lithium\action\Controller {
 
 			if (Auth::check('member', $this->request)){
 				//Redirect on successful login
-				Session::write('default',Auth::check('member', $this->request));
-
-				
-				// check transaction of the user and compare with points given.
-				// if they match skip
-				// if they do not match, add points based on transactions
-
-				$user = Session::read('default');
-//				print_r("perfect");							
-//				header('Location: https://' . $_SERVER['SERVER_NAME']."/ex/dashboard");
-//				print_r("Did not come here");											
-//				exit;
-				return $this->redirect('ex::dashboard');
-//				print_r("LOG");							
+				$loginpassword = $this->request->data['loginpassword'];
+				$default = Auth::check('member', $this->request);
+				$details = Details::find('first',array(
+					'conditions' => array(
+						'username'=>$default['username'],
+						'user_id'=>(string)$default['_id']
+						)
+				));
+				if($details['oneCode']===$this->request->data['loginpassword']){
+					Session::write('default',$default);
+					$user = Session::read('default');
+					return $this->redirect('ex::dashboard');
+				}else{
+			        Auth::clear('member');
+					Session::delete('default');
+				}
 			}
 			//if theres still post data, and we weren't redirected above, then login failed
 
@@ -42,19 +45,13 @@ class SessionsController extends \lithium\action\Controller {
 			}
 			//Return noauth status
 			return compact('noauth');
-//			print_r("NoAuth");			
 			return $this->redirect('/');
-//			print_r("LOG");
-
         // Handle failed authentication attempts
     }
 	 public function delete() {
         Auth::clear('member');
-		print_r("logout");
 		Session::delete('default');
-		print_r("here");
         return $this->redirect('ex::dashboard');
-		print_r("Out");		
     }
 }
 ?>

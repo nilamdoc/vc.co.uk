@@ -10,7 +10,7 @@ class Users extends \lithium\data\Model {
 		'username'	=>	array('type' => 'string', 'null' => false),
 		'password'	=>	array('type' => 'string', 'null' => false),
 		'firstname'	=>	array('type' => 'string', 'null' => false),
-		'lastname'	=>	array('type' => 'string', 'null' => false),		
+		'lastname'	=>	array('type' => 'string', 'null' => false),
 		'email'	=>	array('type' => 'string', 'null' => false),		
 		'updated'	=>	array('type' => 'datetime', 'null' => false),
 		'created'	=>	array('type' => 'datetime', 'null' => false),
@@ -47,7 +47,6 @@ class Users extends \lithium\data\Model {
 
 
 	Validator::add('passwordVerification', function($value, $rule, $options) {
-
 		if(!isset($options['values']['password2']) || $value==$options['values']['password2']){ 
 			return true;
 		}else{
@@ -61,6 +60,7 @@ class Users extends \lithium\data\Model {
 		if($conflicts) return false;
 		return true;
 	});
+
 	Validator::add('uniqueEmail', function($value, $rule, $options) {
 		$conflicts = Users::count(array('email' => $value));
 		if($conflicts) return false;
@@ -79,7 +79,6 @@ class Users extends \lithium\data\Model {
 			$params['entity']->created = new \MongoDate();
 			$params['entity']->updated = new \MongoDate();
 			$params['entity']->ip = $_SERVER['REMOTE_ADDR'];
-
 		}
 		return $chain->next($self, $params, $chain);
 	});

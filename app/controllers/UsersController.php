@@ -167,6 +167,50 @@ class UsersController extends \lithium\action\Controller {
 		}
 	}
 	
+	public function SendPassword($username=""){
+		$users = Users::find('first',array(
+					'conditions'=>array('username'=>$username)
+				));
+		$id = (string)$users['_id'];
+		$ga = new GoogleAuthenticator();
+		$secret = $ga->createSecret(64);
+		$oneCode = $ga->getCode($secret);	
+		$data = array(
+			'oneCode' => $oneCode
+		);
+		$details = Details::find('first',array(
+					'conditions'=>array('username'=>$username,'user_id'=>(string)$id)
+		))->save($data);
+		
+		$view  = new View(array(
+			'loader' => 'File',
+			'renderer' => 'File',
+			'paths' => array(
+				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+			)
+		));
+		$email = $users['email'];
+			$body = $view->render(
+				'template',
+				compact('users','oneCode','username'),
+				array(
+					'controller' => 'users',
+					'template'=>'onecode',
+					'type' => 'mail',
+					'layout' => false
+				)
+			);
+
+			$transport = Swift_MailTransport::newInstance();
+			$mailer = Swift_Mailer::newInstance($transport);
 	
+			$message = Swift_Message::newInstance();
+			$message->setSubject("Sign in password for ".COMPANY_URL);
+			$message->setFrom(array(NOREPLY => 'Sign in password from '.COMPANY_URL));
+			$message->setTo($email);
+			$message->setBody($body,'text/html');
+			$mailer->send($message);
+			return $this->render(array('json' => "Password sent to email"));
+	}
 }
 ?>

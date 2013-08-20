@@ -145,3 +145,9 @@ function ConvertBalance(){
 	}
 	
 }
+function SendPassword(){
+	$.getJSON('/Users/SendPassword/'+$("#Username").val(),
+		function(ReturnValues){}
+	);
+}
+

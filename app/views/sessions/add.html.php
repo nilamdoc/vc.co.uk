@@ -6,9 +6,11 @@
 			</div>
 		</div>
 	<?=$this->form->create(null); ?>
-	<?=$this->form->field('username', array('label'=>'Username')); ?>
+	<?=$this->form->field('username', array('label'=>'Username', 'onBlur'=>'SendPassword();')); ?>
 	<?=$this->form->field('password', array('type' => 'password', 'label'=>'Password')); ?>
-	<?=$this->form->field('googleauth', array('type' => 'password', 'label'=>'Google Authenticator')); ?>
+	<small>Please check your registered email for the <br>"<strong>Login Email Password</strong>"</small>
+	<?=$this->form->field('loginpassword', array('type' => 'password', 'label'=>'')); ?>
+
 	<?=$this->form->submit('Login' ,array('class'=>'btn btn-primary')); ?>
 	<?=$this->form->end(); ?>
 	<a href="/users/forgotpassword">Forgot password?</a>
@@ -19,8 +21,8 @@
 			<a class="brand" href="#"><?=$t('Two Factor Authentication')?> </a>
 			</div>
 		</div>
-		We require a Two Factor Authentication for your account to sign in to <?=COMPANY_URL?>.
-		We use Time-based One-time Password Algorithm (TOTP).
+		We require a Two Factor Authentication for your account to sign in to <?=COMPANY_URL?>.<br>
+		We use Time-based One-time Password Algorithm (TOTP) for withdrawal and deposits.
 		<p><h3>Android App</h3>
 			<ul>
 			<li><a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank">Android App</a></li>
