@@ -141,15 +141,23 @@ class UsersController extends \lithium\action\Controller {
 	}
 	
 	public function settings(){
-		
-	
+		$title = "User settings";
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+
+		return compact('details','user','title');
 	}
 	
 	public function ga(){
 		$ga = new GoogleAuthenticator();
 		
 		$secret = $ga->createSecret(64);
-		$secret = '547e9701d8fb7e6556fc8acbfa06382620af8d78';
+//		$secret = '547e9701d8fb7e6556fc8acbfa06382620af8d78';
 		echo "Secret is: ".$secret."\n\n";
 		
 		$qrCodeUrl = $ga->getQRCodeGoogleUrl(COMPANY_URL, $secret);
