@@ -147,7 +147,45 @@ function ConvertBalance(){
 }
 function SendPassword(){
 	$.getJSON('/Users/SendPassword/'+$("#Username").val(),
-		function(ReturnValues){}
+		function(ReturnValues){
+			if(ReturnValues['TOTP']=="Yes"){
+				$("#TOTPPassword").show();
+				}
+			}
 	);
 }
 
+function SaveTOTP(){
+	if($("#ScannedCode").val()==""){return false;}
+	$.getJSON('/Users/SaveTOTP/',{
+			  Login:$("#Login").is(':checked'),
+			  Withdrawal:$("#Withdrawal").is(':checked'),			  
+			  Security:$("#Security").is(':checked'),
+			  ScannedCode:$("#ScannedCode").val(),			  
+			  },
+		function(ReturnValues){
+			if(ReturnValues){
+				window.location.assign("/users/settings");				
+			}			
+		}
+	);
+}
+function CheckTOTP(){
+	if($("#CheckCode").val()==""){return false;}
+	$.getJSON('/Users/CheckTOTP/',{
+			  CheckCode:$("#CheckCode").val(),			  
+			  },
+		function(ReturnValues){
+			if(ReturnValues){
+				window.location.assign("/users/settings");		
+			}
+		}
+	);
+}
+
+
+function DeleteTOTP(){
+	$.getJSON('/Users/DeleteTOTP/',
+		function(ReturnValues){}
+	);	
+}

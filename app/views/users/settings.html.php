@@ -122,11 +122,51 @@ use li3_qrcode\extensions\action\QRcode;
 	</div>
 	<div id="collapseAPI" class="accordion-body ">
 		<div class="accordion-inner">
+		<?php 
+		if($details['TOTP.Security']==false || $details['TOTP.Security']==""){?>
 		<table class="table">
 			<tr>
 				<td colspan="2">
-					Security keys are used for withdrawals and deposits to your account with <?=COMPANY_URL?>. 
-					Scan the QR code and enter a (Time based One Time Password) to enable 
+					Security keys are used for withdrawals and deposits to your account with <?=COMPANY_URL?>. <br>
+					Download / Install the app from <a href="http://code.google.com/p/google-authenticator/" target="_blank">Google Authenticator</a><br>
+					Scan the QR code and enter a (Time based One Time Password) to enable security on withdrawals / deposits and password recovery.
+					<div class="alert">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Best practice</strong> is to select all Login, Withdrawals/Deposits and Security for TOTP.
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+	<?=$this->form->create(null, array('class'=>'form-horizontal')); ?>
+		<div class="control-group">
+			<div class="controls">
+					<strong>Use TOTP for</strong>:<br>
+				<label class="checkbox">
+				<input type="checkbox" name="Login" id="Login" checked=true> Login
+				</label>
+				<label class="checkbox">
+				<input type="checkbox" name="Withdrawal" id="Withdrawal" checked=true> Withdrawal / Deposits
+				</label>
+				<label class="checkbox">
+				<input type="checkbox" name="Security" id="Security" checked=true> Security
+				</label>
+			</div>				
+		</div>	
+		<div class="control-group">
+			<label class="control-label" for="ScannedCode">Scanned code</label>
+			<div class="controls">
+				<input type="text" id="ScannedCode" name="ScannedCode" placeholder="123456" class="span1">
+			</div><br>
+			<div class="controls">			
+				<button type="button" class="btn btn-primary" onClick="SaveTOTP();">Save</button>										
+				<button type="button" class="btn btn-danger"  onClick="DeleteTOTP();">Delete</button>														
+			</div>
+		</div>
+		<?=$this->form->end(); ?>
+				</td>
+				<td>
+					<iframe frameborder="0" src="<?=$qrCodeUrl?>" scrolling="no" height="200px"></iframe>
 				</td>
 			</tr>
 			<tr>
@@ -138,6 +178,31 @@ use li3_qrcode\extensions\action\QRcode;
 				<td><?=$details['secret']?></td>
 			</tr>
 		</table>
+		<?php }else{?>
+		<table class="table">
+			<tr>
+				<td colspan="2">
+					You have enabled TOTP Security for <?=COMPANY_URL?>. <br>
+					Please enter the code below to modify the security level.
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<?=$this->form->create(null, array('class'=>'form-horizontal')); ?>
+				<div class="control-group">
+					<label class="control-label" for="CheckCode">Scanned code</label>
+					<div class="controls">
+						<input type="text" id="CheckCode" name="CheckCode" placeholder="123456" class="span1" maxlength="6">
+					</div><br>
+					<div class="controls">			
+						<button type="button" class="btn btn-primary" onClick="CheckTOTP();">Check</button>										
+					</div>
+				</div>
+
+				<?=$this->form->end(); ?>
+				</td>
+		</table>
+		<?php	}?>
 		</div>
 	</div>
 

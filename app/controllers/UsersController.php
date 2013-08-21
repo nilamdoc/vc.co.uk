@@ -142,6 +142,8 @@ class UsersController extends \lithium\action\Controller {
 	
 	public function settings(){
 		$title = "User settings";
+		$ga = new GoogleAuthenticator();
+		
 		$user = Session::read('default');
 		if ($user==""){		return $this->redirect('/login');}
 		$id = $user['_id'];
@@ -149,18 +151,33 @@ class UsersController extends \lithium\action\Controller {
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=> (string) $id))
 		);
-
-		return compact('details','user','title');
+		$TOTP = $details['TOTP.Validate'];
+		if($TOTP!=1){
+			$secret = $ga->createSecret(64);
+			$data = array(
+				'secret' => $secret
+			);
+			$details = Details::find('first',
+				array('conditions'=>array('user_id'=> (string) $id))
+			)->save($data);
+			$details = Details::find('first',
+				array('conditions'=>array('user_id'=> (string) $id))
+			);		
+		}else{
+			$secret = $details['secret'];
+		}
+		$qrCodeUrl = $ga->getQRCodeGoogleUrl("IBWT-".$details['username'], $secret);
+		return compact('details','user','title','qrCodeUrl','secret');
 	}
 	
 	public function ga(){
 		$ga = new GoogleAuthenticator();
 		
 		$secret = $ga->createSecret(64);
-//		$secret = '547e9701d8fb7e6556fc8acbfa06382620af8d78';
+//		$secret = '547e9701d8fb7e6556fc8acbfa063811620af8d78';
 		echo "Secret is: ".$secret."\n\n";
 		
-		$qrCodeUrl = $ga->getQRCodeGoogleUrl(COMPANY_URL, $secret);
+		$qrCodeUrl = $ga->getQRCodeGoogleUrl("ABCD", $secret);
 		echo "Google Charts URL for the QR-Code: ".$qrCodeUrl."\n\n";
 		
 		
@@ -189,6 +206,14 @@ class UsersController extends \lithium\action\Controller {
 		$details = Details::find('first',array(
 					'conditions'=>array('username'=>$username,'user_id'=>(string)$id)
 		))->save($data);
+		$details = Details::find('first',array(
+					'conditions'=>array('username'=>$username,'user_id'=>(string)$id)
+		));
+		$totp = "No";
+
+		if($details['TOTP.Validate']==true && $details['TOTP.Login']==true){
+			$totp = "Yes";
+		}
 		
 		$view  = new View(array(
 			'loader' => 'File',
@@ -218,7 +243,67 @@ class UsersController extends \lithium\action\Controller {
 			$message->setTo($email);
 			$message->setBody($body,'text/html');
 			$mailer->send($message);
-			return $this->render(array('json' => "Password sent to email"));
+			return $this->render(array('json' => array("Password"=>"Password sent to email","TOTP"=>$totp)));
+	}
+	public function SaveTOTP(){
+		$user = Session::read('default');
+		if ($user==""){return $this->render(array('json' => false));}
+		$id = $user['_id'];
+	
+		$login = $this->request->query['Login'];
+		$withdrawal = $this->request->query['Withdrawal'];		
+		$security = $this->request->query['Security'];		
+		$ScannedCode = $this->request->query['ScannedCode'];		
+
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		$ga = new GoogleAuthenticator();
+		$checkResult = $ga->verifyCode($details['secret'], $ScannedCode, 2);
+
+		if ($checkResult==1) {
+			$data = array(
+				'TOTP.Validate'=>true,
+				'TOTP.Login'=>$login,				
+				'TOTP.Withdrawal'=>$withdrawal,				
+				'TOTP.Security'=>$security,				
+			);
+			$details = Details::find('first',
+				array('conditions'=>array('user_id'=> (string) $id))
+			)->save($data);
+			return $this->render(array('json' => true));
+		} else {
+			return $this->render(array('json' => false));
+		}
+//		return $this->render(array('json' => false));
+	}
+	public function CheckTOTP(){
+		$user = Session::read('default');
+		if ($user==""){return $this->render(array('json' => false));}
+		$id = $user['_id'];
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+
+		$CheckCode = $this->request->query['CheckCode'];		
+		$ga = new GoogleAuthenticator();
+		$checkResult = $ga->verifyCode($details['secret'], $CheckCode, 2);		
+		if ($checkResult) {
+			$data = array(
+				'TOTP.Validate'=>false,
+				'TOTP.Security'=>false,				
+			);
+			$details = Details::find('first',
+				array('conditions'=>array('user_id'=> (string) $id))
+			)->save($data);
+			return $this->render(array('json' => true));
+		}else{
+			return $this->render(array('json' => false));
+		}
+	}
+	public function DeleteTOTP(){
+
+		return $this->render(array('json' => ""));
 	}
 }
 ?>

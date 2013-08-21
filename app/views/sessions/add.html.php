@@ -6,12 +6,17 @@
 			</div>
 		</div>
 	<?=$this->form->create(null); ?>
-	<?=$this->form->field('username', array('label'=>'Username', 'onBlur'=>'SendPassword();')); ?>
-	<?=$this->form->field('password', array('type' => 'password', 'label'=>'Password')); ?>
+	<?=$this->form->field('username', array('label'=>'Username', 'onBlur'=>'SendPassword();', 'placeholder'=>'username')); ?>
+	<?=$this->form->field('password', array('type' => 'password', 'label'=>'Password', 'placeholder'=>'password')); ?>
 	<small>Please check your registered email for the <br>"<strong>Login Email Password</strong>"</small>
-	<?=$this->form->field('loginpassword', array('type' => 'password', 'label'=>'')); ?>
-
+	<?=$this->form->field('loginpassword', array('type' => 'password', 'label'=>'','class'=>'span1','maxlength'=>'6', 'placeholder'=>'123456')); ?>
+	<div style="display:none" id="TOTPPassword">
+	<small><strong>Time based One Time Password (TOTP)</strong></small>	
+	<?=$this->form->field('totp', array('type' => 'password', 'label'=>'','class'=>'span1','maxlength'=>'6', 'placeholder'=>'123456')); ?>	
+	</div>	
 	<?=$this->form->submit('Login' ,array('class'=>'btn btn-primary')); ?>
+	
+	
 	<?=$this->form->end(); ?>
 	<a href="/users/forgotpassword">Forgot password?</a>
 	</div>

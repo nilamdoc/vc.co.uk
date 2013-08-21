@@ -7,6 +7,7 @@ use app\models\Users;
 use app\models\Details;
 use lithium\storage\Session;
 use app\extensions\action\Functions;
+use app\extensions\action\GoogleAuthenticator;
 
 class SessionsController extends \lithium\action\Controller {
 
@@ -28,9 +29,20 @@ class SessionsController extends \lithium\action\Controller {
 						)
 				));
 				if($details['oneCode']===$this->request->data['loginpassword']){
-					Session::write('default',$default);
-					$user = Session::read('default');
-					return $this->redirect('ex::dashboard');
+				
+				$totp = $this->request->data['totp'];
+				
+				$ga = new GoogleAuthenticator();
+				$checkResult = $ga->verifyCode($details['secret'], $totp, 2);		
+					if ($checkResult) {
+						Session::write('default',$default);
+						$user = Session::read('default');
+						return $this->redirect('ex::dashboard');
+					}else{
+				        Auth::clear('member');
+						Session::delete('default');
+					}
+				
 				}else{
 			        Auth::clear('member');
 					Session::delete('default');
