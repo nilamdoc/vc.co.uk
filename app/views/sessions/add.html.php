@@ -20,30 +20,24 @@
 	<?=$this->form->end(); ?>
 	<a href="/users/forgotpassword">Forgot password?</a>
 	</div>
-	<div class="span6">
+	<div class="span6 well">
 		<div class="navbar">
 			<div class="navbar-inner">
-			<a class="brand" href="#"><?=$t('Two Factor Authentication')?> </a>
+			<a class="brand" href="#"><?=$t('Sign up')?> </a>
 			</div>
 		</div>
-		We require a Two Factor Authentication for your account to sign in to <?=COMPANY_URL?>.<br>
-		We use Time-based One-time Password Algorithm (TOTP) for withdrawal and deposits.
-		<p><h3>Android App</h3>
-			<ul>
-			<li><a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank">Android App</a></li>
-			</ul>
-		</p>
-		<p><h3>iOS App</h3>
-			<ul>
-			<li><a href="http://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8" target="_blank">iOS App</a></li>
-			</ul>
-		</p>
-		<p><h3>Google Authenticator Project</h3>
+		<h3>Sign up</h3>
+		Don't have an account. <a href="/users/signup" class="btn btn-primary">Signup</a>
+		<h3>Security</h3>
+		We use <strong>Two Factor Authentication</strong> for your account to login to <?=COMPANY_URL?>.<br>
+		We use <strong>Time-based One-time Password Algorithm (TOTP)</strong> for login, withdrawal/deposits and settings.
+		<p><h3>TOTP Project and downloads</h3>
 			<ul>
 			<li><a href="http://code.google.com/p/google-authenticator/" target="_blank">Google Authenticator</a></li>
+			<li><a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank">TOTP Android App</a></li>
+			<li><a href="http://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8" target="_blank">TOTP iOS App</a></li>
 			</ul>
 		</p>
-		
 	</div>
 
 </div>

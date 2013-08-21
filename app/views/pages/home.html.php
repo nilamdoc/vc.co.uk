@@ -12,4 +12,10 @@ centuries of its existence." <small>Nikola Tesla</small></blockquote>
     <li>Services only available to UK residents</li>
     <li>Based and registered within the UK to help build your trust</li>
 </ul>
+
+<h3>Security</h3>
+<ul>
+	<li>We use <strong>Two Factor Authentication</strong> for your account to login to <?=COMPANY_URL?>.</li>
+	<li>We use <strong>Time-based One-time Password Algorithm (TOTP)</strong> for login, withdrawal/deposits and settings.</li>
+</ul>
 </div>
