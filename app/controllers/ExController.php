@@ -712,7 +712,7 @@ class ExController extends \lithium\action\Controller {
 			}
 			array_push($addfriend,$username);
 			$data = array('Friend'=>$addfriend);
-			print_r($data);
+//			print_r($data);
 			$details = Details::find('first',
 				array('conditions'=>array('user_id'=>$id))
 			)->save($data);

@@ -1,5 +1,6 @@
 <?php
 namespace app\controllers;
+use app\models\Queries;
 
 class CompanyController extends \lithium\action\Controller {
 

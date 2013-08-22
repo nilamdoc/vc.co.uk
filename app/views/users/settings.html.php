@@ -195,10 +195,10 @@ use li3_qrcode\extensions\action\QRcode;
 			<tr>
 				<td colspan="2">
 				You have enabled:<br>
-				Validate: <?=$details['TOTP.Validate']?><br>
-				Login: <?=$details['TOTP.Login']?><br>
-				Withdrawal / Deposit: <?=$details['TOTP.Withdrawal']?><br>				
-				Security: <?=$details['TOTP.Security']?><br>				
+				Validate: <strong><?=$details['TOTP.Validate']?></strong><br>
+				Login: <strong><?=$details['TOTP.Login']?></strong><br>
+				Withdrawal / Deposit: <strong><?=$details['TOTP.Withdrawal']?></strong><br>				
+				Security: <strong><?=$details['TOTP.Security']?></strong><br>				
 				</td>
 			</tr>
 			<tr>
