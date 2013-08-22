@@ -77,12 +77,12 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 			</tr>
 			<tr>
 				<td>
-				<?=$this->form->field('BuyAmount', array('label'=>'Amount '.$first_curr,'class'=>'span1', 'value'=>0)); ?>				
+				<?=$this->form->field('BuyAmount', array('label'=>'Amount '.$first_curr,'class'=>'span1', 'value'=>0, 'onBlur'=>'$("#BuySubmitButton").attr("disabled", "disabled");')); ?>				
 				</td>
 				<td>
 				<div class="input-append">
 					<label for="BuyPriceper">Price per <?=$first_curr?></label>
-					<input class="span1" id="BuyPriceper" name="BuyPriceper" type="text">
+					<input class="span1" id="BuyPriceper" name="BuyPriceper" type="text" onBlur='$("#BuySubmitButton").attr("disabled", "disabled");'>
 					<span class="add-on"> <?=$second_curr?></span>
 				</div>				
 				</td>				
@@ -129,12 +129,12 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 			</tr>
 			<tr>
 				<td>
-				<?=$this->form->field('SellAmount', array('label'=>'Amount '.$first_curr,'class'=>'span1', 'value'=>0)); ?>				
+				<?=$this->form->field('SellAmount', array('label'=>'Amount '.$first_curr,'class'=>'span1', 'value'=>0, 'onBlur'=>'$("#SellSubmitButton").attr("disabled", "disabled");')); ?>				
 				</td>
 				<td>
 				<div class="input-append">
 					<label for="SellPriceper">Price per <?=$first_curr?></label>
-					<input class="span1" id="SellPriceper" name="SellPriceper" type="text">
+					<input class="span1" id="SellPriceper" name="SellPriceper" type="text"  onBlur='$("#SellSubmitButton").attr("disabled", "disabled");'>
 					<span class="add-on"> <?=$second_curr?></span>
 				</div>				
 				</td>				

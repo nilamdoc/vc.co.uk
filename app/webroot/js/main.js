@@ -11,9 +11,13 @@ function GetDetails(ex){
 			$("#LowPrice").html(ReturnValues['Low']);
 			$("#HighPrice").html(ReturnValues['High']);					
 			$("#LowestAskPrice").html(ReturnValues['High']);	
-			$("#BuyPriceper").val(ReturnValues['High'])
+			if($("#BuyPriceper").val()=="" || $("#BuyPriceper").val()==0){
+				$("#BuyPriceper").val(ReturnValues['High']);
+			}
 			$("#HighestBidPrice").html(ReturnValues['Low']);
-			$("#SellPriceper").val(ReturnValues['Low'])
+			if($("#SellPriceper").val()=="" || $("#SellPriceper").val()==0){
+				$("#SellPriceper").val(ReturnValues['Low']);
+			}
 			$("#LastPrice").html(ReturnValues['Last']);
 			var Volume = ReturnValues['VolumeFirst'] + " " + ReturnValues['VolumeFirstUnit'] +
 			" / " + ReturnValues['VolumeSecond'] + " " + ReturnValues['VolumeSecondUnit'];
@@ -27,8 +31,8 @@ function BuyFormCalculate (){
 	SecondCurrency = $('#BuySecondCurrency').val();
 	BuyAmount = $('#BuyAmount').val();
 	BuyPriceper = $('#BuyPriceper').val();
-if(BuyAmount=="" || BuyAmount==0){return false;}
-if(BuyPriceper=="" || BuyPriceper==0){return false;}
+	if(BuyAmount=="" || BuyAmount==0){return false;}
+	if(BuyPriceper=="" || BuyPriceper==0){return false;}
 	TotalValue = BuyAmount * BuyPriceper;
 	TotalValue = TotalValue.toFixed(6);
 	$("#BuyTotal").html(TotalValue);

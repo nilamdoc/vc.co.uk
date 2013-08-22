@@ -50,7 +50,7 @@ class UpdatesController extends \lithium\action\Controller {
 						'year'=>array('$year' => '$TransactDateTime'),
 						'month'=>array('$month' => '$TransactDateTime'),						
 						'day'=>array('$dayOfMonth' => '$TransactDateTime'),												
-						'hour'=>array('$hour' => '$TransactDateTime'),
+//						'hour'=>array('$hour' => '$TransactDateTime'),
 						),
 					'min' => array('$min' => '$PerPrice'), 
 					'max' => array('$max' => '$PerPrice'), 
@@ -59,12 +59,13 @@ class UpdatesController extends \lithium\action\Controller {
 					'_id.year'=>-1,
 					'_id.month'=>-1,
 					'_id.day'=>-1,					
-					'_id.hour'=>-1,					
+//					'_id.hour'=>-1,					
 				)),
 				array('$limit'=>1)
 			)
 		));
 
+//		print_r($Rates['result']);
 		foreach($Rates['result'] as $r){
 			$Low = $r['min'];
 			$High = $r['max'];			
