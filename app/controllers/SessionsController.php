@@ -30,14 +30,14 @@ class SessionsController extends \lithium\action\Controller {
 				));
 				if($details['oneCode']===$this->request->data['loginpassword']){
 				
-				$totp = $this->request->data['totp'];
-				if($totp==""){
-					Session::write('default',$default);
-					$user = Session::read('default');
-					return $this->redirect('ex::dashboard');
-				}else{
-					$ga = new GoogleAuthenticator();
-					$checkResult = $ga->verifyCode($details['secret'], $totp, 2);		
+					$totp = $this->request->data['totp'];
+					if($totp==""){
+						Session::write('default',$default);
+						$user = Session::read('default');
+						return $this->redirect('ex::dashboard');
+					}else{
+						$ga = new GoogleAuthenticator();
+						$checkResult = $ga->verifyCode($details['secret'], $totp, 2);		
 						if ($checkResult) {
 							Session::write('default',$default);
 							$user = Session::read('default');
@@ -46,10 +46,10 @@ class SessionsController extends \lithium\action\Controller {
 							Auth::clear('member');
 							Session::delete('default');
 						}
-					}else{
-						Auth::clear('member');
-						Session::delete('default');
 					}
+				}else{
+					Auth::clear('member');
+					Session::delete('default');
 				}
 			}
 			//if theres still post data, and we weren't redirected above, then login failed
