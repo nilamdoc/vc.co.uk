@@ -193,6 +193,15 @@ use li3_qrcode\extensions\action\QRcode;
 				</td>
 			</tr>
 			<tr>
+				<td colspan="2">
+				You have enabled:<br>
+				Validate: <?=$details['TOTP.Validate']?><br>
+				Login: <?=$details['TOTP.Login']?><br>
+				Withdrawal / Deposit: <?=$details['TOTP.Withdrawal']?><br>				
+				Security: <?=$details['TOTP.Security']?><br>				
+				</td>
+			</tr>
+			<tr>
 				<td>
 				<?=$this->form->create(null, array('class'=>'form-horizontal')); ?>
 				<div class="control-group">
