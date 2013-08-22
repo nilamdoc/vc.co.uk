@@ -22,8 +22,12 @@ class CompanyController extends \lithium\action\Controller {
 	}
 	public function contact() {
 		$title = "Contact us";
-		return compact("title");
 
+		$query = Queries::create();
+		if(($this->request->data) && $query->save($this->request->data)) {	
+		}
+
+		return compact("title");
 	}
 
 }

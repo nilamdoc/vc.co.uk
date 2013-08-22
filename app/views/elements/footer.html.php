@@ -1,6 +1,6 @@
 <div id="footer" style="padding:1px 20px; border-top:1px solid black" class="navbar-inner navbar ">
 	<ul class="nav" style="font-size:11px ">
-		<li><a href="#">Copyright &copy; IBWT JD LTD. All rights reserved.</a></li>
+		<li><a href="/">Copyright &copy; IBWT JD LTD. All rights reserved.</a></li>
 		<li><a href="/company/contact">Contact us</a></li>		
 		<li><a href="/company/riskmanagement">Risk Management</a></li>				
 		<li><a href="/company/privacy">Privacy</a></li>		

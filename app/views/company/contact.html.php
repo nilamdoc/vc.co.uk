@@ -1,11 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-</head>
-
-<body>
-
-</body>
-</html>
+<div class="well">
+<h3>Contact us</h3>
+	<?=$this->form->create(null); ?>
+	<?=$this->form->field('name', array('label'=>'Name','placeholder'=>'Name')); ?>
+	<?=$this->form->field('email', array('label'=>'Email','placeholder'=>'name@youremail.com')); ?>	
+	<?=$this->form->field('phone', array('label'=>'Phone','placeholder'=>'phone number')); ?>		
+	<?=$this->form->field('mobile', array('label'=>'Mobile','placeholder'=>'mobile number')); ?>			
+	<?=$this->form->field('subject', array('label'=>'Subject','placeholder'=>'Subject')); ?>	
+	<?=$this->form->textarea('suggest', array('label'=>'Suggest','placeholder'=>'Suggest')); ?>	<br>
+	<?=$this->form->submit('Submit' ,array('class'=>'btn btn-primary')); ?>
+	<?=$this->form->end(); ?>
+</div>
