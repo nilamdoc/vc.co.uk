@@ -1,5 +1,5 @@
 <div class="well">
-<h3>in bitcoin we trust</h3>
+<h3>In Bitcoin We Trust</h3>
 <blockquote>"The day science begins to study non-physical phenomena, it will make more progress in one decade than in all the previous 
 centuries of its existence." <small>Nikola Tesla</small></blockquote>
 <p>One wonders how applicable Bitcoin is to Nikola Tesla's statement. Here at IBWT we plan to help put it to the test, by enabling you, our customers, to trade your Bitcoin for sterling with each other in a secure and trusted environment.</p>

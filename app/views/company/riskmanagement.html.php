@@ -8,14 +8,15 @@
 <p>Suspicious activity on accounts will be queried and investigated; monies may be returned (or frozen). Any such cases may result in further investigation and a report filed to the relevant authority.</p>
 <p>Trying to bypass account limits or conduct international money transfers may result in the related accounts banned (email, username, mobile, ip address tracked and blocked) and all funds refunded if possible.</p>
 <p>Random security checks are done on all accounts, you may receive an email in relation to this.</p>
-<p>There are currently limits set to each account, until we have proven that we are a viable and useful resource to the economy we won't be able to increase these limits (basically, we can't get a better business account until we show banks that Bitcoin and IBWT are legitimate business opportunities and allow banking accounts to open up).</p>
-<p>Account limits are capped at &pound;1,000 sterling, no limit in Bitcoin. We apologise for this enforced limit and hope to upgrade it as soon as is possible.</p>
-<p>Deposits and withdrawals are capped at &pound;1,000 sterling, no limit in Bitcoin. We apologise for this enforced limit and hope to offer enhanced customer status in future development.</p>
+<p>There are currently limits set to each account,we hope to improve this in future development. </p>
+<p>Account limits are capped at &pound;1,000 sterling, no limit in Bitcoin.<sup>**</sup></p>
+<p>Deposits and withdrawals are capped at &pound;1,000 sterling, no limit in Bitcoin.<sup>**</sup> </p>
 
 <p>Any concerns can be directed FAO to the Risk Management Officer via support@ibwt.co.uk. </p>
 
 <hr>
-<p><strong>*</strong> Suspicious meaning but not limited to, activity out of the ordinary, large movements of value, suspected identity fraud, attempts to bypass account limits or conduct international money transfers.</p>
+<p><strong>*</strong> <small>Suspicious meaning but not limited to, activity out of the ordinary, large movements of value, suspected identity fraud, attempts to bypass account limits or conduct international money transfers.</small></p>
+<p><strong>**</strong> <small>When we build better banking relations we will be able to increase these limits.</small></p>
 </div>
 
 

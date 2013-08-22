@@ -1,13 +1,13 @@
 <div id="footer" style="padding:1px 20px; border-top:1px solid black" class="navbar-inner navbar ">
 	<ul class="nav" style="font-size:11px ">
 		<li><a href="#">Copyright &copy; IBWT JD LTD. All rights reserved.</a></li>
-		<li><a href="#">Contact us</a></li>		
+		<li><a href="/company/contact">Contact us</a></li>		
 		<li><a href="/company/riskmanagement">Risk Management</a></li>				
 		<li><a href="/company/privacy">Privacy</a></li>		
-		<li><a href="#">Legal</a></li>		
+		<li><a href="/company/legal">Legal</a></li>		
 	</ul>
 	<p class="nav" style="font-size:11px;border-top:1px solid black ">
-		IBWT is a trading name of <strong>IBWT JD Ltd</strong>. Registered in England. 
+		IBWT is a trading name of <strong>IBWT JD Ltd</strong>. Registered in England and Wales. 
 		Registered office: Plymouth, PL2 2AR. Company no: 8554667. 
 		Registered VAT no: 165221136. 
 		Registered Information Commissioner no: ZA007784.

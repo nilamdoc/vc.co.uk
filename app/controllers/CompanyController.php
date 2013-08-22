@@ -15,6 +15,16 @@ class CompanyController extends \lithium\action\Controller {
 		$title = "Risk Management";
 		return compact("title");
 	}
+	public function legal() {
+		$title = "Legal";
+		return compact("title");
+
+	}
+	public function contact() {
+		$title = "Contact us";
+		return compact("title");
+
+	}
 
 }
 ?>
