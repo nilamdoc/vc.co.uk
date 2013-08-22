@@ -184,6 +184,12 @@ use li3_qrcode\extensions\action\QRcode;
 				<td colspan="2">
 					You have enabled TOTP Security for <?=COMPANY_URL?>. <br>
 					Please enter the code below to modify the security level.
+					
+					<div class="alert">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Warning! </strong> Once you click on the "Check" button with the correct code, you will have to delete your current TOTP from your mobile and rescan the code on the next page.
+					</div>
+					
 				</td>
 			</tr>
 			<tr>
