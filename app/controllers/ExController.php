@@ -79,7 +79,7 @@ class ExController extends \lithium\action\Controller {
 				)->save($data);
 			}
 			
-						
+
 			$data = array(
 				'Action' => $Action,
 				'FirstCurrency' => $FirstCurrency,
@@ -250,7 +250,7 @@ class ExController extends \lithium\action\Controller {
 		
 		$first_curr = strtoupper(substr($currency,0,3));
 		$second_curr = strtoupper(substr($currency,4,3));
-
+		$title = $first_curr . "/" . $second_curr;
 		$mongodb = Connections::get('default')->connection;
 		$TotalSellOrders = Orders::connection()->connection->command(array(
 			'aggregate' => 'orders',
@@ -389,7 +389,7 @@ class ExController extends \lithium\action\Controller {
 			'order' => array('DateTime'=>'DSEC')
 		));
 
-		return compact('details','SellOrders','BuyOrders','TotalSellOrders','TotalBuyOrders','YourOrders','YourCompleteOrders');
+		return compact('title','details','SellOrders','BuyOrders','TotalSellOrders','TotalBuyOrders','YourOrders','YourCompleteOrders');
 	}
 	public function dashboard() {
 		$user = Session::read('member');
@@ -409,8 +409,8 @@ class ExController extends \lithium\action\Controller {
 		$Commissions = $this->TotalCommissions($id);
 		$CompletedCommissions = $this->CompletedTotalCommissions($id);		
 		$RequestFriends = $this->RequestFriend($id);
-		
-		return compact('details','YourOrders','Commissions','CompletedCommissions','YourCompleteOrders','RequestFriends');
+		$title = "Dashboard";
+		return compact('title','details','YourOrders','Commissions','CompletedCommissions','YourCompleteOrders','RequestFriends');
 	}
 
 	public function TotalCommissions($id){

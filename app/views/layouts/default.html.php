@@ -75,7 +75,7 @@ if(Session::read('ex')==""){
 }
 $ex = Session::read('ex');
 ?>
-<body onLoad="UpdateDetails('<?=$ex?>');">
+<body onLoad="UpdateDetails('<?=$ex?>');" style="background-image:url(/img/ukmap.png);background-position:center;background-repeat:no-repeat ">
 	<div id="container" class="container">
 		<?php 
 

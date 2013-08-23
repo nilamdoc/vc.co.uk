@@ -39,7 +39,7 @@ use app\extensions\action\Functions;
 			</a>
 			<ul class="dropdown-menu">
 				<li><a href="/users/settings"><?=$t('Settings')?></a></li>			
-				<li><a href="/dashboard"><?=$t('Dashboard')?></a></li>
+				<li><a href="/ex/dashboard"><?=$t('Dashboard')?></a></li>
 				<li class="divider"></li>
 				<li><a href="/logout"><?=$t('Logout')?></a></li>
 			</ul>
