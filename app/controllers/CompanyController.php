@@ -19,7 +19,6 @@ class CompanyController extends \lithium\action\Controller {
 	public function legal() {
 		$title = "Legal";
 		return compact("title");
-
 	}
 	public function contact() {
 		$title = "Contact us";
@@ -28,6 +27,10 @@ class CompanyController extends \lithium\action\Controller {
 		if(($this->request->data) && $query->save($this->request->data)) {	
 		}
 
+		return compact("title");
+	}
+	public function termsofservice(){
+		$title = "Terms of service";
 		return compact("title");
 	}
 

@@ -1,5 +1,6 @@
 <div class="well">
-<h3>In Bitcoin We Trust</h3>
+
+<h3>In Bitcoin We Trust (IBWT)</h3>
 <blockquote>"The day science begins to study non-physical phenomena, it will make more progress in one decade than in all the previous 
 centuries of its existence." <small>Nikola Tesla</small></blockquote>
 <p>One wonders how applicable Bitcoin is to Nikola Tesla's statement. Here at IBWT we plan to help put it to the test, by enabling you, our customers, to trade your Bitcoin for sterling with each other in a secure and trusted environment.</p>
@@ -12,7 +13,12 @@ centuries of its existence." <small>Nikola Tesla</small></blockquote>
     <li>Services only available to UK residents</li>
     <li>Based and registered within the UK to help build your trust</li>
 </ul>
-
+<h3>About Bitcoin</h3>
+<ul>
+	<li><a href="http://www.coindesk.com/information/" target="_blank">Information from Coindesk</a></li>
+	<li><a href="http://bitcoin.org/en/" target="_blank">Bitcoin Organization</a></li>
+	<li><a href="https://en.bitcoin.it/wiki/Main_Page" target="_blank">Bitcoin Wiki</a></li>
+</ul>
 <h3>Security</h3>
 <ul>
 	<li>We use <strong>Two Factor Authentication</strong> for your account to login to <?=COMPANY_URL?>.</li>
