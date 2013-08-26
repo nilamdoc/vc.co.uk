@@ -31,6 +31,6 @@ centuries of its existence." <small>Nikola Tesla</small></blockquote>
 </ul>
 <h3>Find us</h3>
 <ul class="unstyled">
-	<li><a href="https://www.facebook.com/pages/IBWT/425446187570505"><img src="/img/Facebook-logo.png" alt="Facebook" width="30px"> Facebook</a></li>
+	<li><a  target="_blank" href="https://www.facebook.com/pages/IBWT/425446187570505"><img src="/img/Facebook-logo.png" alt="Facebook" width="30px"></a></li>
 </ul>
 </div>
