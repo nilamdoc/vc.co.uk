@@ -305,5 +305,59 @@ class UsersController extends \lithium\action\Controller {
 
 		return $this->render(array('json' => ""));
 	}
+	public function forgotpassword(){
+		if($this->request->data){
+			$user = Users::find('first',array(
+				'conditions' => array(
+					'email' => $this->request->data['email']
+				),
+				'fields' => array('_id')
+			));
+//		print_r($user['_id']);
+			$details = Details::find('first', array(
+				'conditions' => array(
+					'user_id' => (string)$user['_id']
+				),
+				'fields' => array('key')
+			));
+//					print_r($details['key']);exit;
+		$key = $details['key'];
+		if($key!=""){
+		$email = $this->request->data['email'];
+			$view  = new View(array(
+				'loader' => 'File',
+				'renderer' => 'File',
+				'paths' => array(
+					'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+				)
+			));
+			$body = $view->render(
+				'template',
+				compact('email','key'),
+				array(
+					'controller' => 'users',
+					'template'=>'forgot',
+					'type' => 'mail',
+					'layout' => false
+				)
+			);
+
+			$transport = Swift_MailTransport::newInstance();
+			$mailer = Swift_Mailer::newInstance($transport);
+	
+			$message = Swift_Message::newInstance();
+			$message->setSubject("Password reset link from ".COMPANY_URL);
+			$message->setFrom(array(NOREPLY => 'Password reset email '.COMPANY_URL));
+			$message->setTo($user->email);
+			$message->addBcc(MAIL_1);
+			$message->addBcc(MAIL_2);			
+			$message->addBcc(MAIL_3);		
+
+			$message->setBody($body,'text/html');
+			$mailer->send($message);
+			}
+		}
+	
+	}
 }
 ?>
