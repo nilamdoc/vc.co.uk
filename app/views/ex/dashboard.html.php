@@ -12,6 +12,15 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 			</div>
 		</div>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
+				<tr>
+					<td width="20%">Verification</td>
+					<td width="20%"><i class="icon-correct icon-black"></i>Email</td>					
+					<td width="20%">Mobile/Phone</td>										
+					<td width="20%">Government ID</td>										
+					<td width="20%">Utility Bill</td>										
+				</tr>
+	</table>
+		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
 			<thead>
 				<tr>
 					<th><?=$t("Currency")?></th>
