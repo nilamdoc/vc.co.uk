@@ -21,9 +21,9 @@
 
 <h4>DEFINITIONS</h4>
 
-<p><strong>Platform</strong>: means the software, technical and organisational structure managed by IBWT located at the https://<?=COMPANY_URL?>/address.</p>
+<p><strong>Platform</strong>: means the software, technical and organisational structure managed by IBWT located at the <a href="https://<?=COMPANY_URL?>/">https://<?=COMPANY_URL?>/</a> address.</p>
 
-<p><strong>Bitcoin(s)</strong>: means the Peer-to-Peer digital transfer value asset (as described at http://bitcoin.org/en/).</p>
+<p><strong>Bitcoin(s)</strong>: means the Peer-to-Peer digital transfer value asset (as described at <a href="http://bitcoin.org/en/">http://bitcoin.org/en/</a>).</p>
 
 <p><strong>Seller(s)</strong>: means Customers(s) that submit an offer to sell Bitcoin(s) on the Platform.</p>
 
@@ -31,6 +31,10 @@
 
 <p><strong>Customer(s)</strong>: Any holder of an account.</p>
 
+<p><strong>Price</strong>: means "price per coin" for which Customers are willing to purchase or sell Bitcoins, using the Platform in a Bitcoin Purchase Transaction. Customers may only deposit Sterling (GBP) into their account. </p>
+<p><strong>Commission</strong>: refers to the fee which is payable to IBWT on each Transaction. Fee's at this time are 0.8% per transaction. For Bitcoin Purchases and Sales Transactions,  commission is charged to each customer per transaction in the received denomination. No fees are charged on Bitcoin Transfers or for Bank Transfers. </p>
+
+<p><strong>Transaction Price</strong>: means the total price paid by the Buyer in respect of each Transaction performed on the Platform.</p>
 <p><strong>Transaction</strong>: means; 
 <ul>
 	<li>The agreement between the Buyer and the Seller to exchange Bitcoins on the Platform for currencies at a commonly agreed rate ("Bitcoin Purchase Transaction"), </li>
@@ -39,10 +43,6 @@
 	<li>The transfer of currencies among Customers ("Currency Transfer Transaction") </li>
 </ul>
 </p>
-<p><strong>Price</strong>: means "price per coin" for which Customers are willing to purchase or sell Bitcoins, using the Platform in a Bitcoin Purchase Transaction. Customers may only deposit Sterling (GBP) into their account. </p>
-<p><strong>Transaction Price</strong>: means the total price paid by the Buyer in respect of each Transaction performed on the Platform.</p>
-
-<p><strong>Commission</strong>: refers to the fee which is payable to IBWT on each Transaction. Fee's at this time are 0.8% per transaction. For Bitcoin Purchases and Sales Transactions,  commission is charged to each customer per transaction in the received denomination. No fees are charged on Bitcoin Transfers or for Bank Transfers. </p>
 
 <ol>
 <li><strong>CUSTOMER ACCOUNT</strong>
@@ -59,16 +59,16 @@
 <li><strong>TRANSACTIONS</strong>
 <p>Customers may use the Platform to place orders to buy or sell Bitcoin, or they may buy or sell Bitcoin(s) at the current value that is offered by other Customers.</p>
 <p>Customers accept that once they submit offers to buy or sell Bitcoin they enter into an Agreement with another Customer to transfer fiat for Bitcoin or vice versa as soon as their offer matches the Price set in an offer submitted by another Customer. Buyer and Seller agree that once their offers match that their offers are binding and may not be reversed.</p>
-<p>The transactions are completed automatically, once the order is placed by the user, by IBWT services, without prior notice to the Buyer or Seller and is considered to have taken place at that date and time.</p>
+<p>Once the order is placed, IBWT automatically completes the transactions without prior notice to Buyer or Seller.</p>
 <p>The matching of offers and transfer of funds is a service provided by IBWT via the Platform. Under the Distance Selling Directive 97/7/EC, once Buyers and Sellers offers have been matched, Customers forfeit the ability to cancel any Bitcoin Transaction.</p>
-<p>Customers accept that transferring bitcoins to their IBWT account or to other addresses is reliant upon the protocol and any ‘miner' fee they choose to pay and that IBWT has no influence in this. The average time for Bitcoin transference can be 10 minutes to 24 hours, barring unforeseen or unavoidable network issues.</p>
-<p>Upon matching of the offers of Buyer and Seller, IBWT has the sole authority to permit the transfer of the amount corresponding to the Transaction Price minus the Commission from the Buyer's Account to the Seller.</p>
+<p>Customers accept that transferring bitcoins to their IBWT account or to other addresses is reliant upon the protocol and any 'miner' fee they choose to pay and that IBWT has no influence in this. The average time for Bitcoin transference can be 10 minutes to 24 hours, barring unforeseen or unavoidable network issues.</p>
+<p>Upon matching of the offers of Buyer and Seller, IBWT has the sole authority to permit the transfer of the amount corresponding to the Transaction Price minus the Commission from the Buyer’s Account to the Seller.</p>
 <p>Customers may at any time transfer any amount of Bitcoins to any other Customer as well as any other Bitcoin users even if they are not Customers (the "Receiver").</p>
 <p>Customers can not transfer GBP.</p>
 <p>Customers are solely responsible for ensuring that any Receiver of their Bitcoins shall be a valid and legal transaction not infringing any UK or International laws and regulations.</p>
-<p>The responsibility of IBWT is limited to providing the service to ensure the transference of the Bitcoins. When transferring to a non-Customer recipient, IBWT's responsibility shall also be limited to ensuring the transfer of funds through interacting with the Bitcoin network by relating the necessary technical data.</p>
+<p>The responsibility of IBWT is limited to providing the service to ensure the transference of the Bitcoins. When transferring to a non-Customer recipient, IBWT’s responsibility shall also be limited to ensuring the transfer of funds through interacting with the Bitcoin network by relating the necessary technical data.</p>
 <p>IBWT's responsibility shall be limited to using reasonable technical efforts to ensure the receipt of the Bitcoins transferred. When conducting Bitcoin Transfer Transactions with a Bitcoin user who is not a Member, IBWT's responsibility shall be further limited to ensuring the transfer of the necessary technical data to the Bitcoin peer-to-peer network.</p>
-<p>No Commission of any kind will be charged by IBWT for Bitcoin Transfer Transactions.</p>
+<p>No Commission of any kind will be charged by IBWT for Bitcoin being moved as Bitcoin, in, out, or around the Platform, a Bitcoin Transfer Transaction.</p>
 </li>
 <li><strong>DEPOSITS & WITHDRAWALS</strong>
 <p>Customers agree to submit a deposit or a request before transferring any funds to their IBWT account. And Customers agree to abide by the limits set by IBWT in deposit limits and to wait until their submitted deposit request has been cleared by IBWT. Customers will be notified that their deposit request has been cleared by email notification.</p>
@@ -88,14 +88,15 @@
 <li>That once offers have been met, they cannot be withdrawn.</li>
 <li>It will hold all GBP and Bitcoins deposited by each Customer in their Accounts, in that Customers registered name and with relation to their details and on such Customers behalf.</li>
 <li>IBWT will ensure that it keeps itself updated with regards to the development of the Bitcoin economy and any relevant regulation with regard to its Services it provides and the Platform it operates.</li>
-<li>IBWT reserves the right to suspend/freeze a customer's account if  a he/she, as a Customer breaks these Terms of Service.</ul>
+<li>IBWT reserves the right to suspend/freeze your account if you, as a Customer breaks these Terms of Service.</li>
+</ul>
 </p>
 <p><u>Customers Obligations</u>
 <ul>
 <li>Customers accept that they will only use the Platform for the Services as set out in these Terms of Service. Failure to do so or trying to circumvent the conditions held here ma5y result in their account suspended, investigated and possibly terminated.</li>
 <li>Customers acknowledge that buying and selling of Bitcoin is done via Customer with Customer and IBWT only acts as an intermediary to facilitate such transactions, not as a counterparty. That it is the Customers responsibility to comply with all laws and regulations relating to the transactions.</li>
 <li>Customers are solely responsible for their accounts activities which include, but are not limited to, Deposits, Withdrawals, transferring Bitcoins.</li>
-<li>Buyers and Sellers warrant to each other that the money type in either denomination is true to their value representation, corresponding to either fiat or bitcoin.</li>
+<li>Buyers and Sellers warrant to each other that the money type in either denomination is true to their value representation. Corresponding to either fiat or bitcoin.</li>
 <li>Customers agree not to use the Platform of any type of illegal activity, or for negatively affecting the performances of the Platform.</li>
 <li>Customers agree that IBWT conducts the technical side of their transactions, in their name and on their behalf. </li>
 <li>Customers accept and acknowledge that they are liable for any charges incurred by relevant entities if they do not confirm to these Terms and Services.</li>
@@ -105,17 +106,17 @@
 </li>
 <li><strong>INTELLECTUAL PROPERTY RIGHTS</strong>
 <p>IBWT is the owner or the licensee of all intellectual property rights in our site and in the material published on it.  Those works are protected by copyright laws and treaties around the world.  All such rights are reserved. </p>
-<p>A Customer may print off one copy, and may download extracts, of any page(s) from our site for personal reference and a customer may draw the attention of others within your organisation to material posted on our site.  </p>
-<p>You must not modify the paper or digital copies of any materials you have printed off or downloaded in any way, and you must not use any illustrations, photographs, video or audio sequences or any graphics separately from any accompanying text. </p>
-<p>Our status (and that of any identified contributors) as the authors of material on our site must always be acknowledged. </p>
-<p>A customer must not use any part of the materials on our site for commercial purposes without obtaining a licence to do so from us or our licensors.</p>
-<p>If  a customer print off, copy or download any part of our site in breach of these terms of use, your right to use our site will cease immediately and you must, at our option, return or destroy any copies of the materials you have made.</p>
+<p>Customers may print off one copy, and may download extracts, of any page(s) from our site for Customers personal reference and Customers may draw the attention of others within their organisation to material posted on our site.  </p>
+<p>You must not modify the paper or digital copies of any materials printed off or downloaded in any way, and must not use any illustrations, photographs, video or audio sequences or any graphics separately from any accompanying text. </p>
+<p>IBWT status (and that of any identified contributors) as the authors of material on our site must always be acknowledged. </p>
+<p>You must not use any part of the materials on our site for commercial purposes without obtaining a licence to do so from us or our licensors.</p>
+<p>If you print off, copy or download any part of our site in breach of these terms of use, your right to use our site will cease immediately and you must, at IBWT’s option, return or destroy any copies of the materials you have made.</p>
 <p>IBWT "In Bitcoin We Trust." Is a registered trade mark of IBWT JD LTD, and is protected by patent, trademark and copyright under English and international laws and may not be used without IBWT express written consent.</p>
 <p>Without IBWT express prior consent, other websites may only link to the Platform by using the following address: https://<?=COMPANY_URL?>/ to the exclusion of any deep link.</p>
 </li>
 <li><strong>VIRUSES, HACKING AND RELATED OFFENCES</strong>
-<p>No customer will misuse our site by knowingly introducing viruses, trojans, worms, logic bombs or other material which is malicious or technologically harmful. You must not attempt to gain unauthorised access to our site, the server on which our site is stored or any server, computer or database connected to our site. You must not attack our site via a denial-of-service attack or a distributed denial-of service attack. </p>
-<p>By breaching this provision, you would commit a criminal offence under the Computer Misuse Act 1990.  IBWT will report any such breach to the relevant law enforcement authorities and IBWT will co-operate with those authorities by disclosing your identity to them. In the event of such a breach, your right to use our site will cease immediately.</p>
+<p>You must not misuse our site by knowingly introducing viruses, trojans, worms, logic bombs or other material which is malicious or technologically harmful. You must not attempt to gain unauthorised access to our site, the server on which our site is stored or any server, computer or database connected to our site. You must not attack our site via a denial-of-service attack or a distributed denial-of service attack. </p>
+<p>By breaching this provision, you would commit a criminal offence under the Computer Misuse Act 1990. IBWT will report any such breach to the relevant law enforcement authorities and we will co-operate with those authorities by disclosing your identity to them. In the event of such a breach, your right to use our site will cease immediately.</p>
 <p>IBWT will not be liable for any loss or damage caused by a distributed denial-of-service attack, viruses or other technologically harmful material that may infect your computer equipment, computer programs, data or other proprietary material due to your use of our site or to your downloading of any material posted on it, or on any website linked to it.</p>
 </li>
 <li><strong>LIABILITY</strong>
@@ -147,8 +148,8 @@ Furthermore, you understand and agree that:
 </p>
 </li>
 <li><strong>TERMINATION</strong>
-<p>Customer  agrees that IBWT may, at our sole discretion, suspend or terminate a customers access to all or part of our website and Resources with or without notice and for any reason, including, without limitation, breach of this User Agreement. Any suspected illegal, fraudulent or abusive activity may be grounds for terminating customers relationship and may be referred to appropriate law enforcement authorities. Upon suspension or termination, customers right to use the Resources IBWT provides will immediately cease, and IBWT reserve the right to remove or delete any information that a customer may have on file with us, including any account or login information.</p>
-<p>Customer will be notified of such a termination via customers registered email and it shall not affect the obligations or rights of either party under these Terms which had accrued prior to the notice of termination, nor the Transactions and its related obligations and rights concluded before such termination was effective.</p>
+<p>Customers agrees that IBWT may, at our sole discretion, suspend or terminate a customers access to all or part of our website and Resources with or without notice and for any reason, including, without limitation, breach of this User Agreement. Any suspected illegal, fraudulent or abusive activity may be grounds for terminating customers relationship and may be referred to appropriate law enforcement authorities. Upon suspension or termination, customers right to use the Resources IBWT provides will immediately cease, and IBWT reserve the right to remove or delete any information that a customer may have on file with us, including any account or login information.</p>
+<p>Customers will be notified of such a termination via customers registered email and it shall not affect the obligations or rights of either party under these Terms which had accrued prior to the notice of termination, nor the Transactions and its related obligations and rights concluded before such termination was effective.</p>
 <p>IBWT may attempt to refund a customers account balance of GBP to the registered bank account dependent upon the issue at hand, and  a customer  will have 60 days within receiving such notice to notify IBWT via <a href="mailto:support@<?=COMPANY_URL?>">support@<?=COMPANY_URL?></a> of a bitcoin withdrawal address if  a customer  had bitcoins held on his/her account. Again under the assumption that such termination was not because of any fraud, criminal 8activity, or any other related matter.</p>
 <p>Should they wish to terminate their agreement with IBWT, Customers may close his/her Account at any time.</p>
 <p>IBWT also reserve the right to cancel unconfirmed Accounts or Accounts that have been inactive for a period of 4 months or more, or to modify or discontinue our Site or Platform. Customers agree that IBWT will not be liable to them or to any third party for termination of their Account or access to the Site.</p>
