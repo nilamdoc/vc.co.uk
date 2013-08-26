@@ -13,7 +13,10 @@
 <p>Deposits and withdrawals are capped at &pound;1,000 sterling, no limit in Bitcoin.<sup>**</sup> </p>
 
 <p>Any concerns can be directed FAO to the Risk Management Officer via support@ibwt.co.uk. </p>
-
+<br>
+<br>
+<br>
+<br>
 <hr>
 <p><strong>*</strong> <small>Suspicious meaning but not limited to, activity out of the ordinary, large movements of value, suspected identity fraud, attempts to bypass account limits or conduct international money transfers.</small></p>
 <p><strong>**</strong> <small>When we build better banking relations we will be able to increase these limits.</small></p>

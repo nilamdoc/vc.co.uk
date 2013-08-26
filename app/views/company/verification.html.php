@@ -15,6 +15,12 @@
 <p>IBWT reserve the right to seek more information to verify a customer's identity, and/or to refuse an account if the customer's identity is not verified to our legal requirement.</p>
 <p>Your information is subject to our <a href="/company/privacy">Privacy Policy</a>.</p>
 <p>To register an account and submit your verification information please click <a href="/users/signup">here</a>.</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <hr>
 <p><sup>1</sup> As recognised by IBWT.</p>
 </div>

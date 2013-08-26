@@ -28,6 +28,7 @@
 		</div>
 		<h3>Sign up</h3>
 		Don't have an account. <a href="/users/signup" class="btn btn-primary">Signup</a>
+		Please read the <a href="/company/riskmanagement">risk management</a>, <a href="/company/privacy">privacy policy</a>, <a href="/company/verification">verification</a>, <a href="/company/termsofservice">terms of service</a>, <a href="/company/legal">legal</a> and <a href="company/FAQ">FAQ</a> pages before you sign up.
 		<h3>Security</h3>
 		We use <strong>Two Factor Authentication</strong> for your account to login to <?=COMPANY_URL?>.<br>
 		We use <strong>Time-based One-time Password Algorithm (TOTP)</strong> for login, withdrawal/deposits and settings.
