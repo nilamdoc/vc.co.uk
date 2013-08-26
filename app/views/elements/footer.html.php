@@ -3,9 +3,12 @@
 		<li><a href="/">Copyright &copy; IBWT JD LTD. All rights reserved.</a></li>
 		<li><a href="/company/contact">Contact us</a></li>		
 		<li><a href="/company/riskmanagement">Risk Management</a></li>				
+		<li><a href="/company/verification">Verification</a></li>						
 		<li><a href="/company/privacy">Privacy Policy</a></li>		
 		<li><a href="/company/termsofservice">Terms of Service</a></li>				
 		<li><a href="/company/legal">Legal</a></li>		
+		<li><a href="/company/FAQ">FAQ</a></li>				
+		<li><a href="/news">News</a></li>						
 	</ul>
 	<p class="nav" style="font-size:11px;border-top:1px solid black ">
 		IBWT is a trading name of <strong>IBWT JD Ltd</strong>. Registered in England and Wales. 

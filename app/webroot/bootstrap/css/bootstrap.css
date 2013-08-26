@@ -3112,7 +3112,7 @@ table th[class*="span"],
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: #F4EDCC;
+	background-color:rgba(240, 224, 176, 0.2);
   border: 1px solid #EFE4B0;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
