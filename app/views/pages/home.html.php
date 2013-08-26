@@ -29,7 +29,7 @@ centuries of its existence." <small>Nikola Tesla</small></blockquote>
 <ul>
 	<li><a href="/news/launching">We are launching 1st September 2013</a></li>
 </ul>
-<h3>Find us on:</h3>
+<h3>Find us</h3>
 <ul class="unstyled">
 	<li><a href="https://www.facebook.com/pages/IBWT/425446187570505"><img src="/img/Facebook-logo.png" alt="Facebook" width="30px"> Facebook</a></li>
 </ul>
