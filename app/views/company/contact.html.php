@@ -13,7 +13,7 @@
 <a href="https://<?=COMPANY_URL?>">https://<?=COMPANY_URL?>/</a><br>
 31 North Down Crescent<br>
 Keyham, Plymouth, Devon,<br>
-PL2 2AR, United Kingdom<br>
+PL2 2AR, United Kingdom.<br>
 </address>
 </blockquote>
 

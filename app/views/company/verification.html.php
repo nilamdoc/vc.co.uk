@@ -4,9 +4,9 @@
 <p>Our aim is to inspire trust with customers and establishments to build long lasting relationships.</p>
 <p>To become IBWT customer<sup>1</sup> and use our platform and services, you must submit the following information:
 <ul>
-<li>Full name</li>
-<li>Government issued photo identification</li>
-<li>Proof of address (utility bill, credit statement, or official recognised* letter, NOT mobile phone bill)</li>
+<li>Full name.</li>
+<li>Government issued photo identification.</li>
+<li>Proof of address (utility bill, credit statement, or official recognised* letter, NOT mobile phone bill).</li>
 <li>Bank details for linked bank account, must be in customers own name (account number, sort code, account name).</li>
 <li>Contact telephone number.</li>
 <li>Contact email.</li>

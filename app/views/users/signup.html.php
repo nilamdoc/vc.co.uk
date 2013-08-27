@@ -29,19 +29,20 @@
 			</div><br>
 		<h3>In Bitcoin We Trust: ibwt.co.uk</h3>
 		<ul>
-			<li>Fees are 0.8% per transaction</li>
-			<li>Simple verification means you could be a full customer in a matter of days</li>
-			<li>Security ensured with Cold Storage, SSL 256bit encryption & 2FA</li>
-			<li>Dedicated Server for an enhanced customer experience</li>
-			<li>Deposits & Withdrawals via wire transfers</li>
-			<li>Services only available to UK residents</li>
-			<li>Based and registered within the UK to help build your trust</li>
+			<li>Fees are 0.8% per transaction.</li>
+			<li>Simple verification means you could be a full customer in a matter of days.</li>
+			<li>Security ensured with Cold Storage, SSL 256bit encryption & 2FA.</li>
+			<li>Dedicated Server for an enhanced customer experience.</li>
+			<li>Deposits & Withdrawals via wire transfers.</li>
+			<li>Services only available to UK residents.</li>
+			<li>Based and registered within the UK to help build your trust.</li>
 		</ul>
 	<p>To become IBWT customer and use our platform and services, you must submit the following information:
 		<ul>
-			<li>Full name</li>
-			<li>Government issued photo identification</li>
-			<li>Proof of address (utility bill, credit statement, or official recognised* letter, NOT mobile phone bill)</li>
+			<li>Full name.</li>
+			<li>Government issued photo identification.</li>
+			<li>Proof of address (utility bill, credit statement, or official recognised letter, NOT mobile phone bill).</li>
+			For business customers wishing to link a business account, please contact <a href="mailto:support@ibwt.co.uk">support@ibwt.co.uk</a>.
 			<li>Bank details for linked bank account, must be in customers own name (account number, sort code, account name).</li>
 			<li>Contact telephone number.</li>
 			<li>Contact email.</li>

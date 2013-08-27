@@ -1,37 +1,30 @@
 <div class="well">
 <h3>Legal</h3>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<p><u>Money Service Business (MSB), HMRC / Electronic Money Institute (EMI), FCA (formerly FSA)</u></p>
+<p>The current state of the UK governments view towards Bitcoin is a 'wait and see' approach, thankfully allowing Bitcoin time to grow and mature. </p>
+<p>IBWT is a legally abiding entity and as such will register with regulatory bodies as required by law if the situation changes.</p>
+<p>More information can be found with our News Release (linked).</p>
+
+<p>If you feel we have not satisfactorily dealt with any issue you have with regards to our privacy policy and your personal data, you can contact the Information Commissioners Office.</p>
+<p>Phone: 0303 123 1113<br>
+Registered ICO No: ZA007784<br>
+<a href="http://www.ico.org.uk/" target="_blank">http://www.ico.org.uk/</a></p>
 
 
-<small class="pull-right">Last updated on 23rd August, 2013</small>
+<p>IBWT is the trading name of IBWT JD LTD, which is a Private Limited Company registered in England and Wales, </p>
+
+<blockquote>Registered Address:
+<address><strong>IBWT JD Ltd</strong><br>
+<a href="https://<?=COMPANY_URL?>">https://<?=COMPANY_URL?>/</a><br>
+31 North Down Crescent<br>
+Keyham, Plymouth, Devon,<br>
+PL2 2AR, United Kingdom<br>
+Company No: 8554667<br>
+<abbr title="Phone">P:</abbr> +44 7914 446125<br>
+<abbr title="Email">E:</abbr> <a href="mailto:<?=MAIL_3?>"><?=MAIL_3?></a><br>
+</address>
+</blockquote>
+
+<small class="pull-right">Last updated on 27th August, 2013</small>
 </div>
