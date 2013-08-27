@@ -126,21 +126,25 @@ class UsersController extends \lithium\action\Controller {
 				$details = Details::find('all',array(
 					'conditions'=>array('user_id'=>$id,'email.verify'=>$verify)
 				))->save($data);
-	
+
 				if(empty($details)==1){
-	
 					return $this->redirect('Users::email');
-	//				print_r(empty($details));exit;
 				}else{
-					return compact('id');				
-	//				print_r(empty($details));exit;				
+					return $this->redirect('ex::dashboard');
 				}
-				
 			}else{return $this->redirect('Users::email');}
 
 	}
 	
-	public function settings(){
+	public function mobile(){
+	}
+
+	public function settings($option=null){
+		$details = Details::create();
+		if (($this->request->data) && $details->save($this->request->data)) {
+			$this->redirect(array('Users::settings'));
+		}
+	
 		$title = "User settings";
 		$ga = new GoogleAuthenticator();
 		
@@ -167,8 +171,10 @@ class UsersController extends \lithium\action\Controller {
 			$secret = $details['secret'];
 		}
 		$qrCodeUrl = $ga->getQRCodeGoogleUrl("IBWT-".$details['username'], $secret);
-		return compact('details','user','title','qrCodeUrl','secret');
+		return compact('details','user','title','qrCodeUrl','secret','option');
 	}
+	
+	
 	
 	public function ga(){
 		$ga = new GoogleAuthenticator();
@@ -357,7 +363,19 @@ class UsersController extends \lithium\action\Controller {
 			$mailer->send($message);
 			}
 		}
-	
 	}
+
+	public function addbank(){
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('Users::index');}		
+		$user_id = $user['_id'];
+		$details = Details::find('all',array(
+				'conditions'=>array('user_id'=>$user_id)
+			));		
+		$title = "Add bank";
+			
+		return compact('details','title');
+	}
+	
 }
 ?>

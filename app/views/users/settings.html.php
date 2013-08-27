@@ -8,7 +8,7 @@ use li3_qrcode\extensions\action\QRcode;
 		<strong class="label label-success">Personal details:</strong>
 		</a>
 	</div>
-	<div id="collapsePersonal" class="accordion-body collapse">
+	<div id="collapsePersonal" class="accordion-body <?php if($option=="personal"){?><?php }else{?>collapse<?php }?>">
 		<div class="accordion-inner">
 		<p>Your personal details are used for signing in to <?=COMPANY_URL?> and accessing your account. </p>
 		<table class="table">
@@ -77,7 +77,7 @@ use li3_qrcode\extensions\action\QRcode;
 		<strong class="label label-success">Financial details:</strong>
 		</a>
 	</div>
-	<div id="collapseBank" class="accordion-body collapse">
+	<div id="collapseBank" class="accordion-body <?php if($option=="bank"){?><?php }else{?>collapse<?php }?>">
 		<div class="accordion-inner">
 		<a href="/users/addbank">Add/Edit bank details</a>
 		<table class="table">
@@ -115,12 +115,37 @@ use li3_qrcode\extensions\action\QRcode;
 		</table>
 		</div>
 	</div>
+	<div class="accordion-heading" style="background-color:#c0d1b0">
+		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseGovernment">
+		<strong class="label label-success">Government ID:</strong>
+		</a>
+	</div>
+	<div id="collapseGovernment" class="accordion-body <?php if($option=="government"){?><?php }else{?>collapse<?php }?>">
+		<div class="accordion-inner">
+<?=$this->form->create(null, array('type' => 'file')); ?>
+<?=$this->form->field('title'); ?>
+<?=$this->form->field('description'); ?>
+<?=$this->form->field('file', array('type' => 'file')); ?>
+<?=$this->form->field('tags', array('label' => 'Add tags separated by commas')); ?>
+<?=$this->form->submit('Save'); ?>
+<?=$this->form->end(); ?>
+		</div>
+	</div>		
+	<div class="accordion-heading" style="background-color:#c0d1b0">
+		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseUtility">
+		<strong class="label label-success">Utility Bill:</strong>
+		</a>
+	</div>
+	<div id="collapseUtility" class="accordion-body <?php if($option=="utility"){?><?php }else{?>collapse<?php }?>">
+		<div class="accordion-inner">
+		</div>
+	</div>		
 	<div class="accordion-heading" style="background-color:#b0c1a0 ">
 		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseAPI">
 		<strong class="label label-success">Security:</strong>
 		</a>
 	</div>
-	<div id="collapseAPI" class="accordion-body ">
+	<div id="collapseAPI" class="accordion-body  <?php if($option=="security"){?><?php }else{?>collapse<?php }?>">
 		<div class="accordion-inner">
 		<?php 
 		if($details['TOTP.Security']==false || $details['TOTP.Security']==""){?>

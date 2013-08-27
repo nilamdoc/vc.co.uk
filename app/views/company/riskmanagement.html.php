@@ -12,7 +12,7 @@
 <p>Account limits are capped at &pound;1,000 sterling, no limit in Bitcoin.<sup>2</sup></p>
 <p>Deposits and withdrawals are capped at &pound;1,000 sterling, no limit in Bitcoin.<sup>2</sup> </p>
 
-<p>Any concerns can be directed FAO to the Risk Management Officer via support@ibwt.co.uk. </p>
+<p>Any concerns can be directed FAO to the Risk Management Officer via <a href="mailto:support@ibwt.co.uk">support@ibwt.co.uk</a>. </p>
 <br>
 <br>
 <br>
