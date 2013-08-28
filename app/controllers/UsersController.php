@@ -4,6 +4,7 @@ namespace app\controllers;
 use app\extensions\action\OAuth2;
 use app\models\Users;
 use app\models\Details;
+use app\models\File;
 use lithium\data\Connections;
 use app\extensions\action\Functions;
 
@@ -140,10 +141,6 @@ class UsersController extends \lithium\action\Controller {
 	}
 
 	public function settings($option=null){
-		$details = Details::create();
-		if (($this->request->data) && $details->save($this->request->data)) {
-			$this->redirect(array('Users::settings'));
-		}
 	
 		$title = "User settings";
 		$ga = new GoogleAuthenticator();
@@ -155,6 +152,29 @@ class UsersController extends \lithium\action\Controller {
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=> (string) $id))
 		);
+		
+		if ($this->request->data) {
+				$data = array(
+					$option => $this->request->data['file'],
+					$option.'title'=>$this->request->data['title']
+				);
+				$fileData = array(
+						'file' => $this->request->data['file'],
+						'details_'.$option.'_id' => (string) $details->_id
+				);
+				
+				$details = Details::find('first',
+					array('conditions'=>array('user_id'=> (string) $id))
+				)->save($data);
+				$file = File::create();
+				if ($file->save($fileData)) {
+						$this->redirect('ex::dashboard');
+				}
+				
+	}
+
+		
+		
 		$TOTP = $details['TOTP.Validate'];
 		if($TOTP!=1){
 			$secret = $ga->createSecret(64);

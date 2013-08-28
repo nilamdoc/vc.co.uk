@@ -2,6 +2,7 @@
 	<ul class="nav" style="font-size:11px ">
 		<li><a href="/">Copyright &copy; IBWT JD LTD. All rights reserved.</a></li>
 		<li><a href="/company/contact">Contact us</a></li>		
+		<li><a href="/company/aboutus">About us</a></li>		
 		<li><a href="/company/riskmanagement">Risk Management</a></li>				
 		<li><a href="/company/verification">Verification</a></li>						
 		<li><a href="/company/privacy">Privacy Policy</a></li>		

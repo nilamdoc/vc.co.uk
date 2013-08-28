@@ -18,7 +18,7 @@
 <br>
 <br>
 <hr>
-<p><strong>1</strong> <small>Suspicious meaning but not limited to, activity out of the ordinary, large movements of value, suspected identity fraud, attempts to bypass account limits or conduct international money transfers.</small></p>
-<p><strong>2</strong> <small>When we build better banking relations we will be able to increase these limits.</small></p>
+<p><sup>1</sup> <small>Suspicious meaning but not limited to, activity out of the ordinary, large movements of value, suspected identity fraud, attempts to bypass account limits or conduct international money transfers.</small></p>
+<p><sup>2</sup> <small>When we build better banking relations we will be able to increase these limits.</small></p>
 <small class="pull-right">Last updated on 27th August, 2013</small>
 </div>

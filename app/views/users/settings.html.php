@@ -122,13 +122,14 @@ use li3_qrcode\extensions\action\QRcode;
 	</div>
 	<div id="collapseGovernment" class="accordion-body <?php if($option=="government"){?><?php }else{?>collapse<?php }?>">
 		<div class="accordion-inner">
-<?=$this->form->create(null, array('type' => 'file')); ?>
-<?=$this->form->field('title'); ?>
-<?=$this->form->field('description'); ?>
-<?=$this->form->field('file', array('type' => 'file')); ?>
-<?=$this->form->field('tags', array('label' => 'Add tags separated by commas')); ?>
-<?=$this->form->submit('Save'); ?>
-<?=$this->form->end(); ?>
+			<?=$this->form->create(null, array('type' => 'file')); ?>
+			<?=$this->form->field('title'); ?>
+			<?=$this->form->field('description'); ?>
+			<?=$this->form->field('file', array('type' => 'file')); ?>
+			<?=$this->form->field('tags', array('label' => 'Add tags separated by commas')); ?>
+			<?=$this->form->submit('Save'); ?>
+			<?=$this->form->end(); ?>
+			<?php print_r($details['_id']); ?>
 		</div>
 	</div>		
 	<div class="accordion-heading" style="background-color:#c0d1b0">

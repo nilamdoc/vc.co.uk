@@ -36,5 +36,9 @@ class CompanyController extends \lithium\action\Controller {
 		$title = "Verification";
 		return compact("title");
 	}
+	public function aboutus(){
+		$title = "About us";
+		return compact("title");
+	}
 }
 ?>
