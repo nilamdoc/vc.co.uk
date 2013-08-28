@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3>CONTACT US</h3>
 
 <h5>Email Us</h5>
@@ -26,6 +26,12 @@ PL2 2AR, United Kingdom.<br>
 <p>Please be aware that depending upon your issue you may be redirected to our email service, and that our phone service is only available between 10:00am and 16:00pm, weekdays.</p><br>
 <br>
 <br>
+<br><br>
 <br>
+<br>
+<br>
+<br>
+<br>
+
 
 </div>

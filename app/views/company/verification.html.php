@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3>Verification Page</h3>
 <p>Though IBWT is not regulated by HMRC, FCA and KYC/AML/MSB standards, we still require a certain level of verification and identity checks. This helps us prevent fraud, keep customers accounts secure and ensure best business practices.</p>
 <p>Our aim is to inspire trust with customers and establishments to build long lasting relationships.</p>
@@ -21,6 +21,8 @@
 <br>
 <br>
 <br>
-<hr>
+<br>
+<br>
+
 <p><sup>1</sup> As recognised by IBWT.</p>
 </div>

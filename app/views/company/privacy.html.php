@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3>Privacy Policy</h3>
 <p>This Privacy Policy governs the manner in which IBWT JD Ltd (operating as IBWT) collects, uses, 
 maintains and discloses information collected from users (each, a "User") of the <a href="https://<?=COMPANY_URL?>">https://<?=COMPANY_URL?>/</a> website ("Site"). This privacy policy applies to the Site and all products and services offered by IBWT JD Ltd.</p>
@@ -72,5 +72,17 @@ PL2 2AR, UK<br>
 </address>
 </blockquote>
 </p>
-<small class="pull-right">This document was last updated on August 20, 2013.</small>
+<small class="pull-right">This document was last updated on August 20, 2013.</small><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 </div>

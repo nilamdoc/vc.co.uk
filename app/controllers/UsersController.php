@@ -141,7 +141,7 @@ class UsersController extends \lithium\action\Controller {
 	}
 
 	public function settings($option=null){
-	
+		
 		$title = "User settings";
 		$ga = new GoogleAuthenticator();
 		
@@ -154,10 +154,16 @@ class UsersController extends \lithium\action\Controller {
 		);
 		
 		if ($this->request->data) {
+				$option = $this->request->data['option'];
 				$data = array(
 					$option => $this->request->data['file'],
-					$option.'title'=>$this->request->data['title']
+					$option.'.verified'=>false,
 				);
+				$field = 'details_'.$option.'_id';
+				$remove = File::remove('all',array(
+					'conditions'=>array( $field => (string) $details->_id)
+				));
+
 				$fileData = array(
 						'file' => $this->request->data['file'],
 						'details_'.$option.'_id' => (string) $details->_id
@@ -171,10 +177,8 @@ class UsersController extends \lithium\action\Controller {
 						$this->redirect('ex::dashboard');
 				}
 				
-	}
+		}
 
-		
-		
 		$TOTP = $details['TOTP.Validate'];
 		if($TOTP!=1){
 			$secret = $ga->createSecret(64);
@@ -191,7 +195,32 @@ class UsersController extends \lithium\action\Controller {
 			$secret = $details['secret'];
 		}
 		$qrCodeUrl = $ga->getQRCodeGoogleUrl("IBWT-".$details['username'], $secret);
-		return compact('details','user','title','qrCodeUrl','secret','option');
+		
+		
+		$image_utility = File::find('first',array(
+			'conditions'=>array('details_utility_id'=>(string)$details['_id'])
+		));
+		if($image_utility['filename']!=""){
+				$imagename_utility = $image_utility['_id'].'_'.$image_utility['filename'];
+				$path = LITHIUM_APP_PATH . '/webroot/documents/'.$imagename_utility;
+				file_put_contents($path, $image_utility->file->getBytes());
+		}
+
+		$image_government = File::find('first',array(
+			'conditions'=>array('details_government_id'=>(string)$details['_id'])
+		));
+
+		if($image_government['filename']!=""){
+				$imagename_government = $image_government['_id'].'_'.$image_government['filename'];
+				$path = LITHIUM_APP_PATH . '/webroot/documents/'.$imagename_government;
+				file_put_contents($path, $image_government->file->getBytes());
+		}		
+
+			$details = Details::find('first',
+				array('conditions'=>array('user_id'=> (string) $id))
+			);		
+
+		return compact('details','user','title','qrCodeUrl','secret','option','imagename_utility','imagename_government');
 	}
 	
 	
@@ -289,10 +318,10 @@ class UsersController extends \lithium\action\Controller {
 
 		if ($checkResult==1) {
 			$data = array(
-				'TOTP.Validate'=>true,
-				'TOTP.Login'=>$login,				
-				'TOTP.Withdrawal'=>$withdrawal,				
-				'TOTP.Security'=>$security,				
+				'TOTP.Validate'=>(boolean)true,
+				'TOTP.Login'=> (boolean)$login,				
+				'TOTP.Withdrawal'=>(boolean)$withdrawal,				
+				'TOTP.Security'=>(boolean)$security,				
 			);
 			$details = Details::find('first',
 				array('conditions'=>array('user_id'=> (string) $id))

@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3>Terms of Service</h3>
 
 <strong>Please read these Terms carefully and do not use the Site or the Platform unless you accept them.</strong>
@@ -184,5 +184,17 @@ PL2 2AR, UK<br>
 </blockquote>
 </ol>
 <small class="pull-right">Last updated on 23rd August, 2013</small>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 </div>

@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3>Legal</h3>
 
 <p><u>Money Service Business (MSB), HMRC / Electronic Money Institute (EMI), FCA (formerly FSA)</u></p>
@@ -26,5 +26,17 @@ Company No: 8554667<br>
 </address>
 </blockquote>
 
-<small class="pull-right">Last updated on 27th August, 2013</small>
+<small class="pull-right">Last updated on 27th August, 2013</small><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 </div>

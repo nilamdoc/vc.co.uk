@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3>FAQ</h3>
 
 <p><strong><u>Become a Customer</u></strong></p>
@@ -48,5 +48,19 @@
 <li>We also require a level of identification for all customers as per our (link) verification page, and run random security checks on accounts. Any information found to be out of date may result in the account in question to be temporarily suspended until such information is suitably updated.</li>
 
 <li>If you have any issues please contact IBWT at <a href="mailto:support@<?=COMPANY_URL?> ">support@<?=COMPANY_URL?></a></li>
+
 </ul>
+</blockquote>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 </div>

@@ -37,7 +37,6 @@ class SessionsController extends \lithium\action\Controller {
 							Session::delete('default');
 						}else{
 							$checkResult = $ga->verifyCode($details['secret'], $totp, 2);		
-							
 							if ($checkResult==1) {
 								Session::write('default',$default);
 								$user = Session::read('default');

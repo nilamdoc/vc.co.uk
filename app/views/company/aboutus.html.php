@@ -1,5 +1,5 @@
-<div class="well">
-<h3>CONTACT US</h3>
+<div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
+<h3>Abut us</h3>
 		<table class="table table-condensed" >
 	<tr>
 		<td width="50%">

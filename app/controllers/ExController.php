@@ -391,9 +391,11 @@ class ExController extends \lithium\action\Controller {
 
 		return compact('title','details','SellOrders','BuyOrders','TotalSellOrders','TotalBuyOrders','YourOrders','YourCompleteOrders');
 	}
+	
 	public function dashboard() {
 		$user = Session::read('member');
 		$id = $user['_id'];
+		if ($user==""){		return $this->redirect('/login');}
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=>$id))
 		);

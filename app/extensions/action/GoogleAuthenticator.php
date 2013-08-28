@@ -97,7 +97,6 @@ class GoogleAuthenticator extends \lithium\action\Controller {
                 return true;
             }
         }
-
         return false;
     }
 

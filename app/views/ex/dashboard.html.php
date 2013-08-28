@@ -13,7 +13,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 		</div>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
 				<tr style="background-color:#CFFDB9">
-					<td width="16%"><strong>Verification</strong></td>
+					<td width="16%"><strong>Verification Process</strong></td>
 					<td width="16%" style="text-align:center "><?php 
 					if($details['email.verified']=='Yes'){
 					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Email</a><?php }else{
