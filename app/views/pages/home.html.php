@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 
 <h3>In Bitcoin We Trust (IBWT)</h3>
 <blockquote>"The day science begins to study non-physical phenomena, it will make more progress in one decade than in all the previous 
@@ -32,5 +32,8 @@ centuries of its existence." <small>Nikola Tesla</small></blockquote>
 <h3>Find us</h3>
 <ul class="unstyled">
 	<li><a  target="_blank" href="https://www.facebook.com/pages/IBWT/425446187570505"><img src="/img/Facebook-logo.png" alt="Facebook" width="30px"></a></li>
-</ul>
+</ul><br>
+<br>
+<br>
+<br>
 </div>

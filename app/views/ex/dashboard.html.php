@@ -4,6 +4,7 @@ use lithium\util\String;
 <?php use lithium\core\Environment; 
 if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environment::get('locale');}
 ?>
+<div style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <div class="row" >
 	<div class="span11">
 		<div class="navbar">
@@ -24,22 +25,46 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Mobile/Phone</a><?php }else{
 					?><a href="/users/mobile/" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Optional!"><i class="icon-remove icon-black"></i> Mobile/Phone</a><?php }
 					?></td>
-					<td width="16%" style="text-align:center "><?php 
-					if($details['bank.verified']==1){
-					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Bank Details</a><?php }elseif($details['bank.verified']==1){?>
+					<td width="16%" style="text-align:center ">
+<!-----Bank Details start----->					
+					<?php 
+					if(strlen($details['bank.verified'])==0){
+					?>
+						<a href="/users/settings/bank" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> Bank Account</a>
+					<?php }elseif($details['bank.verified']=='No'){?>
+						<a href="#" class="btn btn-primary tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> Bank Account</a>
+					<?php }else{ ?>
+						<a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Bank Account</a>					
+					<?php }	?>
+<!-----Bank Details end----->					
+					</td>
+					<td width="16%" style="text-align:center ">
+<!-----Government Details start----->					
+					<?php 
+					if(strlen($details['government.verified'])==0){
+					?>
+						<a href="/users/settings/government" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> Government ID</a>
+					<?php }elseif($details['government.verified']=='No'){?>
+						<a href="#" class="btn btn-primary tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> Government ID</a>
+					<?php }else{ ?>
+						<a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Government ID</a>					
+					<?php }	?>
+<!-----Government Details end----->					
+					</td>
+					<td width="16%" style="text-align:center ">
+<!-----Utility Details start----->					
+					<?php 
+					if(strlen($details['utility.verified'])==0){
+					?>
+						<a href="/users/settings/utility" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> Utility Bill</a>
+					<?php }elseif($details['utility.verified']=='No'){?>
+						<a href="#" class="btn btn-primary tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> Utility Bill</a>
+					<?php }else{ ?>
+						<a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Utility Bill</a>					
+					<?php }	?>
+<!-----Utility Details end----->					
 					
-					?><a href="/users/settings/bank" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to withdraw / deposit!"><i class="icon-remove icon-black"></i> Bank Details</a><?php }
-					?></td>
-					<td width="16%" style="text-align:center "><?php 
-					if($details['government.verified']==1){
-					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Government ID</a><?php }else{
-					?><a href="/users/settings/government" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> Government ID</a><?php }
-					?></td>
-					<td width="16%" style="text-align:center "><?php 
-					if($details['utility.verified']==1){
-					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Utility Bill</a><?php }else{
-					?><a href="/users/settings/utility" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Optional!"><i class="icon-remove icon-black"></i> Utility Bill</a><?php }
-					?></td>
+					</td>
 				</tr>
 	</table>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
@@ -284,4 +309,21 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 			</tbody>
 		</table>
 	</div>
-</div>	
+</div><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+	
+</div>

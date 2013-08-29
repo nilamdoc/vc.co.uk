@@ -52,6 +52,7 @@ if (is_null($BalanceSecond)){$BalanceSecond = 0;}
 <?php use lithium\core\Environment; 
 if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environment::get('locale');}
 ?>
+<div style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <div class="row" >
 	<div class="span4">
 		<div class="navbar">
@@ -310,5 +311,19 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 				</div>
 			</div>
 		</div>		
+</div><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 </div>

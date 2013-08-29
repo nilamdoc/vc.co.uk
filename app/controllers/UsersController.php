@@ -157,7 +157,7 @@ class UsersController extends \lithium\action\Controller {
 				$option = $this->request->data['option'];
 				$data = array(
 					$option => $this->request->data['file'],
-					$option.'.verified'=>false,
+					$option.'.verified'=>'No',
 				);
 				$field = 'details_'.$option.'_id';
 				$remove = File::remove('all',array(

@@ -89,6 +89,7 @@
 <li>It will hold all GBP and Bitcoins deposited by each Customer in their Accounts, in that Customers registered name and with relation to their details and on such Customers behalf.</li>
 <li>IBWT will ensure that it keeps itself updated with regards to the development of the Bitcoin economy and any relevant regulation with regard to its Services it provides and the Platform it operates.</li>
 <li>IBWT reserves the right to suspend/freeze your account if you, as a Customer breaks these Terms of Service.</li>
+<li>Customers understand and accept that IBWT cannot process requests made after 17:00 (GMT) Fridays until the following Monday, and that IBWT is not liable for any loss caused by delays of processing requests.</li>
 </ul>
 </p>
 <p><u>Customers Obligations</u>

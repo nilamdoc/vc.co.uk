@@ -1,3 +1,4 @@
+<div style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <div class="row">
 	<div class="span4 well" >
 		<div class="navbar">
@@ -40,5 +41,16 @@
 			</ul>
 		</p>
 	</div>
+</div><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 </div>
