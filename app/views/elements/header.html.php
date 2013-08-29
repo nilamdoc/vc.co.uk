@@ -47,8 +47,38 @@ use app\extensions\action\Functions;
 					<a href="/login" class="btn"><?=$t('Login')?></a>			
 			<?php }?>				
 			</ul>			
-
 		</div>
 	</div>
 </div>
-	<img src="/img/half-ibwt.co.uk.png" class="pull-right" style="margin-top:7px">
+<?php 
+if(str_replace("@","",strstr($user['email'],"@"))==COMPANY_URL 
+	&& $details['email.verified']=="Yes"
+	&& $details['TOTP.Validate'] == 1
+	&& $details['TOTP.Login'] == 1
+	&& ( 
+	   MAIL_1==$user['email'] 
+	|| MAIL_2==$user['email'] 
+	|| MAIL_3==$user['email'] 	
+	|| MAIL_4==$user['email'] 	
+	   )
+){
+?>
+<a href="/Admin">
+<?php }?>
+<img src="/img/half-ibwt.co.uk.png" class="pull-right" style="margin-top:7px">
+<?php 
+
+if(str_replace("@","",strstr($user['email'],"@"))==COMPANY_URL 
+	&& $details['email.verified']=="Yes"
+	&& $details['TOTP.Validate'] == 1
+	&& $details['TOTP.Login'] == 1
+	&& ( 
+	   MAIL_1==$user['email'] 
+	|| MAIL_2==$user['email'] 
+	|| MAIL_3==$user['email'] 	
+	|| MAIL_4==$user['email'] 	
+	   )
+){
+?>
+</a>
+<?php }?>
