@@ -62,11 +62,11 @@
 <p>Once the order is placed, IBWT automatically completes the transactions without prior notice to Buyer or Seller.</p>
 <p>The matching of offers and transfer of funds is a service provided by IBWT via the Platform. Under the Distance Selling Directive 97/7/EC, once Buyers and Sellers offers have been matched, Customers forfeit the ability to cancel any Bitcoin Transaction.</p>
 <p>Customers accept that transferring bitcoins to their IBWT account or to other addresses is reliant upon the protocol and any 'miner' fee they choose to pay and that IBWT has no influence in this. The average time for Bitcoin transference can be 10 minutes to 24 hours, barring unforeseen or unavoidable network issues.</p>
-<p>Upon matching of the offers of Buyer and Seller, IBWT has the sole authority to permit the transfer of the amount corresponding to the Transaction Price minus the Commission from the Buyer’s Account to the Seller.</p>
+<p>Upon matching of the offers of Buyer and Seller, IBWT has the sole authority to permit the transfer of the amount corresponding to the Transaction Price minus the Commission from the Buyer's Account to the Seller.</p>
 <p>Customers may at any time transfer any amount of Bitcoins to any other Customer as well as any other Bitcoin users even if they are not Customers (the "Receiver").</p>
 <p>Customers can not transfer GBP.</p>
 <p>Customers are solely responsible for ensuring that any Receiver of their Bitcoins shall be a valid and legal transaction not infringing any UK or International laws and regulations.</p>
-<p>The responsibility of IBWT is limited to providing the service to ensure the transference of the Bitcoins. When transferring to a non-Customer recipient, IBWT’s responsibility shall also be limited to ensuring the transfer of funds through interacting with the Bitcoin network by relating the necessary technical data.</p>
+<p>The responsibility of IBWT is limited to providing the service to ensure the transference of the Bitcoins. When transferring to a non-Customer recipient, IBWT's responsibility shall also be limited to ensuring the transfer of funds through interacting with the Bitcoin network by relating the necessary technical data.</p>
 <p>IBWT's responsibility shall be limited to using reasonable technical efforts to ensure the receipt of the Bitcoins transferred. When conducting Bitcoin Transfer Transactions with a Bitcoin user who is not a Member, IBWT's responsibility shall be further limited to ensuring the transfer of the necessary technical data to the Bitcoin peer-to-peer network.</p>
 <p>No Commission of any kind will be charged by IBWT for Bitcoin being moved as Bitcoin, in, out, or around the Platform, a Bitcoin Transfer Transaction.</p>
 </li>
@@ -110,7 +110,7 @@
 <p>You must not modify the paper or digital copies of any materials printed off or downloaded in any way, and must not use any illustrations, photographs, video or audio sequences or any graphics separately from any accompanying text. </p>
 <p>IBWT status (and that of any identified contributors) as the authors of material on our site must always be acknowledged. </p>
 <p>You must not use any part of the materials on our site for commercial purposes without obtaining a licence to do so from us or our licensors.</p>
-<p>If you print off, copy or download any part of our site in breach of these terms of use, your right to use our site will cease immediately and you must, at IBWT’s option, return or destroy any copies of the materials you have made.</p>
+<p>If you print off, copy or download any part of our site in breach of these terms of use, your right to use our site will cease immediately and you must, at IBWT's option, return or destroy any copies of the materials you have made.</p>
 <p>IBWT "In Bitcoin We Trust." Is a registered trade mark of IBWT JD LTD, and is protected by patent, trademark and copyright under English and international laws and may not be used without IBWT express written consent.</p>
 <p>Without IBWT express prior consent, other websites may only link to the Platform by using the following address: https://<?=COMPANY_URL?>/ to the exclusion of any deep link.</p>
 </li>

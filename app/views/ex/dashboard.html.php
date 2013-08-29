@@ -25,17 +25,18 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					?><a href="/users/mobile/" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Optional!"><i class="icon-remove icon-black"></i> Mobile/Phone</a><?php }
 					?></td>
 					<td width="16%" style="text-align:center "><?php 
-					if($details['bank.verified']=='Yes'){
-					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Bank Details</a><?php }else{
+					if($details['bank.verified']==1){
+					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Bank Details</a><?php }elseif($details['bank.verified']==1){?>
+					
 					?><a href="/users/settings/bank" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to withdraw / deposit!"><i class="icon-remove icon-black"></i> Bank Details</a><?php }
 					?></td>
 					<td width="16%" style="text-align:center "><?php 
-					if($details['government.verified']=='Yes'){
+					if($details['government.verified']==1){
 					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Government ID</a><?php }else{
 					?><a href="/users/settings/government" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> Government ID</a><?php }
 					?></td>
 					<td width="16%" style="text-align:center "><?php 
-					if($details['utility.verified']=='Yes'){
+					if($details['utility.verified']==1){
 					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Utility Bill</a><?php }else{
 					?><a href="/users/settings/utility" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Optional!"><i class="icon-remove icon-black"></i> Utility Bill</a><?php }
 					?></td>
