@@ -1,5 +1,5 @@
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
-<h3>Abut us</h3>
+<h3>About us</h3>
 		<table class="table table-condensed" >
 	<tr>
 		<td width="50%">
@@ -13,8 +13,7 @@ Joel can be reached via <a href="mailto:joeld@ibwt.co.uk">joeld@ibwt.co.uk</a>
 		<img src="/img/nilam.jpg" width="200" style="padding:1px;border:1px solid black " alt="Nilam Doctor"><br>
 			<strong>Nilam Doctor</strong><br>
 			<small><strong>Lead Developer</strong>&nbsp;BE MBA</small>
-			<p>Nilam has an experience of 25+ years in Information Technology. He is a life member of the Bitcoin Foundation. He is also an expert in security. Provided strategic guidance to organisations with regard to technology and education. Developing bitcoin projects to make the virtual digital currency a main stream transactable currency. Developing "GreenCoin" - a local digital currency.</p>
-		Nilam can be reached via <a href="mailto:nilam@ibwt.co.uk">nilam@ibwt.co.uk</a>			
+			<p>He is a lifetime member of the Bitcoin Foundation, an expert in IT security, and  has provided strategic guidance to organisations with regard to technology and education. He is currently developing bitcoin projects to help the virtual digital currency grow into a viable mainstream currency, towards this end he is also developing "GreenCoin", a local digital currency.</p>
 		</td>
 	</tr>
 	<tr>
@@ -23,14 +22,14 @@ Joel can be reached via <a href="mailto:joeld@ibwt.co.uk">joeld@ibwt.co.uk</a>
 			<strong>Raj Doctor</strong><br>
 			<small><strong>Assistant Developer</strong>&nbsp;B.ARCH; M.ARCH; LLB (1ST); MBA; PH.D (cont..) CAI; ITPI; GIAE; AIMA; IFMC.</small>		
 <p>Raj Doctor is a management expert in the development sector holding Management (IIM), Urban Planning (CEPT), Law (GU) and Architecture (MSU) qualifications and with nearly 20 years experience in social sector with international, bi-lateral, multi-lateral and government organisations. He has led international programs, heading teams of more than 2500 staffs. His expertise is in: program planning, implementation, monitoring & evaluation and research brings a unique dimension in engaging with policy related advocacy and liaison work with stakeholders - government and international organisations. His aim is to achieve high quality international standard impacts through appropriate processes and systems lead by well-defined indicators to influence Global Policy in eradicating poverty.</p>			
-Raj can be reached via <a href="mailto:raj@ibwt.co.uk">raj@ibwt.co.uk</a>. 
+
 		</td>
 		<td>
 <img src="/img/lee.jpg" width="200" style="padding:1px;border:1px solid black " alt="Lee Fear"><br>
 			<strong>Lee Fear</strong><br>
 			<small><strong>Assistant Developer</strong>&nbsp;</small>		
 <p>Lee Fear</p>			
-Lee can be reached via <a href="mailto:lee@ibwt.co.uk">lee@ibwt.co.uk</a>. 		
+
 		</td>
 	</tr>
 </table>
