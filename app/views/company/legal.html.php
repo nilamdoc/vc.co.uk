@@ -4,7 +4,7 @@
 <p><u>Money Service Business (MSB), HMRC / Electronic Money Institute (EMI), FCA (formerly FSA)</u></p>
 <p>The current state of the UK governments view towards Bitcoin is a 'wait and see' approach, thankfully allowing Bitcoin time to grow and mature. </p>
 <p>IBWT is a legally abiding entity and as such will register with regulatory bodies as required by law if the situation changes.</p>
-<p>More information can be found with our News Release (linked).</p>
+<p><a href="/news">More information can be found with our News Release</a>.</p>
 
 <p>If you feel we have not satisfactorily dealt with any issue you have with regards to our privacy policy and your personal data, you can contact the Information Commissioners Office.</p>
 <p>Phone: 0303 123 1113<br>
