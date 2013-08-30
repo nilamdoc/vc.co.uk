@@ -29,15 +29,16 @@ class UsersController extends \lithium\action\Controller {
 		if(($this->request->data) && $user->save($this->request->data)) {	
 			$verification = sha1($user->_id);
 			
-			$oauth = new OAuth2();
-			$key_secret = $oauth->request_token();
-
+//			$oauth = new OAuth2();
+//			$key_secret = $oauth->request_token();
+			$ga = new GoogleAuthenticator();
+			
 			$data = array(
 				'user_id'=>(string)$user->_id,
 				'username'=>(string)$user->username,
 				'email.verify' => $verification,
-				'key'=>$key_secret['key'],
-				'secret'=>$key_secret['secret'],
+				'key'=>$ga->createSecret(64),
+				'secret'=>$ga->createSecret(64),
 				'friends'=>array(),
 				'balance.BTC' => (float)0,
 				'balance.LTC' => (float)0,				
@@ -140,6 +141,7 @@ class UsersController extends \lithium\action\Controller {
 	public function mobile(){
 	}
 
+
 	public function settings($option=null){
 		
 		$title = "User settings";
@@ -176,24 +178,11 @@ class UsersController extends \lithium\action\Controller {
 				if ($file->save($fileData)) {
 						$this->redirect('ex::dashboard');
 				}
-				
 		}
 
 		$TOTP = $details['TOTP.Validate'];
-		if($TOTP!=1){
-			$secret = $ga->createSecret(64);
-			$data = array(
-				'secret' => $secret
-			);
-			$details = Details::find('first',
-				array('conditions'=>array('user_id'=> (string) $id))
-			)->save($data);
-			$details = Details::find('first',
-				array('conditions'=>array('user_id'=> (string) $id))
-			);		
-		}else{
-			$secret = $details['secret'];
-		}
+		$secret = $details['secret'];
+
 		$qrCodeUrl = $ga->getQRCodeGoogleUrl("IBWT-".$details['username'], $secret);
 		
 		
@@ -229,7 +218,7 @@ class UsersController extends \lithium\action\Controller {
 		$ga = new GoogleAuthenticator();
 		
 		$secret = $ga->createSecret(64);
-//		$secret = '547e9701d8fb7e6556fc8acbfa063811620af8d78';
+		$secret = 'X6SWH7LNHWG3MBGNTWMJ53VPQ7IYWI6YSDYRZ6XYXWYS5KWZ4JFG7J6TM2P77AKX';
 		echo "Secret is: ".$secret."\n\n";
 		
 		$qrCodeUrl = $ga->getQRCodeGoogleUrl("ABCD", $secret);

@@ -206,7 +206,7 @@ use li3_qrcode\extensions\action\QRcode;
 		<div class="control-group">
 			<label class="control-label" for="ScannedCode">Scanned code</label>
 			<div class="controls">
-				<input type="text" id="ScannedCode" name="ScannedCode" placeholder="123456" class="span1">
+				<input type="text" id="ScannedCode" name="ScannedCode" placeholder="123456" class="span1"  maxlength="6">
 			</div><br>
 			<div class="controls">			
 				<button type="button" class="btn btn-primary" onClick="SaveTOTP();">Save</button>										
