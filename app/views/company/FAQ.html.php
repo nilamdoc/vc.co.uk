@@ -8,8 +8,8 @@
 <p><strong><u>Fees</u></strong></p>
 <blockquote><ul>
 <li>We charge 0.8% per transaction.</li>
-<li>If you buy 1 Bitcoin our fee is 0.08 Bitcoins.</li>
-<li>If you sell &pound;100 worth of Bitcoins our fee is 80 pence.</li>
+<li>If you <strong>buy</strong> 1 Bitcoin our fee is <strong>0.008</strong> Bitcoins.</li>
+<li>If you <strong>sell</strong> &pound;100 worth of Bitcoins our fee is <strong>80</strong> pence.</li>
 </ul>
 </blockquote>
 <p><strong><u>Deposits/Withdrawals</u></strong></p>
