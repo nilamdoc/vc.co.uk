@@ -7,7 +7,7 @@
 			<strong>Joel Dalais</strong><br>
 			<small><strong>Director</strong></small>
 			<p>Joel Dalais is a virtual currency entrepreneur that has found himself within the Bitcoin economy, building and leading the IBWT team. He also holds a BSc (hons) in Criminology with Criminal Justice Studies and Sociology, sits on the Law & Policy Committee of the Bitcoin Foundation, is a member of the Ludwig Von Mises Institute, and is a fellow at the Bitcoin Education Project. His expertise is in: Bitcoin, the social aspects and impacts of a free market monetary unit, regulatory, legal & criminal issues and international standards. He aims to make IBWT an assisting and economically important tool in the developing societal changes.</p>
-Joel can be reached via <a href="mailto:joeld@ibwt.co.uk">joeld@ibwt.co.uk</a>
+
 		</td>
 		<td width="50%">
 		<img src="/img/nilam.jpg" width="200" style="padding:1px;border:1px solid black " alt="Nilam Doctor"><br>
