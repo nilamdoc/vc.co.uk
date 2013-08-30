@@ -47,9 +47,9 @@ class UpdatesController extends \lithium\action\Controller {
 					'SecondCurrency' => $SecondCurrency,					
 					)),
 				array('$group' => array( '_id' => array(
-						'year'=>array('$year' => '$TransactDateTime'),
-						'month'=>array('$month' => '$TransactDateTime'),						
-						'day'=>array('$dayOfMonth' => '$TransactDateTime'),												
+							'year'=>array('$year' => '$TransactDateTime'),
+							'month'=>array('$month' => '$TransactDateTime'),						
+							'day'=>array('$dayOfMonth' => '$TransactDateTime'),												
 //						'hour'=>array('$hour' => '$TransactDateTime'),
 						),
 					'min' => array('$min' => '$PerPrice'), 
