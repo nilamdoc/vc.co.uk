@@ -71,13 +71,14 @@
 <p>No Commission of any kind will be charged by IBWT for Bitcoin being moved as Bitcoin, in, out, or around the Platform, a Bitcoin Transfer Transaction.</p>
 </li>
 <li><strong>DEPOSITS & WITHDRAWALS</strong>
-<p>Customers agree to submit a deposit or a request before transferring any funds to their IBWT account. And Customers agree to abide by the limits set by IBWT in deposit limits and to wait until their submitted deposit request has been cleared by IBWT. Customers will be notified that their deposit request has been cleared by email notification.</p>
+<p>Customers agree to submit a deposit request before transferring any funds to their IBWT account. And Customers agree to abide by the limits set by IBWT in deposit limits and to wait until their submitted deposit request has been cleared by IBWT. Customers will be notified that their deposit request has been cleared by email notification.</p>
 <p>If Customers try to deposit without first receiving a cleared deposit request then their funds and account may be frozen and funds returned after investigation into the occurrence.</p>
 <p>Customers agree to submit a withdrawal request and to wait for their withdrawal request to be confirmed by IBWT before acknowledging the time for their withdrawal to take. Customers acknowledge that withdrawals may take from 24-48 hours, and that IBWT reserve the right to delay withdrawal and/or deposit requests to allow for traffic of customers transfer of funds to move easier.</p>
 <p>Customers will be notified of their cleared deposit request or any issues with their request via their registered email as the primary contact source.</p>
 <p>Customers assume full liability for any bank charges incurred as a result of wire transfers being reversed due to not waiting for a cleared deposit request.</p>
 <p>Customers accept that they have 24 hours to transfer funds from receiving the cleared deposit request, if funds are not deposited within the 24 hours of receipt (of the deposit request) then Customers accept that IBWT will assume the deposit request has been cancelled and Customers will have to submit another deposit request.</p>
 <p>Trying to conduct wire transfers with cleared deposit requests or outside of the 24 hour time period after receiving a cleared request will be considered suspicious activity and will be investigated and related accounts and funds may be frozen until the issue is resolved.</p>
+<p>Customers acknowledge that deposits/withdrawals made after 17:00 on a Friday may not be processed until the following Monday.</p>
 </li>
 <li><strong>OBLIGATIONS</strong>
 <p><u>IBWT Obligations</u>

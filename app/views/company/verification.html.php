@@ -10,6 +10,7 @@
 <li>Bank details for linked bank account, must be in customers own name (account number, sort code, account name).</li>
 <li>Contact telephone number.</li>
 <li>Contact email.</li>
+<li>Deposit &pound;1 for bank identification.</li>
 </ul>
 </p>
 <p>IBWT reserve the right to seek more information to verify a customer's identity, and/or to refuse an account if the customer's identity is not verified to our legal requirement.</p>
