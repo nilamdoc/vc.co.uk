@@ -27,7 +27,7 @@ centuries of its existence." <small>Nikola Tesla</small></blockquote>
 </ul>
 <h3>News</h3>
 <ul>
-	<li><a href="/news">Please find our recent up to date news via our news</a>.</li>
+	<li>Please find our recent news <a href="/news">here.</a>.</li>
 </ul>
 <h3>Find us</h3>
 <ul class="unstyled">
