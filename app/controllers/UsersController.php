@@ -8,6 +8,7 @@ use app\models\File;
 use lithium\data\Connections;
 use app\extensions\action\Functions;
 
+use app\extensions\action\Bitcoin;
 use lithium\security\Auth;
 use lithium\storage\Session;
 use app\extensions\action\GoogleAuthenticator;
@@ -28,6 +29,10 @@ class UsersController extends \lithium\action\Controller {
 		$user = Users::create();
 		if(($this->request->data) && $user->save($this->request->data)) {	
 			$verification = sha1($user->_id);
+
+			$bitcoin = new Bitcoin('http://'.BITCOIN_WALLET_SERVER.':'.BITCOIN_WALLET_PORT,BITCOIN_WALLET_USERNAME,BITCOIN_WALLET_PASSWORD);
+			$bitcoinaddress = $bitcoin->getaccountaddress($this->request->data['username']);
+
 			
 //			$oauth = new OAuth2();
 //			$key_secret = $oauth->request_token();
@@ -40,6 +45,7 @@ class UsersController extends \lithium\action\Controller {
 				'key'=>$ga->createSecret(64),
 				'secret'=>$ga->createSecret(64),
 				'friends'=>array(),
+				'bitcoinaddress.0'=>$bitcoinaddress,
 				'balance.BTC' => (float)0,
 				'balance.LTC' => (float)0,				
 				'balance.USD' => (float)0,				
