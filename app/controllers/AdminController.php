@@ -34,7 +34,6 @@ class AdminController extends \lithium\action\Controller {
 				array('$limit'=>30)
 			)
 		));
-	print_r($UserRegistrations);
 
 		$TotalOrders = Orders::connection()->connection->command(array(
 			'aggregate' => 'orders',
@@ -46,18 +45,17 @@ class AdminController extends \lithium\action\Controller {
 					'Completed'=>'$Completed',					
 					'FirstCurrency'=>'$FirstCurrency',
 					'SecondCurrency'=>'$SecondCurrency',	
-					'TransactDateTime' => '$Transact.DateTime',					
+					'DateTime' => '$DateTime',					
 					'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),
 				)),
-				array('$match'=>array(
-					'Completed'=>'Y',	
-					'Action'=>'Buy',										
-					'FirstCurrency' => $FirstCurrency,
-					'SecondCurrency' => $SecondCurrency,					
-					)),
 				array('$group' => array( '_id' => array(
-					'year'=>array('$year' => '$TransactDateTime'),
-					'month'=>array('$month' => '$TransactDateTime'),						
+					'Action'=>'$Action',
+					'Completed'=>'$Completed',					
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',	
+					'year'=>array('$year' => '$DateTime'),
+					'month'=>array('$month' => '$DateTime'),						
+					'day'=>array('$dayOfMonth' => '$DateTime'),											
 					),
 					'Amount' => array('$sum' => '$Amount'), 
 					'TotalAmount' => array('$sum' => '$TotalAmount'), 
@@ -65,13 +63,26 @@ class AdminController extends \lithium\action\Controller {
 				array('$sort'=>array(
 					'_id.year'=>-1,
 					'_id.month'=>-1,
+					'_id.day'=>-1,										
 				)),
-				array('$limit'=>1)
+				array('$limit'=>30)
 			)
 		));
-	
-
 		
+		foreach($UserRegistrations['result'] as $UR){
+			$URdate = date_create($UR['_id']['year']."-".$UR['_id']['month']."-".$UR['_id']['day']);
+			foreach ($TotalOrders['result'] as $TO){
+				$TOdate = date_create($TO['_id']['year']."-".$TO['_id']['month']."-".$TO['_id']['day']);
+					if($URdate==$TOdate){
+//						print_r($TO);
+						print_r($UR);
+						$new[$UR['_id']['Amount']] = $TO['Amount'];
+					}
+			}
+		}
+		print_r($new);
+
+	return compact('UserRegistrations','TotalOrders');
 	}
 	public function reports() {
 		if($this->__init()==false){			$this->redirect('ex::dashboard');	}
