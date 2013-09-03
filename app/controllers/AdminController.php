@@ -75,12 +75,12 @@ class AdminController extends \lithium\action\Controller {
 				$TOdate = date_create($TO['_id']['year']."-".$TO['_id']['month']."-".$TO['_id']['day']);
 					if($URdate==$TOdate){
 //						print_r($TO);
-						print_r($UR);
+//						print_r($UR);
 						$new[$UR['_id']['Amount']] = $TO['Amount'];
 					}
 			}
 		}
-		print_r($new);
+//		print_r($new);
 
 	return compact('UserRegistrations','TotalOrders');
 	}
