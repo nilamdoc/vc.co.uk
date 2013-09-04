@@ -68,21 +68,34 @@ class AdminController extends \lithium\action\Controller {
 				array('$limit'=>30)
 			)
 		));
-		
-		foreach($UserRegistrations['result'] as $UR){
-			$URdate = date_create($UR['_id']['year']."-".$UR['_id']['month']."-".$UR['_id']['day']);
-			foreach ($TotalOrders['result'] as $TO){
-				$TOdate = date_create($TO['_id']['year']."-".$TO['_id']['month']."-".$TO['_id']['day']);
-					if($URdate==$TOdate){
-//						print_r($TO);
-//						print_r($UR);
-						$new[$UR['_id']['Amount']] = $TO['Amount'];
-					}
-			}
-		}
-//		print_r($new);
+	
+		$new = array();
+		for($i=0;$i<=30;$i++){
+			$date = gmdate('Y-m-d',time()-$i*60*60*24);
+			$new[$date] = array();
 
-	return compact('UserRegistrations','TotalOrders');
+		}
+ 
+			foreach($UserRegistrations['result'] as $UR){
+				$URdate = date_create($UR['_id']['year']."-".$UR['_id']['month']."-".$UR['_id']['day']);			
+				$urDate = date_format($URdate,"Y-m-d");
+					$new[$urDate] = array(
+						'Register'=> $UR['count']
+					);
+			}
+
+			foreach ($TotalOrders['result'] as $TO){
+				$TOdate = date_create($TO['_id']['year']."-".$TO['_id']['month']."-".$TO['_id']['day']);			
+				$toDate = date_format($TOdate,"Y-m-d");				
+
+						$new[$toDate][$TO['_id']['Action']][$TO['_id']['SecondCurrency']][$TO['_id']['Completed']] = array(
+										'FirstCurrency' => $TO['_id']['FirstCurrency'],										
+										'Amount' => $TO['Amount'],
+										'TotalAmount' => $TO['TotalAmount'],										
+						);
+
+			}
+	return compact('new');
 	}
 	public function reports() {
 		if($this->__init()==false){			$this->redirect('ex::dashboard');	}
