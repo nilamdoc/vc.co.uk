@@ -61,5 +61,5 @@ class Walletnotify extends \lithium\console\Command {
 				}
 			}
 		}
-}
+} 
 ?>
