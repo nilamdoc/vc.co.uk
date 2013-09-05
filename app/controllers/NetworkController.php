@@ -12,8 +12,9 @@ class NetworkController extends \lithium\action\Controller {
 	  $getconnectioncount = $bitcoin->getconnectioncount();
 	  $getblockhash = $bitcoin->getblockhash($getblockcount);
 	  $getblock = $bitcoin->getblock($getblockhash);
+		$getinfo = $bitcoin->getinfo();
  		$title = "Network connectivity ";		
-	  return compact('getblockcount','getconnectioncount','getblock','title');
+	  return compact('getblockcount','getconnectioncount','getblock','title','getinfo');
 	}
 	public function blocks($blockcount = null){
 	$bitcoin = new Bitcoin('http://'.BITCOIN_WALLET_SERVER.':'.BITCOIN_WALLET_PORT,BITCOIN_WALLET_USERNAME,BITCOIN_WALLET_PASSWORD);
