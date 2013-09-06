@@ -9,10 +9,12 @@
 		<?=$this->form->create(null); ?>
 		<?=$this->form->field('username', array('label'=>'Username', 'onBlur'=>'SendPassword();', 'placeholder'=>'username')); ?>
 		<?=$this->form->field('password', array('type' => 'password', 'label'=>'Password', 'placeholder'=>'password')); ?>
+		<div class="alert alert-danger">
 		<small>Please check your registered email in 5 seconds. You will receive <br>"<strong>Login Email Password</strong>" use it in the box below.</small>
 		<?=$this->form->field('loginpassword', array('type' => 'password', 'label'=>'','class'=>'span1','maxlength'=>'6', 'placeholder'=>'123456')); ?>
-		<div style="display:none" id="TOTPPassword">
-		<small><strong>Time based One Time Password (TOTP)</strong></small>	
+		</div>		
+		<div style="display:none" id="TOTPPassword" class="alert alert-danger">
+		<small><strong>Time based One Time Password (TOTP) from your smartphone</strong></small>	
 		<?=$this->form->field('totp', array('type' => 'password', 'label'=>'','class'=>'span1','maxlength'=>'6', 'placeholder'=>'123456')); ?>	
 		</div>	
 		<?=$this->form->submit('Login' ,array('class'=>'btn btn-primary')); ?>
