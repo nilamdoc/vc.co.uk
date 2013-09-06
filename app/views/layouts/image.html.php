@@ -77,29 +77,14 @@ $ex = Session::read('ex');
 ?>
 <body onLoad="UpdateDetails('<?=$ex?>');" style="background-image:url(/img/worldmap.png);background-position:top;background-repeat:no-repeat ">
 	<div id="container" class="container">
-		<?php 
-
-		echo $this->_render('element', 'header');?>
-		<?php 
-		extract(lithium\g11n\Message::aliases());
-		$user = Session::read('member'); ?>
-		<?php	if($user!=""){ ?>
-			<?php 	if($controller!='articles'){ ?>
-				<?php 	// echo $this->_render('element', 'menu');?>
-			<?php } ?>
-		<?php }else{?>
-		<?php 	// echo $this->_render('element', 'splash');?>		
-		<?php }?>
-		<?php 	echo $this->_render('element', 'menu');?>		
 		<?php echo $this->content(); ?>
 	</div>
-	<?php 	echo $this->_render('element', 'footer');?>	
 <?php echo $this->scripts(); ?>	
-<script type="text/javascript">
+<script >
 $(function() {
 	$('.tooltip-x').tooltip();
- $("input:text:visible:first").focus();
 });
 </script>
+
 </body>
 </html>
