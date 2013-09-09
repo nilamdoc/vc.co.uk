@@ -28,7 +28,7 @@
 <img src="/img/lee.jpg" width="200" style="padding:1px;border:1px solid black " alt="Lee Fear"><br>
 			<strong>Lee Fear</strong><br>
 			<small><strong>Web Developer</strong>&nbsp;</small>		
-<p>Lee Fear has 16+ years experience as a hardware and software computer engineer. Since 2003 he has delved into the website creation process, gaining experience in HTML, CSS and PHP. Working for a long list of clients, his skill-set covers, but is not limited to, dealing with basic HMTL pages, PHP, MySQL, integration, customer registrations, products and databases. His charity work includes voluntarily creating and maintaining charity sites, as something to give back to the community. He believes in equal opportunities and that this should also exist within the financial sector.</p>			
+<p>Lee Fear has 16+ years experience as a hardware and software computer engineer. Since 2003 he has delved into the website creation process, gaining experience in HTML, CSS and PHP. Working for a long list of clients, his skill-set covers, but is not limited to, dealing with basic HTML pages, PHP, MySQL, integration, customer registrations, products and databases. His charity work includes voluntarily creating and maintaining charity sites, as something to give back to the community. He believes in equal opportunities and that this should also exist within the financial sector.</p>			
 		</td>
 	</tr>
 </table><br>
