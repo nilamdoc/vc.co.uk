@@ -8,6 +8,10 @@ function UpdateDetails(ex){
 function GetDetails(ex){
 	$.getJSON('/Updates/Rates/'+ex,
 		function(ReturnValues){
+			if(ReturnValues['Refresh']=="Yes"){
+				window.location.assign(ReturnValues['URL']);								
+				}
+			
 			$("#LowPrice").html(ReturnValues['Low']);
 			$("#HighPrice").html(ReturnValues['High']);					
 			$("#LowestAskPrice").html(ReturnValues['High']);	

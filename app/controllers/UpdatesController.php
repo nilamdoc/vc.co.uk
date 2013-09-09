@@ -9,6 +9,7 @@
 namespace app\controllers;
 use app\models\Parameters;
 use app\models\Details;
+use app\models\Trades;
 use app\models\Orders;
 use lithium\data\Connections;
 
@@ -26,6 +27,23 @@ class UpdatesController extends \lithium\action\Controller {
 		return $this->render(array('json' => 'Hello World'));
 	}
 	public function Rates($FirstCurrency="BTC",$SecondCurrency="USD") {
+		$title = $FirstCurrency . "/" . $SecondCurrency;
+		$back = strtolower($FirstCurrency . "_" . $SecondCurrency);		
+			$Refresh = "No";
+			$URL = "/".$locale.'ex/x/'.$back;					
+			$trades = Trades::find('first',array(
+				'conditions' => array('trade'=>$title),
+			));
+			
+			if($trades['refresh']==true || $trades['refresh']==1){
+				$data = array(
+				'refresh' => false
+				);
+				Trades::find('all',array(
+					'conditions' => array('trade'=>$title)
+				))->save($data);
+				$Refresh = "Yes";
+			}
 
 		$mongodb = Connections::get('default')->connection;
 		$Rates = Orders::connection()->connection->command(array(
@@ -118,6 +136,8 @@ class UpdatesController extends \lithium\action\Controller {
 			)
 		));
 		return $this->render(array('json' => array(
+			'Refresh'=> $Refresh,
+			'URL'=> $URL,
 			'Low'=> $Low,
 			'High' => $High,
 			'Last'=> $LastPrice,			

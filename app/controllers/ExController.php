@@ -28,7 +28,15 @@ class ExController extends \lithium\action\Controller {
 
 	}
 	public function x($currency = null) {
+	
+	
 		if($currency==null){$this->redirect(array('controller'=>'ex','action'=>'dashboard/'));}
+
+		$first_curr = strtoupper(substr($currency,0,3));
+		$second_curr = strtoupper(substr($currency,4,3));
+		$title = $first_curr . "/" . $second_curr;
+		
+		
 		$user = Session::read('member');
 		$id = $user['_id'];
 		$details = Details::find('first',
@@ -100,6 +108,13 @@ class ExController extends \lithium\action\Controller {
 			$orders->save($data);
 			$order_id = $orders->_id;
 
+			$data = array(
+				'refresh' => true
+			);
+			Trades::find('all',array(
+				'conditions' => array('trade'=>$title)
+			))->save($data);
+			
 			$this->SendEmails($order_id,$user['_id']);
 			$this->SendFriendsEmails($order_id,$user['_id']);			
 
@@ -249,9 +264,6 @@ class ExController extends \lithium\action\Controller {
 			array('conditions'=>array('user_id'=>$id))
 		);
 		
-		$first_curr = strtoupper(substr($currency,0,3));
-		$second_curr = strtoupper(substr($currency,4,3));
-		$title = $first_curr . "/" . $second_curr;
 		$mongodb = Connections::get('default')->connection;
 		$TotalSellOrders = Orders::connection()->connection->command(array(
 			'aggregate' => 'orders',
@@ -586,7 +598,7 @@ class ExController extends \lithium\action\Controller {
 		if(String::hash($Orders['_id'])==$OrderID){
 			Orders::remove(array('_id'=>$ID));
 		}
-		$this->redirect(array('controller'=>'ex','action'=>"x/".$back,'locale'=>$locale));		
+			$this->redirect(array('controller'=>'ex','action'=>"x/".$back,'locale'=>$locale));		
 	}
 	public function updateBalance($id){
 		$Orders = Orders::find('first', array(
