@@ -256,14 +256,13 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 	<div class="span5">
 		<div class="navbar">
 			<div class="navbar-inner">
-			<a class="brand" href="#"><?=$t('Users you transacted with')?> </a>
+			<a class="brand" href="#"><?=$t('Users you transacted with (max 20)')?> </a>
 			</div>
 		</div>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
 			<thead>
 				<tr>
 					<th style="text-align:center"><?=$t('User name')?></th>
-					<th style="text-align:center"><?=$t('Action')?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -278,11 +277,11 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 			}
 			if(!in_array($RF['_id']['TransactUsername'],$friend,TRUE)){
 			  ?><a href="/<?=$locale?>/ex/AddFriend/<?=String::hash($RF['_id']['TransactUser_id'])?>/<?=$RF['_id']['TransactUser_id']?>/<?=$RF['_id']['TransactUsername']?>"
-				class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Add to receive alerts from <?=$RF['_id']['TransactUsername']?>"
+				class=" tooltip-x label label-success" rel="tooltip-x" data-placement="top" title="Add to receive alerts from <?=$RF['_id']['TransactUsername']?>"
 				style="font-weight:bold "><i class="icon-plus"></i> <?=$RF['_id']['TransactUsername']?></a>
 			<?php }else{?>
-			<span class="tooltip-x" rel="tooltip-x" data-placement="top" title="Already a friend <?=$RF['_id']['TransactUsername']?>">
-			<?=$RF['_id']['TransactUsername']?></span>
+			<a  href="/<?=$locale?>/ex/RemoveFriend/<?=String::hash($RF['_id']['TransactUser_id'])?>/<?=$RF['_id']['TransactUser_id']?>/<?=$RF['_id']['TransactUsername']?>" class="tooltip-x label label-warning" rel="tooltip-x" data-placement="top" title="Already a friend <?=$RF['_id']['TransactUsername']?>, Remove!">
+<i class="icon-minus"></i>			<?=$RF['_id']['TransactUsername']?></a>
 			<?php }?>
 			<?php }?>
 					</td>

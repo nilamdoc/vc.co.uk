@@ -703,11 +703,11 @@ class ExController extends \lithium\action\Controller {
 						)),
 				array('$sort'=>array(
 					'TransactUsername'=>1,
-				))
+				)),
+				array('$limit'=>20)
 			)
 		));
 	return $RequestFriend;
-	
 	}
 	
 	public function AddFriend($hashuser_id,$user_id,$username){
@@ -728,6 +728,32 @@ class ExController extends \lithium\action\Controller {
 			array_push($addfriend,$username);
 			$data = array('Friend'=>$addfriend);
 //			print_r($data);
+			$details = Details::find('first',
+				array('conditions'=>array('user_id'=>$id))
+			)->save($data);
+		}
+		$this->redirect(array('controller'=>'ex','action'=>"dashboard/",'locale'=>$locale));				
+	}
+	
+	public function RemoveFriend($hashuser_id,$user_id,$username){
+		if(String::hash($user_id)==$hashuser_id){
+			$user = Session::read('member');
+			$id = $user['_id'];
+			$details = Details::find('first',
+				array('conditions'=>array('user_id'=>$id))
+			);
+			$friends = $details['Friend'];
+
+			$addfriend = array();
+			if(count($friends)!=0){
+				foreach ($friends as $ra){
+					if($ra!=$username){
+						array_push($addfriend, $ra);
+					}
+				}
+			}
+			$data = array('Friend'=>$addfriend);
+			print_r($data);
 			$details = Details::find('first',
 				array('conditions'=>array('user_id'=>$id))
 			)->save($data);
