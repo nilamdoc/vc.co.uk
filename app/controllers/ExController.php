@@ -101,6 +101,7 @@ class ExController extends \lithium\action\Controller {
 			$order_id = $orders->_id;
 
 			$this->SendEmails($order_id,$user['_id']);
+			$this->SendFriendsEmails($order_id,$user['_id']);			
 
 			$PendingOrders = Orders::find('all',
 				array(
@@ -659,7 +660,7 @@ class ExController extends \lithium\action\Controller {
 				);
 //			print_r($data);
 
-				$details = Details::find('all', array(
+					$details = Details::find('all', array(
 					'conditions' => array(
 						'user_id'=>$Orders['user_id'], 
 						)
@@ -723,6 +724,12 @@ class ExController extends \lithium\action\Controller {
 	}
 	
 	public function SendOrderCompleteEmails($order_id,$user_id){
+		$order = Orders::find('first', array(
+			'conditions'=>array('_id'=>new MongoID($order_id))
+		));
+		$user = Users::find('first', array(
+			'conditions'=>array('_id'=>new MongoID($user_id))
+		));
 		$view  = new View(array(
 			'loader' => 'File',
 			'renderer' => 'File',
@@ -732,7 +739,7 @@ class ExController extends \lithium\action\Controller {
 		));
 		$body = $view->render(
 			'template',
-			compact('order'),
+			compact('order','user'),
 			array(
 				'controller' => 'ex',
 				'template'=>'Complete',
@@ -747,17 +754,63 @@ class ExController extends \lithium\action\Controller {
 		$message = Swift_Message::newInstance();
 		$message->setSubject("Your order is complete");
 		$message->setFrom(array(NOREPLY => 'Your order is complete'));
-		$message->setTo($user->email);
-		$message->addBcc(MAIL_1);
-		$message->addBcc(MAIL_2);			
-		$message->addBcc(MAIL_3);		
+		$message->setTo($user['email']);
+//		$message->addBcc(MAIL_1);
+//		$message->addBcc(MAIL_2);			
+//		$message->addBcc(MAIL_3);		
 
 		$message->setBody($body,'text/html');
 		$mailer->send($message);
 
 	}
 
-	public function SendEmails($order_id,$user_id){
+	public function SendFriendsEmails($order_id,$user_id){
+	
+		$order = Orders::find('first', array(
+			'conditions'=>array('_id'=>new MongoID($order_id))
+		));
+
+		$user = Users::find('first', array(
+			'conditions'=>array('_id'=>new MongoID($user_id))
+		));
+
+
+//*****************************************************************************
+//*****************************************************************************
+		$mongodb = Connections::get('default')->connection;
+		$Friends = Details::connection()->connection->command(array(
+			'aggregate' => 'details',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'user_id' => '$user_id',					
+					'username'=>'$username',
+					'Friend'=>'$Friend'
+				)),
+				array('$unwind'=>'$Friend'),
+				array('$match'=>array(
+					'Friend'=>$user['username'],
+					)),
+			),
+			
+		));
+		$friends = array();
+		if(count($Friends['result'])>0){
+			foreach($Friends['result'] as $friend){
+				array_push($friends,$friend['username']);
+			}
+		}
+		print_r($friends);
+		$usersToSend = Users::find('all',array(
+			'conditions' => array('username'=>array('$in'=>$friends)),
+			'fields'=>array('email', 'username')
+		));
+		foreach($usersToSend as $userToSend){
+				$sendEmailTo = $userToSend['email'];
+				$sendUserName = $userToSend['username'];
+
+//*****************************************************************************
+//*****************************************************************************
 	
 		$view  = new View(array(
 			'loader' => 'File',
@@ -766,9 +819,10 @@ class ExController extends \lithium\action\Controller {
 				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
 			)
 		));
+
 		$body = $view->render(
 			'template',
-			compact('order'),
+			compact('order','sendUserName'),
 			array(
 				'controller' => 'ex',
 				'template'=>'FriendRequest',
@@ -783,10 +837,52 @@ class ExController extends \lithium\action\Controller {
 		$message = Swift_Message::newInstance();
 		$message->setSubject("Your friend placed an order");
 		$message->setFrom(array(NOREPLY => 'Your friend placed an order'));
-		$message->setTo($user->email);
-		$message->addBcc(MAIL_1);
-		$message->addBcc(MAIL_2);			
-		$message->addBcc(MAIL_3);		
+		$message->setTo($sendEmailTo);
+//		$message->addBcc(MAIL_1);
+//		$message->addBcc(MAIL_2);			
+//		$message->addBcc(MAIL_3);		
+
+		$message->setBody($body,'text/html');
+		$mailer->send($message);
+		}
+	}
+	
+	public function SendEmails($order_id,$user_id){
+		$order = Orders::find('first', array(
+			'conditions'=>array('_id'=>new MongoID($order_id))
+		));
+		$user = Users::find('first', array(
+			'conditions'=>array('_id'=>new MongoID($user_id))
+		));
+	
+		$view  = new View(array(
+			'loader' => 'File',
+			'renderer' => 'File',
+			'paths' => array(
+				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+			)
+		));
+		$body = $view->render(
+			'template',
+			compact('order','user'),
+			array(
+				'controller' => 'ex',
+				'template'=>'OrderRequest',
+				'type' => 'mail',
+				'layout' => false
+			)
+		);
+
+		$transport = Swift_MailTransport::newInstance();
+		$mailer = Swift_Mailer::newInstance($transport);
+
+		$message = Swift_Message::newInstance();
+		$message->setSubject("Your order is placed");
+		$message->setFrom(array(NOREPLY => 'Your order is placed'));
+		$message->setTo($user['email']);
+//		$message->addBcc(MAIL_1);
+//		$message->addBcc(MAIL_2);			
+//		$message->addBcc(MAIL_3);		
 
 		$message->setBody($body,'text/html');
 		$mailer->send($message);
