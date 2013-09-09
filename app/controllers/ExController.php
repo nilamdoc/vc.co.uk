@@ -812,7 +812,7 @@ class ExController extends \lithium\action\Controller {
 				array_push($friends,$friend['username']);
 			}
 		}
-		print_r($friends);
+//		print_r($friends);
 		$usersToSend = Users::find('all',array(
 			'conditions' => array('username'=>array('$in'=>$friends)),
 			'fields'=>array('email', 'username')
