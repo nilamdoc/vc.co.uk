@@ -47,23 +47,21 @@ use li3_qrcode\extensions\action\QRcode;
 			<tr>
 				<td>Mobile:</td>
 				<td><?php 
-					if($details['mobile']['verified']==''){
+					if($details['mobile']['verified']=='' || $details['mobile']['verified']=='No'){
 						echo "<a href='/users/mobile/".$details['mobile']['number']."'  class='label label-important'>Verify</a>";
 						}else{
-						echo $details['mobile'];
+						echo $details['mobile.number'];
 					}?></td>
 			</tr>
 			<?php }?>
 			<tr>
 				<td>Bitcoin Adresses: <br>
-				<a href="/users/vanity" class='label label-important'>Add vanity address</a></td>
 				<td>
 				<?php 
 					$qrcode = new QRcode();
 				foreach($details['bitcoinaddress'] as $a){
 					$qrcode->png($a, QR_OUTPUT_DIR.$a.'.png', 'H', 7, 2);
 					echo $a;
-					echo " <a href='/ShortUrl/get/' class='label'>Get short URL</a><br>";
 					echo " <img src='".QR_OUTPUT_RELATIVE_DIR.$a.".png'>";
 				}
 				?>

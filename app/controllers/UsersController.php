@@ -42,6 +42,8 @@ class UsersController extends \lithium\action\Controller {
 				'user_id'=>(string)$user->_id,
 				'username'=>(string)$user->username,
 				'email.verify' => $verification,
+				'mobile.verified' => "No",				
+				'mobile.number' => "",								
 				'key'=>$ga->createSecret(64),
 				'secret'=>$ga->createSecret(64),
 				'Friend'=>array(),
