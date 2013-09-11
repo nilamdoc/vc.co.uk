@@ -15,6 +15,7 @@
 <head>
 	<?php echo $this->html->charset();?>
 	<title><?php echo MAIN_TITLE;?>: <?php if(isset($title)){echo $title;} ?></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<?php echo $this->html->style(array('/bootstrap/css/bootstrap')); ?>
 	<?php echo $this->html->style(array('/bootstrap/css/bootstrap-responsive')); ?>	
 	<?php echo $this->html->style(array('/bootstrap/css/docs')); ?>	
@@ -76,24 +77,16 @@ if(Session::read('ex')==""){
 $ex = Session::read('ex');
 ?>
 <body onLoad="UpdateDetails('<?=$ex?>');" style="background-image:url(/img/worldmap.png);background-position:top;background-repeat:no-repeat ">
-	<div id="container" class="container">
-		<?php 
-
-		echo $this->_render('element', 'header');?>
+	<div id="container" class="container-fluid">
+		<?php echo $this->_render('element', 'header');?>
 		<?php 
 		extract(lithium\g11n\Message::aliases());
 		$user = Session::read('member'); ?>
 		<?php	if($user!=""){ ?>
-			<?php 	if($controller!='articles'){ ?>
-				<?php 	// echo $this->_render('element', 'menu');?>
-			<?php } ?>
-		<?php }else{?>
-		<?php 	// echo $this->_render('element', 'splash');?>		
-		<?php }?>
-		<?php 	echo $this->_render('element', 'menu');?>		
+		<?php echo $this->_render('element', 'menu');?>		
 		<?php echo $this->content(); ?>
 	</div>
-	<?php 	echo $this->_render('element', 'footer');?>	
+	<?php echo $this->_render('element', 'footer');?>	
 <?php echo $this->scripts(); ?>	
 <script type="text/javascript">
 $(function() {
