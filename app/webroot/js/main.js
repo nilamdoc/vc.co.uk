@@ -156,6 +156,7 @@ function ConvertBalance(){
 function SendPassword(){
 	$.getJSON('/Users/SendPassword/'+$("#Username").val(),
 		function(ReturnValues){
+			$("#LoginEmailPassword").show();
 			if(ReturnValues['TOTP']=="Yes"){
 				$("#TOTPPassword").show();
 				}

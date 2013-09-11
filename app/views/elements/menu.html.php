@@ -3,7 +3,9 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 ?>
 <?php
 use app\models\Trades;
-$trades = Trades::find('all');
+$trades = Trades::find('all',array(
+	'sort'=>array('_id'=>-1)
+));
 $sel_curr = $this->_request->params['args'][0];
 ?>
 <h4><?php if($sel_curr==""){echo $t('Dashboard');}else{echo strtoupper(str_replace("_","/",$sel_curr));}?></h4>
