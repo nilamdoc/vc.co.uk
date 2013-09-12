@@ -1,6 +1,6 @@
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat;min-height:600px">
 <h3>User Approval</h3>
-<form name="User_Approval" method="post" action="/Admin/Approval" class="form-horizontal">
+<form name="User_Approval" method="post" action="/Admin/approval" class="form-horizontal">
 	<select name="UserApproval" id="UserApproval">
 		<option value="All" <?php if($UserApproval=='All'){echo " selected";}?>>All</option>
 		<optgroup label="Verified">		
