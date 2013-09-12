@@ -7,8 +7,8 @@
 			</div>
 		</div>
 		<?=$this->form->create(null); ?>
-		<?=$this->form->field('username', array('label'=>'Username', 'placeholder'=>'username')); ?>
-		<?=$this->form->field('password', array('type' => 'password', 'label'=>'Password', 'onFocus'=>'SendPassword();', 'placeholder'=>'password')); ?>
+		<?=$this->form->field('username', array('label'=>'Username', 'onBlur'=>'SendPassword();', 'placeholder'=>'username')); ?>
+		<?=$this->form->field('password', array('type' => 'password', 'label'=>'Password', 'placeholder'=>'password')); ?>
 		<div class="alert alert-danger"  style="display:none" id="LoginEmailPassword">
 		<small>Please check your registered email in 5 seconds. You will receive <br>"<strong>Login Email Password</strong>" use it in the box below.</small>
 		<?=$this->form->field('loginpassword', array('type' => 'password', 'label'=>'','class'=>'span1','maxlength'=>'6', 'placeholder'=>'123456')); ?>
