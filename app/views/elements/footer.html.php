@@ -13,9 +13,9 @@
 	</ul>
 	<p class="nav" style="font-size:11px;border-top:1px solid black ">
 		<?=$t("IBWT is a trading name of ")?><strong>IBWT JD Ltd</strong>. <?=$t("Registered in England and Wales.")?> 
-		Registered office: Plymouth, PL2 2AR. Company no: 8554667. 
+		<?=$t("Registered office: Plymouth, PL2 2AR. Company no: 8554667. 
 		Registered VAT no: 165221136. 
-		Registered Information Commissioner no: ZA007784.
+		Registered Information Commissioner no: ZA007784.")?>
 	</p>
 </div>
 <script>

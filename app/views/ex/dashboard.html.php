@@ -14,27 +14,27 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 		</div>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
 				<tr style="background-color:#CFFDB9">
-					<td width="16%"><strong>Verification Process</strong></td>
+					<td width="16%"><strong><?=$t("Verification Process")?></strong></td>
 					<td width="16%" style="text-align:center "><?php 
 					if($details['email.verified']=='Yes'){
-					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Email</a><?php }else{
-					?><a href="/users/email/" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> Email</a><?php }
+					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Email")?></a><?php }else{
+					?><a href="/users/email/" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Email")?></a><?php }
 					?></td>					
 					<td width="16%" style="text-align:center "><?php 
 					if($details['mobile.verified']=='Yes'){
-					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Mobile/Phone</a><?php }else{
-					?><a href="/users/mobile/" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Optional!"><i class="icon-remove icon-black"></i> Mobile/Phone</a><?php }
+					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Mobile/Phone")?></a><?php }else{
+					?><a href="/users/mobile/" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Optional!"><i class="icon-remove icon-black"></i> <?=$t("Mobile/Phone")?></a><?php }
 					?></td>
 					<td width="16%" style="text-align:center ">
 <!-----Bank Details start----->					
 					<?php 
 					if(strlen($details['bank.verified'])==0){
 					?>
-						<a href="/users/settings/bank" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> Bank Account</a>
+						<a href="/users/settings/bank" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Bank Account")?></a>
 					<?php }elseif($details['bank.verified']=='No'){?>
-						<a href="#" class="btn btn-primary tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> Bank Account</a>
+						<a href="#" class="btn btn-primary tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Bank Account")?></a>
 					<?php }else{ ?>
-						<a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Bank Account</a>					
+						<a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Bank Account")?></a>					
 					<?php }	?>
 <!-----Bank Details end----->					
 					</td>
@@ -43,11 +43,11 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<?php 
 					if(strlen($details['government.verified'])==0){
 					?>
-						<a href="/users/settings/government" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> Government ID</a>
+						<a href="/users/settings/government" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Government ID")?></a>
 					<?php }elseif($details['government.verified']=='No'){?>
-						<a href="#" class="btn btn-primary tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> Government ID</a>
+						<a href="#" class="btn btn-primary tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Government ID")?></a>
 					<?php }else{ ?>
-						<a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Government ID</a>					
+						<a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Government ID")?></a>					
 					<?php }	?>
 <!-----Government Details end----->					
 					</td>
@@ -56,11 +56,11 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<?php 
 					if(strlen($details['utility.verified'])==0){
 					?>
-						<a href="/users/settings/utility" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> Utility Bill</a>
+						<a href="/users/settings/utility" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Utility Bill")?></a>
 					<?php }elseif($details['utility.verified']=='No'){?>
-						<a href="#" class="btn btn-primary tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> Utility Bill</a>
+						<a href="#" class="btn btn-primary tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Utility Bill")?></a>
 					<?php }else{ ?>
-						<a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> Utility Bill</a>					
+						<a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Utility Bill")?></a>					
 					<?php }	?>
 <!-----Utility Details end----->					
 					
@@ -148,13 +148,13 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 				</tr>
 				<tr>
 					<td><strong><?=$t('Current Balance')?></strong><br>
-					(including pending orders)</td>
+					<?=$t("(including pending orders)")?></td>
 					<td style="text-align:right "><?=number_format($details['balance.BTC'],8)?></td>
 <!--					<td style="text-align:right "><?=number_format($details['balance.LTC'],8)?></td> -->
 					<td style="text-align:right "><?=number_format($details['balance.USD'],4)?></td>
 					<td style="text-align:right "><?=number_format($details['balance.EUR'],4)?></td>
 					<td style="text-align:right "><?=number_format($details['balance.GBP'],4)?></td>
-					<td><a href="" class="btn btn-primary">Funding</a></td>																									
+					<td><a href="" class="btn btn-primary"><?=$t("Funding")?></a></td>																									
 				</tr>
 				<tr>
 					<td><strong><?=$t('Pending Buy Orders')?></strong></td>
@@ -324,5 +324,4 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 <br>
 <br>
 <br>
-	
 </div>
