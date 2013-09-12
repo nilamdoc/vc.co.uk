@@ -53,8 +53,8 @@ use app\extensions\action\Functions;
 <?php 
 if(str_replace("@","",strstr($user['email'],"@"))==COMPANY_URL 
 	&& $details['email.verified']=="Yes"
-	&& $details['TOTP.Validate'] == 1
-	&& $details['TOTP.Login'] == 1
+//	&& $details['TOTP.Validate'] == 1
+//	&& $details['TOTP.Login'] == 1
 	&& ( 
 	   MAIL_1==$user['email'] 
 	|| MAIL_2==$user['email'] 
