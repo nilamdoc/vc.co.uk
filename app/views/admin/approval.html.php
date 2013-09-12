@@ -47,7 +47,7 @@ if(count($details)!=0){
 		<td><?=$detail['email.verified']?></td>		
 		<td><?=$detail['phone.verified']?></td>				
 		<td><?=$detail['bank.verified']?></td>						
-		<td><a href="/Admin/Approve/government/<?=$detail['_id']?>" target="_blank"><?=$detail['government.verified']?></a></td>						
+		<td><a href="/Admin/approve/government/<?=$detail['_id']?>" target="_blank"><?=$detail['government.verified']?></a></td>						
 		<td><?=$detail['utility.verified']?></td>						
 	</tr>
 <?php 	}
