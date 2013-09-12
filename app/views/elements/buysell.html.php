@@ -57,7 +57,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner">
-			<a class="brand" href="#"><?=$t('Buy')?> <?=$first_curr?> with <?=$second_curr?></a>
+			<a class="brand" href="#"><?=$t('Buy')?> <?=$first_curr?> <?=$t("with")?> <?=$second_curr?></a>
 			</div>
 		</div>
 		<?=$this->form->create(null); ?>
@@ -82,7 +82,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 				</td>
 				<td>
 				<div class="input-append">
-					<label for="BuyPriceper">Price per <?=$first_curr?></label>
+					<label for="BuyPriceper"><?=$t("Price per ")?><?=$first_curr?></label>
 					<input class="span1" id="BuyPriceper" name="BuyPriceper" type="text" onBlur='$("#BuySubmitButton").attr("disabled", "disabled");'>
 					<span class="add-on"> <?=$second_curr?></span>
 				</div>				
@@ -109,7 +109,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner">
-			<a class="brand" href="#"><?=$t('Sell')?> <?=$first_curr?> get <?=$second_curr?></a>
+			<a class="brand" href="#"><?=$t('Sell')?> <?=$first_curr?> <?=$t("get")?> <?=$second_curr?></a>
 			</div>
 		</div>
 		<?=$this->form->create(null); ?>		
@@ -134,7 +134,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 				</td>
 				<td>
 				<div class="input-append">
-					<label for="SellPriceper">Price per <?=$first_curr?></label>
+					<label for="SellPriceper"><?=$t("Price per ")?><?=$first_curr?></label>
 					<input class="span1" id="SellPriceper" name="SellPriceper" type="text"  onBlur='$("#SellSubmitButton").attr("disabled", "disabled");'>
 					<span class="add-on"> <?=$second_curr?></span>
 				</div>				

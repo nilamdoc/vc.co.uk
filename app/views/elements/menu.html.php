@@ -17,8 +17,8 @@ $sel_curr = $this->_request->params['args'][0];
 			<a href="/<?=$locale?>/ex/x/<?=strtolower(str_replace("/","_",$tr['trade']))?>"><?=$tr['trade']?></a></li>
 		<?php }	?>
 	<?php }else{?>
-		<li><a href="/Admin/Index" >Summary</a></li>
-		<li><a href="/Admin/Approval">Approval</a></li>		
-		<li><a href="/Admin/Transactions">Transactions</a></li>				
+		<li><a href="/Admin/Index" ><?=$t("Summary")?></a></li>
+		<li><a href="/Admin/Approval"><?=$t("Approval")?></a></li>		
+		<li><a href="/Admin/Transactions"><?=$t("Transactions")?></a></li>				
 	<?php }	?>	
 </ul>

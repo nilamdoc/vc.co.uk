@@ -61,9 +61,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 if(Session::read('ex')==""){
 		Session::write('ex','BTC/USD');
 	}else{
-
 		if(strlen($_SERVER['REQUEST_URI'])==16 || strlen($_SERVER['REQUEST_URI'])==13){
-
 		$request_uri = str_replace("/".$locale,"",$_SERVER['REQUEST_URI']);
 
 			if($locale==""){
@@ -78,11 +76,11 @@ $ex = Session::read('ex');
 ?>
 <body onLoad="UpdateDetails('<?=$ex?>');" style="background-image:url(/img/worldmap.png);background-position:top;background-repeat:no-repeat ">
 	<div id="container" class="container-fluid">
-		<?php echo $this->_render('element', 'header');?>
+		<?php 
+		echo $this->_render('element', 'header');?>
 		<?php 
 		extract(lithium\g11n\Message::aliases());
 		$user = Session::read('member'); ?>
-		<?php	if($user!=""){ ?>
 		<?php echo $this->_render('element', 'menu');?>		
 		<?php echo $this->content(); ?>
 	</div>

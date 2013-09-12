@@ -1,0 +1,741 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:2
+msgid "About us"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:8
+msgid "Director"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:9
+msgid ""
+"Joel Dalais is a virtual currency entrepreneur that has found himself within "
+"the Bitcoin economy, building and leading the IBWT team. He also holds a BSc "
+"(hons) in Criminology with Criminal Justice Studies and Sociology, sits on "
+"the Law & Policy Committee of the Bitcoin Foundation, is a member of the "
+"Ludwig Von Mises Institute, and is a fellow at the Bitcoin Education "
+"Project. His expertise is in: Bitcoin, the social aspects and impacts of a "
+"free market monetary unit, regulatory, legal & criminal issues and "
+"international standards. He aims to make IBWT an assisting and economically "
+"important tool in the developing societal changes."
+msgstr ""
+"Joel Dalais est un entrepreneur de la monnaie virtuelle qui s'est trouvé "
+"dans l'économie Bitcoin, construire et diriger l'équipe IBWT. Il est "
+"également titulaire d'un BSc (Hons) en criminologie avec Criminal Justice "
+"Studies et de la sociologie, se trouve sur la loi et Comité de la politique "
+"de la Fondation Bitcoin, est membre de l'Institut Ludwig Von Mises, et est "
+"chargé de cours au Projet d'éducation Bitcoin. Son expertise est en: "
+"Bitcoin, les aspects sociaux et les impacts d'une unité de libre-marché "
+"monétaire, les questions réglementaires, juridiques et pénales et les normes "
+"internationales. Il vise à faire un IBWT aider et outil économique important "
+"dans les changements sociétaux en développement."
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:15
+msgid "Lead Developer"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:16
+msgid ""
+"He is a lifetime member of the Bitcoin Foundation, an expert in IT security, "
+"and  has provided strategic guidance to organisations with regard to "
+"technology and education. He is currently developing bitcoin projects to "
+"help the virtual digital currency grow into a viable mainstream currency, "
+"towards this end he is also developing \\\"GreenCoin\\\", a local digital "
+"currency."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:23
+msgid "Assistant Developer"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:24
+msgid ""
+"Raj Doctor is a management expert in the development sector holding "
+"Management (IIM), Urban Planning (CEPT), Law (GU) and Architecture (MSU) "
+"qualifications and with nearly 20 years experience in social sector with "
+"international, bi-lateral, multi-lateral and government organisations. He "
+"has led international programs, heading teams of more than 2500 staffs. His "
+"expertise is in: program planning, implementation, monitoring & evaluation "
+"and research brings a unique dimension in engaging with policy related "
+"advocacy and liaison work with stakeholders - government and international "
+"organisations. His aim is to achieve high quality international standard "
+"impacts through appropriate processes and systems lead by well-defined "
+"indicators to influence Global Policy in eradicating poverty."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:30
+msgid "Web Developer"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:31
+msgid ""
+"Lee Fear has 16+ years experience as a hardware and software computer "
+"engineer. Since 2003 he has delved into the website creation process, "
+"gaining experience in HTML, CSS and PHP. Working for a long list of clients, "
+"his skill-set covers, but is not limited to, dealing with basic HTML pages, "
+"PHP, MySQL, integration, customer registrations, products and databases. His "
+"charity work includes voluntarily creating and maintaining charity sites, as "
+"something to give back to the community. He believes in equal opportunities "
+"and that this should also exist within the financial sector."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:2
+msgid "CONTACT US"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:4
+msgid "Email Us"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:5
+msgid ""
+"To reach our full team and our primary source of contact please email us at;"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:7
+msgid ""
+"We aim to respond to emails within 48 hours barring national bank holidays "
+"or unforeseen circumstances."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:9
+msgid "Write to Us"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:11
+msgid "We can be mailed to via our registered office;"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:22
+msgid "Phone Us"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:23
+msgid "For the most immediate concerns, please call us at the number below;"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:26
+msgid ""
+"Please be aware that depending upon your issue you may be redirected to our "
+"email service, and that our phone service is only available between 10:00am "
+"and 16:00pm, weekdays."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:2
+msgid "FAQ"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:4
+msgid "Become a Customer"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:6
+msgid "To become an IBWT customer please click "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:6
+msgid "Registration implies you have read and agreed to our "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:6
+msgid "Terms of Service"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:8
+msgid "Fees"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:10
+msgid "We charge 0.8% per transaction."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:11
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:12
+msgid "If you "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:11
+msgid "buy"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:11
+msgid " 1 Bitcoin our fee is "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:11
+msgid " Bitcoins."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:12
+msgid "sell"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:12
+msgid "worth of Bitcoins our fee is "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:12
+msgid "pence"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:15
+msgid "Deposits/Withdrawals"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:19
+msgid ""
+"All deposits and withdrawals need to be verified and cleared, please see "
+"relevant sections when you login."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:21
+msgid "IMPORTANT"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:21
+msgid ""
+"Please make sure to wait for CLEARED deposit requests BEFORE depositing any "
+"sterling. As per our Terms Of Use, we cannot be held liable for any charges "
+"incurred due to deposits bounced if you have not had your deposit request "
+"CLEARED."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:23
+msgid "VERY IMPORTANT"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:23
+msgid ""
+"Please make sure to INCLUDE your CUSTOMER REFERENCE, which you can find on "
+"your account page, so that we can credit your account appropriately."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:25
+msgid "Example"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:27
+msgid "Time Delays"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:32
+msgid "Transfers are only processed weekdays, barring bank holidays."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:33
+msgid ""
+"It can take us up to 24 hours to verify and confirm your deposit request. "
+"Customers then have 24 hours to make their deposit. If a deposit is not made "
+"in the 24 window then IBWT assumes you have cancelled your deposit request "
+"and you will need to make request if you wish to deposit."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:34
+msgid ""
+"If your bank does not subscribe to Faster Payments (most UK banks do) then "
+"please let us know."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:35
+msgid ""
+"It can take us up to 24 hours to verify, confirm and start the process "
+"transfer for your withdrawal requests."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:36
+msgid ""
+"If the Customer's bank subscribes to Faster Payments the money will reach "
+"their account usually within 24 hours but can sometimes take up to close of "
+"business the next working day. Otherwise payments take 4 working days to "
+"process."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:38
+msgid "Bitcoin"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:39
+msgid "Bitcoin deposits and withdrawals are subject to the Bitcoin protocol."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:42
+msgid "Security"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:46
+msgid ""
+"IBWT employs two factor authentication (2fa) and time-based one-time "
+"password algorithm (TOTP), for login, withdrawals, deposits and settings."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:48
+msgid ""
+"We also require a level of identification for all customers as per our "
+"(link) verification page, and run random security checks on accounts. Any "
+"information found to be out of date may result in the account in question to "
+"be temporarily suspended until such information is suitably updated."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:50
+msgid "If you have any issues please contact IBWT at "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_privacy.html_0_1378899837_6929.php:2
+msgid "Privacy Policy"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_privacy.html_0_1378899837_6929.php:3
+msgid ""
+"This Privacy Policy governs the manner in which IBWT JD Ltd (operating as "
+"IBWT) collects, uses, \n"
+"maintains and discloses information collected from users (each, a 'User') of "
+"the "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_privacy.html_0_1378899837_6929.php:4
+msgid ""
+"This privacy policy applies to the Site and all products and services "
+"offered by IBWT JD Ltd."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_privacy.html_0_1378899837_6929.php:6
+msgid "Personal identification information"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:60
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:242
+msgid "Buy"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:72
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:124
+msgid "Your balance"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:75
+msgid "Lowest Ask Price"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:100
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:152
+msgid "Summary of your order"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:112
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:197
+msgid "Sell"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:127
+msgid "Highest Bid Price"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:164
+msgid "Pending orders"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:170
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:293
+msgid "Exchange"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:171
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:209
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:254
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:294
+msgid "Price"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:172
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:295
+msgid "Amount"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:196
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:241
+msgid "Orders:"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:214
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:259
+msgid "Total"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:287
+msgid "Completed orders"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:23
+msgid "Low"
+msgstr "Bas"
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:24
+msgid "High"
+msgstr "Haut"
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:25
+msgid "Last"
+msgstr "Durer"
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:26
+msgid "Volume"
+msgstr "Volume"
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:28
+msgid "Finances"
+msgstr "Finances"
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:41
+msgid "Settings"
+msgstr "Réglage"
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:42
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:44
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:47
+msgid "Login"
+msgstr "Connexion"
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:12
+msgid "Accounts"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:73
+msgid "Currency"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:79
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:303
+msgid "Action"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:141
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:243
+msgid "Opening Balance"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:150
+msgid "Current Balance"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:160
+msgid "Pending Buy Orders"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:169
+msgid "Pending Sell Orders"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:178
+msgid "After Execution"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:187
+msgid "Commissions"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:196
+msgid "Complete Buy Orders"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:205
+msgid "Complete Sell Orders"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:214
+msgid "Completed Order Commissions"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:226
+msgid "Convert to:"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:259
+msgid "Users you transacted with (max 20)"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:265
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:302
+msgid "User name"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:295
+msgid "Some thing else"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:301
+msgid "Date accepted"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:304
+msgid "Profile"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_sessions_add.html_0_1378877447_2607.php:29
+msgid "Sign up"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_users_signup.html_0_1378285232_2664.php:5
+msgid "Signup"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_users_signup.html_0_1378285232_2664.php:28
+msgid "Advantages"
+msgstr ""
+
+#: \views\admin\approval.html.php:34
+msgid "Username"
+msgstr ""
+
+#: \views\company\FAQ.html.php:46
+msgid ""
+"IBWT employs two factor authentication (2FA) and time-based one-time "
+"password algorithm (TOTP), for login, withdrawals, deposits and settings."
+msgstr ""
+
+#: \views\company\legal.html.php:2
+msgid "Legal"
+msgstr ""
+
+#: \views\company\legal.html.php:4
+msgid ""
+"Money Service Business (MSB), HMRC / Electronic Money Institute (EMI), FCA "
+"(formerly FSA)"
+msgstr ""
+
+#: \views\company\legal.html.php:5
+msgid ""
+"The current state of the UK governments view towards Bitcoin is a 'wait and "
+"see' approach, thankfully allowing Bitcoin time to grow and mature."
+msgstr ""
+
+#: \views\company\legal.html.php:6
+msgid ""
+"IBWT is a legally abiding entity and as such will register with regulatory "
+"bodies as required by law if the situation changes."
+msgstr ""
+
+#: \views\company\legal.html.php:7
+msgid "More information can be found with our News Release"
+msgstr ""
+
+#: \views\company\legal.html.php:9
+msgid ""
+"If you feel we have not satisfactorily dealt with any issue you have with "
+"regards to our privacy policy and your personal data, you can contact the "
+"Information Commissioners Office."
+msgstr ""
+
+#: \views\company\legal.html.php:15
+msgid ""
+"IBWT is the trading name of IBWT JD LTD, which is a Private Limited Company "
+"registered in England and Wales."
+msgstr ""
+
+#: \views\company\privacy.html.php:7
+msgid ""
+"We may collect personal identification information from Users in a variety "
+"of ways, including, but not limited to, when Users visit our site, register "
+"on the site, and in connection with other activities, services, features or "
+"resources we make available on our Site. Users may be asked for, as "
+"appropriate, name, email address, proof of address, government photo issued "
+"ID, and contact phone number. We will collect personal identification "
+"information from Users only if they voluntarily submit such information to "
+"us. Users can always refuse to supply personally identification information, "
+"except that it may prevent them from registering as a customer and engaging "
+"in certain Site related activities."
+msgstr ""
+
+#: \views\company\privacy.html.php:11
+msgid "Non-personal identification information"
+msgstr ""
+
+#: \views\company\privacy.html.php:12
+msgid ""
+"We may collect non-personal identification information about Users whenever "
+"they interact with our Site. \n"
+"Non-personal identification information may include the browser name, the "
+"type of computer and technical information about Users, means of connection "
+"to our Site, such as the operating system and the Internet service providers "
+"utilized and other similar information."
+msgstr ""
+
+#: \views\company\privacy.html.php:16
+msgid "Web browser cookies"
+msgstr ""
+
+#: \views\company\privacy.html.php:18
+msgid ""
+"Our Site may use 'cookies' to enhance User experience. User's web browser "
+"places cookies on their hard drive for record-keeping purposes and sometimes "
+"to track information about them. User may choose to set their web browser to "
+"refuse cookies, or to alert you when cookies are being sent. If they do so, "
+"note that some parts of the Site may not function properly."
+msgstr ""
+
+#: \views\company\privacy.html.php:21
+msgid "How we use collected information"
+msgstr ""
+
+#: \views\company\privacy.html.php:23
+msgid ""
+"IBWT JD Ltd may collect and use Users personal information for the following "
+"purposes:"
+msgstr ""
+
+#: \views\company\privacy.html.php:25
+msgid "To improve customer service"
+msgstr ""
+
+#: \views\company\privacy.html.php:26
+msgid ""
+"Information you provide helps us respond to your customer service requests "
+"and support needs more efficiently."
+msgstr ""
+
+#: \views\company\privacy.html.php:27
+msgid "To personalize user experience"
+msgstr ""
+
+#: \views\company\privacy.html.php:28
+msgid ""
+"We may use information in the aggregate to understand how our Users as a "
+"group use the services and resources provided on our Site."
+msgstr ""
+
+#: \views\company\privacy.html.php:29
+msgid "To improve our Site"
+msgstr ""
+
+#: \views\company\privacy.html.php:30
+msgid "We may use feedback you provide to improve our products and services."
+msgstr ""
+
+#: \views\company\privacy.html.php:31
+msgid "To process payments"
+msgstr ""
+
+#: \views\company\privacy.html.php:32
+msgid ""
+"We may use the information Users provide about themselves when placing an "
+"order only to provide service to that order. We do not share this "
+"information with outside parties except to the extent necessary to provide "
+"the service."
+msgstr ""
+
+#: \views\company\privacy.html.php:33
+msgid "To send periodic emails"
+msgstr ""
+
+#: \views\company\privacy.html.php:34
+msgid ""
+"We may use the email address to send User information and updates pertaining "
+"to their order. It may also be used to respond to their inquiries, "
+"questions, and/or other requests."
+msgstr ""
+
+#: \views\company\privacy.html.php:38
+msgid "How we protect your information"
+msgstr ""
+
+#: \views\company\privacy.html.php:40
+msgid ""
+"We adopt appropriate data collection, storage and processing practices and "
+"security measures to protect against unauthorized access, alteration, "
+"disclosure or destruction of your personal information, username, password, "
+"transaction information and data stored on our Site."
+msgstr ""
+
+#: \views\company\privacy.html.php:41
+msgid ""
+"Sensitive and private data exchange between the Site and its Users happens "
+"over a SSL secured communication channel and is encrypted and protected with "
+"digital signatures. Our Site is also in compliance with PCI vulnerability "
+"standards and we are registered with ICO and adhere to their practices in "
+"order to create as secure of an environment as possible for Users."
+msgstr ""
+
+#: \views\company\privacy.html.php:44
+msgid "Sharing your personal information"
+msgstr ""
+
+#: \views\company\privacy.html.php:45
+msgid ""
+"We do not sell, trade, or rent Users personal identification information to "
+"others. We may share generic aggregated demographic information not linked "
+"to any personal identification information regarding visitors and users with "
+"our business partners, trusted affiliates and advertisers for the purposes "
+"outlined above."
+msgstr ""
+
+#: \views\company\privacy.html.php:48
+msgid "Third party websites"
+msgstr ""
+
+#: \views\company\privacy.html.php:49
+msgid ""
+"Users may find advertising or other content on our Site that link to the "
+"sites and services of our partners, suppliers, advertisers, sponsors, "
+"licensors and other third parties. We do not control the content or links "
+"that appear on these sites and are not responsible for the practices "
+"employed by websites linked to or from our Site. In addition, these sites or "
+"services, including their content and links, may be constantly changing. "
+"These sites and services may have their own privacy policies and customer "
+"service policies. Browsing and interaction on any other website, including "
+"websites which have a link to our Site, is subject to that website's own "
+"terms and policies."
+msgstr ""
+
+#: \views\company\privacy.html.php:52
+msgid "Changes to this privacy policy"
+msgstr ""
+
+#: \views\company\privacy.html.php:53
+msgid ""
+"IBWT JD Ltd has the discretion to update this privacy policy at any time. "
+"When we do, we will post a notification on the main page of our Site, and "
+"revise the updated date at the bottom of this page. We encourage Users to "
+"frequently check this page for any changes to stay informed about how we are "
+"helping to protect the personal information we collect. You acknowledge and "
+"agree that it is your responsibility to review this privacy policy "
+"periodically and become aware of modifications."
+msgstr ""
+
+#: \views\company\privacy.html.php:56
+msgid "Your acceptance of these terms"
+msgstr ""
+
+#: \views\company\privacy.html.php:57
+msgid ""
+"By using this Site, you signify your acceptance of this policy and terms of "
+"service. If you do not agree to this policy, please do not use our Site. "
+"Your continued use of the Site following the posting of changes to this "
+"policy will be deemed your acceptance of those changes."
+msgstr ""
+
+#: \views\company\privacy.html.php:60
+msgid "Contacting us"
+msgstr ""
+
+#: \views\company\privacy.html.php:62
+msgid ""
+"If you have any questions about this Privacy Policy, the practices of this "
+"site, or your dealings with this site, please contact us at:"
+msgstr ""

@@ -31,7 +31,7 @@
 </form>
 <table class="table table-condensed table-bordered table-hover" style=" ">
 	<tr>
-		<th style="text-align:center;">Username</th>
+		<th style="text-align:center;"><?=$t("Username")?></th>
 		<th style="text-align:center ">Email</th>
 		<th style="text-align:center ">Mobile</th>
 		<th style="text-align:center ">Bank</th>		

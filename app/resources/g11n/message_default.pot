@@ -1,4 +1,5 @@
-# This file is distributed under the same license as the PACKAGE package.
+#root
+ This file is distributed under the same license as the PACKAGE package.
 #
 msgid ""
 msgstr ""
@@ -12,40 +13,1281 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:23
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:2
+msgid "About us"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:8
+msgid "Director"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:9
+msgid "Joel Dalais is a virtual currency entrepreneur that has found himself within the Bitcoin economy, building and leading the IBWT team. He also holds a BSc (hons) in Criminology with Criminal Justice Studies and Sociology, sits on the Law & Policy Committee of the Bitcoin Foundation, is a member of the Ludwig Von Mises Institute, and is a fellow at the Bitcoin Education Project. His expertise is in: Bitcoin, the social aspects and impacts of a free market monetary unit, regulatory, legal & criminal issues and international standards. He aims to make IBWT an assisting and economically important tool in the developing societal changes."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:15
+msgid "Lead Developer"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:16
+msgid "He is a lifetime member of the Bitcoin Foundation, an expert in IT security, and  has provided strategic guidance to organisations with regard to technology and education. He is currently developing bitcoin projects to help the virtual digital currency grow into a viable mainstream currency, towards this end he is also developing \\\"GreenCoin\\\", a local digital currency."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:23
+msgid "Assistant Developer"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:24
+msgid "Raj Doctor is a management expert in the development sector holding Management (IIM), Urban Planning (CEPT), Law (GU) and Architecture (MSU) qualifications and with nearly 20 years experience in social sector with international, bi-lateral, multi-lateral and government organisations. He has led international programs, heading teams of more than 2500 staffs. His expertise is in: program planning, implementation, monitoring & evaluation and research brings a unique dimension in engaging with policy related advocacy and liaison work with stakeholders - government and international organisations. His aim is to achieve high quality international standard impacts through appropriate processes and systems lead by well-defined indicators to influence Global Policy in eradicating poverty."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:30
+msgid "Web Developer"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_aboutus.html_0_1378898311_3775.php:31
+msgid "Lee Fear has 16+ years experience as a hardware and software computer engineer. Since 2003 he has delved into the website creation process, gaining experience in HTML, CSS and PHP. Working for a long list of clients, his skill-set covers, but is not limited to, dealing with basic HTML pages, PHP, MySQL, integration, customer registrations, products and databases. His charity work includes voluntarily creating and maintaining charity sites, as something to give back to the community. He believes in equal opportunities and that this should also exist within the financial sector."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:2
+msgid "CONTACT US"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:4
+msgid "Email Us"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:5
+msgid "To reach our full team and our primary source of contact please email us at;"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:7
+msgid "We aim to respond to emails within 48 hours barring national bank holidays or unforeseen circumstances."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:9
+msgid "Write to Us"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:11
+msgid "We can be mailed to via our registered office;"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:22
+msgid "Phone Us"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:23
+msgid "For the most immediate concerns, please call us at the number below;"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_contact.html_0_1378898422_1232.php:26
+msgid "Please be aware that depending upon your issue you may be redirected to our email service, and that our phone service is only available between 10:00am and 16:00pm, weekdays."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:2
+msgid "FAQ"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:4
+msgid "Become a Customer"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:6
+msgid "To become an IBWT customer please click "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:6
+msgid "Registration implies you have read and agreed to our "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:6
+msgid "Terms of Service"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:8
+msgid "Fees"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:10
+msgid "We charge 0.8% per transaction."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:11
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:12
+msgid "If you "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:11
+msgid "buy"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:11
+msgid " 1 Bitcoin our fee is "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:11
+msgid " Bitcoins."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:12
+msgid "sell"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:12
+msgid "worth of Bitcoins our fee is "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:12
+msgid "pence"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:15
+msgid "Deposits/Withdrawals"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:19
+msgid "All deposits and withdrawals need to be verified and cleared, please see relevant sections when you login."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:21
+msgid "IMPORTANT"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:21
+msgid "Please make sure to wait for CLEARED deposit requests BEFORE depositing any sterling. As per our Terms Of Use, we cannot be held liable for any charges incurred due to deposits bounced if you have not had your deposit request CLEARED."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:23
+msgid "VERY IMPORTANT"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:23
+msgid "Please make sure to INCLUDE your CUSTOMER REFERENCE, which you can find on your account page, so that we can credit your account appropriately."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:25
+msgid "Example"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:27
+msgid "Time Delays"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:32
+msgid "Transfers are only processed weekdays, barring bank holidays."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:33
+msgid "It can take us up to 24 hours to verify and confirm your deposit request. Customers then have 24 hours to make their deposit. If a deposit is not made in the 24 window then IBWT assumes you have cancelled your deposit request and you will need to make request if you wish to deposit."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:34
+msgid "If your bank does not subscribe to Faster Payments (most UK banks do) then please let us know."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:35
+msgid "It can take us up to 24 hours to verify, confirm and start the process transfer for your withdrawal requests."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:36
+msgid "If the Customer's bank subscribes to Faster Payments the money will reach their account usually within 24 hours but can sometimes take up to close of business the next working day. Otherwise payments take 4 working days to process."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:38
+msgid "Bitcoin"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:39
+msgid "Bitcoin deposits and withdrawals are subject to the Bitcoin protocol."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:42
+msgid "Security"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:46
+msgid "IBWT employs two factor authentication (2fa) and time-based one-time password algorithm (TOTP), for login, withdrawals, deposits and settings."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:48
+msgid "We also require a level of identification for all customers as per our (link) verification page, and run random security checks on accounts. Any information found to be out of date may result in the account in question to be temporarily suspended until such information is suitably updated."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_FAQ.html_0_1378899682_3588.php:50
+msgid "If you have any issues please contact IBWT at "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_privacy.html_0_1378899837_6929.php:2
+msgid "Privacy Policy"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_privacy.html_0_1378899837_6929.php:3
+msgid "This Privacy Policy governs the manner in which IBWT JD Ltd (operating as IBWT) collects, uses, \nmaintains and discloses information collected from users (each, a 'User') of the "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_privacy.html_0_1378899837_6929.php:4
+msgid "This privacy policy applies to the Site and all products and services offered by IBWT JD Ltd."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_privacy.html_0_1378899837_6929.php:6
+msgid "Personal identification information"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:2
+msgid "RISK MANAGEMENT"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:4
+msgid "We aim to be a leading example of best practices and provide a secure and safe environment for you to transact with digital currency. As such our criteria may seem above and beyond the legal requirements, but they are here to protect you and the sanctity of digital currency. "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:5
+msgid "All our customers must be verified, government ID, proof of address and with only one linked bank account in their name (If you are a business please contact customer support)."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:6
+msgid "All deposits and withdrawals need to be verified and confirmed."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:7
+msgid "If transactions are unusual and/or suspicious"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:7
+msgid " we reserve the right to investigate and freeze related accounts."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:8
+msgid "Suspicious activity on accounts will be queried and investigated; monies may be returned (or frozen). Any such cases may result in further investigation and a report filed to the relevant authority."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:9
+msgid "Trying to bypass account limits or conduct international money transfers may result in the related accounts banned (email, username, mobile, ip address tracked and blocked) and all funds refunded if possible."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:10
+msgid "Random security checks are done on all accounts, you may receive an email in relation to this."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:11
+msgid "There are currently limits set to each account,we hope to improve this in future development."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:12
+msgid "Account limits are capped at "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:12
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:13
+msgid "sterling, no limit in Bitcoin."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:13
+msgid "Deposits and withdrawals are capped at "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:15
+msgid "Any concerns can be directed FAO to the Risk Management Officer via "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:17
+msgid "Suspicious meaning but not limited to, activity out of the ordinary, large movements of value, suspected identity fraud, attempts to bypass account limits or conduct international money transfers."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_riskmanagement.html_0_1378900584_2483.php:18
+msgid "When we build better banking relations we will be able to increase these limits."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:4
+msgid "Please read these Terms carefully and do not use the Site or the Platform unless you accept them."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:5
+msgid "is a site operated by of IBWT JD LTD "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:5
+msgid "a company incorporated under the laws of England and Wales. Registered address: 31 North Down Crescent, Keyham, Plymouth, Devon, United Kingdom, company number: 08854667. Our VAT number is 165221136. IBWT is regulated by the Information Commissioners Office, registered no: ZA007784."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:6
+msgid "These Terms of Service "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:6
+msgid "Terms"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:6
+msgid "set the conditions by which a customer, as a registered user "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:6
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:32
+msgid "Customer(s)"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:6
+msgid " can use our services for the purposes of becoming buyers "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:6
+msgid " and sellers "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:6
+msgid " transferring the digital value asset known as 'Bitcoin(s)'"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:7
+msgid "The services allow Customers to transfer funds into ('Deposit') or from ('Withdrawal') their IBWT account to their registered linked bank account. And to interact with other businesses or individuals who accept bitcoin."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:8
+msgid "The services that this site gives is only currently available to United Kingdom residents."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:10
+msgid "By submitting a request to open an account ('Account') customers confirm that they;"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:12
+msgid "are at least 18 years of age and have the full capacity to wilfully accept these Terms of Service and enter into a transaction resulting on the Platform. "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:13
+msgid "have submitted a true representation of documents to verify their identity. "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:14
+msgid "are resident within the United Kingdom. "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:15
+msgid "and have accepted these Terms of Service."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:18
+msgid "IBWT reserves the right to amend, change, add or remove sections of these Terms at any time. Customers will be notified via a News Release on the IBWT site. It is Customers responsibility to review any such amendments."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:19
+msgid "Customers agree that continued use of our Site signifies that they accept and agree to the changes and that all relations with us are subject to these Terms of Service and any amendments."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:20
+msgid "IBWT grants its Customers non-exclusive, personal, non-transferable, non-sub licensable and limited right to enter and use the IBWT site and services."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:22
+msgid "DEFINITIONS"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:24
+msgid "Platform"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:24
+msgid "means the software, technical and organisational structure managed by IBWT located at the"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:24
+msgid "address"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:26
+msgid "Bitcoin(s)"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:26
+msgid "means the Peer-to-Peer digital transfer value asset (as described at "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:28
+msgid "Seller(s)"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:28
+msgid "means Customers(s) that submit an offer to sell Bitcoin(s) on the Platform."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:30
+msgid "Buyer(s)"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:30
+msgid "means Customers(s) that submit an offer to buy Bitcoin(s) on the Platform."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:32
+msgid "Any holder of an account."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:34
+msgid "Price"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:34
+msgid "means 'price per coin' for which Customers are willing to purchase or sell Bitcoins, using the Platform in a Bitcoin Purchase Transaction. Customers may only deposit Sterling (GBP) into their account. "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:35
+msgid "Commission"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:35
+msgid "refers to the fee which is payable to IBWT on each Transaction. Fee's at this time are 0.8% per transaction. For Bitcoin Purchases and Sales Transactions,  commission is charged to each customer per transaction in the received denomination. No fees are charged on Bitcoin Transfers or for Bank Transfers. "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:37
+msgid "Transaction Price"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:37
+msgid "means the total price paid by the Buyer in respect of each Transaction performed on the Platform."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:38
+msgid "Transaction"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:38
+msgid "means;"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:40
+msgid "The agreement between the Buyer and the Seller to exchange Bitcoins on the Platform for currencies at a commonly agreed rate ('Bitcoin Purchase Transaction'),"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:41
+msgid "The conversion of currencies deposited by Customers on their account ('Conversion Transaction'),"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:42
+msgid "The transfer of Bitcoins among Customers ('Bitcoin Transfer Transaction'),"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:43
+msgid "The transfer of currencies among Customers ('Currency Transfer Transaction')"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:48
+msgid "CUSTOMER ACCOUNT"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:50
+msgid "Customers agree to provide IBWT with complete and accurate information about themselves as required by the verification process. Customers accept it is their responsibility to update any relevant information and that it is their liability of any losses incurred, and that accounts may be frozen until relevant information is updated suitably."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:51
+msgid "Customers are responsible for the security and confidentiality of their Account information, including but not limited to their password, transactions and other related matters. Customers accept it is their responsibility to contact IBWT immediately if they suspect any unauthorized use of their Account, or any other breach of security by email addressed to"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:52
+msgid "Customers may only have one Account at a time, unless they use our services for their business and wish to open a business Account (linked to a registered verified business) and have a personal Account. "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:53
+msgid "Customers agree that all Accounts are personal Accounts, in that linked bank accounts must be in their name. And that no business Account will be opened unless requested via email to "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:54
+msgid "The attempted creation or use of Accounts without obtaining such prior express permission from the Platform will lead to the immediate suspension of all said Accounts, as well as all pending purchase/sale offers."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:55
+msgid "IBWT will request identification information (such as invoices, Government issued photographic identification, utility bill, recognised e-bills, residential certificate, banking information, or similar) depending on the amounts deposited on the Accounts or the presence of suspicious activity which may indicate money-laundering or other illegal activity. Identification of the bank account from which funds are transferred to the Account may also be requested. In certain cases extra confirmation of certain documents may be requested from third parties. Transactions may be frozen until the identity check has been considered satisfactory by IBWT. IBWT may request additional identification information at any time at the request by application of any applicable law or regulation."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:56
+msgid "Customers accept that a telephone call may be initiated by IBWT to verify any of the following, but not limited to: verifying identity, transactions, random security checks, or any other related activity."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:57
+msgid "Accounts may be used strictly for the purposes defined in these Terms of Service."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:59
+msgid "TRANSACTIONS"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:60
+msgid "Customers may use the Platform to place orders to buy or sell Bitcoin, or they may buy or sell Bitcoin(s) at the current value that is offered by other Customers."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:61
+msgid "Customers accept that once they submit offers to buy or sell Bitcoin they enter into an Agreement with another Customer to transfer fiat for Bitcoin or vice versa as soon as their offer matches the Price set in an offer submitted by another Customer. Buyer and Seller agree that once their offers match that their offers are binding and may not be reversed."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:62
+msgid "Once the order is placed, IBWT automatically completes the transactions without prior notice to Buyer or Seller."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:63
+msgid "The matching of offers and transfer of funds is a service provided by IBWT via the Platform. Under the Distance Selling Directive 97/7/EC, once Buyers and Sellers offers have been matched, Customers forfeit the ability to cancel any Bitcoin Transaction."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:64
+msgid "Customers accept that transferring bitcoins to their IBWT account or to other addresses is reliant upon the protocol and any 'miner' fee they choose to pay and that IBWT has no influence in this. The average time for Bitcoin transference can be 10 minutes to 24 hours, barring unforeseen or unavoidable network issues."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:65
+msgid "Upon matching of the offers of Buyer and Seller, IBWT has the sole authority to permit the transfer of the amount corresponding to the Transaction Price minus the Commission from the Buyer's Account to the Seller."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:66
+msgid "Customers may at any time transfer any amount of Bitcoins to any other Customer as well as any other Bitcoin users even if they are not Customers (the 'Receiver')."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:67
+msgid "Customers can not transfer GBP."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:68
+msgid "Customers are solely responsible for ensuring that any Receiver of their Bitcoins shall be a valid and legal transaction not infringing any UK or International laws and regulations."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:69
+msgid "The responsibility of IBWT is limited to providing the service to ensure the transference of the Bitcoins. When transferring to a non-Customer recipient, IBWT's responsibility shall also be limited to ensuring the transfer of funds through interacting with the Bitcoin network by relating the necessary technical data."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:70
+msgid "IBWT's responsibility shall be limited to using reasonable technical efforts to ensure the receipt of the Bitcoins transferred. When conducting Bitcoin Transfer Transactions with a Bitcoin user who is not a Member, IBWT's responsibility shall be further limited to ensuring the transfer of the necessary technical data to the Bitcoin peer-to-peer network."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:71
+msgid "No Commission of any kind will be charged by IBWT for Bitcoin being moved as Bitcoin, in, out, or around the Platform, a Bitcoin Transfer Transaction."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:73
+msgid "DEPOSITS & WITHDRAWALS"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:74
+msgid "Customers agree to submit a deposit request before transferring any funds to their IBWT account. And Customers agree to abide by the limits set by IBWT in deposit limits and to wait until their submitted deposit request has been cleared by IBWT. Customers will be notified that their deposit request has been cleared by email notification."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:75
+msgid "If Customers try to deposit without first receiving a cleared deposit request then their funds and account may be frozen and funds returned after investigation into the occurrence."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:76
+msgid "Customers agree to submit a withdrawal request and to wait for their withdrawal request to be confirmed by IBWT before acknowledging the time for their withdrawal to take. Customers acknowledge that withdrawals may take from 24-48 hours, and that IBWT reserve the right to delay withdrawal and/or deposit requests to allow for traffic of customers transfer of funds to move easier."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:77
+msgid "Customers will be notified of their cleared deposit request or any issues with their request via their registered email as the primary contact source."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:78
+msgid "Customers assume full liability for any bank charges incurred as a result of wire transfers being reversed due to not waiting for a cleared deposit request."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:79
+msgid "Customers accept that they have 24 hours to transfer funds from receiving the cleared deposit request, if funds are not deposited within the 24 hours of receipt (of the deposit request) then Customers accept that IBWT will assume the deposit request has been cancelled and Customers will have to submit another deposit request."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:80
+msgid "Trying to conduct wire transfers with cleared deposit requests or outside of the 24 hour time period after receiving a cleared request will be considered suspicious activity and will be investigated and related accounts and funds may be frozen until the issue is resolved."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:81
+msgid "Customers acknowledge that deposits/withdrawals made after 17:00 on a Friday may not be processed until the following Monday."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:83
+msgid "OBLIGATIONS"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:84
+msgid "IBWT Obligations"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:86
+msgid "The skills and expertise with all reasonable care to facilitate Customers transactions by matching offers of Customers via the Platform."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:87
+msgid "That transactions will be conducted in an anonymous manner."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:88
+msgid "That values of Bitcoin (or alt coins) are determined by Customers initiating Buy or Sell orders."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:89
+msgid "That once offers have been met, they cannot be withdrawn."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:90
+msgid "It will hold all GBP and Bitcoins deposited by each Customer in their Accounts, in that Customers registered name and with relation to their details and on such Customers behalf."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:91
+msgid "IBWT will ensure that it keeps itself updated with regards to the development of the Bitcoin economy and any relevant regulation with regard to its Services it provides and the Platform it operates."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:92
+msgid "IBWT reserves the right to suspend/freeze your account if you, as a Customer breaks these Terms of Service.</li>\n<li>Customers understand and accept that IBWT cannot process requests made after 17:00 (GMT) Fridays until the following Monday, and that IBWT is not liable for any loss caused by delays of processing requests."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:96
+msgid "Customers Obligations"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:98
+msgid "Customers accept that they will only use the Platform for the Services as set out in these Terms of Service. Failure to do so or trying to circumvent the conditions held here ma5y result in their account suspended, investigated and possibly terminated."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:99
+msgid "Customers acknowledge that buying and selling of Bitcoin is done via Customer with Customer and IBWT only acts as an intermediary to facilitate such transactions, not as a counterparty. That it is the Customers responsibility to comply with all laws and regulations relating to the transactions."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:100
+msgid "Customers are solely responsible for their accounts activities which include, but are not limited to, Deposits, Withdrawals, transferring Bitcoins."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:101
+msgid "Buyers and Sellers warrant to each other that the money type in either denomination is true to their value representation. Corresponding to either fiat or bitcoin."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:102
+msgid "Customers agree not to use the Platform of any type of illegal activity, or for negatively affecting the performances of the Platform."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:103
+msgid "Customers agree that IBWT conducts the technical side of their transactions, in their name and on their behalf. "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:104
+msgid "Customers accept and acknowledge that they are liable for any charges incurred by relevant entities if they do not confirm to these Terms and Services."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:105
+msgid "Customers acknowledge that IBWT is regulated to the current standards with regards to the laws in England and Wales and as required by HM Treasury, HMRC and FCA (formerly FSA), and accept that IBWT requires whatever time necessary to adhere to any new regulations and laws."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:109
+msgid "INTELLECTUAL PROPERTY RIGHTS"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:110
+msgid "IBWT is the owner or the licensee of all intellectual property rights in our site and in the material published on it.  Those works are protected by copyright laws and treaties around the world.  All such rights are reserved. "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:111
+msgid "Customers may print off one copy, and may download extracts, of any page(s) from our site for Customers personal reference and Customers may draw the attention of others within their organisation to material posted on our site.  "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:112
+msgid "You must not modify the paper or digital copies of any materials printed off or downloaded in any way, and must not use any illustrations, photographs, video or audio sequences or any graphics separately from any accompanying text. "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:113
+msgid "IBWT status (and that of any identified contributors) as the authors of material on our site must always be acknowledged. "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:114
+msgid "You must not use any part of the materials on our site for commercial purposes without obtaining a licence to do so from us or our licensors."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:115
+msgid "If you print off, copy or download any part of our site in breach of these terms of use, your right to use our site will cease immediately and you must, at IBWT's option, return or destroy any copies of the materials you have made."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:116
+msgid "IBWT 'In Bitcoin We Trust.' Is a registered trade mark of IBWT JD LTD, and is protected by patent, trademark and copyright under English and international laws and may not be used without IBWT express written consent."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:117
+msgid "Without IBWT express prior consent, other websites may only link to the Platform by using the following address:"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:117
+msgid "to the exclusion of any deep link."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:119
+msgid "VIRUSES, HACKING AND RELATED OFFENCES"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:120
+msgid "You must not misuse our site by knowingly introducing viruses, trojans, worms, logic bombs or other material which is malicious or technologically harmful. You must not attempt to gain unauthorised access to our site, the server on which our site is stored or any server, computer or database connected to our site. You must not attack our site via a denial-of-service attack or a distributed denial-of service attack. "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:121
+msgid "By breaching this provision, you would commit a criminal offence under the Computer Misuse Act 1990. IBWT will report any such breach to the relevant law enforcement authorities and we will co-operate with those authorities by disclosing your identity to them. In the event of such a breach, your right to use our site will cease immediately."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:122
+msgid "IBWT will not be liable for any loss or damage caused by a distributed denial-of-service attack, viruses or other technologically harmful material that may infect your computer equipment, computer programs, data or other proprietary material due to your use of our site or to your downloading of any material posted on it, or on any website linked to it."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:124
+msgid "LIABILITY"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:125
+msgid "Limitation of Warranties"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:127
+msgid "By using our website, you understand and agree that all Resources IBWT provides are 'as is' and 'as available'. This means that IBWT do not represent or warrant to you that:"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:129
+msgid "the use of our Resources will meet your needs or requirements."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:130
+msgid "the use of our Resources will be uninterrupted, timely, secure or free from errors."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:131
+msgid "the information obtained by using our Resources will be accurate or reliable, and"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:132
+msgid "any defects in the operation or functionality of any Resources IBWT provides will be repaired or corrected."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:134
+msgid "Furthermore, you understand and agree that:"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:135
+msgid "any content downloaded or otherwise obtained through the use of our Resources is done at your own discretion and risk, and that you are solely responsible for any damage to your computer or other devices for any loss of data that may result from the download of such content."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:136
+msgid "no information or advice, whether expressed, implied, oral or written, obtained by you from IBWT JD Ltd or through any Resources IBWT provides shall create any warranty, guarantee, or conditions of any kind, except for those expressly outlined in this User Agreement."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:139
+msgid "Limitation of Liability"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:141
+msgid "In conjunction with the Limitation of Warranties as explained above, you expressly understand and agree that any claim against us shall be limited to the amount you paid, if any, for use of products and/or services. IBWT JD Ltd will not be liable for any direct, indirect, incidental, consequential or exemplary loss or damages which may be incurred by you as a result of using our Resources, or as a result of any changes, data loss or corruption, cancellation, loss of access, or downtime to the full extent that applicable limitation of liability laws apply"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:142
+msgid "Customers will be held solely liable for losses incurred by IBWT or any other user of the Site due to someone else using their password or user account."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:143
+msgid "Customers affirm and warrant that they are the legitimate owners of represented funds of any denomination used in relation to the Platform and the Services provided by IBWT."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:144
+msgid "To the extent that a Customer operates and uses the Site and the Platform other than in the course of its business ('Consumer'), nothing in these Terms shall affect the statutory rights of such Customers."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:145
+msgid "Nothing in these terms excludes or limits the liability of either party for fraud, death or personal injury caused by its negligence, breach of terms implied by operation of law, or any other liability which may not by law be limited or excluded."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:146
+msgid "Subject to the foregoing, IBWT's aggregate liability in respect of claims based on events arising out of or in connection with a Customer's use of the Site, Platform and/or Services, whether in contract or tort (including negligence) or otherwise, shall in no circumstances exceed the greater of either (a) the total amount held on Account for the Member making a claim less any amount of Commission that may be due and payable in respect of such Account; or (b) 125% of the amount of the Transaction(s) that are the subject of the claim less any amount of Commission that may be due and payable in respect of such Transaction(s)."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:148
+msgid "Indemnity"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:149
+msgid "To the fullest extent permitted by applicable law,  customer hereby agree to indemnify IBWT and its affiliates against any action, liability, cost, claim, loss, damage, proceeding or expense suffered or incurred if direct or not directly arising from customers use of IBWT's Site, Platform, Services or from customers violation of these Terms of Service."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:152
+msgid "TERMINATION"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:153
+msgid "Customers agrees that IBWT may, at our sole discretion, suspend or terminate a customers access to all or part of our website and Resources with or without notice and for any reason, including, without limitation, breach of this User Agreement. Any suspected illegal, fraudulent or abusive activity may be grounds for terminating customers relationship and may be referred to appropriate law enforcement authorities. Upon suspension or termination, customers right to use the Resources IBWT provides will immediately cease, and IBWT reserve the right to remove or delete any information that a customer may have on file with us, including any account or login information."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:154
+msgid "Customers will be notified of such a termination via customers registered email and it shall not affect the obligations or rights of either party under these Terms which had accrued prior to the notice of termination, nor the Transactions and its related obligations and rights concluded before such termination was effective."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:155
+msgid "IBWT may attempt to refund a customers account balance of GBP to the registered bank account dependent upon the issue at hand, and  a customer  will have 60 days within receiving such notice to notify IBWT via "
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:155
+msgid " of a bitcoin withdrawal address if  a customer  had bitcoins held on his/her account. Again under the assumption that such termination was not because of any fraud, criminal 8activity, or any other related matter."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:156
+msgid "Should they wish to terminate their agreement with IBWT, Customers may close his/her Account at any time."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:157
+msgid "IBWT also reserve the right to cancel unconfirmed Accounts or Accounts that have been inactive for a period of 4 months or more, or to modify or discontinue our Site or Platform. Customers agree that IBWT will not be liable to them or to any third party for termination of their Account or access to the Site."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:158
+msgid "Customers agree and acknowledge that IBWT can suspend their Account at will until the relevant Customer provides IBWT with documents evidencing their identity and/or any other information IBWT deems as necessary to secure the Account, Transactions, Platform, or services IBWT provides."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:159
+msgid "The suspension of an Account has consequences for the future and shall not affect the payment of the commissions due for past Transactions. Therefore, despite the Account having been suspended for whatever reason under these Terms, the Customer must still pay the Commission(s) which were due before the date of suspension."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:160
+msgid "Customers acknowledge that suspension or termination of an Account can affect any business account they have with IBWT in a similar manner and will affect future applications to become a Customer of IBWT."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:161
+msgid "IBWT reserve the right to refuse an Account and relevant services to any applicant or current Customer for, but not limited to, suspected fraud, criminal activity or abusive behaviour."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:162
+msgid "In the case where Customers do not wish to make use of the functionalities of the Platform after having transferred currencies on their account, they may request that said currencies be returned to them. In this case, the same procedure as stipulated under the preceding paragraph shall apply."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:164
+msgid "GOVERNING LAW"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_company_termsofservice.html_0_1378902265_28455.php:165
+msgid "This website is controlled by IBWT JD Ltd from our offices located in the county of Devon, England and Wales. By accessing our website, customer agrees that the statutes and laws of the England and Wales, without regard to the conflict of laws and the United Nations Convention on the International Sales of Goods, will apply to all matters relating to the use of this website and the purchase of any products or services through this site."
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:60
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:242
+msgid "Buy"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:72
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:124
+msgid "Your balance"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:75
+msgid "Lowest Ask Price"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:100
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:152
+msgid "Summary of your order"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:112
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:197
+msgid "Sell"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:127
+msgid "Highest Bid Price"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:164
+msgid "Pending orders"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:170
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:293
+msgid "Exchange"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:172
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:295
+msgid "Amount"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:196
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:241
+msgid "Orders:"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:214
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:259
+msgid "Total"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_buysell.html_0_1378285232_13149.php:287
+msgid "Completed orders"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:23
 msgid "Low"
 msgstr ""
 
-#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:24
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:24
 msgid "High"
 msgstr ""
 
-#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:25
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:25
 msgid "Last"
 msgstr ""
 
-#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:26
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:26
 msgid "Volume"
 msgstr ""
 
-#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:28
-#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:41
-msgid "Dashboard"
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:28
+msgid "Finances"
 msgstr ""
 
-#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:40
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:41
 msgid "Settings"
 msgstr ""
 
-#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:43
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:42
+msgid "Dashboard"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:44
 msgid "Logout"
 msgstr ""
 
-#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1375254123_2592.php:46
+#: \resources\tmp\cache\templates\template_views_elements_header.html_0_1378285232_3440.php:47
 msgid "Login"
 msgstr ""
 
-#: \views\elements\header.html.php:28
-msgid "Finances"
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:12
+msgid "Accounts"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:73
+msgid "Currency"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:79
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:303
+msgid "Action"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:141
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:243
+msgid "Opening Balance"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:150
+msgid "Current Balance"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:160
+msgid "Pending Buy Orders"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:169
+msgid "Pending Sell Orders"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:178
+msgid "After Execution"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:187
+msgid "Commissions"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:196
+msgid "Complete Buy Orders"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:205
+msgid "Complete Sell Orders"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:214
+msgid "Completed Order Commissions"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:226
+msgid "Convert to:"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:259
+msgid "Users you transacted with (max 20)"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:265
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:302
+msgid "User name"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:295
+msgid "Some thing else"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:301
+msgid "Date accepted"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_ex_dashboard.html_0_1378726416_15911.php:304
+msgid "Profile"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_sessions_add.html_0_1378877447_2607.php:29
+msgid "Sign up"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_users_signup.html_0_1378285232_2664.php:5
+msgid "Signup"
+msgstr ""
+
+#: \resources\tmp\cache\templates\template_views_users_signup.html_0_1378285232_2664.php:28
+msgid "Advantages"
+msgstr ""
+
+#: \views\admin\approval.html.php:34
+msgid "Username"
+msgstr ""
+
+#: \views\company\FAQ.html.php:46
+msgid "IBWT employs two factor authentication (2FA) and time-based one-time password algorithm (TOTP), for login, withdrawals, deposits and settings."
+msgstr ""
+
+#: \views\company\legal.html.php:2
+msgid "Legal"
+msgstr ""
+
+#: \views\company\legal.html.php:4
+msgid "Money Service Business (MSB), HMRC / Electronic Money Institute (EMI), FCA (formerly FSA)"
+msgstr ""
+
+#: \views\company\legal.html.php:5
+msgid "The current state of the UK governments view towards Bitcoin is a 'wait and see' approach, thankfully allowing Bitcoin time to grow and mature."
+msgstr ""
+
+#: \views\company\legal.html.php:6
+msgid "IBWT is a legally abiding entity and as such will register with regulatory bodies as required by law if the situation changes."
+msgstr ""
+
+#: \views\company\legal.html.php:7
+msgid "More information can be found with our News Release"
+msgstr ""
+
+#: \views\company\legal.html.php:9
+msgid "If you feel we have not satisfactorily dealt with any issue you have with regards to our privacy policy and your personal data, you can contact the Information Commissioners Office."
+msgstr ""
+
+#: \views\company\legal.html.php:15
+msgid "IBWT is the trading name of IBWT JD LTD, which is a Private Limited Company registered in England and Wales."
+msgstr ""
+
+#: \views\company\privacy.html.php:7
+msgid "We may collect personal identification information from Users in a variety of ways, including, but not limited to, when Users visit our site, register on the site, and in connection with other activities, services, features or resources we make available on our Site. Users may be asked for, as appropriate, name, email address, proof of address, government photo issued ID, and contact phone number. We will collect personal identification information from Users only if they voluntarily submit such information to us. Users can always refuse to supply personally identification information, except that it may prevent them from registering as a customer and engaging in certain Site related activities."
+msgstr ""
+
+#: \views\company\privacy.html.php:11
+msgid "Non-personal identification information"
+msgstr ""
+
+#: \views\company\privacy.html.php:12
+msgid "We may collect non-personal identification information about Users whenever they interact with our Site. \nNon-personal identification information may include the browser name, the type of computer and technical information about Users, means of connection to our Site, such as the operating system and the Internet service providers utilized and other similar information."
+msgstr ""
+
+#: \views\company\privacy.html.php:16
+msgid "Web browser cookies"
+msgstr ""
+
+#: \views\company\privacy.html.php:18
+msgid "Our Site may use 'cookies' to enhance User experience. User's web browser places cookies on their hard drive for record-keeping purposes and sometimes to track information about them. User may choose to set their web browser to refuse cookies, or to alert you when cookies are being sent. If they do so, note that some parts of the Site may not function properly."
+msgstr ""
+
+#: \views\company\privacy.html.php:21
+msgid "How we use collected information"
+msgstr ""
+
+#: \views\company\privacy.html.php:23
+msgid "IBWT JD Ltd may collect and use Users personal information for the following purposes:"
+msgstr ""
+
+#: \views\company\privacy.html.php:25
+msgid "To improve customer service"
+msgstr ""
+
+#: \views\company\privacy.html.php:26
+msgid "Information you provide helps us respond to your customer service requests and support needs more efficiently."
+msgstr ""
+
+#: \views\company\privacy.html.php:27
+msgid "To personalize user experience"
+msgstr ""
+
+#: \views\company\privacy.html.php:28
+msgid "We may use information in the aggregate to understand how our Users as a group use the services and resources provided on our Site."
+msgstr ""
+
+#: \views\company\privacy.html.php:29
+msgid "To improve our Site"
+msgstr ""
+
+#: \views\company\privacy.html.php:30
+msgid "We may use feedback you provide to improve our products and services."
+msgstr ""
+
+#: \views\company\privacy.html.php:31
+msgid "To process payments"
+msgstr ""
+
+#: \views\company\privacy.html.php:32
+msgid "We may use the information Users provide about themselves when placing an order only to provide service to that order. We do not share this information with outside parties except to the extent necessary to provide the service."
+msgstr ""
+
+#: \views\company\privacy.html.php:33
+msgid "To send periodic emails"
+msgstr ""
+
+#: \views\company\privacy.html.php:34
+msgid "We may use the email address to send User information and updates pertaining to their order. It may also be used to respond to their inquiries, questions, and/or other requests."
+msgstr ""
+
+#: \views\company\privacy.html.php:38
+msgid "How we protect your information"
+msgstr ""
+
+#: \views\company\privacy.html.php:40
+msgid "We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorized access, alteration, disclosure or destruction of your personal information, username, password, transaction information and data stored on our Site."
+msgstr ""
+
+#: \views\company\privacy.html.php:41
+msgid "Sensitive and private data exchange between the Site and its Users happens over a SSL secured communication channel and is encrypted and protected with digital signatures. Our Site is also in compliance with PCI vulnerability standards and we are registered with ICO and adhere to their practices in order to create as secure of an environment as possible for Users."
+msgstr ""
+
+#: \views\company\privacy.html.php:44
+msgid "Sharing your personal information"
+msgstr ""
+
+#: \views\company\privacy.html.php:45
+msgid "We do not sell, trade, or rent Users personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above."
+msgstr ""
+
+#: \views\company\privacy.html.php:48
+msgid "Third party websites"
+msgstr ""
+
+#: \views\company\privacy.html.php:49
+msgid "Users may find advertising or other content on our Site that link to the sites and services of our partners, suppliers, advertisers, sponsors, licensors and other third parties. We do not control the content or links that appear on these sites and are not responsible for the practices employed by websites linked to or from our Site. In addition, these sites or services, including their content and links, may be constantly changing. These sites and services may have their own privacy policies and customer service policies. Browsing and interaction on any other website, including websites which have a link to our Site, is subject to that website's own terms and policies."
+msgstr ""
+
+#: \views\company\privacy.html.php:52
+msgid "Changes to this privacy policy"
+msgstr ""
+
+#: \views\company\privacy.html.php:53
+msgid "IBWT JD Ltd has the discretion to update this privacy policy at any time. When we do, we will post a notification on the main page of our Site, and revise the updated date at the bottom of this page. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications."
+msgstr ""
+
+#: \views\company\privacy.html.php:56
+msgid "Your acceptance of these terms"
+msgstr ""
+
+#: \views\company\privacy.html.php:57
+msgid "By using this Site, you signify your acceptance of this policy and terms of service. If you do not agree to this policy, please do not use our Site. Your continued use of the Site following the posting of changes to this policy will be deemed your acceptance of those changes."
+msgstr ""
+
+#: \views\company\privacy.html.php:60
+msgid "Contacting us"
+msgstr ""
+
+#: \views\company\privacy.html.php:62
+msgid "If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at:"
+msgstr ""
+
+#: \views\company\termsofservice.html.php:166
+msgid "Furthermore, any action to enforce this User Agreement shall be brought in the courts located in England and Wales, Devon. Customer  hereby agree to personal jurisdiction by such courts, and waive any jurisdictional, venue, or inconvenient forum objections to such courts."
+msgstr ""
+
+#: \views\company\termsofservice.html.php:168
+msgid "DATA PROTECTION ACT (1998)"
+msgstr ""
+
+#: \views\company\termsofservice.html.php:169
+msgid "When a customer opens an Account to use the Platform or otherwise use this Site IBWT may ask the customer  to provide us with personal information. As IBWT is governed by the Data Protection Act (1998) any personal information that  a customer  provides to IBWT through this Site shall be subject to our privacy policy. Click the following to see our privacy policy."
+msgstr ""
+
+#: \views\company\termsofservice.html.php:171
+msgid "MISCELLANEOUS"
+msgstr ""
+
+#: \views\company\termsofservice.html.php:172
+msgid "In case of a force majeure event as defined by applicable law, the liabilities of the affected party to these Terms will be suspended pending resolution of such event."
+msgstr ""
+
+#: \views\company\termsofservice.html.php:173
+msgid "If a competent judicial authority deems any provision of the Terms unenforceable, that provision will be enforced to the maximum extent permissible, and all remaining provisions will remain in full force and effect."
+msgstr ""
+
+#: \views\company\termsofservice.html.php:177
+msgid "If a customer  has any questions relating to these Terms of Service contact us at:"
+msgstr ""
+
+#: \views\company\verification.html.php:2
+msgid "Verification Page"
+msgstr ""
+
+#: \views\company\verification.html.php:3
+msgid "Though IBWT is not regulated by HMRC, FCA and KYC/AML/MSB standards, we still require a certain level of verification and identity checks. This helps us prevent fraud, keep customers accounts secure and ensure best business practices."
+msgstr ""
+
+#: \views\company\verification.html.php:4
+msgid "Our aim is to inspire trust with customers and establishments to build long lasting relationships."
+msgstr ""
+
+#: \views\company\verification.html.php:5
+msgid "To become IBWT customer"
+msgstr ""
+
+#: \views\company\verification.html.php:5
+msgid " and use our platform and services, you must submit the following information:"
+msgstr ""
+
+#: \views\company\verification.html.php:7
+msgid "Full name."
+msgstr ""
+
+#: \views\company\verification.html.php:8
+msgid "Government issued photo identification."
+msgstr ""
+
+#: \views\company\verification.html.php:9
+msgid "Proof of address (utility bill, credit statement, or official recognised* letter, NOT mobile phone bill)."
+msgstr ""
+
+#: \views\company\verification.html.php:10
+msgid "Bank details for linked bank account, must be in customers own name (account number, sort code, account name)."
+msgstr ""
+
+#: \views\company\verification.html.php:11
+msgid "Contact telephone number."
+msgstr ""
+
+#: \views\company\verification.html.php:12
+msgid "Contact email."
+msgstr ""
+
+#: \views\company\verification.html.php:13
+msgid "Deposit "
+msgstr ""
+
+#: \views\company\verification.html.php:13
+msgid "1 for bank identification."
+msgstr ""
+
+#: \views\company\verification.html.php:16
+msgid "IBWT reserve the right to seek more information to verify a customer's identity, and/or to refuse an account if the customer's identity is not verified to our legal requirement."
+msgstr ""
+
+#: \views\company\verification.html.php:17
+msgid "Your information is subject to our "
+msgstr ""
+
+#: \views\company\verification.html.php:18
+msgid "To register an account and submit your verification information please click "
+msgstr ""
+
+#: \views\company\verification.html.php:18
+msgid "here"
+msgstr ""
+
+#: \views\company\verification.html.php:28
+msgid "As recognised by IBWT."
 msgstr ""
 
