@@ -15,6 +15,7 @@ use MongoID;
 use lithium\util\String;
 use lithium\security\Auth;
 use lithium\storage\Session;
+use app\extensions\action\Functions;
 
 use \lithium\template\View;
 use \Swift_MailTransport;
@@ -424,8 +425,17 @@ class ExController extends \lithium\action\Controller {
 		$Commissions = $this->TotalCommissions($id);
 		$CompletedCommissions = $this->CompletedTotalCommissions($id);		
 		$RequestFriends = $this->RequestFriend($id);
+		$UsersRegistered = Details::count();
+		$functions = new Functions();
+		$OnlineUsers = 	$functions->OnlineUsers();
+		foreach($trades as $t){
+			$TotalOrders['Buy'] = $this->TotalOrders('Buy',substr($t['trade'],0,3),substr($t['trade'],4,3));
+			$TotalOrders['Sell'] = $this->TotalOrders('Sell',substr($t['trade'],0,3),substr($t['trade'],4,3));			
+			$TotalCompleteOrders['Buy'] = $this->TotalCompleteOrders('Buy',substr($t['trade'],0,3),substr($t['trade'],4,3));
+			$TotalCompleteOrders['Sell'] = $this->TotalCompleteOrders('Sell',substr($t['trade'],0,3),substr($t['trade'],4,3));						
+		}
 		$title = "Dashboard";
-		return compact('title','details','YourOrders','Commissions','CompletedCommissions','YourCompleteOrders','RequestFriends');
+		return compact('title','details','YourOrders','Commissions','CompletedCommissions','YourCompleteOrders','RequestFriends','UsersRegistered','OnlineUsers','TotalOrders','TotalCompleteOrders');
 	}
 
 	public function TotalCommissions($id){
@@ -519,6 +529,45 @@ class ExController extends \lithium\action\Controller {
 	return $YourOrders;
 	
 	}
+
+	public function TotalOrders($Action,$FirstCurrency,$SecondCurrency){
+		$mongodb = Connections::get('default')->connection;
+		$TotalOrders = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Action' => '$Action',
+					'user_id' => '$user_id',					
+					'Amount'=>'$Amount',
+					'PerPrice'=>'$PerPrice',
+					'Completed'=>'$Completed',
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+					'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),					
+				)),
+				array('$match'=>array(
+					'Completed'=>'N',
+					'Action'=>$Action,										
+					)),
+				array('$group' => array( '_id' => array(
+						'Action'=>'$Action',				
+						'FirstCurrency'=>'$FirstCurrency',
+						'SecondCurrency'=>'$SecondCurrency',						
+						),
+					'Amount' => array('$sum' => '$Amount'),  
+					'TotalAmount' => array('$sum' => '$TotalAmount'), 										
+					'No' => array('$sum'=>1)					
+				)),
+				array('$sort'=>array(
+					'_id.Action'=>1,
+				))
+			)
+		));
+	return $TotalOrders;
+	
+	}
+
 	public function YourCompleteOrders($id,$Action,$FirstCurrency,$SecondCurrency){
 		$mongodb = Connections::get('default')->connection;
 		$YourCompleteOrders = Orders::connection()->connection->command(array(
@@ -555,6 +604,42 @@ class ExController extends \lithium\action\Controller {
 			)
 		));
 	return $YourCompleteOrders;
+	}
+	public function TotalCompleteOrders($Action,$FirstCurrency,$SecondCurrency){
+		$mongodb = Connections::get('default')->connection;
+		$TotalCompleteOrders = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Action' => '$Action',
+					'user_id' => '$user_id',					
+					'Amount'=>'$Amount',
+					'PerPrice'=>'$PerPrice',
+					'Completed'=>'$Completed',
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+					'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),					
+				)),
+				array('$match'=>array(
+					'Completed'=>'Y',
+					'Action'=>$Action,										
+					)),
+				array('$group' => array( '_id' => array(
+						'Action'=>'$Action',				
+						'FirstCurrency'=>'$FirstCurrency',
+						'SecondCurrency'=>'$SecondCurrency',						
+						),
+					'Amount' => array('$sum' => '$Amount'),  
+					'TotalAmount' => array('$sum' => '$TotalAmount'), 										
+					'No' => array('$sum'=>1)					
+				)),
+				array('$sort'=>array(
+					'_id.Action'=>1,
+				))
+			)
+		));
+	return $TotalCompleteOrders;
 	}
 	
 	public function RemoveOrder($OrderID,$ID,$back){

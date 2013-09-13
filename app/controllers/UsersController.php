@@ -199,7 +199,7 @@ class UsersController extends \lithium\action\Controller {
 		));
 		if($image_utility['filename']!=""){
 				$imagename_utility = $image_utility['_id'].'_'.$image_utility['filename'];
-				$path = LITHIUM_APP_PATH . '/webroot/documents/'.$imagename_utility;
+					$path = LITHIUM_APP_PATH . '/webroot/documents/'.$imagename_utility;
 				file_put_contents($path, $image_utility->file->getBytes());
 		}
 
