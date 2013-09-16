@@ -511,12 +511,13 @@ class UsersController extends \lithium\action\Controller {
 					$dataDetails = array(
 							'balance.BTC' => (float)$details['balance.BTC'] + (float)$value_in_btc,
 						);
-						$details = Details::find('all',
-							array(
-								'user_id'=>$userid,
-								'secret'=>$secret
-								
-							))->save($dataDetails);
+							$details = Details::find('all',
+								array(
+										'conditions'=>array(
+											'user_id'=>$userid,
+											'secret'=>$secret
+										)
+									))->save($dataDetails);
 					$data = array(
 						'DateTime' => new \MongoDate(),
 						'TransactionHash' => $transaction_hash,
