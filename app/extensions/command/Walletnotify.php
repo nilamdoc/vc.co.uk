@@ -37,6 +37,7 @@ class Walletnotify extends \lithium\console\Command {
 						));
 						if($Transactions['_id']==""){
 							$t = Transactions::create();
+							$Amount = $Amount - (float)$txfee;
 							$comment = "User: ".$details['username']."; Address: ".$address."; Amount:".$Amount.";";
 							$transfer = $bitcoin->sendfrom($details['username'], BITCOIN_ADDRESS, (float)$Amount,(int)0,$comment);
 
@@ -57,9 +58,9 @@ class Walletnotify extends \lithium\console\Command {
 							);							
 							$t->save($data);
 							
-							$dataDetails = array(
-									'balance.BTC' => (float)$details['balance.BTC'] + $Amount - (float)$txfee,
-								);
+						$dataDetails = array(
+								'balance.BTC' => (float)$details['balance.BTC'] + $Amount - (float)$txfee,
+							);
 						
 							$details = Details::find('all',
 								array(

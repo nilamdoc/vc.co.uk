@@ -154,7 +154,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="text-align:right "><?=number_format($details['balance.USD'],4)?></td>
 					<td style="text-align:right "><?=number_format($details['balance.EUR'],4)?></td>
 					<td style="text-align:right "><?=number_format($details['balance.GBP'],4)?></td>
-					<td><a href="" class="btn btn-primary"><?=$t("Funding")?></a></td>																									
+					<td><a href="/users/funding" class="btn btn-primary"><?=$t("Funding")?></a></td>																									
 				</tr>
 				<tr>
 					<td><strong><?=$t('Pending Buy Orders')?></strong></td>

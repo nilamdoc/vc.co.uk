@@ -4,6 +4,7 @@ namespace app\controllers;
 use app\extensions\action\OAuth2;
 use app\models\Users;
 use app\models\Details;
+use app\models\Transactions;
 use app\models\File;
 use lithium\data\Connections;
 use app\extensions\action\Functions;
@@ -470,6 +471,63 @@ class UsersController extends \lithium\action\Controller {
 
 	return compact('msg');
 	}
+	public function funding(){
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
 
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		$secret = $details['secret'];
+		$userid = $details['user_id'];		
+		$my_address = BITCOIN_ADDRESS;
+		$callback_url = 'https://'.COMPANY_URL.'/users/receipt/?userid='.$userid.'&secret='.$secret;
+		$root_url = 'https://blockchain.info/api/receive';
+		$parameters = 'method=create&address=' . $my_address .'&shared=false&callback='. urlencode($callback_url);
+		$response = file_get_contents($root_url . '?' . $parameters);
+		$object = json_decode($response);
+		print_r($object);
+		$address = $object->input_address;
+
+		return compact('details','address')	;
+	}
+	public function receipt(){
+		$secret = $_GET['secret'];;
+		$userid = $_GET['userid']; //invoice_id is past back to the callback URL
+		$transaction_hash = $_GET['transaction_hash'];
+		$input_transaction_hash = $_GET['input_transaction_hash'];
+		$input_address = $_GET['input_address'];
+		$value_in_satoshi = $_GET['value'];
+		$value_in_btc = $value_in_satoshi / 100000000;	
+		$details = Details::find('first',
+			array(
+					'conditions'=>array(
+						'user_id'=>$userid,
+						'secret'=>$secret)
+				));
+				if(count($details)!=0){
+				$t = Transactions::create();
+					$dataDetails = array(
+							'balance.BTC' => (float)$details['balance.BTC'] + (float)$value_in_btc,
+						);
+						$details = Details::find('all',
+							array(
+								'user_id'=>$userid,
+								'secret'=>$secret
+								
+							))->save($dataDetails);
+					$data = array(
+						'DateTime' => new \MongoDate(),
+						'TransactionHash' => $transaction_hash,
+						'username' => $details['username'],
+						'address'=>$input_address,							
+						'Amount'=> (float)$value_in_btc,
+						'Added'=>true,
+					);							
+					$t->save($data);
+				}
+			return $this->render(array('layout' => false));	
+	}
 }
 ?>

@@ -60,9 +60,9 @@ use li3_qrcode\extensions\action\QRcode;
 				<?php 
 					$qrcode = new QRcode();
 				foreach($details['bitcoinaddress'] as $a){
-					$qrcode->png($a, QR_OUTPUT_DIR.$a.'.png', 'H', 7, 2);
-					echo $a;
-					echo " <img src='".QR_OUTPUT_RELATIVE_DIR.$a.".png'>";
+						$qrcode->png($a, QR_OUTPUT_DIR.$a.'.png', 'H', 7, 2);
+						echo $a;
+						echo " <img src='".QR_OUTPUT_RELATIVE_DIR.$a.".png'>";
 				}
 				?>
 				</td>
