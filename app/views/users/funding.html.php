@@ -14,7 +14,7 @@ use li3_qrcode\extensions\action\QRcode;
 					<td><?=$t("Bitcoin Address")?></td>
 				</tr>
 				<tr>
-					<td>To add bitcoins please send payment to: <strong><?=$address?></strong></td>
+					<td><?=$t("To add bitcoins please send payment to: ")?><strong><?=$address?></strong></td>
 				</tr>
 				<tr>
 				<?php	$qrcode->png($address, QR_OUTPUT_DIR.$address.'.png', 'H', 7, 2);?>
