@@ -71,6 +71,7 @@ function handleFiles(f)
 function read(a)
 {
  $("#bitcoinaddress").val(a);
+ $("#SendAddress").html(a); 
  $("#bitcoinaddress").addClass("Address_success");
  $("#bitcoinAddressWindow").hide();
 }	
@@ -166,12 +167,14 @@ function initCanvas(ww,hh)
 				</tr>
 				<tr>
 					<td style="height:280px ">
-						<form action="/users/payment/">
+						<form action="/users/payment/" method="post">
 						<div class="input-append">
 						<label for="bitcoinaddress">Bitcoin Address</label>
-<input type="text" name="bitcoinaddress" id="bitcoinaddress" placeholder="15AXfnf7hshkwgzA8UKvSyjpQdtz34H9LE" class="span4" title="To Address" data-content="This is the Bitcoin Address of the recipient." value="" />
+<input type="text" name="bitcoinaddress" id="bitcoinaddress" placeholder="15AXfnf7hshkwgzA8UKvSyjpQdtz34H9LE" class="span4" title="To Address" data-content="This is the Bitcoin Address of the recipient." value="" onblur="BitCoinAddress();"/>
 					<span class="add-on"><a href="#" onclick="loadDiv();"><i class="icon-qrcode"></i></a></span></div>
+
 					<small class="help-block">Enter The Bitcoin Address of the Recipient</small>
+
 					<div id="bitcoinAddressWindow" style="display:none;border:1px solid gray;padding:2px;width:304px;text-align:center ">
 					<object  id="iembedflash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="300" height="200">
 					<param name="movie" value="/js/qrcode/camcanvas.swf" />
@@ -182,7 +185,37 @@ function initCanvas(ww,hh)
 					<a onclick="captureToCanvas();" class="btn btn-primary">Capture</a>
 					<canvas id="qr-canvas" width="300" height="200" style="display:none"></canvas>
 					</div>
-							<?=$this->form->field('amount', array('label'=>'Amount', 'placeholder'=>'0.0', 'class'=>'span2')); ?>
+
+					<?php
+					$max = (float)$details['balance.BTC'] - (float)$txfee;
+					?>
+							<?=$this->form->field('amount', array('label'=>'Amount', 'placeholder'=>'0.0', 'class'=>'span2', 'max'=>$max,'min'=>'0.001','onblur'=>'SuccessButtonDisable();' )); ?>
+							<input type="hidden" id="maxValue" value="<?=$max?>" name="maxValue">
+							<input type="hidden" id="txFee" value="<?=$txfee?>" name="txFee">							
+							<div id="SendCalculations">
+								<table class="table table-condensed table-bordered table-hover">
+									<tr>
+										<th width="30%">Send to:</th>
+										<td id="SendAddress"></td>
+									</tr>
+									<tr>
+										<th>Amount:</th>
+										<td id="SendAmount"></td>
+									</tr>
+									<tr>
+										<th>Transaction Fees:<br>
+										<small>to miners</small></th>
+										<td id="SendFees"></td>
+									</tr>
+									<tr>
+										<th>Total:</th>
+										<th id="SendTotal"></th>
+									</tr>
+								</table>
+							</div>
+							<input type="button" value="Calculate" class="btn btn-primary" onclick="return CheckPayment();">
+							<input type="submit" value="Send" class="btn btn-success" onclick="return CheckPayment();" disabled="disabled" id="SendSuccessButton">
+							
 						</form>
 					</td>
 				</tr>

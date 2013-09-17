@@ -47,16 +47,16 @@ class Walletnotify extends \lithium\console\Command {
 								$error = $transfer;
 							}
 							
-							$data = array(
-								'DateTime' => new \MongoDate(),
-								'TransactionHash' => $s,
-								'username' => $details['username'],
-								'address'=>$address,							
-								'Amount'=> $Amount - (float)$txfee,
-								'Added'=>true,
-								'Transfer'=>$error,
-							);							
-							$t->save($data);
+						$data = array(
+							'DateTime' => new \MongoDate(),
+							'TransactionHash' => $s,
+							'username' => $details['username'],
+							'address'=>$address,							
+							'Amount'=> $Amount - (float)$txfee,
+							'Added'=>true,
+							'Transfer'=>$error,
+						);							
+						$t->save($data);
 							
 						$dataDetails = array(
 								'balance.BTC' => (float)$details['balance.BTC'] + $Amount - (float)$txfee,

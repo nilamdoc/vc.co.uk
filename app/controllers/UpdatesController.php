@@ -12,6 +12,7 @@ use app\models\Details;
 use app\models\Trades;
 use app\models\Orders;
 use lithium\data\Connections;
+use app\extensions\action\Bitcoin;
 
 class UpdatesController extends \lithium\action\Controller {
 
@@ -161,6 +162,14 @@ class UpdatesController extends \lithium\action\Controller {
 	print_r($Fees);
 	print_r($GrandTotal);		
 	exit;
+	}
+	
+	public function Address($address = null){
+		$bitcoin = new Bitcoin('http://'.BITCOIN_WALLET_SERVER.':'.BITCOIN_WALLET_PORT,BITCOIN_WALLET_USERNAME,BITCOIN_WALLET_PASSWORD);
+			$verify = $bitcoin->validateaddress($address);
+		return $this->render(array('json' => array(
+			'verify'=> $verify,
+		)));
 	}
 }
 

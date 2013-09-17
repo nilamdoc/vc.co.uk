@@ -198,3 +198,35 @@ function DeleteTOTP(){
 		function(ReturnValues){}
 	);	
 }
+function CheckPayment(){
+	address = $("#bitcoinaddress").val();
+	if(address==""){return false;}
+	amount = $("#Amount").val();
+	if(amount==""){return false;}
+	maxValue = $("#maxValue").val();
+	if(amount>=maxValue){return false;}
+	
+	$("#SendFees").html($("#txFee").val());
+	$("#SendAmount").html(amount);	
+	$("#SendTotal").html(parseFloat(amount)+parseFloat($("#txFee").val()));	
+
+
+	$.getJSON('/Updates/Address/'+address,
+		function(ReturnValues){
+			if(ReturnValues['verify']['isvalid']==true){
+				address = "<a href='http://blockchain.info/address/"+ address +"' target='_blank'>"+ address +"</a> <i class='icon-ok'></i>"
+			$("#SendAddress").html(address); 	
+			$("#SendSuccessButton").removeAttr('disabled');				
+				}
+		});
+	return true;
+	}
+	
+function BitCoinAddress(){
+	address = $("#bitcoinaddress").val();
+  $("#SendAddress").html(address); 	
+	SuccessButtonDisable();
+	}
+function SuccessButtonDisable(){
+	$("#SendSuccessButton").attr("disabled", "disabled");
+	}

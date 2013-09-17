@@ -5,6 +5,7 @@ use app\extensions\action\OAuth2;
 use app\models\Users;
 use app\models\Details;
 use app\models\Transactions;
+use app\models\Parameters;
 use app\models\File;
 use lithium\data\Connections;
 use app\extensions\action\Functions;
@@ -489,7 +490,9 @@ class UsersController extends \lithium\action\Controller {
 		$object = json_decode($response);
 //		print_r($object);
 		$address = $object->input_address;
-			return compact('details','address')	;
+		$paytxfee = Parameters::find('first');
+		$txfee = $paytxfee['paytxfee'];
+			return compact('details','address','txfee')	;
 	}
 	public function receipt(){
 		$secret = $_GET['secret'];;
@@ -529,6 +532,60 @@ class UsersController extends \lithium\action\Controller {
 									))->save($dataDetails);
 				}
 			return $this->render(array('layout' => false));	
+	}
+	
+	public function payment(){
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		
+		if ($this->request->data) {
+			$guid=BITCOIN_GUID;
+			$firstpassword=BITCOIN_FIRST;
+			$secondpassword=BITCOIN_SECOND;
+			$amount = $this->request->data['amount'];
+			$fee = $this->request->data['txFee'];
+			$address = $this->request->data['address'];
+			$recipients = urlencode('{
+												"'.$address.'": '.$amount.',
+										 }');
+			$json_url = "http://blockchain.info/merchant/$guid/payment?password=$firstpassword&second_password=$secondpassword&to=$recipients&amount=$amount&fee=$fee";
+			
+			$json_data = file_get_contents($json_url);
+			$json_feed = json_decode($json_data);
+			$message = $json_feed->message;
+			$txid = $json_feed->tx_hash;
+
+			$t = Transactions::create();
+			$data = array(
+					'DateTime' => new \MongoDate(),
+					'TransactionHash' => $txid,
+					'username' => $details['username'],
+					'address'=>$address,							
+					'Amount'=> (float) -$amount,
+					'txFee' => (float) -$fee,
+					'Added'=>false,
+					'Transfer'=>$message,
+				);							
+				$t->save($data);
+				$dataDetails = array(
+						'balance.BTC' => (float)$details['balance.BTC'] - (float)$amount - (float)$fee,
+					);
+						
+				$details = Details::find('all',
+					array(
+							'conditions'=>array(
+								'user_id'=> (string) $id
+							)
+						))->save($dataDetails);
+
+			return compact('message','txid');
+	
+		}
 	}
 }
 ?>
