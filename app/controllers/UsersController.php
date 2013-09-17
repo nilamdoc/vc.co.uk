@@ -489,8 +489,7 @@ class UsersController extends \lithium\action\Controller {
 		$object = json_decode($response);
 //		print_r($object);
 		$address = $object->input_address;
-
-		return compact('details','address')	;
+			return compact('details','address')	;
 	}
 	public function receipt(){
 		$secret = $_GET['secret'];;
@@ -507,7 +506,17 @@ class UsersController extends \lithium\action\Controller {
 						'secret'=>$secret)
 				));
 				if(count($details)!=0){
-				$t = Transactions::create();
+					$t = Transactions::create();
+					$data = array(
+						'DateTime' => new \MongoDate(),
+						'TransactionHash' => $transaction_hash,
+						'username' => $details['username'],
+						'address'=>$input_address,							
+						'Amount'=> (float)$value_in_btc,
+						'Added'=>true,
+					);							
+					$t->save($data);
+				
 					$dataDetails = array(
 							'balance.BTC' => (float)$details['balance.BTC'] + (float)$value_in_btc,
 						);
@@ -518,15 +527,6 @@ class UsersController extends \lithium\action\Controller {
 											'secret'=>$secret
 										)
 									))->save($dataDetails);
-					$data = array(
-						'DateTime' => new \MongoDate(),
-						'TransactionHash' => $transaction_hash,
-						'username' => $details['username'],
-						'address'=>$input_address,							
-						'Amount'=> (float)$value_in_btc,
-						'Added'=>true,
-					);							
-					$t->save($data);
 				}
 			return $this->render(array('layout' => false));	
 	}
