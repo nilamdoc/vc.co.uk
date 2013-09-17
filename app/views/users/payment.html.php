@@ -3,4 +3,5 @@
 <?php 
 print_r($txid);
 print_r($message);	
+print_r($json_url);
 ?>

@@ -549,11 +549,12 @@ class UsersController extends \lithium\action\Controller {
 			$secondpassword=BITCOIN_SECOND;
 			$amount = $this->request->data['amount'];
 			$fee = $this->request->data['txFee'];
-			$address = $this->request->data['address'];
+			$address = $this->request->data['bitcoinaddress'];
+
 			$recipients = urlencode('{
 												"'.$address.'": '.$amount.',
 										 }');
-			$json_url = "http://blockchain.info/merchant/$guid/payment?password=$firstpassword&second_password=$secondpassword&to=$recipients&amount=$amount&fee=$fee";
+			$json_url = "http://blockchain.info/merchant/$guid/payment?password=$firstpassword&second_password=$secondpassword&to=$address&amount=$amount&fee=$fee";
 			
 			$json_data = file_get_contents($json_url);
 			$json_feed = json_decode($json_data);
@@ -583,7 +584,7 @@ class UsersController extends \lithium\action\Controller {
 							)
 						))->save($dataDetails);
 
-			return compact('message','txid');
+			return compact('message','txid','json_url');
 	
 		}
 	}
