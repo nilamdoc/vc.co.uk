@@ -585,7 +585,7 @@ class UsersController extends \lithium\action\Controller {
 						))->save($dataDetails);
 
 			return compact('message','txid','json_url');
-	
+		
 		}
 	}
 }
