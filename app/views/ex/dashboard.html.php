@@ -10,6 +10,8 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 		<div class="navbar">
 			<div class="navbar-inner">
 			<a class="brand" href="#"><?=$t('Accounts')?> </a>
+			<a href="/users/funding" class="btn btn-primary"><?=$t("Funding")?></a>
+			<a href="/users/transactions" class="btn btn-primary"><?=$t("Transactions")?></a>			
 			</div>
 		</div>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
@@ -154,7 +156,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="text-align:right "><?=number_format($details['balance.USD'],4)?></td>
 					<td style="text-align:right "><?=number_format($details['balance.EUR'],4)?></td>
 					<td style="text-align:right "><?=number_format($details['balance.GBP'],4)?></td>
-					<td><a href="/users/funding" class="btn btn-primary"><?=$t("Funding")?></a></td>																									
+					<td></td>																									
 				</tr>
 				<tr>
 					<td><strong><?=$t('Pending Buy Orders')?></strong></td>

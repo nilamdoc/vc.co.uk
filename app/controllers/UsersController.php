@@ -473,6 +473,8 @@ class UsersController extends \lithium\action\Controller {
 	return compact('msg');
 	}
 	public function funding(){
+				$title = "Funding";
+
 		$user = Session::read('default');
 		if ($user==""){		return $this->redirect('/login');}
 		$id = $user['_id'];
@@ -492,7 +494,7 @@ class UsersController extends \lithium\action\Controller {
 		$address = $object->input_address;
 		$paytxfee = Parameters::find('first');
 		$txfee = $paytxfee['paytxfee'];
-			return compact('details','address','txfee')	;
+			return compact('details','address','txfee','title')	;
 	}
 	public function receipt(){
 		$secret = $_GET['secret'];;
@@ -535,6 +537,8 @@ class UsersController extends \lithium\action\Controller {
 	}
 	
 	public function payment(){
+			$title = "Payment";
+
 		$user = Session::read('default');
 		if ($user==""){		return $this->redirect('/login');}
 		$id = $user['_id'];
@@ -582,9 +586,26 @@ class UsersController extends \lithium\action\Controller {
 							)
 						))->save($dataDetails);
 
-			return compact('message','txid','json_url','json_feed');
+			return compact('message','txid','json_url','json_feed','title');
 		
 		}
+	}
+	
+	public function transactions(){
+		$title = "Transactions";
+
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		$transactions = Transactions::find('all',array(
+			'conditions'=>array('username'=>$details['username']),
+			'sort'=>array('DateTime'=>-1)
+		));
+		return compact('title','details','transactions');			
 	}
 }
 ?>

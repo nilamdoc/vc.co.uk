@@ -104,7 +104,7 @@ class ExController extends \lithium\action\Controller {
 				'username' => $user['username'],
 				'user_id' => $user['_id'],
 			);
-			// Create Order for the user
+					// Create Order for the user
 			$orders = Orders::create();			
 			$orders->save($data);
 			$order_id = $orders->_id;
