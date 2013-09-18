@@ -603,7 +603,7 @@ class UsersController extends \lithium\action\Controller {
 		);
 		$transactions = Transactions::find('all',array(
 			'conditions'=>array('username'=>$details['username']),
-			'sort'=>array('DateTime'=>-1)
+			'order'=>array('DateTime'=>-1)
 		));
 		return compact('title','details','transactions');			
 	}
