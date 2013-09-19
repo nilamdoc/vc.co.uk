@@ -230,3 +230,7 @@ function BitCoinAddress(){
 function SuccessButtonDisable(){
 	$("#SendSuccessButton").attr("disabled", "disabled");
 	}
+function CheckDeposit(){
+	AmountFiat = $("#AmountFiat").val();
+	if(AmountFiat==""){return false;}
+	}

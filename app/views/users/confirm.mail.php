@@ -1,5 +1,5 @@
 <div style="background-color:#eeeeee;height:50px;padding-left:20px;padding-top:10px">
-	<img src="https://<?=COMPANY_URL?>/img/logo-<?=COMPANY_URL?>.png" alt="<?=COMPANY_URL?>">
+	<img src="https://<?=COMPANY_URL?>/img/<?=COMPANY_URL?>.gif" alt="<?=COMPANY_URL?>">
 </div>
 <h4>Hi <?=$name?>,</h4>
 

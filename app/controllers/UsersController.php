@@ -511,20 +511,21 @@ class UsersController extends \lithium\action\Controller {
 						'secret'=>$secret)
 				));
 				if(count($details)!=0){
-					$t = Transactions::create();
+					$tx = Transactions::create();
 					$data = array(
 						'DateTime' => new \MongoDate(),
 						'TransactionHash' => $transaction_hash,
 						'username' => $details['username'],
 						'address'=>$input_address,							
 						'Amount'=> (float)$value_in_btc,
+						'Currency'=> 'BTC',						
 						'Added'=>true,
 					);							
-					$t->save($data);
+					$tx->save($data);
 				
-					$dataDetails = array(
-							'balance.BTC' => (float)number_format((float)$details['balance.BTC'] + (float)$value_in_btc,8),
-						);
+				$dataDetails = array(
+						'balance.BTC' => (float)number_format((float)$details['balance.BTC'] + (float)$value_in_btc,8),
+					);
 							$details = Details::find('all',
 								array(
 										'conditions'=>array(
@@ -563,18 +564,19 @@ class UsersController extends \lithium\action\Controller {
 			$message = $json_feed->message;
 			$txid = $json_feed->tx_hash;
 
-			$t = Transactions::create();
+			$tx = Transactions::create();
 			$data = array(
 					'DateTime' => new \MongoDate(),
 					'TransactionHash' => $txid,
 					'username' => $details['username'],
 					'address'=>$address,							
 					'Amount'=> (float) -$amount,
+					'Currency'=> 'BTC',					
 					'txFee' => (float) -$fee,
 					'Added'=>false,
 					'Transfer'=>$message,
 				);							
-				$t->save($data);
+				$tx->save($data);
 				$dataDetails = array(
 						'balance.BTC' => (float)$details['balance.BTC'] - (float)$amount - (float)$fee,
 					);
@@ -602,10 +604,84 @@ class UsersController extends \lithium\action\Controller {
 			array('conditions'=>array('user_id'=> (string) $id))
 		);
 		$transactions = Transactions::find('all',array(
-			'conditions'=>array('username'=>$details['username']),
+			'conditions'=>array(
+			'username'=>$details['username'],
+			'Currency'=>'BTC'
+			),
 			'order'=>array('DateTime'=>-1)
 		));
-		return compact('title','details','transactions');			
+		$Fiattransactions = Transactions::find('all',array(
+			'conditions'=>array(
+			'username'=>$details['username'],
+			'Currency'=>array('$ne'=>'BTC')
+			),
+			'order'=>array('DateTime'=>-1)
+		));
+		return compact('title','details','transactions','Fiattransactions');			
+	}
+	
+	public function deposit(){
+		$title = "Deposit";
+	
+		$user = Session::read('default');
+
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		$amountFiat = $this->request->data['AmountFiat'];
+		$Currency = $this->request->data['Currency']; 
+		$Reference = $this->request->data['Reference']; 		
+		$data = array(
+				'DateTime' => new \MongoDate(),
+				'username' => $details['username'],
+				'Amount'=> (float)$amountFiat,
+				'Currency'=> $Currency,					
+				'Added'=>true,
+				'Reference'=>$Reference,
+				'Approved'=>'No'
+		);
+		$tx = Transactions::create();
+		$tx->save($data);
+
+		$view  = new View(array(
+			'loader' => 'File',
+			'renderer' => 'File',
+			'paths' => array(
+				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+			)
+		));
+		$body = $view->render(
+			'template',
+			compact('details','data','user'),
+			array(
+				'controller' => 'users',
+				'template'=>'deposit',
+				'type' => 'mail',
+				'layout' => false
+			)
+		);	
+
+		$transport = Swift_MailTransport::newInstance();
+		$mailer = Swift_Mailer::newInstance($transport);
+
+		$message = Swift_Message::newInstance();
+		$message->setSubject("Deposit to ".COMPANY_URL);
+		$message->setFrom(array(NOREPLY => 'Deposit to '.COMPANY_URL));
+		$message->setTo($user['email']);
+		$message->addBcc(MAIL_1);
+		$message->addBcc(MAIL_2);			
+		$message->addBcc(MAIL_3);		
+
+		$message->setBody($body,'text/html');
+		
+		$mailer->send($message);
+
+
+
+		return compact('title','details','data','user');			
 	}
 }
 ?>

@@ -3,9 +3,17 @@ namespace app\controllers;
 use lithium\storage\Session;
 use app\models\Users;
 use app\models\Details;
+use app\models\Transactions;
 use app\models\File;
 use app\models\Orders;
 use lithium\data\Connections;
+use MongoID;
+
+use \lithium\template\View;
+use \Swift_MailTransport;
+use \Swift_Mailer;
+use \Swift_Message;
+use \Swift_Attachment;
 
 class AdminController extends \lithium\action\Controller {
 
@@ -408,6 +416,166 @@ class AdminController extends \lithium\action\Controller {
 		}
 			$this->_render['layout'] = 'image';
 			return compact('imagename_utility','media','id');
+	}
+	
+	public function transactions(){
+		if($this->__init()==false){$this->redirect('ex::dashboard');	}
+		$Fiattransactions = Transactions::find('all',array(
+			'conditions'=>array(
+				'Currency'=>array('$ne'=>'BTC'),
+				'Approved'=>'No'
+			),
+			'order'=>array('DateTime'=>-1)
+		));
+		return compact('Fiattransactions');
+	}
+	public function approvetransaction(){
+	if($this->__init()==false){$this->redirect('ex::dashboard');	}
+	if($this->request->data){
+		$Amount = $this->request->data['Amount'];
+		$id = $this->request->data['id'];	
+		$Currency = $this->request->data['Currency'];			
+	
+		$data = array(
+			'AmountApproved' => (float)$Amount,
+			'Approved' => 'Yes'
+		);
+		$Transactions = Transactions::find('first',array(
+				'conditions'=>array(
+					'_id'=>$id
+				)
+			))->save($data);
+		$Transactions = Transactions::find('first',array(
+				'conditions'=>array(
+					'_id'=>$id
+				)
+			));
+		$details = Details::find('first',array(
+			'conditions'=>array(
+				'username'=>$Transactions['username']
+			)
+		));
+
+		$OriginalAmount = $details['balance.'.$Currency];
+		$dataDetails = array(
+					'balance.'.$Currency => (float)$OriginalAmount + (float)$Amount,
+		);
+
+		$detailsAdd = Details::find('all',array(
+			'conditions'=>array(
+				'username'=>$Transactions['username']
+			)
+		))->save($dataDetails);
+		$user = Users::find('first',array(
+			'conditions'=>array('_id'=>	new MongoID ($details['user_id']))
+		));
+
+		$view  = new View(array(
+			'loader' => 'File',
+			'renderer' => 'File',
+			'paths' => array(
+				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+			)
+		));
+		$body = $view->render(
+			'template',
+			compact('Transactions','details','user'),
+			array(
+				'controller' => 'admin',
+				'template'=>'approvetransaction',
+				'type' => 'mail',
+				'layout' => false
+			)
+		);	
+
+		$transport = Swift_MailTransport::newInstance();
+		$mailer = Swift_Mailer::newInstance($transport);
+
+		$message = Swift_Message::newInstance();
+		$message->setSubject("Deposit Approved ".COMPANY_URL);
+		$message->setFrom(array(NOREPLY => 'Deposit Approved '.COMPANY_URL));
+		$message->setTo($user['email']);
+		$message->addBcc(MAIL_1);
+		$message->addBcc(MAIL_2);			
+		$message->addBcc(MAIL_3);		
+
+		$message->setBody($body,'text/html');
+		
+		$mailer->send($message);
+		
+
+	}
+		$this->redirect('Admin::transactions');	
+	}
+	public function deletetransaction($id=null){
+	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		$Transactions = Transactions::remove('all',array(
+		'conditions'=>array(
+			'_id'=>new MongoID ($id)
+		)
+	));
+		$this->redirect('Admin::transactions');	
+
+	}	
+	public function rejecttransaction($id=null){
+	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+
+		$data = array(
+			'Approved' => 'Rejected'
+		);
+		$Transactions = Transactions::find('first',array(
+				'conditions'=>array(
+					'_id'=>$id
+				)
+			))->save($data);
+
+		$Transactions = Transactions::find('first',array(
+				'conditions'=>array(
+					'_id'=>$id
+				)
+			));
+		$details = Details::find('first',array(
+			'conditions'=>array(
+				'username'=>$Transactions['username']
+			)
+		));
+			$user = Users::find('first',array(
+			'conditions'=>array('_id'=>	new MongoID ($details['user_id']))
+		));
+
+		$view  = new View(array(
+			'loader' => 'File',
+			'renderer' => 'File',
+			'paths' => array(
+				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+			)
+		));
+		$body = $view->render(
+			'template',
+			compact('Transactions','details','user'),
+			array(
+				'controller' => 'admin',
+				'template'=>'rejecttransaction',
+				'type' => 'mail',
+				'layout' => false
+			)
+		);	
+
+		$transport = Swift_MailTransport::newInstance();
+		$mailer = Swift_Mailer::newInstance($transport);
+
+		$message = Swift_Message::newInstance();
+		$message->setSubject("Deposit Rejected ".COMPANY_URL);
+		$message->setFrom(array(NOREPLY => 'Deposit Rejected '.COMPANY_URL));
+		$message->setTo($user['email']);
+		$message->addBcc(MAIL_1);
+		$message->addBcc(MAIL_2);			
+		$message->addBcc(MAIL_3);		
+
+		$message->setBody($body,'text/html');
+		
+		$mailer->send($message);
+		$this->redirect('Admin::transactions');	
 	}
 }
 ?>

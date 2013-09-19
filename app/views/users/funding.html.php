@@ -131,6 +131,18 @@ function initCanvas(ww,hh)
  }
 </script>
 <h4>Funding</h4>
+
+<div class="accordion" id="accordion2">
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle btn" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+				<strong><?=$t('Bitcoin Deposit / Withdrawal')?></strong> 
+			</a>
+		</div>
+		<div id="collapseOne" class="accordion-body collapse">
+			<div class="accordion-inner">
+<!------------------------------------------------------------------>
+
 <div class="row">
 	<div class="span5">
 		<div class="navbar">
@@ -223,3 +235,82 @@ function initCanvas(ww,hh)
 		</div>
 	</div>	
 </div>
+<!-------------------------------------------------------------------------->
+
+			</div>
+		</div>
+	</div>
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle btn" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+				<strong><?=$t('USD / GBP / EUR Deposits / Withdrawals')?></strong> 
+			</a>
+		</div>
+		<div id="collapseTwo" class="accordion-body collapse">
+			<div class="accordion-inner">
+<!--------------------------------------------------------------------------->
+<div class="row">
+	<div class="span5">
+		<div class="navbar">
+			<form action="/users/deposit/" method="post" class="form">
+			<div class="navbar-inner">
+			<a class="brand" href="#"><?=$t('Deposit USD / GBP / EUR')?> </a>
+			</div>
+			<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
+				<tr style="background-color:#CFFDB9">
+					<td colspan="2"><?=$t("Send payment to")?></td>
+				</tr>
+				<tr>
+					<td>Account name:</td>
+					<td>IBWT JD Ltd.</td>
+				</tr>
+				<tr>
+					<td>Sort code: </td>
+					<td>07-71-99</td>
+				</tr>
+				<tr>
+					<td>Account number:</td>
+					<td>59044675</td>
+				</tr>
+				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Quote this reference number in your deposit">
+					<td>Reference:</td>
+					<?php $Reference = $details['username'].gmdate('Ymd',time())."-".rand(1,100);?>
+					<td><?=$Reference?></td>
+				</tr>
+				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Amount should be between 1 and 10000">
+					<td>Amount:</td>
+					<td><input type="text" value="" class="span2" placeholder="1.0" min="1" max="10000" name="AmountFiat" id="AmountFiat" maxlength="5"></td>
+				</tr>
+				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Select a currency">
+					<td>Currency:</td>
+					<td><select name="Currency" id="Currency" class="span2">
+							<option value="GBP">GBP</option>
+							<option value="USD">USD</option>							
+							<option value="EUR">EUR</option>							
+					</select></td>
+				</tr>
+				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Once your email is approved, you will receive the funds in your account in ibwt.co.uk">
+					<td colspan="2" style="text-align:center ">
+					<input type="hidden" name="Reference" id="Reference" value="<?=$Reference?>">
+						<input type="submit" value="Send email to admin for approval" class="btn btn-primary" onclick="return CheckDeposit();">
+					</td>
+				</tr>
+			</table>
+		</div>
+		</form>
+	</div>
+	<div class="span5">
+		<div class="navbar">
+			<div class="navbar-inner">
+			<a class="brand" href="#"><?=$t('Withdraw USD / GBP / EUR')?> </a>
+			</div>
+		</div>
+	</div>
+</div>
+<!--------------------------------------------------------------------------->
+			</div>
+		</div>
+	</div>
+</div>
+							
+							
