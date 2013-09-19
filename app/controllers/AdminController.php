@@ -4,6 +4,7 @@ use lithium\storage\Session;
 use app\models\Users;
 use app\models\Details;
 use app\models\Transactions;
+use app\models\Reasons;
 use app\models\File;
 use app\models\Orders;
 use lithium\data\Connections;
@@ -380,8 +381,6 @@ class AdminController extends \lithium\action\Controller {
 	}
 	
 	public function Approve($media=null,$id=null,$response=null){
-	
-	
 			if($this->__init()==false){$this->redirect('ex::dashboard');	}
 			if($response!=""){
 				if($response=="Approve"){
@@ -423,22 +422,69 @@ class AdminController extends \lithium\action\Controller {
 		$Fiattransactions = Transactions::find('all',array(
 			'conditions'=>array(
 				'Currency'=>array('$ne'=>'BTC'),
-				'Approved'=>'No'
+				'Approved'=>'No',
+				'Added'=>true
 			),
 			'order'=>array('DateTime'=>-1)
 		));
-		return compact('Fiattransactions');
+		$reasons = Reasons::find('all',array(
+			'conditions'=>array('type'=>'Deposit'),
+			'order'=>array('code'=>1)
+		));		
+		return compact('Fiattransactions','reasons');
 	}
+	public function withdrawals(){
+		if($this->__init()==false){$this->redirect('ex::dashboard');	}
+		$Fiattransactions = Transactions::find('all',array(
+			'conditions'=>array(
+				'Currency'=>array('$ne'=>'BTC'),
+				'Approved'=>'No',
+				'Added'=>false
+			),
+			'order'=>array('DateTime'=>-1)
+		));
+		$Details = array();$i=0;
+		foreach($Fiattransactions as $ft){
+			$details = Details::find('first',array(
+				'conditions'=>array('username'=>$ft['username'])
+			));
+			$Details[$i]['GBP'] = $details['balance.GBP'];
+			$Details[$i]['EUR'] = $details['balance.EUR'];			
+			$Details[$i]['USD'] = $details['balance.USD'];			
+			$Details[$i]['username'] = $details['username'];						
+			$Details[$i]['TranDate'] = $ft['DateTime'];						
+			$Details[$i]['Reference'] = $ft['Reference'];									
+			$Details[$i]['Amount'] = $ft['Amount'];									
+			$Details[$i]['Currency'] = $ft['Currency'];									
+			$Details[$i]['Added'] = (string)$ft['Added'];												
+			$Details[$i]['Approved'] = $ft['Approved'];															
+			$Details[$i]['_id'] = $ft['_id'];																		
+			$i++;
+		}
+		$reasons = Reasons::find('all',array(
+			'conditions'=>array('type'=>'Withdrawal'),
+			'order'=>array('code'=>1)
+		));
+		return compact('Fiattransactions','Details','reasons');
+	}
+	
+	
 	public function approvetransaction(){
 	if($this->__init()==false){$this->redirect('ex::dashboard');	}
 	if($this->request->data){
 		$Amount = $this->request->data['Amount'];
 		$id = $this->request->data['id'];	
 		$Currency = $this->request->data['Currency'];			
+
+		$Authuser = Session::read('member');
+		$AuthBy = $Authuser['username'];
+
 	
 		$data = array(
 			'AmountApproved' => (float)$Amount,
-			'Approved' => 'Yes'
+			'Approved' => 'Yes',
+			'ApprovedBy'=> $AuthBy,
+			
 		);
 		$Transactions = Transactions::find('first',array(
 				'conditions'=>array(
@@ -517,11 +563,19 @@ class AdminController extends \lithium\action\Controller {
 		$this->redirect('Admin::transactions');	
 
 	}	
-	public function rejecttransaction($id=null){
+	public function rejecttransaction($id=null,$reason=null){
 	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		$Authuser = Session::read('member');
+		$AuthBy = $Authuser['username'];
+
+		$reason = Reasons::find('first',array(
+			'conditions'=>array('code'=>$reason),
+		));
 
 		$data = array(
-			'Approved' => 'Rejected'
+			'Reason'=>$reason['reason'],
+			'Approved' => 'Rejected',
+			'ApprovedBy' => $AuthBy,
 		);
 		$Transactions = Transactions::find('first',array(
 				'conditions'=>array(
@@ -565,8 +619,8 @@ class AdminController extends \lithium\action\Controller {
 		$mailer = Swift_Mailer::newInstance($transport);
 
 		$message = Swift_Message::newInstance();
-		$message->setSubject("Deposit Rejected ".COMPANY_URL);
-		$message->setFrom(array(NOREPLY => 'Deposit Rejected '.COMPANY_URL));
+		$message->setSubject("Deposit Rejected ".COMPANY_URL.": ".$reason['reason']);
+		$message->setFrom(array(NOREPLY => 'Deposit Rejected '.COMPANY_URL.": ".$reason['reason']));
 		$message->setTo($user['email']);
 		$message->addBcc(MAIL_1);
 		$message->addBcc(MAIL_2);			
@@ -577,5 +631,169 @@ class AdminController extends \lithium\action\Controller {
 		$mailer->send($message);
 		$this->redirect('Admin::transactions');	
 	}
+	
+	
+		public function approvewithdrawal(){
+	if($this->__init()==false){$this->redirect('ex::dashboard');	}
+	if($this->request->data){
+		$Amount = $this->request->data['Amount'];
+		$id = $this->request->data['id'];	
+		$Currency = $this->request->data['Currency'];			
+
+		$Authuser = Session::read('member');
+		$AuthBy = $Authuser['username'];
+
+		$data = array(
+			'AmountApproved' => (float)$Amount,
+			'Approved' => 'Yes',
+			'ApprovedBy'=> $AuthBy,
+			
+		);
+		$Transactions = Transactions::find('first',array(
+				'conditions'=>array(
+					'_id'=>$id
+				)
+			))->save($data);
+		$Transactions = Transactions::find('first',array(
+				'conditions'=>array(
+					'_id'=>$id
+				)
+			));
+		$details = Details::find('first',array(
+			'conditions'=>array(
+				'username'=>$Transactions['username']
+			)
+		));
+
+		$OriginalAmount = $details['balance.'.$Currency];
+		$dataDetails = array(
+					'balance.'.$Currency => (float)$OriginalAmount - (float)$Amount,
+		);
+
+		$detailsAdd = Details::find('all',array(
+			'conditions'=>array(
+				'username'=>$Transactions['username']
+			)
+		))->save($dataDetails);
+		$user = Users::find('first',array(
+			'conditions'=>array('_id'=>	new MongoID ($details['user_id']))
+		));
+
+		$view  = new View(array(
+			'loader' => 'File',
+			'renderer' => 'File',
+			'paths' => array(
+				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+			)
+		));
+		$body = $view->render(
+			'template',
+			compact('Transactions','details','user'),
+			array(
+				'controller' => 'admin',
+				'template'=>'approvewithdrawal',
+				'type' => 'mail',
+				'layout' => false
+			)
+		);	
+
+		$transport = Swift_MailTransport::newInstance();
+		$mailer = Swift_Mailer::newInstance($transport);
+
+		$message = Swift_Message::newInstance();
+		$message->setSubject("Withdrawal Approved ".COMPANY_URL);
+		$message->setFrom(array(NOREPLY => 'Withdrawal Approved '.COMPANY_URL));
+		$message->setTo($user['email']);
+		$message->addBcc(MAIL_1);
+		$message->addBcc(MAIL_2);			
+		$message->addBcc(MAIL_3);		
+
+		$message->setBody($body,'text/html');
+		
+		$mailer->send($message);
+
+	}
+		$this->redirect('Admin::withdrawals');	
+	}
+
+		public function deletewithdrawal($id=null){
+	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		$Transactions = Transactions::remove('all',array(
+		'conditions'=>array(
+			'_id'=>new MongoID ($id)
+		)
+	));
+		$this->redirect('Admin::withdrawals');	
+	}	
+
+		public function rejectwithdrawal($id=null,$reason=null){
+	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		$Authuser = Session::read('member');
+		$AuthBy = $Authuser['username'];
+
+		$reason = Reasons::find('first',array(
+			'conditions'=>array('code'=>$reason),
+		));
+
+		$data = array(
+			'Reason'=>$reason['reason'],
+			'Approved' => 'Rejected',
+			'ApprovedBy' => $AuthBy,
+		);
+		$Transactions = Transactions::find('first',array(
+				'conditions'=>array(
+					'_id'=>$id
+				)
+			))->save($data);
+
+		$Transactions = Transactions::find('first',array(
+				'conditions'=>array(
+					'_id'=>$id
+				)
+			));
+		$details = Details::find('first',array(
+			'conditions'=>array(
+				'username'=>$Transactions['username']
+			)
+		));
+			$user = Users::find('first',array(
+			'conditions'=>array('_id'=>	new MongoID ($details['user_id']))
+		));
+
+		$view  = new View(array(
+			'loader' => 'File',
+			'renderer' => 'File',
+			'paths' => array(
+				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+			)
+		));
+		$body = $view->render(
+			'template',
+			compact('Transactions','details','user'),
+			array(
+				'controller' => 'admin',
+				'template'=>'rejectwithdrawal',
+				'type' => 'mail',
+				'layout' => false
+			)
+		);	
+
+		$transport = Swift_MailTransport::newInstance();
+		$mailer = Swift_Mailer::newInstance($transport);
+
+		$message = Swift_Message::newInstance();
+		$message->setSubject("Withdrawal Rejected ".COMPANY_URL.": ".$reason['reason']);
+		$message->setFrom(array(NOREPLY => 'Withdrawal Rejected '.COMPANY_URL.": ".$reason['reason']));
+		$message->setTo($user['email']);
+		$message->addBcc(MAIL_1);
+		$message->addBcc(MAIL_2);			
+		$message->addBcc(MAIL_3);		
+
+		$message->setBody($body,'text/html');
+		
+		$mailer->send($message);
+		$this->redirect('Admin::withdrawals');	
+	}
+
 }
 ?>

@@ -3,20 +3,19 @@
 </div>
 <h4>Hi <?=$user['firstname']?>,</h4>
 
-<p>Your deposit has been <strong>REJECTED</strong> <?=COMPANY_URL?>.</p>
-<strong><?=$Transactions['Reason']?></strong>
+<p>Your deposit has been approved <?=COMPANY_URL?>.</p>
 <table>
 		<tr>
 			<td>Account name:</td>
-			<td>IBWT JD Ltd.</td>
+			<td><?=$Transactions['AccountName']?></td>
 		</tr>
 		<tr>
 			<td>Sort code: </td>
-			<td>07-71-99</td>	
+			<td><?=$Transactions['SortCode']?></td>	
 		</tr>
 		<tr>
 			<td>Account number:</td>
-			<td>59044675</td>
+			<td><?=$Transactions['AccountNumber']?></td>
 		</tr>
 		<tr>
 			<td>Reference:</td>
@@ -24,14 +23,14 @@
 		</tr>
 		<tr>
 			<td>Amount:</td>
-			<td><?=$Transactions['Amount']?></td>
+			<td><?=$Transactions['AmountApproved']?></td>
 		</tr>
 		<tr>
 			<td>Currency:</td>
 			<td><?=$Transactions['Currency']?></td>
 		</tr>		
 </table>
-<p><strong>Please make another deposit</strong></p>
+
 
 <p>Thanks,<br>
 <?=NOREPLY?></p>

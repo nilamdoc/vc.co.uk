@@ -3,21 +3,22 @@
 </div>
 <h4>Hi <?=$user['firstname']?>,</h4>
 
-<p>Your deposit has been <strong>REJECTED</strong> <?=COMPANY_URL?>.</p>
+<p>Your withdrawal has been <strong>REJECTED</strong> <?=COMPANY_URL?>.</p>
 <strong><?=$Transactions['Reason']?></strong>
 <table>
 		<tr>
 			<td>Account name:</td>
-			<td>IBWT JD Ltd.</td>
+			<td><?=$Transactions['AccountName']?></td>
 		</tr>
 		<tr>
 			<td>Sort code: </td>
-			<td>07-71-99</td>	
+			<td><?=$Transactions['SortCode']?></td>	
 		</tr>
 		<tr>
 			<td>Account number:</td>
-			<td>59044675</td>
+			<td><?=$Transactions['AccountNumber']?></td>
 		</tr>
+		<tr>
 		<tr>
 			<td>Reference:</td>
 			<td><strong><?=$Transactions['Reference']?></strong></td>

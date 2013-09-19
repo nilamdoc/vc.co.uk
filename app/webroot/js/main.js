@@ -234,3 +234,19 @@ function CheckDeposit(){
 	AmountFiat = $("#AmountFiat").val();
 	if(AmountFiat==""){return false;}
 	}
+function CheckWithdrawal(){
+	AccountName = $("#AccountName").val();
+	if(AccountName==""){return false;}
+	SortCode = $("#SortCode").val();
+	if(SortCode==""){return false;}
+	AccountNumber = $("#AccountNumber").val();
+	if(AccountNumber==""){return false;}
+	WithdrawAmountFiat = $("#WithdrawAmountFiat").val();
+	if(WithdrawAmountFiat==""){return false;}
+	}
+function RejectReason(value){
+	url = $("#RejectURL").attr('href');
+	len = url.length-2;
+	nurl = url.substr(0,len)+value;
+	$("#RejectURL").attr('href',nurl);
+	}

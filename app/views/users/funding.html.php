@@ -299,12 +299,83 @@ function initCanvas(ww,hh)
 		</div>
 		</form>
 	</div>
-	<div class="span5">
+	<div class="span6">
 		<div class="navbar">
+			<form action="/users/withdraw/" method="post" class="form">		
 			<div class="navbar-inner">
 			<a class="brand" href="#"><?=$t('Withdraw USD / GBP / EUR')?> </a>
 			</div>
+			<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
+				<tr style="background-color:#CFFDB9">
+					<td><?=$t("Balance")?></td>
+					<td style="text-align:right "><?=$details['balance.USD']?> USD</td>					
+					<td style="text-align:right "><?=$details['balance.GBP']?> GBP</td>
+					<td style="text-align:right "><?=$details['balance.EUR']?> EUR</td>					
+				</tr>			
+				<tr style="background-color: #FDDBAC">
+				<?php 
+				$AmountGBP = 0;$AmountUSD = 0;$AmountEUR = 0;
+				foreach($transactions as $transaction){
+					if($transaction['Currency']=='GBP'){
+						$AmountGBP = $AmountGBP + $transaction['Amount'];
+					}
+					if($transaction['Currency']=='EUR'){
+						$AmountEUR = $AmountEUR + $transaction['Amount'];
+					}					
+					if($transaction['Currency']=='USD'){
+						$AmountUSD = $AmountUSD + $transaction['Amount'];
+					}					
+				}
+				?>
+					<td><?=$t("Withdrawal")?></td>
+					<td style="text-align:right "><?=$AmountUSD?> USD</td>					
+					<td style="text-align:right "><?=$AmountGBP?> GBP</td>
+					<td style="text-align:right "><?=$AmountEUR?> EUR</td>					
+				</tr>			
+				<tr style="background-color:#CFFDB9">
+					<td><?=$t("Net Balance")?></td>
+					<td style="text-align:right "><?=$details['balance.USD']-$AmountUSD?> USD</td>					
+					<td style="text-align:right "><?=$details['balance.GBP']-$AmountGBP?> GBP</td>
+					<td style="text-align:right "><?=$details['balance.EUR']-$AmountEUR?> EUR</td>					
+				</tr>							
+				<tr>
+					<td colspan="2">Account name:</td>
+					<td colspan="2"><input type="text" name="AccountName" id="AccountName" placeholder="Name from which you deposited"></td>
+				</tr>
+				<tr>
+					<td colspan="2">Sort code: </td>
+					<td colspan="2"><input type="text" name="SortCode" id="SortCode" placeholder="01-01-10"></td>
+				</tr>
+				<tr>
+					<td colspan="2">Account number:</td>
+					<td colspan="2"><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678"></td>
+				</tr>
+				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Quote this reference number in your withdrawal">
+					<td colspan="2">Reference:</td>
+					<?php $Reference = $details['username'].gmdate('Ymd',time())."-".rand(1,100);?>
+					<td colspan="2"><?=$Reference?></td>
+				</tr>
+				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Amount should be between 1 and 10000">
+					<td colspan="2">Amount:</td>
+					<td colspan="2"><input type="text" value="" class="span2" placeholder="1.0" min="1" max="10000" name="WithdrawAmountFiat" id="WithdrawAmountFiat" maxlength="5"></td>
+				</tr>
+				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Select a currency">
+					<td colspan="2">Currency:</td>
+					<td colspan="2"><select name="WithdrawCurrency" id="WithdrawCurrency" class="span2">
+							<option value="GBP">GBP</option>
+							<option value="USD">USD</option>							
+							<option value="EUR">EUR</option>							
+					</select></td>
+				</tr>
+				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Once your email is approved, you will receive the funds in your bank account">
+					<td colspan="2" style="text-align:center ">
+					<input type="hidden" name="WithdrawReference" id="WithdrawReference" value="<?=$Reference?>">
+						<input type="submit" value="Send email to admin for approval" class="btn btn-primary" onclick="return CheckWithdrawal();">
+					</td>
+				</tr>
+			</table>
 		</div>
+		</form>
 	</div>
 </div>
 <!--------------------------------------------------------------------------->

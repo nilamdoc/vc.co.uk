@@ -494,7 +494,14 @@ class UsersController extends \lithium\action\Controller {
 		$address = $object->input_address;
 		$paytxfee = Parameters::find('first');
 		$txfee = $paytxfee['paytxfee'];
-			return compact('details','address','txfee','title')	;
+		$transactions = Transactions::find('all',array(
+				'conditions'=>array(
+				'username'=>$user['username'],
+				'Added'=>false,
+				'Approved'=>'No'
+				)
+		));
+			return compact('details','address','txfee','title','transactions')	;
 	}
 	public function receipt(){
 		$secret = $_GET['secret'];;
@@ -682,6 +689,75 @@ class UsersController extends \lithium\action\Controller {
 
 
 		return compact('title','details','data','user');			
+	}
+	
+	public function withdraw(){
+		$title = "Withdraw";
+	
+		$user = Session::read('default');
+
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		$AccountName = $this->request->data['AccountName'];
+		$SortCode = $this->request->data['SortCode'];
+		$AccountNumber = $this->request->data['AccountNumber'];		
+		$amountFiat = $this->request->data['WithdrawAmountFiat'];
+		$Currency = $this->request->data['WithdrawCurrency']; 
+		$Reference = $this->request->data['WithdrawReference']; 		
+		$data = array(
+				'DateTime' => new \MongoDate(),
+				'username' => $details['username'],
+				'Amount'=> (float)$amountFiat,
+				'Currency'=> $Currency,					
+				'Added'=>false,
+				'Reference'=>$Reference,
+				'AccountName'=>$AccountName,
+				'SortCode'=>$SortCode,
+				'AccountNumber'=>$AccountNumber,
+				'Approved'=>'No'
+		);
+		$tx = Transactions::create();
+		$tx->save($data);
+
+		$view  = new View(array(
+			'loader' => 'File',
+			'renderer' => 'File',
+			'paths' => array(
+				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+			)
+		));
+		$body = $view->render(
+			'template',
+			compact('details','data','user'),
+			array(
+				'controller' => 'users',
+				'template'=>'withdraw',
+				'type' => 'mail',
+				'layout' => false
+			)
+		);	
+
+		$transport = Swift_MailTransport::newInstance();
+		$mailer = Swift_Mailer::newInstance($transport);
+
+		$message = Swift_Message::newInstance();
+		$message->setSubject("Withdraw from ".COMPANY_URL);
+		$message->setFrom(array(NOREPLY => 'Withdraw from '.COMPANY_URL));
+		$message->setTo($user['email']);
+		$message->addBcc(MAIL_1);
+		$message->addBcc(MAIL_2);			
+		$message->addBcc(MAIL_3);		
+
+		$message->setBody($body,'text/html');
+		
+		$mailer->send($message);
+
+		return compact('title','details','data','user');			
+	
 	}
 }
 ?>

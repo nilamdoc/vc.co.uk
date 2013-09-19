@@ -1,0 +1,56 @@
+<h4>Deposit</h4>
+
+<h5>Hi <?=$user['firstname']?>,</h5>
+
+<p>You have requested to withdraw money from <?=COMPANY_URL?>.</p>
+<table>
+		<tr>
+			<td>Account name:</td>
+			<td><?=$data['AccountName']?></td>
+		</tr>
+		<tr>
+			<td>Sort code: </td>
+			<td><?=$data['SortCode']?></td>	
+		</tr>
+		<tr>
+			<td>Account number:</td>
+			<td><?=$data['AccountNumber']?></td>
+		</tr>
+		<tr>
+			<td>Reference:</td>
+			<td><strong><?=$data['Reference']?></strong></td>
+		</tr>
+		<tr>
+			<td>Amount:</td>
+			<td><?=$data['Amount']?></td>
+		</tr>
+		<tr>
+			<td>Currency:</td>
+			<td><?=$data['Currency']?></td>
+		</tr>		
+</table>
+<p><strong><u><?=$t("Deposits/Withdrawals")?></u></strong></p>
+<blockquote>
+<ul>
+
+<li><?=$t("All deposits and withdrawals need to be verified and cleared, please see relevant sections when you login.")?></li>
+
+<li><strong><?=$t("IMPORTANT")?></strong>: <?=$t("Please make sure to wait for CLEARED deposit requests BEFORE depositing any sterling. As per our Terms Of Use, we cannot be held liable for any charges incurred due to deposits bounced if you have not had your deposit request CLEARED.")?></li>
+
+<li><strong><?=$t("VERY IMPORTANT")?></strong>: <?=$t("Please make sure to INCLUDE your CUSTOMER REFERENCE, which you can find on your account page, so that we can credit your account appropriately.")?></li>
+
+<u><?=$t("Example")?></u>: <?=$data['Reference']?></ul>
+</blockquote>
+<p><strong><u><?=$t("Time Delays")?></u></strong></p>
+
+<blockquote>
+<u>GBP</u>
+<ul >
+<li><?=$t("Transfers are only processed weekdays, barring bank holidays.")?></li>
+<li><?=$t("It can take us up to 24 hours to verify and confirm your deposit request. Customers then have 24 hours to make their deposit. If a deposit is not made in the 24 window then IBWT assumes you have cancelled your deposit request and you will need to make request if you wish to deposit.")?></li>
+<li><?=$t("If your bank does not subscribe to Faster Payments (most UK banks do) then please let us know.")?></li>
+<li><?=$t("It can take us up to 24 hours to verify, confirm and start the process transfer for your withdrawal requests.")?></li>
+<li><?=$t("If the Customer's bank subscribes to Faster Payments the money will reach their account usually within 24 hours but can sometimes take up to close of business the next working day. Otherwise payments take 4 working days to process.")?></li>
+</ul>
+<a href="/users/funding" class="btn btn-primary">Add funds</a>
+<a href="/users/transactions" class="btn btn-primary">Transactions</a>
