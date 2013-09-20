@@ -649,7 +649,7 @@ class AdminController extends \lithium\action\Controller {
 				'username'=>$Transactions['username']
 			)
 		));
-			$user = Users::find('first',array(
+		$user = Users::find('first',array(
 			'conditions'=>array('_id'=>	new MongoID ($details['user_id']))
 		));
 
@@ -909,6 +909,43 @@ class AdminController extends \lithium\action\Controller {
 		))->save($dataDetails);
 		
 		$this->redirect('Admin::bitcoin');	
+	}
+	
+	public function detail($username=null){
+		if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		$transactions = Transactions::find('all',array(
+				'conditions'=>array(
+					'username'=>$username,
+					'Currency'=>'BTC'					
+				),
+			'order' => array('DateTime'=>'DSEC')				
+			));
+		$Fiattransactions = Transactions::find('all',array(
+			'conditions'=>array(
+			'username'=>$username,
+			'Currency'=>array('$ne'=>'BTC')
+			),
+			'order'=>array('DateTime'=>-1)
+		));
+			
+		$details = Details::find('all',array(
+			'conditions'=>array(
+				'username'=>$username
+			)
+		));
+			$user = Users::find('all',array(
+			'conditions'=>array(
+			'username'=>$username
+			)
+		));
+		
+		$orders = Orders::find('all',array(
+			'conditions'=>array(
+			'username'=>$username
+			),
+			'order' => array('DateTime'=>'DSEC')			
+		));
+			return compact('title','transactions','details','user','orders','Fiattransactions');
 	}
 }
 ?>
