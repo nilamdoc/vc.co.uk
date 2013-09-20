@@ -255,6 +255,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 	</div>
 </div>
 <div class="row" >
+<!--------
 	<div class="span5">
 		<div class="navbar">
 			<div class="navbar-inner">
@@ -291,6 +292,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 			</tbody>
 		</table>
 	</div>
+-->	
 	<div class="span6">
 		<div class="navbar">
 			<div class="navbar-inner">
