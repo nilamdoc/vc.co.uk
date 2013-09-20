@@ -4,6 +4,7 @@
 		<tr>
 			<th>Username</th>
 			<th>Full Name</th>			
+			<th>Email</th>						
 			<th>Sign in</th>
 			<th>IP</th>
 		</tr>
@@ -13,6 +14,7 @@
 	<tr>
 		<td><a href="/Admin/detail/<?=$user['username']?>"><?=$user['username']?></a></td>
 		<td><?=$user['firstname']?> <?=$user['lastname']?></td>		
+		<td><?=$user['email']?></td>				
 		<td><?=gmdate('Y-M-d H:i:s',$user['created']->sec)?></td>
 		<td><?=$user['ip']?></td>
 	</tr>
