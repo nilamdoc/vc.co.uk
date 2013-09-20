@@ -564,6 +564,7 @@ class AdminController extends \lithium\action\Controller {
 		$this->redirect('Admin::transactions');	
 
 	}	
+
 	public function rejecttransaction($id=null,$reason=null){
 	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
 		$Authuser = Session::read('member');
@@ -622,6 +623,60 @@ class AdminController extends \lithium\action\Controller {
 		$message = Swift_Message::newInstance();
 		$message->setSubject("Deposit Rejected ".COMPANY_URL.": ".$reason['reason']);
 		$message->setFrom(array(NOREPLY => 'Deposit Rejected '.COMPANY_URL.": ".$reason['reason']));
+		$message->setTo($user['email']);
+		$message->addBcc(MAIL_1);
+		$message->addBcc(MAIL_2);			
+		$message->addBcc(MAIL_3);		
+
+		$message->setBody($body,'text/html');
+		
+		$mailer->send($message);
+		$this->redirect('Admin::transactions');	
+	}
+
+	public function sendemailtransaction($id=null){
+	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		$Authuser = Session::read('member');
+		$AuthBy = $Authuser['username'];
+
+		$Transactions = Transactions::find('first',array(
+				'conditions'=>array(
+					'_id'=>$id
+				)
+			));
+		$details = Details::find('first',array(
+			'conditions'=>array(
+				'username'=>$Transactions['username']
+			)
+		));
+			$user = Users::find('first',array(
+			'conditions'=>array('_id'=>	new MongoID ($details['user_id']))
+		));
+
+		$view  = new View(array(
+			'loader' => 'File',
+			'renderer' => 'File',
+			'paths' => array(
+				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+			)
+		));
+		$body = $view->render(
+			'template',
+			compact('Transactions','details','user'),
+			array(
+				'controller' => 'admin',
+				'template'=>'sendemailtransaction',
+				'type' => 'mail',
+				'layout' => false
+			)
+		);	
+
+		$transport = Swift_MailTransport::newInstance();
+		$mailer = Swift_Mailer::newInstance($transport);
+
+		$message = Swift_Message::newInstance();
+		$message->setSubject("Deposit Approved ".COMPANY_URL.": Depoit funds now!");
+		$message->setFrom(array(NOREPLY => 'Deposit Rejected '.COMPANY_URL.": Deposit funds now!"));
 		$message->setTo($user['email']);
 		$message->addBcc(MAIL_1);
 		$message->addBcc(MAIL_2);			
