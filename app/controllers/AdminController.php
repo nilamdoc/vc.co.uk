@@ -8,6 +8,7 @@ use app\models\Reasons;
 use app\models\File;
 use app\models\Orders;
 use lithium\data\Connections;
+use app\extensions\action\Pagination;
 use MongoID;
 
 use \lithium\template\View;
@@ -794,6 +795,65 @@ class AdminController extends \lithium\action\Controller {
 		$mailer->send($message);
 		$this->redirect('Admin::withdrawals');	
 	}
+	public function user($page=1){
+		if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+			
+		$mongodb = Connections::get('default')->connection;
+	  $pagination = new Pagination($mongodb, '/Admin/user/{{PAGE}}/');
+		$itemsPerPage   = 20;
+		$currentPage    = $page;
+		$pagination->setQuery(array(
+			'#collection'	=>  'users',
+			'#find'		=>  array(			),
+			'#sort'		=>  array(
+				'username'	=>  1
+			),
+		), $currentPage, $itemsPerPage);
+		$users = $pagination->Paginate();
+		$page_links = $pagination->getPageLinks();
+		
+		$title = "User";
+		
+		return compact('title','users','page_links');
+		
+	}
+	
+	public function bitcoin(){
+	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		$title = "Bitcoins";
+		if($this->request->data){
+			$transactions = Transactions::find('all',array(
+				'conditions' => array('TransactionHash'=>$this->request->data['transactionhash'])
+			));
+		}
+		return compact('title','transactions');
+	}
+	public function reverse($txhash = null, $username = null, $amount = null){
+	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		$Transactions = Transactions::remove('all',array(
+			'conditions'=>array(
+				'TransactionHash'=>$txhash
+			)
+		));
 
+		$details = Details::find('first',array(
+			'conditions'=>array(
+				'username'=>$username
+			)
+		));
+
+		$OriginalAmount = $details['balance.BTC'];
+		$dataDetails = array(
+					'balance.BTC' => (float)$OriginalAmount - (float)$amount,
+		);
+
+		$detailsAdd = Details::find('all',array(
+			'conditions'=>array(
+				'username'=>$username
+			)
+		))->save($dataDetails);
+		
+		$this->redirect('Admin::bitcoin');	
+	}
 }
 ?>
