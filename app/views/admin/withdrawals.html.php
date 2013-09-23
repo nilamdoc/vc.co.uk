@@ -13,8 +13,9 @@
 		</thead>
 		<tbody>
 <?php 
+$i = 0;
 foreach ($Details as $tx){?>
-		<tr <?php ?> style="background-color:#669933 "></tr>
+		<tr <?php if(($i%2)==0){?>style="background-color:#B8FBAC"<?php }else{?>style="background-color:#FEEABA"<?php }?>>
 			<td><?=gmdate('Y-M-d H:i:s',$tx['TranDate']->sec)?></td>
 			<td><?=$tx['username']?></td>
 			<td><?=$tx['Reference']?></td>
@@ -41,7 +42,20 @@ foreach ($Details as $tx){?>
 			</select>
 			</td>
 		</tr>
-<?php 
+<?php  foreach($tx['Previous'] as $pt){ ?>
+		<tr <?php if(($i%2)==0){?>style="background-color:#B8FBAC"<?php }else{?>style="background-color:#FEEABA"<?php }?>>
+			<td><?=gmdate('Y-M-d H:i:s',$pt['DateTime']->sec)?></td>
+			<td><?=$tx['username']?></td>
+			<td>Previous Transaction </td>
+			<td style="text-align:right "><?=number_format($pt['Amount'],2)?></td>
+			<td style="text-align:right "><?=$pt['Currency']?></td>			
+			<td><?php if($pt['Added']==true){echo "Deposit";}else{echo "Withdraw";}?></td>
+			<td style="text-align:center"><?=$pt['Approved']?></td>			
+			<td colspan="3"></td>
+		</tr>
+<?php }?>
+		
+<?php $i++;
 } ?>
 		</tbody>
 	</table>

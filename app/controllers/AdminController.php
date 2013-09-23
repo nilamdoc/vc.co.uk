@@ -477,6 +477,15 @@ class AdminController extends \lithium\action\Controller {
 			$details = Details::find('first',array(
 				'conditions'=>array('username'=>$ft['username'])
 			));
+			$Previoustransactions = Transactions::find('all',array(
+				'conditions'=>array(
+					'Currency'=>array('$ne'=>'BTC'),
+					'username'=>$ft['username']
+				),
+				'order'=>array('DateTime'=>-1),
+				'limit'=>3
+			));
+			
 			$Details[$i]['GBP'] = $details['balance.GBP'];
 			$Details[$i]['EUR'] = $details['balance.EUR'];			
 			$Details[$i]['USD'] = $details['balance.USD'];			
@@ -488,7 +497,16 @@ class AdminController extends \lithium\action\Controller {
 			$Details[$i]['Added'] = (string)$ft['Added'];												
 			$Details[$i]['Approved'] = $ft['Approved'];															
 			$Details[$i]['_id'] = $ft['_id'];																		
+			$j = 0;
+			foreach($Previoustransactions as $pt){
+				$Details[$i]['Previous'][$j]['Approved']	=		$pt['Approved'];
+				$Details[$i]['Previous'][$j]['Amount']	=		$pt['Amount'];				
+				$Details[$i]['Previous'][$j]['Currency']	=		$pt['Currency'];				
+				$Details[$i]['Previous'][$j]['DateTime']	=		$pt['DateTime'];				
+				$j++;
+			}
 			$i++;
+
 		}
 		$reasons = Reasons::find('all',array(
 			'conditions'=>array('type'=>'Withdrawal'),
