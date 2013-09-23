@@ -883,7 +883,7 @@ class AdminController extends \lithium\action\Controller {
 			
 		$mongodb = Connections::get('default')->connection;
 	  $pagination = new Pagination($mongodb, '/Admin/user/{{PAGE}}/');
-		$itemsPerPage   = 20;
+		$itemsPerPage   = 10;
 		$currentPage    = $page;
 		$pagination->setQuery(array(
 			'#collection'	=>  'users',
