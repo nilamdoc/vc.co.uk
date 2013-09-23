@@ -1,4 +1,4 @@
-
+<?php use lithium\util\String;?>
 <table class="table table-condensed table-bordered table-hover" >
 	<thead>
 	<tr>
@@ -100,6 +100,65 @@ foreach ($Fiattransactions as $tx){?>
 } ?>
 		</tbody>
 	</table>
-			
 	</div>
+</div>
+<div class="span5">
+		<div class="navbar">
+			<div class="navbar-inner">
+			<a class="brand" href="#"><?=$t('Pending Orders')?> </a>
+			</div>
+		<table class="table table-condensed table-bordered table-hover" >
+		<thead>
+			<tr>
+				<th style="text-align:center "><?=$t('Exchange')?></th>
+				<th style="text-align:center "><?=$t('Price')?></th>
+				<th style="text-align:center "><?=$t('Amount')?></th>
+			</tr>
+		</thead>
+		<tbody>
+				<?php foreach($UserOrders as $YO){ ?>
+					<tr>
+						<td style="text-align:left ">
+						<a href="/ex/RemoveOrder/<?=String::hash($YO['_id'])?>/<?=$YO['_id']?>/<?=$sel_curr?>" title="Remove this order">
+							<i class="icon-remove"></i></a> &nbsp; 
+						<?=$YO['Action']?> <?=$YO['FirstCurrency']?>/<?=$YO['SecondCurrency']?></td>
+						<td style="text-align:right "><?=number_format($YO['PerPrice'],3)?>...</td>
+						<td style="text-align:right "><?=number_format($YO['Amount'],3)?>...</td>
+
+					</tr>
+				<?php }?>					
+		</tbody>
+	</table>
+		</div>
+	</div>	
+			<div class="span5"  style="height:334px;">
+			<div class="navbar">
+				<div class="navbar-inner">
+				<a class="brand" href="#"><?=$t('Completed orders')?></a>
+				</div>
+				<div id="YourCompleteOrders" style="height:300px;overflow:auto;">			
+			<table class="table table-condensed table-bordered table-hover" style="font-size:11px">
+				<thead>
+					<tr>
+						<th style="text-align:center "><?=$t('Exchange')?></th>
+						<th style="text-align:center "><?=$t('Price')?></th>
+						<th style="text-align:center "><?=$t('Amount')?></th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php foreach($UserCompleteOrders as $YO){ ?>
+					<tr style="cursor:pointer"
+					class=" tooltip-x" rel="tooltip-x" data-placement="top" title="<?=$YO['Action']?> <?=number_format($YO['Amount'],3)?> at 
+					<?=number_format($YO['PerPrice'],8)?> on <?=gmdate('Y-m-d H:i:s',$YO['DateTime']->sec)?> from <?=$YO['Transact.username']?>">
+						<td style="text-align:left ">
+						<?=$YO['Action']?> <?=$YO['FirstCurrency']?>/<?=$YO['SecondCurrency']?></td>
+						<td style="text-align:right "><?=number_format($YO['PerPrice'],3)?>...</td>
+						<td style="text-align:right "><?=number_format($YO['Amount'],3)?>...</td>
+					</tr>
+				<?php }?>					
+				</tbody>
+			</table>
+				</div>
+			</div>
+
 </div>

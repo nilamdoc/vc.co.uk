@@ -391,7 +391,7 @@ class ExController extends \lithium\action\Controller {
 				'SecondCurrency' => $second_curr,					
 
 				),
-			'order' => array('DateTime'=>'DSEC')
+			'order' => array('DateTime'=>-1)
 		));
 		$YourCompleteOrders = Orders::find('all',array(
 			'conditions'=>array(
@@ -400,7 +400,7 @@ class ExController extends \lithium\action\Controller {
 				'FirstCurrency' => $first_curr,
 				'SecondCurrency' => $second_curr,					
 				),
-			'order' => array('DateTime'=>'DSEC')
+			'order' => array('DateTime'=>-1)
 		));
 
 		return compact('title','details','SellOrders','BuyOrders','TotalSellOrders','TotalBuyOrders','YourOrders','YourCompleteOrders');

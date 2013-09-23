@@ -175,10 +175,10 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 				<tbody>
 				<?php foreach($YourOrders as $YO){ ?>
 					<tr>
-						<td style="text-align:left ">
-						<a href="/<?=$locale?>/ex/RemoveOrder/<?=String::hash($YO['_id'])?>/<?=$YO['_id']?>/<?=$sel_curr?>" title="Remove this order">
-							<i class="icon-remove"></i></a> &nbsp; 
-						<?=$YO['Action']?> <?=$YO['FirstCurrency']?>/<?=$YO['SecondCurrency']?></td>
+							<td style="text-align:left ">
+							<a href="/<?=$locale?>/ex/RemoveOrder/<?=String::hash($YO['_id'])?>/<?=$YO['_id']?>/<?=$sel_curr?>" title="Remove this order">
+								<i class="icon-remove"></i></a> &nbsp; 
+							<?=$YO['Action']?> <?=$YO['FirstCurrency']?>/<?=$YO['SecondCurrency']?></td>
 						<td style="text-align:right "><?=number_format($YO['PerPrice'],3)?>...</td>
 						<td style="text-align:right "><?=number_format($YO['Amount'],3)?>...</td>
 					</tr>

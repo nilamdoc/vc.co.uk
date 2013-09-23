@@ -9,6 +9,7 @@ use app\models\File;
 use app\models\Orders;
 use lithium\data\Connections;
 use app\extensions\action\Pagination;
+use lithium\util\String;
 use MongoID;
 
 use \lithium\template\View;
@@ -904,18 +905,35 @@ class AdminController extends \lithium\action\Controller {
 		$itemsPerPage   = 10;
 		$currentPage    = $page;
 		$pagination->setQuery(array(
-			'#collection'	=>  'users',
-			'#find'		=>  array(			),
+			'#collection'	=>  'details',
+			'#find'		=>  array('balance.BTC'=>array('$gt'=>0)),
 			'#sort'		=>  array(
-				'username'	=>  1
+				'balance.BTC'	=>  -1
 			),
 		), $currentPage, $itemsPerPage);
-		$users = $pagination->Paginate();
+		$details = $pagination->Paginate();
+		$Details = array();$i = 0;
+		foreach($details['dataset'] as $dt){
+			$user = Users::find('first',array(
+				'conditions'=>array('username'=>$dt['username'])
+			));
+			$Details[$i]['username'] = $user['username'];							
+			$Details[$i]['firstname'] = $user['firstname'];							
+			$Details[$i]['lastname'] = $user['lastname'];										
+			$Details[$i]['email'] = $user['email'];													
+			$Details[$i]['ip'] = $user['ip'];													
+			$Details[$i]['created'] = $user['created'];													
+			$Details[$i]['BTC'] = $dt['balance']['BTC'];													
+			$Details[$i]['USD'] = $dt['balance']['USD'];												
+			$Details[$i]['EUR'] = $dt['balance']['EUR'];													
+			$Details[$i]['GBP'] = $dt['balance']['GBP'];																							
+			$i++;
+		}
 		$page_links = $pagination->getPageLinks();
-		
+
 		$title = "User";
 		$TotalUsers = Users::count();
-		return compact('title','users','page_links','TotalUsers');
+		return compact('title','users','page_links','TotalUsers','Details');
 		
 	}
 	
@@ -984,14 +1002,22 @@ class AdminController extends \lithium\action\Controller {
 			'username'=>$username
 			)
 		));
-		
-		$orders = Orders::find('all',array(
+
+		$UserOrders = Orders::find('all',array(
 			'conditions'=>array(
-			'username'=>$username
-			),
-			'order' => array('DateTime'=>'DESC')			
+				'username'=>$username,
+				'Completed'=>'N',
+				),
+			'order' => array('DateTime'=>-1)
 		));
-			return compact('title','transactions','details','user','orders','Fiattransactions');
+		$UserCompleteOrders = Orders::find('all',array(
+			'conditions'=>array(
+				'username'=>$username,
+				'Completed'=>'Y',
+				),
+			'order' => array('DateTime'=>-1)
+		));
+			return compact('title','transactions','details','user','UserOrders','Fiattransactions','UserCompleteOrders');
 	}
 }
 ?>
