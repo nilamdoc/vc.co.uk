@@ -1,4 +1,4 @@
-<h4>User</h4>
+<h4>Users: <?=$TotalUsers?></h4>
 <table class="table table-condensed table-bordered table-hover" >
 	<thead>
 		<tr>
