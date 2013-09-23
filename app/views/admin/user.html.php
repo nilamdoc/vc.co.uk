@@ -1,4 +1,5 @@
 <h4>Users: <?=$TotalUsers?></h4>
+<?php print_r($page_links);?>
 <table class="table table-condensed table-bordered table-hover" >
 	<thead>
 		<tr>
