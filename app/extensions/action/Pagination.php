@@ -79,7 +79,7 @@ class Pagination extends \lithium\action\Controller{
       $html .= '<span><a href="'.$this->preparePageLink($this->currentpage - 1).'">previous</a></span>';
     }
     $VisiblePagelinkCount = 1;
-    for($i=$this->currentpage; $i <= $this->totalPages; $i++) {
+    for($i=$this->currentpage; $i <= $this->totalPages+1; $i++) {
       if($VisiblePagelinkCount <= $setVisiblePagelinkCount) {
         if($this->currentpage == $i) {
           $html .= '<span><a class="active" href="'.$this->preparePageLink($i).'">'.$i.'</a></span>';
