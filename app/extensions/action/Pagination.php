@@ -74,26 +74,26 @@ class Pagination extends \lithium\action\Controller{
       return $html;
     }
 
-    $html = '<div class="MongoPagination">';
+    $html = '<div class="pagination"><ul>';
     if(1 != $this->currentpage) {
-      $html .= '<span><a href="'.$this->preparePageLink($this->currentpage - 1).'">previous</a></span>';
+      $html .= '<li><a href="'.$this->preparePageLink($this->currentpage - 1).'">&laquo; Previous</a></li>';
     }
     $VisiblePagelinkCount = 1;
     for($i=$this->currentpage; $i <= $this->totalPages+1; $i++) {
       if($VisiblePagelinkCount <= $setVisiblePagelinkCount) {
         if($this->currentpage == $i) {
-          $html .= '<span><a class="active" href="'.$this->preparePageLink($i).'">'.$i.'</a></span>';
+          $html .= '<li><a class="active " href="'.$this->preparePageLink($i).'">'.$i.'</a></li>';
         }
         else {
-          $html .= '<span><a href="'.$this->preparePageLink($i).'">'.$i.'</a></span>';
+          $html .= '<li><a href="'.$this->preparePageLink($i).'">'.$i.'</a></li>';
         }
       }
       $VisiblePagelinkCount++;
     }    
     if($this->totalPages != $this->currentpage) {
-      $html .= '<span><a href="'.$this->preparePageLink($this->currentpage + 1).'">next &raquo;</a></span>';
+      $html .= '<li><a href="'.$this->preparePageLink($this->currentpage + 1).'">Next &raquo;</a></li>';
     }
-    $html .= '</div>';
+    $html .= '</ul></div>';
     
     /*
     $html = '<div class="MongoPagination">';
