@@ -6,10 +6,6 @@
 <p>Your deposit has been approved <?=COMPANY_URL?>.</p>
 <table>
 		<tr>
-			<td>Account name:</td>
-			<td>IBWT JD Ltd.</td>
-		</tr>
-		<tr>
 			<td>Sort code: </td>
 			<td>07-71-99</td>	
 		</tr>

@@ -4,11 +4,9 @@
 <h4>Hi <?=$user['firstname']?>,</h4>
 
 <p>You have requested to deposit money to <?=COMPANY_URL?>.</p>
+<p><strong>Make SURE you deposit from your verified account. Money sent from any other account will result in the transaction being blocked and investigated.</strong></p>
+
 <table>
-		<tr>
-			<td>Account name:</td>
-			<td>IBWT JD Ltd.</td>
-		</tr>
 		<tr>
 			<td>Sort code: </td>
 			<td>07-71-99</td>	

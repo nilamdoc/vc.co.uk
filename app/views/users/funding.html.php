@@ -261,10 +261,6 @@ function initCanvas(ww,hh)
 					<td colspan="2"><?=$t("Send payment to")?></td>
 				</tr>
 				<tr>
-					<td>Account name:</td>
-					<td>IBWT JD Ltd.</td>
-				</tr>
-				<tr>
 					<td>Sort code: </td>
 					<td>07-71-99</td>
 				</tr>
@@ -288,6 +284,11 @@ function initCanvas(ww,hh)
 							<option value="USD">USD</option>							
 							<option value="EUR">EUR</option>							
 					</select></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<p><strong>Make SURE you deposit from your verified account. Money sent from any other account will result in the transaction being blocked and investigated.</strong></p>
+					</td>
 				</tr>
 				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Once your email is approved, you will receive the funds in your account in ibwt.co.uk">
 					<td colspan="2" style="text-align:center ">
@@ -340,7 +341,7 @@ function initCanvas(ww,hh)
 				</tr>							
 				<tr>
 					<td colspan="2">Account name:</td>
-					<td colspan="2"><input type="text" name="AccountName" id="AccountName" placeholder="Name from which you deposited"></td>
+					<td colspan="2"><input type="text" name="AccountName" id="AccountName" placeholder="Verified bank account name"></td>
 				</tr>
 				<tr>
 					<td colspan="2">Sort code: </td>

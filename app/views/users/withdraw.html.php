@@ -1,8 +1,9 @@
-<h4>Deposit</h4>
+<h4>Withdraw</h4>
 
 <h5>Hi <?=$user['firstname']?>,</h5>
 
 <p>You have requested to withdraw money from <?=COMPANY_URL?>.</p>
+<p><strong>Thank you, your request has been sent for clearance.</strong></p>
 <table>
 		<tr>
 			<td>Account name:</td>
@@ -52,5 +53,5 @@
 <li><?=$t("It can take us up to 24 hours to verify, confirm and start the process transfer for your withdrawal requests.")?></li>
 <li><?=$t("If the Customer's bank subscribes to Faster Payments the money will reach their account usually within 24 hours but can sometimes take up to close of business the next working day. Otherwise payments take 4 working days to process.")?></li>
 </ul>
-<a href="/users/funding" class="btn btn-primary">Add funds</a>
+<a href="/users/funding" class="btn btn-primary">Withdraw funds</a>
 <a href="/users/transactions" class="btn btn-primary">Transactions</a>

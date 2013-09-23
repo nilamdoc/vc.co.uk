@@ -26,7 +26,7 @@
 	<div class="span6 well">
 		<div class="navbar">
 			<div class="navbar-inner">
-			<a class="brand" href="#"><?=$t('Sign up')?> </a>
+			<a class="brand" href="#"><?=$t('Sign up / Register')?> </a>
 			</div>
 		</div>
 		<h3>Sign up</h3>

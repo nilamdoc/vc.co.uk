@@ -44,7 +44,7 @@ use app\extensions\action\Functions;
 				<li><a href="/logout"><?=$t('Logout')?></a></li>
 			</ul>
 			<?php }else{?>
-					<a href="/login" class="btn"><?=$t('Login')?></a>			
+					<a href="/login" class="btn"><?=$t('Login / Register')?></a>			
 			<?php }?>				
 			</ul>			
 		</div>

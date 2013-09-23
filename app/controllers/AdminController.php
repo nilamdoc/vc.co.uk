@@ -918,7 +918,7 @@ class AdminController extends \lithium\action\Controller {
 					'username'=>$username,
 					'Currency'=>'BTC'					
 				),
-			'order' => array('DateTime'=>'DSEC')				
+			'order' => array('DateTime'=>'DESC')				
 			));
 		$Fiattransactions = Transactions::find('all',array(
 			'conditions'=>array(
@@ -943,7 +943,7 @@ class AdminController extends \lithium\action\Controller {
 			'conditions'=>array(
 			'username'=>$username
 			),
-			'order' => array('DateTime'=>'DSEC')			
+			'order' => array('DateTime'=>'DESC')			
 		));
 			return compact('title','transactions','details','user','orders','Fiattransactions');
 	}

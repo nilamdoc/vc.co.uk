@@ -7,10 +7,6 @@
 <p>You can also send a scanned receipt of your deposit to support@ibwt.co.uk.</p>
 <table>
 		<tr>
-			<td>Account name:</td>
-			<td>IBWT JD Ltd.</td>
-		</tr>
-		<tr>
 			<td>Sort code: </td>
 			<td>07-71-99</td>	
 		</tr>

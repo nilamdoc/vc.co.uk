@@ -4,7 +4,7 @@
 <h4>Hi <?=$user['firstname']?>,</h4>
 
 <p>Your withdrawal has been <strong>REJECTED</strong> <?=COMPANY_URL?>.</p>
-<strong><?=$Transactions['Reason']?></strong>
+<strong style="color:#FF0000 "><?=$Transactions['Reason']?></strong>
 <table>
 		<tr>
 			<td>Account name:</td>
