@@ -14,8 +14,9 @@
 		</thead>
 		<tbody>
 <?php 
-foreach ($Fiattransactions as $tx){?>
-		<tr <?php ?> style="background-color:#669933 "></tr>
+$i = 0;
+foreach ($Details	as $tx){?>
+		<tr <?php if(($i%2)==0){?>style="background-color:#B8FBAC"<?php }else{?>style="background-color:#FEEABA"<?php }?>>
 			<td><?=gmdate('Y-M-d H:i:s',$tx['DateTime']->sec)?></td>
 			<td><?=$tx['username']?></td>
 			<td><?=$tx['Reference']?></td>
@@ -38,10 +39,21 @@ foreach ($Fiattransactions as $tx){?>
 				<input type="hidden" name="Currency" id="Currency" value="<?=$tx['Currency']?>">				
 				<input type="submit" value="Deposit to ibwt" class="btn btn-primary tooltip-x" rel="tooltip-x" data-placement="top" title="Approve this transaction">
 			</form>
-
 			</td>
 		</tr>
-<?php 
+<?php  foreach($tx['Previous'] as $pt){ ?>
+		<tr <?php if(($i%2)==0){?>style="background-color:#B8FBAC"<?php }else{?>style="background-color:#FEEABA"<?php }?>>
+			<td><?=gmdate('Y-M-d H:i:s',$pt['DateTime']->sec)?></td>
+			<td><?=$tx['username']?></td>
+			<td>Previous Transaction </td>
+			<td style="text-align:right "><?=number_format($pt['Amount'],2)?></td>
+			<td style="text-align:right "><?=$pt['Currency']?></td>			
+			<td><?php if($pt['Added']==true){echo "Deposit";}else{echo "Withdraw";}?></td>
+			<td style="text-align:center"><?=$pt['Approved']?></td>			
+			<td colspan="3"></td>
+		</tr>
+<?php }?>
+<?php $i++;
 } ?>
 		</tbody>
 	</table>

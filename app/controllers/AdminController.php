@@ -428,11 +428,39 @@ class AdminController extends \lithium\action\Controller {
 			),
 			'order'=>array('DateTime'=>-1)
 		));
+		$Details = array();$i=0;
+		foreach ($Fiattransactions as $ft){
+			$Previoustransactions = Transactions::find('all',array(
+				'conditions'=>array(
+					'Currency'=>array('$ne'=>'BTC'),
+					'username'=>$ft['username']
+				),
+				'order'=>array('DateTime'=>-1),
+				'limit'=>3
+			));
+			$Details[$i]['DateTime'] = $ft['DateTime'];	
+			$Details[$i]['username'] = $ft['username'];				
+			$Details[$i]['Reference'] = $ft['Reference'];	
+			$Details[$i]['Amount'] = $ft['Amount'];	
+			$Details[$i]['Currency'] = $ft['Currency'];	
+			$Details[$i]['Added'] = $ft['Added'];													
+			$Details[$i]['Approved'] = $ft['Approved'];										
+			$Details[$i]['_id'] = $ft['_id'];													
+			$j = 0;
+			foreach($Previoustransactions as $pt){
+				$Details[$i]['Previous'][$j]['Approved']	=		$pt['Approved'];
+				$Details[$i]['Previous'][$j]['Amount']	=		$pt['Amount'];				
+				$Details[$i]['Previous'][$j]['Currency']	=		$pt['Currency'];				
+				$Details[$i]['Previous'][$j]['DateTime']	=		$pt['DateTime'];				
+				$j++;
+			}
+			$i++;
+		}
 		$reasons = Reasons::find('all',array(
 			'conditions'=>array('type'=>'Deposit'),
 			'order'=>array('code'=>1)
 		));		
-		return compact('Fiattransactions','reasons');
+		return compact('Details','reasons');
 	}
 	public function withdrawals(){
 		if($this->__init()==false){$this->redirect('ex::dashboard');	}

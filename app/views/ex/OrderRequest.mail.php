@@ -21,7 +21,8 @@
 		<td><?=number_format($order['PerPrice']*$order['Amount'],8);?></td>		
 	</tr>
 </table>
-<p>To respond and complete the above order please sign in to https://<?=COMPANY_URL?>.</p>
+<p>To view your order please sign in to https://ibwt.co.uk. </p>
+<p>If you did not place this order then please contact us at support@ibwt.co.uk or via telephone 07914 446125 as soon as possible.</p>
 
 <p>Thank you,</p>
 <p>Support</p>
