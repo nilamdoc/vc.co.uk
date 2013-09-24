@@ -35,6 +35,23 @@
 		<td style="text-align:center "><?=$dt['email.verified']?></td>
 	</tr>
 <?php  }?>
+	<tr>
+		<th style="text-align:center ">Account name</th>
+		<th style="text-align:center ">Sort code</th>
+		<th style="text-align:center ">Account number</th>
+		<th style="text-align:center ">Bank name</th>
+		<th style="text-align:center ">Bank address</th>
+	</tr>
+<?php foreach($details as $dt){?>
+	<tr>
+		<td style="text-align:center "><?=$dt['bank.accountname']?></td>
+		<td style="text-align:center "><?=$dt['bank.sortcode']?></td>
+		<td style="text-align:center "><?=$dt['bank.accountnumber']?></td>
+		<td style="text-align:center "><?=$dt['bank.bankname']?></td>
+		<td style="text-align:center "><?=$dt['bank.branchaddress']?></td>				
+	</tr>
+<?php  }?>
+
 	</tbody>
 	</table>
 <div class="row">
