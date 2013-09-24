@@ -341,15 +341,15 @@ function initCanvas(ww,hh)
 				</tr>							
 				<tr>
 					<td colspan="2">Account name:</td>
-					<td colspan="2"><input type="text" name="AccountName" id="AccountName" placeholder="Verified bank account name"></td>
+					<td colspan="2"><input type="text" name="AccountName" id="AccountName" placeholder="Verified bank account name" value="<?=$details['bank.bankname']?>"></td>
 				</tr>
 				<tr>
 					<td colspan="2">Sort code: </td>
-					<td colspan="2"><input type="text" name="SortCode" id="SortCode" placeholder="01-01-10"></td>
+					<td colspan="2"><input type="text" name="SortCode" id="SortCode" placeholder="01-01-10" value="<?=$details['bank.sortcode']?>"></td>
 				</tr>
 				<tr>
 					<td colspan="2">Account number:</td>
-					<td colspan="2"><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678"></td>
+					<td colspan="2"><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bank.accountnumber']?>"></td>
 				</tr>
 				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Quote this reference number in your withdrawal">
 					<td colspan="2">Reference:</td>

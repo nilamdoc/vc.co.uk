@@ -433,7 +433,13 @@ class AdminController extends \lithium\action\Controller {
 		
 		$Details = array();$i=0;
 		foreach ($Fiattransactions as $ft){
-
+		/////////////////////////////////////////////////////////////////////////////////////////////				
+		  // Verified Bank from details
+			$bankverified = Details::find('first',array(
+				'conditions'=>array('username'=>$ft['username'])
+			));
+			$Details[$i]['BankVerified'] = $bankverified['bank.verified'];
+		/////////////////////////////////////////////////////////////////////////////////////////////			
 		/////////////////////////////////////////////////////////////////////////////////////////////			
 			//Summary of all deposits / withdrawals for a user
 		$mongodb = Connections::get('default')->connection;
@@ -997,7 +1003,7 @@ class AdminController extends \lithium\action\Controller {
 		$currentPage    = $page;
 		$pagination->setQuery(array(
 			'#collection'	=>  'details',
-			'#find'		=>  array('balance.BTC'=>array('$gt'=>0)),
+			'#find'		=>  array(),
 			'#sort'		=>  array(
 				'balance.BTC'	=>  -1
 			),

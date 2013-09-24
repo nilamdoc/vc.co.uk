@@ -19,7 +19,11 @@ $i = 0;
 foreach ($Details	as $tx){?>
 		<tr <?php if(($i%2)==0){?>style="background-color:#B8FBAC"<?php }else{?>style="background-color:#FEEABA"<?php }?>>
 			<td><?=gmdate('Y-M-d H:i:s',$tx['DateTime']->sec)?></td>
-			<td><a href="/Admin/detail/<?=$tx['username']?>" target="_blank"><?=$tx['username']?></a></td>
+			<td><a href="/Admin/detail/<?=$tx['username']?>" target="_blank"><?=$tx['username']?></a><br>
+				<span class="label
+				<?php if($tx['BankVerified']=="No"){echo " label-important ";}else{echo " label-success ";} ?>
+				">Bank Verified: <?=$tx['BankVerified']?></span>
+			</td>
 			<td><?=$tx['Reference']?></td>
 			<td style="text-align:right "><?=number_format($tx['Amount'],2)?><br>
 						<span class="label label-success">Deposits:<br>
