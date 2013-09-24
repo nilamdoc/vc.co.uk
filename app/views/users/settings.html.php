@@ -283,14 +283,6 @@ use li3_qrcode\extensions\action\QRcode;
 	<div id="collapseDelete" class="accordion-body collapse">
 		<div class="accordion-inner">
 		<h5>Delete account?</h5>		
-		<h6>Why do I need to delete an account?</h6>
-		<p>Delete account is used to recover your password. As rbitco.in does not help in changing the password for your account. We can delete the old account and  reset it with a new password only by deleting the account and again sign up for a new account with the same <strong>username</strong>.</p>
-		<p>Steps to reset a new password:</p>		
-		<ol>
-			<li>Delete this account</li>
-			<li>Create a new account by signing up</li>
-			<li>Use the same <strong>username</strong> </li>
-		</ol>
 		<?=$this->form->create('',array('url'=>'/users/deleteaccount')); ?>
 		<?=$this->form->field('username', array('label'=>'Username','placeholder'=>'username')); ?>
 		<?=$this->form->field('email', array('label'=>'Email','placeholder'=>'email')); ?>

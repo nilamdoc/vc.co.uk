@@ -790,6 +790,6 @@ class UsersController extends \lithium\action\Controller {
 		return $this->redirect('Users::settings');
 	}
 
-	
+	public function deleteaccount(){}
 }
 ?>
