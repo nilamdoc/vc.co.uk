@@ -12,6 +12,7 @@ use app\models\Details;
 use app\models\Trades;
 use app\models\Orders;
 use lithium\data\Connections;
+use lithium\storage\Session;
 use app\extensions\action\Bitcoin;
 
 class UpdatesController extends \lithium\action\Controller {
@@ -30,7 +31,25 @@ class UpdatesController extends \lithium\action\Controller {
 	public function Rates($FirstCurrency="BTC",$SecondCurrency="USD") {
 		$title = $FirstCurrency . "/" . $SecondCurrency;
 		$back = strtolower($FirstCurrency . "_" . $SecondCurrency);		
-			$Refresh = "No";
+
+		$Refresh = "No";
+		
+		$user = Session::read('member');
+		$id = $user['_id'];
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=>$id))
+		);
+		if($details['page.refresh']==true || $details['page.refresh']==1){
+				$data = array(
+				'page.refresh' => false
+				);
+				Details::find('all',
+				array('conditions'=>array('user_id'=>$id))				
+				)->save($data);
+
+			$Refresh = "Yes";
+		}
+		
 			$URL = "/".$locale.'ex/x/'.$back;					
 			$trades = Trades::find('first',array(
 				'conditions' => array('trade'=>$title),

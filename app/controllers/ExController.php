@@ -45,6 +45,11 @@ class ExController extends \lithium\action\Controller {
 		);
 
 		if(($this->request->data)){
+				$data = array(
+				'page.refresh' => true
+				);
+				Details::find('all')->save($data);
+
 			$Action = $this->request->data['Action'];
 			if($Action == "Buy"){
 				$PendingAction = 'Sell';
