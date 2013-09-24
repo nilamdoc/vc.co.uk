@@ -1116,5 +1116,18 @@ class AdminController extends \lithium\action\Controller {
 		));
 			return compact('title','transactions','details','user','UserOrders','Fiattransactions','UserCompleteOrders');
 	}
+	public function bankapprove($username = null){
+	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		$data = array(
+			'bank.verified' => 'Yes'
+		);
+		$details = Details::find('all',array(
+			'conditions'=>array(
+				'username'=>$username
+			)
+		))->save($data);
+		
+		$this->redirect('Admin::user');	
+	}
 }
 ?>

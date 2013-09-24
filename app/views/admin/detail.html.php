@@ -47,8 +47,15 @@
 		<td style="text-align:center "><?=$dt['bank.accountname']?></td>
 		<td style="text-align:center "><?=$dt['bank.sortcode']?></td>
 		<td style="text-align:center "><?=$dt['bank.accountnumber']?></td>
-		<td style="text-align:center "><?=$dt['bank.bankname']?></td>
-		<td style="text-align:center "><?=$dt['bank.branchaddress']?></td>				
+		<td style="text-align:center "><?=$dt['bank.bankname']?><br>
+			<?=$dt['bank.branchaddress']?></td>
+		<td style="text-align:center ">
+		<?php if($dt['bank.verified']!="Yes"){?>
+		<a class="btn btn-primary" href="/Admin/bankapprove/<?=$dt['username']?>">Verify</a>		
+		<?php }else{?>
+		<span class="label label-success">Verified</span>
+		<?php }?>
+		</td>				
 	</tr>
 <?php  }?>
 
