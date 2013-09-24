@@ -149,6 +149,21 @@ class UsersController extends \lithium\action\Controller {
 	}
 	
 	public function mobile(){
+		$title = "Mobile";
+	
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+		if ($this->request->data) {
+			$data = array(
+				"mobile.number" => $this->request->data['mobile'],
+				"mobile.verified" =>	 "No",				
+			);
+			$details = Details::find('all',
+				array('conditions'=>array('user_id'=> (string) $id))
+			)->save($data);
+		}
+	return $this->redirect('Users::settings');
 	}
 
 

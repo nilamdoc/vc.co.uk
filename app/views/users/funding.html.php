@@ -356,9 +356,11 @@ function initCanvas(ww,hh)
 					<?php $Reference = substr($details['username'],0,10)."-".rand(10000,99999);?>
 					<td colspan="2"><?=$Reference?></td>
 				</tr>
-				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Amount should be between 1 and 10000">
+				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Amount should be between 6 and 10000">
 					<td colspan="2">Amount:</td>
-					<td colspan="2"><input type="text" value="" class="span2" placeholder="1.0" min="1" max="10000" name="WithdrawAmountFiat" id="WithdrawAmountFiat" maxlength="5"></td>
+					<td colspan="2"><input type="text" value="" class="span2" placeholder="6.0" min="6" max="10000" name="WithdrawAmountFiat" id="WithdrawAmountFiat" maxlength="5"><br>
+<small style="color:red ">&pound;1 withdrawal fee automatically added.<br>
+Minimum withdrawal &pound;5.</small></td>
 				</tr>
 				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Select a currency">
 					<td colspan="2">Currency:</td>

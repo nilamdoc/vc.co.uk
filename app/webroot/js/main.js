@@ -243,6 +243,7 @@ function CheckWithdrawal(){
 	if(AccountNumber==""){return false;}
 	WithdrawAmountFiat = $("#WithdrawAmountFiat").val();
 	if(WithdrawAmountFiat==""){return false;}
+	if(parseInt(WithdrawAmountFiat)<=5){return false;}
 	}
 function RejectReason(value){
 	url = $("#RejectURL").attr('href');

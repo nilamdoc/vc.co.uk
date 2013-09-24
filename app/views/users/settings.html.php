@@ -46,14 +46,19 @@ use li3_qrcode\extensions\action\QRcode;
 			?>
 			<tr>
 				<td>Mobile:</td>
-				<td><?php 
+				<td>
+				<?=$this->form->create("",array('url'=>'/users/mobile/')); ?>
+				<input type="text" name="mobile" id="mobile" placeholder="+44 12323894" value="<?=$details['mobile']['number']?>" >
+					<?=$this->form->submit('Save' ,array('class'=>'btn btn-primary')); ?>									
+				<?php 
 					if($details['mobile']['verified']=='' || $details['mobile']['verified']=='No'){
-						echo "<a href='/users/mobile/".$details['mobile']['number']."'  class='label label-important'>Verify</a>";
+						echo "<span  class='label label-important'>Not Verified</span>";
 						}else{
-						echo $details['mobile.number'];
+						echo "<span  class='label label-success'>Verified</span>";						
 					}?></td>
 			</tr>
 			<?php }?>
+<!--
 			<tr>
 				<td>Bitcoin Adresses: <br>
 				<td>
@@ -67,6 +72,7 @@ use li3_qrcode\extensions\action\QRcode;
 				?>
 				</td>
 			</tr>
+-->			
 		</table>
 		</div>
 	</div>
