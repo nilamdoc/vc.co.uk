@@ -18,7 +18,7 @@ $i = 0;
 foreach ($Details	as $tx){?>
 		<tr <?php if(($i%2)==0){?>style="background-color:#B8FBAC"<?php }else{?>style="background-color:#FEEABA"<?php }?>>
 			<td><?=gmdate('Y-M-d H:i:s',$tx['DateTime']->sec)?></td>
-			<td><?=$tx['username']?></td>
+			<td><a href="/Admin/detail/<?=$tx['username']?>" target="_blank"><?=$tx['username']?></a></td>
 			<td><?=$tx['Reference']?></td>
 			<td style="text-align:right "><?=number_format($tx['Amount'],2)?></td>
 			<td style="text-align:right "><?=$tx['Currency']?></td>			

@@ -17,7 +17,7 @@ $i = 0;
 foreach ($Details as $tx){?>
 		<tr <?php if(($i%2)==0){?>style="background-color:#B8FBAC"<?php }else{?>style="background-color:#FEEABA"<?php }?>>
 			<td><?=gmdate('Y-M-d H:i:s',$tx['TranDate']->sec)?></td>
-			<td><?=$tx['username']?></td>
+			<td><a href="/Admin/detail/<?=$tx['username']?>" target="_blank"><?=$tx['username']?></a></td>
 			<td><?=$tx['Reference']?></td>
 			<td style="text-align:right "><strong class="label label-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Withdraw"><?=number_format($tx['Amount'],2)?> <?=$tx['Currency']?></strong><br>
 <strong class="label label-success  tooltip-x" rel="tooltip-x" data-placement="top" title="Balance">
