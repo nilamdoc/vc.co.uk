@@ -80,24 +80,24 @@ use li3_qrcode\extensions\action\QRcode;
 		<a href="/users/addbank">Add/Edit bank details</a>
 		<table class="table">
 			<tr>
-				<td>Bank Name:</td>
-				<td><?=$details['bank']['bankname']?></td>
+				<td>Account name:</td>
+				<td><?=$details['bank']['accountname']?></td>
 			</tr>
 			<tr>
-				<td>Account Number:</td>
+				<td>Sort Code:</td>
+				<td><?=$details['bank']['sortcode']?></td>
+			</tr>
+			<tr>
+				<td>Account number:</td>
 				<td><?=$details['bank']['accountnumber']?></td>
 			</tr>
 			<tr>
-				<td>Branch Name:</td>
-				<td><?=$details['bank']['branchname']?></td>
+				<td>Bank name:</td>
+				<td><?=$details['bank']['bankname']?></td>
 			</tr>
 			<tr>
-				<td>MICR Number:</td>
-				<td><?=$details['bank']['micrnumber']?></td>
-			</tr>
-			<tr>
-				<td>Account Name:</td>
-				<td><?=$details['bank']['accountname']?></td>
+				<td>Branch address:</td>
+				<td><?=$details['bank']['branchaddress']?></td>
 			</tr>
 			<tr>
 				<td>Verified:</td>
@@ -106,7 +106,7 @@ use li3_qrcode\extensions\action\QRcode;
 					if($details['bank']['verified']=='Yes'){
 						echo '<a href="#" class="label label-success">Verified</a>';
 						}else{
-						echo '<a href="/users/verifybank"  class="label label-important">Verify</a>';
+						echo '<a href="/users/funding"  class="label label-important">Verify</a>';
 						}?>
 				</td>
 			</tr>

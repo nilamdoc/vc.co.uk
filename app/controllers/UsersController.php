@@ -759,5 +759,22 @@ class UsersController extends \lithium\action\Controller {
 		return compact('title','details','data','user');			
 	
 	}
+	
+		public function addbankdetails(){
+		$user = Session::read('default');
+		$user_id = $user['_id'];
+		$data = array();
+		if($this->request->data) {	
+			$data['bank'] = $this->request->data;
+			$data['bank']['id'] = new MongoID;
+			$data['bank']['verified'] = 'No';
+			Details::find('all',array(
+				'conditions'=>array('user_id'=>$user_id)
+			))->save($data);
+		}
+		return $this->redirect('Users::settings');
+	}
+
+	
 }
 ?>

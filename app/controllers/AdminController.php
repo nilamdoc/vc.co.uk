@@ -610,7 +610,6 @@ class AdminController extends \lithium\action\Controller {
 		$Authuser = Session::read('member');
 		$AuthBy = $Authuser['username'];
 
-	
 		$data = array(
 			'AmountApproved' => (float)$Amount,
 			'Approved' => 'Yes',
@@ -627,6 +626,15 @@ class AdminController extends \lithium\action\Controller {
 					'_id'=>$id
 				)
 			));
+		$databank = array(
+			'bank.verified' => 'Yes'
+		);
+		$details = Details::find('all',array(
+			'conditions'=>array(
+				'username'=>$Transactions['username']
+			)
+		))->save($databank);
+
 		$details = Details::find('first',array(
 			'conditions'=>array(
 				'username'=>$Transactions['username']

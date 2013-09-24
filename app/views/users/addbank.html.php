@@ -1,22 +1,22 @@
-<h4>Add/Edit bank:</h4>
-<p>This will un-set "verified" status, you will have to verify the bank again. Once verified rBitcoin will be able to transfer the funds to your bank account the same day.</p>
+<h4><?=$t("Add/Edit bank")?>:</h4>
+<p><?=$t("This will un-set 'verified' status, you will have to verify the bank again.")?></p>
 <div class="row-fluid">
 	<div class="span4">
 <?php
 foreach($details as  $d){
 ?>
 <?=$this->form->create('',array('url'=>'/users/addbankdetails')); ?>
-<?=$this->form->field('bankname', array('label'=>'1. Bank name','placeholder'=>'Bank Name','value'=>$d['bank']['bankname'])); ?>
-<?=$this->form->field('accountnumber', array('label'=>'2. Account number','placeholder'=>'Account number','value'=>$d['bank']['accountnumber'] )); ?>
-<?=$this->form->field('branchname', array('label'=>'3. Branch name','placeholder'=>'Branch name','value'=>$d['bank']['branchname'] )); ?>
-<?=$this->form->field('micrnumber', array('label'=>'4. MICR number','placeholder'=>'MICR number','value'=>$d['bank']['micrnumber'] )); ?>
-<?=$this->form->field('accountname', array('label'=>'5. Account name','placeholder'=>'Account name','value'=>$d['bank']['accountname'] )); ?>
+<?=$this->form->field('accountname', array('label'=>'1. Account name','placeholder'=>'Account name','value'=>$d['bank']['accountname'])); ?>
+<?=$this->form->field('sortcode', array('label'=>'2. Sort code','placeholder'=>'Sort code','value'=>$d['bank']['sortcode'] )); ?>
+<?=$this->form->field('accountnumber', array('label'=>'3. Account number','placeholder'=>'Account number','value'=>$d['bank']['accountnumber'] )); ?>
+<?=$this->form->field('bankname', array('label'=>'4. Bank name','placeholder'=>'Bank name','value'=>$d['bank']['bankname'] )); ?>
+<?=$this->form->field('branchaddress', array('label'=>'5. Branch address','placeholder'=>'Branch address','value'=>$d['bank']['branchaddress'] )); ?>
 <?=$this->form->submit('Save bank',array('class'=>'btn btn-primary','onclick'=>'return addBank();')); ?>
 <?=$this->form->end(); ?>
 <?php }?>
 	</div>
 	<div class="span8">
-		<p>Sample bank cheque for adding bank details.		</p>
-		<img src="/img/BankCheque.png" alt="sample bank cheque">	
+		<p><?=$t("Sample bank cheque for adding bank details.")?></p>
+		<img src="/img/Cheque.png" alt="sample bank cheque">	
 	</div>
 </div>
