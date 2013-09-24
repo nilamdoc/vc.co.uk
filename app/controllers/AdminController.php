@@ -421,6 +421,7 @@ class AdminController extends \lithium\action\Controller {
 	
 	public function transactions(){
 		if($this->__init()==false){$this->redirect('ex::dashboard');	}
+
 		$Fiattransactions = Transactions::find('all',array(
 			'conditions'=>array(
 				'Currency'=>array('$ne'=>'BTC'),
@@ -429,8 +430,89 @@ class AdminController extends \lithium\action\Controller {
 			),
 			'order'=>array('DateTime'=>-1)
 		));
+		
 		$Details = array();$i=0;
 		foreach ($Fiattransactions as $ft){
+
+		/////////////////////////////////////////////////////////////////////////////////////////////			
+			//Summary of all deposits / withdrawals for a user
+		$mongodb = Connections::get('default')->connection;
+		$UserFundsDeposits = Users::connection()->connection->command(array(
+			'aggregate' => 'transactions',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'username' => '$username',
+					'AmountApproved' => '$AmountApproved',					
+					'Currency' => '$Currency',					
+					'Approved'=>'$Approved',
+					'Added'=>'$Added'
+				)),
+				array('$match'=>array(
+					'username'=>$ft['username'],					
+					'Currency'=>array('$ne'=>'BTC'),
+					'Approved'=>'Yes',
+					'Added'=>(boolean)true
+					)),
+				array('$group' => array( '_id' => array(
+					'username' => '$username',
+					'Currency' => '$Currency',					
+				),
+						'TotalDeposit' => array('$sum' => '$AmountApproved'), 
+				)),
+			)
+		));
+		$UserFundsWithdrawals = Users::connection()->connection->command(array(
+			'aggregate' => 'transactions',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'username' => '$username',
+					'AmountApproved' => '$AmountApproved',					
+					'Currency' => '$Currency',					
+					'Approved'=>'$Approved',
+					'Added'=>'$Added'
+				)),
+				array('$match'=>array(
+					'username'=>$ft['username'],					
+					'Currency'=>array('$ne'=>'BTC'),
+					'Approved'=>'Yes',
+					'Added'=>(boolean)false
+					)),
+				array('$group' => array( '_id' => array(
+					'username' => '$username',
+					'Currency' => '$Currency',					
+				),
+						'TotalDeposit' => array('$sum' => '$AmountApproved'), 
+				)),
+			)
+		));
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+		foreach($UserFundsDeposits['result'] as $uf){
+			if($uf['_id']['Currency']=='USD'){
+				$Details[$i]['Funds']['USD'] = $uf['TotalDeposit'];										
+			}
+			if($uf['_id']['Currency']=='EUR'){
+				$Details[$i]['Funds']['EUR'] = $uf['TotalDeposit'];					
+			}
+			if($uf['_id']['Currency']=='GBP'){
+				$Details[$i]['Funds']['GBP'] = $uf['TotalDeposit'];					
+			}
+		}
+		foreach($UserFundsWithdrawals['result'] as $uf){
+			if($uf['_id']['Currency']=='USD'){
+				$Details[$i]['FundsOut']['USD'] = $uf['TotalDeposit'];										
+			}
+			if($uf['_id']['Currency']=='EUR'){
+				$Details[$i]['FundsOut']['EUR'] = $uf['TotalDeposit'];					
+			}
+			if($uf['_id']['Currency']=='GBP'){
+				$Details[$i]['FundsOut']['GBP'] = $uf['TotalDeposit'];					
+			}
+		}
+		
 			$Previoustransactions = Transactions::find('all',array(
 				'conditions'=>array(
 					'Currency'=>array('$ne'=>'BTC'),
@@ -439,6 +521,7 @@ class AdminController extends \lithium\action\Controller {
 				'order'=>array('DateTime'=>-1),
 				'limit'=>3
 			));
+			
 			$Details[$i]['DateTime'] = $ft['DateTime'];	
 			$Details[$i]['username'] = $ft['username'];				
 			$Details[$i]['Reference'] = $ft['Reference'];	

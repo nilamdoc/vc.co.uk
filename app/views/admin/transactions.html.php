@@ -14,14 +14,27 @@
 		</thead>
 		<tbody>
 <?php 
+
 $i = 0;
 foreach ($Details	as $tx){?>
 		<tr <?php if(($i%2)==0){?>style="background-color:#B8FBAC"<?php }else{?>style="background-color:#FEEABA"<?php }?>>
 			<td><?=gmdate('Y-M-d H:i:s',$tx['DateTime']->sec)?></td>
 			<td><a href="/Admin/detail/<?=$tx['username']?>" target="_blank"><?=$tx['username']?></a></td>
 			<td><?=$tx['Reference']?></td>
-			<td style="text-align:right "><?=number_format($tx['Amount'],2)?></td>
-			<td style="text-align:right "><?=$tx['Currency']?></td>			
+			<td style="text-align:right "><?=number_format($tx['Amount'],2)?><br>
+						<span class="label label-success">Deposits:<br>
+						<?=number_format($tx['Funds']['USD'],2)?> USD<br>
+						<?=number_format($tx['Funds']['EUR'],2)?> EUR<br>
+						<?=number_format($tx['Funds']['GBP'],2)?> GBP
+						</span>
+			</td>
+			<td style="text-align:right "><?=$tx['Currency']?><br>
+						<span class="label label-important">Withdrawals:<br>
+						<?=number_format($tx['FundsOut']['USD'],2)?> USD<br>
+						<?=number_format($tx['FundsOut']['EUR'],2)?> EUR<br>
+						<?=number_format($tx['FundsOut']['GBP'],2)?> GBP
+						</span>
+			</td>			
 			<td><?php if($tx['Added']==true){echo "Deposit";}else{echo "Withdraw";}?></td>
 			<td style="text-align:center"><?=$tx['Approved']?></td>			
 			<td>
