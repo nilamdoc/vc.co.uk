@@ -1,8 +1,7 @@
 <?php ?>
 <h4>Payment successfully sent!</h4>
-<?php 
-print_r($txid);
+<p><?php 
 print_r($message);	
-print_r($json_feed);	
-print_r($json_url);	
-?>
+?></p>
+<a href="/users/funding" class="btn btn-primary">Withdraw funds</a>
+<a href="/users/transactions" class="btn btn-primary">Transactions</a>

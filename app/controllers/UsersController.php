@@ -580,7 +580,6 @@ class UsersController extends \lithium\action\Controller {
 			$satoshi = (float)$amount * 100000000;
 			$fee_satoshi = (float)$fee * 100000000;
 			$json_url = "http://blockchain.info/merchant/$guid/payment?password=$firstpassword&second_password=$secondpassword&to=$address&amount=$satoshi&fee=$fee_satoshi";
-			
 			$json_data = file_get_contents($json_url);
 			$json_feed = json_decode($json_data);
 			$message = $json_feed->message;

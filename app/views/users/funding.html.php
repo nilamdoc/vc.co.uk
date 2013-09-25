@@ -226,7 +226,7 @@ function initCanvas(ww,hh)
 								</table>
 							</div>
 							<input type="button" value="Calculate" class="btn btn-primary" onclick="return CheckPayment();">
-<!--							<input type="submit" value="Send" class="btn btn-success" onclick="return CheckPayment();" disabled="disabled" id="SendSuccessButton"> -->
+							<input type="submit" value="Send" class="btn btn-success" onclick="return CheckPayment();" disabled="disabled" id="SendSuccessButton"> 
 							
 						</form>
 					</td>
