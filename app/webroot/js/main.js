@@ -30,14 +30,14 @@ function GetDetails(ex){
 	);
 }
 function BuyFormCalculate (){
-	BalanceSecond = $('#BalanceSecond').html();
-	FirstCurrency = $('#BuyFirstCurrency').val();
-	SecondCurrency = $('#BuySecondCurrency').val();
-	BuyAmount = $('#BuyAmount').val();
-	BuyPriceper = $('#BuyPriceper').val();
+var	BalanceSecond = $('#BalanceSecond').html();
+var	FirstCurrency = $('#BuyFirstCurrency').val();
+var	SecondCurrency = $('#BuySecondCurrency').val();
+var	BuyAmount = $('#BuyAmount').val();
+var	BuyPriceper = $('#BuyPriceper').val();
 	if(BuyAmount=="" || BuyAmount==0){return false;}
 	if(BuyPriceper=="" || BuyPriceper==0){return false;}
-	TotalValue = BuyAmount * BuyPriceper;
+var	TotalValue = BuyAmount * BuyPriceper;
 	TotalValue = TotalValue.toFixed(6);
 	$("#BuyTotal").html(TotalValue);
 	
@@ -52,7 +52,7 @@ function BuyFormCalculate (){
 			$('#BuyCommissionCurrency').val(FirstCurrency);			
 		}
 	);
-	GrandTotal = TotalValue;
+var	GrandTotal = TotalValue;
 	if(GrandTotal==0){
 		BuySummary = "Amount cannot be Zero";
 		$("#BuySummary").html(BuySummary);
@@ -61,14 +61,14 @@ function BuyFormCalculate (){
 		return false;
 	}
 	if(parseFloat(BalanceSecond) <= parseFloat(GrandTotal)){
-		Excess = parseFloat(GrandTotal) - parseFloat(BalanceSecond);
+var		Excess = parseFloat(GrandTotal) - parseFloat(BalanceSecond);
 		Excess = Excess.toFixed(5)		
-		BuySummary = "The transaction amount exceeds the balance by " + Excess + " " + SecondCurrency;
+var		BuySummary = "The transaction amount exceeds the balance by " + Excess + " " + SecondCurrency;
 		$("#BuySummary").html(BuySummary);
 		$("#BuySubmitButton").attr("disabled", "disabled");
 		$("#BuySubmitButton").attr("class", "btn btn-warning");
 	}else{
-		BuySummary = "The transaction amount " + GrandTotal  + " " + SecondCurrency;
+var		BuySummary = "The transaction amount " + GrandTotal  + " " + SecondCurrency;
 		$("#BuySummary").html(BuySummary);
 		$("#BuySubmitButton").removeAttr('disabled');
 		$("#BuySubmitButton").attr("class", "btn btn-success");		
@@ -76,15 +76,15 @@ function BuyFormCalculate (){
 	if(parseFloat(GrandTotal)===0){$("#BuySubmitButton").attr("disabled", "disabled");}
 }
 function SellFormCalculate (){
-	BalanceFirst = $('#BalanceFirst').html();
-	FirstCurrency = $('#SellFirstCurrency').val();
-	SecondCurrency = $('#SellSecondCurrency').val();
-	SellAmount = $('#SellAmount').val();
-	SellPriceper = $('#SellPriceper').val();
+var	BalanceFirst = $('#BalanceFirst').html();
+var	FirstCurrency = $('#SellFirstCurrency').val();
+var	SecondCurrency = $('#SellSecondCurrency').val();
+var	SellAmount = $('#SellAmount').val();
+var	SellPriceper = $('#SellPriceper').val();
 if(SellAmount=="" || SellAmount==0){return false;}
 if(SellPriceper=="" || SellPriceper==0){return false;}
 
-	TotalValue = SellAmount * SellPriceper;
+var	TotalValue = SellAmount * SellPriceper;
 	TotalValue = TotalValue.toFixed(6);
 	$("#SellTotal").html(TotalValue);
 	
@@ -92,7 +92,7 @@ if(SellPriceper=="" || SellPriceper==0){return false;}
 		function(ReturnValues){
 			$("#SellCommission").val(ReturnValues['Commission']);			
 			Commission = $('#SellCommission').val();;	
-			Fees = TotalValue * Commission / 100;
+var			Fees = TotalValue * Commission / 100;
 			Fees = Fees.toFixed(5);
 			$("#SellFee").html(Fees);	
 			$('#SellCommissionAmount').val(Fees);
@@ -100,9 +100,9 @@ if(SellPriceper=="" || SellPriceper==0){return false;}
 		}
 	);
 
-	GrandTotal = SellAmount;
+var	GrandTotal = SellAmount;
 	if(SellAmount==0){
-		SellSummary = "Amount cannot be Zero";
+var		SellSummary = "Amount cannot be Zero";
 		$("#SellSummary").html(SellSummary);
 		$("#SellSubmitButton").attr("disabled", "disabled");
 		$("#SellSubmitButton").attr("class", "btn btn-warning");		
@@ -110,14 +110,14 @@ if(SellPriceper=="" || SellPriceper==0){return false;}
 	}
 
 	if(parseFloat(BalanceFirst) < parseFloat(GrandTotal)){
-		Excess =  parseFloat(GrandTotal) - parseFloat(BalanceFirst)  ;
+var		Excess =  parseFloat(GrandTotal) - parseFloat(BalanceFirst)  ;
 		Excess = Excess.toFixed(5)
-		SellSummary = "The transaction amount exceeds the balance by " + Excess + " " + FirstCurrency;
+var		SellSummary = "The transaction amount exceeds the balance by " + Excess + " " + FirstCurrency;
 		$("#SellSummary").html(SellSummary);
 		$("#SellSubmitButton").attr("disabled", "disabled");
 		$("#SellSubmitButton").attr("class", "btn btn-warning");				
 	}else{
-		SellSummary = "The transaction amount " + GrandTotal  + " " + FirstCurrency;
+var		SellSummary = "The transaction amount " + GrandTotal  + " " + FirstCurrency;
 		$("#SellSummary").html(SellSummary);
 		$("#SellSubmitButton").removeAttr('disabled');
 		$("#SellSubmitButton").attr("class", "btn btn-success");				
@@ -133,12 +133,12 @@ function BuyOrderFill(BuyOrderPrice,BuyOrderAmount){
 	$("#SellPriceper").val(BuyOrderPrice)  ;
 }
 function ConvertBalance(){
-	BTCRate = $("#BTCRate").val();
-	LTCRate = $("#LTCRate").val();	
-	USDRate = $("#USDRate").val();	
-	GBPRate = $("#GBPRate").val();	
-	EURRate = $("#EURRate").val();	
-	Currency = $("#Currency" ).val();		
+var	BTCRate = $("#BTCRate").val();
+var	LTCRate = $("#LTCRate").val();	
+var	USDRate = $("#USDRate").val();	
+var	GBPRate = $("#GBPRate").val();	
+var	EURRate = $("#EURRate").val();	
+var	Currency = $("#Currency" ).val();		
 	switch(Currency){
 		case "BTC":
 		  break;
@@ -170,7 +170,7 @@ function SaveTOTP(){
 			  Login:$("#Login").is(':checked'),
 			  Withdrawal:$("#Withdrawal").is(':checked'),			  
 			  Security:$("#Security").is(':checked'),
-			  ScannedCode:$("#ScannedCode").val(),			  
+			  ScannedCode:$("#ScannedCode").val()
 			  },
 		function(ReturnValues){
 			if(ReturnValues){
@@ -182,7 +182,7 @@ function SaveTOTP(){
 function CheckTOTP(){
 	if($("#CheckCode").val()==""){return false;}
 	$.getJSON('/Users/CheckTOTP/',{
-			  CheckCode:$("#CheckCode").val(),			  
+			  CheckCode:$("#CheckCode").val()
 			  },
 		function(ReturnValues){
 			if(ReturnValues){
@@ -199,11 +199,11 @@ function DeleteTOTP(){
 	);	
 }
 function CheckPayment(){
-	address = $("#bitcoinaddress").val();
+var	address = $("#bitcoinaddress").val();
 	if(address==""){return false;}
-	amount = $("#Amount").val();
+var	amount = $("#Amount").val();
 	if(amount==""){return false;}
-	maxValue = $("#maxValue").val();
+var	maxValue = $("#maxValue").val();
 	if(amount>=maxValue){return false;}
 	
 	$("#SendFees").html($("#txFee").val());
@@ -214,7 +214,7 @@ function CheckPayment(){
 	$.getJSON('/Updates/Address/'+address,
 		function(ReturnValues){
 			if(ReturnValues['verify']['isvalid']==true){
-				address = "<a href='http://blockchain.info/address/"+ address +"' target='_blank'>"+ address +"</a> <i class='icon-ok'></i>"
+var			address = "<a href='http://blockchain.info/address/"+ address +"' target='_blank'>"+ address +"</a> <i class='icon-ok'></i>";
 			$("#SendAddress").html(address); 	
 			$("#SendSuccessButton").removeAttr('disabled');				
 				}
@@ -223,7 +223,7 @@ function CheckPayment(){
 	}
 	
 function BitCoinAddress(){
-	address = $("#bitcoinaddress").val();
+var	address = $("#bitcoinaddress").val();
   $("#SendAddress").html(address); 	
 	SuccessButtonDisable();
 	}
@@ -231,23 +231,23 @@ function SuccessButtonDisable(){
 	$("#SendSuccessButton").attr("disabled", "disabled");
 	}
 function CheckDeposit(){
-	AmountFiat = $("#AmountFiat").val();
+var	AmountFiat = $("#AmountFiat").val();
 	if(AmountFiat==""){return false;}
 	}
 function CheckWithdrawal(){
-	AccountName = $("#AccountName").val();
+var	AccountName = $("#AccountName").val();
 	if(AccountName==""){return false;}
-	SortCode = $("#SortCode").val();
+var	SortCode = $("#SortCode").val();
 	if(SortCode==""){return false;}
-	AccountNumber = $("#AccountNumber").val();
+var	AccountNumber = $("#AccountNumber").val();
 	if(AccountNumber==""){return false;}
-	WithdrawAmountFiat = $("#WithdrawAmountFiat").val();
+var	WithdrawAmountFiat = $("#WithdrawAmountFiat").val();
 	if(WithdrawAmountFiat==""){return false;}
 	if(parseInt(WithdrawAmountFiat)<=5){return false;}
 	}
 function RejectReason(value){
-	url = $("#RejectURL").attr('href');
+var	url = $("#RejectURL").attr('href');
 	len = url.length-2;
-	nurl = url.substr(0,len)+value;
+var	nurl = url.substr(0,len)+value;
 	$("#RejectURL").attr('href',nurl);
 	}
