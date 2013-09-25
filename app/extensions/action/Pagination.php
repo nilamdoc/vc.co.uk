@@ -109,8 +109,10 @@ class Pagination extends \lithium\action\Controller{
     $html .= '<span><a href="'.$this->currentURL.'/'.$i.'">Last</a></span>';
     $html .= '</div>';
 	*/
+	print_r($html);
     
     return $html;
+
   }
   
   private function preparePageLink($currentPageIndex = 1) {
