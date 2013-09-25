@@ -37,7 +37,7 @@ class Pagination extends \lithium\action\Controller{
 
     //  Get total results count
     $this->totalItemCount = $this->mongoHandler->$collection->find($find)->count();
-
+print_r($this->totalItemCount);
     /*	Enable Limit based Query	*/
     if(!empty($this->limitResult)) {
       $resultSet = $this->mongoHandler->$collection->find($find)
