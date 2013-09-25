@@ -45,6 +45,7 @@ class Pagination extends \lithium\action\Controller{
       ->limit($this->limitResult);
       return array(
         'dataset'		=>    iterator_to_array($resultSet),
+        'totalPages'	=>    $this->totalPages,
         'totalItems'	=>    $this->totalItemCount
       );
     }
@@ -109,8 +110,7 @@ class Pagination extends \lithium\action\Controller{
     $html .= '<span><a href="'.$this->currentURL.'/'.$i.'">Last</a></span>';
     $html .= '</div>';
 	*/
-	print_r($html);
-    
+   
     return $html;
 
   }
