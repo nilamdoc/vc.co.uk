@@ -58,7 +58,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<?php 
 					if(strlen($details['utility.verified'])==0){
 					?>
-						<a href="/users/settings/utility" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Utility Bill")?></a>
+						<a href="/users/settings/utility" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Proof of Address")?></a>
 					<?php }elseif($details['utility.verified']=='No'){?>
 						<a href="#" class="btn btn-primary tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Utility Bill")?></a>
 					<?php }else{ ?>

@@ -32,11 +32,11 @@
 <table class="table table-condensed table-bordered table-hover" style=" ">
 	<tr>
 		<th style="text-align:center;"><?=$t("Username")?></th>
-		<th style="text-align:center ">Email</th>
-		<th style="text-align:center ">Mobile</th>
-		<th style="text-align:center ">Bank</th>		
-		<th style="text-align:center ">Government ID</th>				
-		<th style="text-align:center ">Utility Bill</th>				
+		<th style="text-align:center "><?=$t("Email")?></th>
+		<th style="text-align:center "><?=$t("Mobile")?></th>
+		<th style="text-align:center "><?=$t("Bank")?></th>		
+		<th style="text-align:center "><?=$t("Government ID")?></th>				
+		<th style="text-align:center "><?=$t("Proof of address")?></th>				
 	</tr>
 <?php 
 if(count($details)!=0){
@@ -44,11 +44,11 @@ if(count($details)!=0){
 ?>
 	<tr>
 		<td><a href="/Admin/detail/<?=$detail['username']?>" target="_blank"><?=$detail['username']?></a></td>
-		<td><?=$detail['email.verified']?></td>		
-		<td><?=$detail['phone.verified']?></td>				
-		<td><a href="/Admin/detail/<?=$detail['username']?>"><?=$detail['bank.verified']?></a></td>						
-		<td><a href="/Admin/approve/government/<?=$detail['_id']?>" target="_blank"><?=$detail['government.verified']?></a></td>						
-		<td><?=$detail['utility.verified']?></td>						
+		<td style="text-align:center "><?=$detail['email.verified']?></td>		
+		<td style="text-align:center "><?=$detail['phone.verified']?></td>				
+		<td style="text-align:center "><a href="/Admin/detail/<?=$detail['username']?>"><?=$detail['bank.verified']?></a></td>						
+		<td style="text-align:center "><a href="/Admin/approve/government/<?=$detail['_id']?>" target="_blank"><?=$detail['government.verified']?></a></td>						
+		<td style="text-align:center "><a href="/Admin/approve/utility/<?=$detail['_id']?>" target="_blank"><?=$detail['utility.verified']?></a></td>								
 	</tr>
 <?php 	}
 } ?>

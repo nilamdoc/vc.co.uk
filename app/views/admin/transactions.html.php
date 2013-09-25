@@ -42,7 +42,7 @@ foreach ($Details	as $tx){?>
 			<td><?php if($tx['Added']==true){echo "Deposit";}else{echo "Withdraw";}?></td>
 			<td style="text-align:center"><?=$tx['Approved']?></td>			
 			<td>
-			<a href="/admin/sendemailtransaction/<?=$tx['_id']?>" class="tooltip-x label label-success" rel="tooltip-x" data-placement="top" title="Send customer an email to deposit funds in our bank">Send Approval Email</a>
+			<a href="/admin/sendemailtransaction/<?=$tx['_id']?>" class="tooltip-x label label-success" rel="tooltip-x" data-placement="top" title="Send customer an email to deposit funds in our bank">Send Approval</a>
 			<a href="/admin/deletetransaction/<?=$tx['_id']?>" class="tooltip-x label label-warning" rel="tooltip-x" data-placement="top" title="Cannot be recovered">Delete</a>
 			<a href="/admin/rejecttransaction/<?=$tx['_id']?>/D1"  class="tooltip-x label label-important" rel="tooltip-x" data-placement="top" title="User will be sent an email about rejection, cannot be recovered">Reject ></a>			
 			<select id="RejectReason" class="span2 label label-important" onChange="RejectReason(this.value);">

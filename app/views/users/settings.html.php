@@ -146,7 +146,7 @@ use li3_qrcode\extensions\action\QRcode;
 	</div>		
 	<div class="accordion-heading" style="background-color:#c0d1b0">
 		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseUtility">
-		<strong class="label label-success">Utility Bill:</strong>
+		<strong class="label label-success"><?=$t("Proof of address")?>:</strong>
 		</a>
 	</div>
 	<div id="collapseUtility" class="accordion-body <?php if($option=="utility"){?><?php }else{?>collapse<?php }?>">

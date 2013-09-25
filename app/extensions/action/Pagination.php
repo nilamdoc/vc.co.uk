@@ -66,7 +66,7 @@ class Pagination extends \lithium\action\Controller{
   /**
    * 	Generate HTML Based Page Links
    */
-  public function getPageLinks($setVisiblePagelinkCount = 3, $type = 'HTML') {
+  public function getPageLinks($setVisiblePagelinkCount = 1, $type = 'HTML') {
     global $var;
 
     $html = '';
