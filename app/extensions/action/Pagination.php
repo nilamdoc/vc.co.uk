@@ -37,7 +37,6 @@ class Pagination extends \lithium\action\Controller{
 
     //  Get total results count
     $this->totalItemCount = $this->mongoHandler->$collection->find($find)->count();
-print_r($this->totalItemCount);
     /*	Enable Limit based Query	*/
     if(!empty($this->limitResult)) {
       $resultSet = $this->mongoHandler->$collection->find($find)
@@ -55,7 +54,7 @@ print_r($this->totalItemCount);
       ->sort($sort)
       ->limit($this->itemsPerPage)
       ->skip($this->itemsPerPage * ($this->currentpage-1));
-      $this->totalPages = floor($this->totalItemCount / $this->itemsPerPage);
+      $this->totalPages = floor($this->totalItemCount / $this->itemsPerPage)+1;
       return array(
         'dataset'		=>    iterator_to_array($resultSet),
         'totalPages'	=>    $this->totalPages,
@@ -67,7 +66,7 @@ print_r($this->totalItemCount);
   /**
    * 	Generate HTML Based Page Links
    */
-  public function getPageLinks($setVisiblePagelinkCount = 0, $type = 'HTML') {
+  public function getPageLinks($setVisiblePagelinkCount = 1, $type = 'HTML') {
     global $var;
 
     $html = '';
