@@ -1,5 +1,11 @@
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat;min-height:600px">
 <h3>Users and Order status - last 30 days</h3>
+Start date<a href="#" class="btn small" id="dp4" data-date-format="yyyy-mm-dd" data-date="2012-02-20">Change</a>
+End date<a href="#" class="btn small" id="dp5" data-date-format="yyyy-mm-dd" data-date="2012-02-25">Change</a>
+<span id="startDate">2012-02-20</span>
+<span id="endDate">2012-02-25</span>
+<div class="alert alert-error" id="alert"><strong></strong></div>
+<script src="/js/admin.js"></script>
 <table class="table table-condensed table-bordered table-hover" style=" ">
 	<tr>
 		<th rowspan="3" style="text-align:center;">Date</th>

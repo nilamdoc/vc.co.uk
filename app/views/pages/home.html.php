@@ -27,6 +27,7 @@ centuries of its existence." <small>Nikola Tesla</small></blockquote>
 </ul>
 <h3>News</h3>
 <ul>
+	<li><a href="/files/News Release 27-09-13.pdf">Launching on 30th September 2013</a></li>
 	<li>Please find our recent news <a href="/news">here.</a>.</li>
 </ul>
 <h3>Find us</h3>

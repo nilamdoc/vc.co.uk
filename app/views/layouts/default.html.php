@@ -17,11 +17,14 @@
 	<title><?php echo MAIN_TITLE;?>: <?php if(isset($title)){echo $title;} ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<?php echo $this->html->style(array('/bootstrap/css/bootstrap')); ?>
+	<?php echo $this->html->style(array('/bootstrap/css/datepicker')); ?>	
 	<?php echo $this->html->style(array('/bootstrap/css/bootstrap-responsive')); ?>	
 	<?php echo $this->html->style(array('/bootstrap/css/docs')); ?>	
 	<?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
+
+	<script src="/bootstrap/js/jquery.js"></script>	
+	<script src="/bootstrap/js/bootstrap-datepicker.js"></script>	
 	<?php
-	$this->scripts('<script src="/bootstrap/js/jquery.js"></script>'); 
 	$this->scripts('<script src="/js/main.js"></script>'); 	
 	$this->scripts('<script src="/bootstrap/js/application.js"></script>'); 
 	$this->scripts('<script src="/bootstrap/js/bootstrap-affix.js"></script>'); 
@@ -92,5 +95,8 @@ $(function() {
  $("input:text:visible:first").focus();
 });
 </script>
+<script>
+</script>
+
 </body>
 </html>
