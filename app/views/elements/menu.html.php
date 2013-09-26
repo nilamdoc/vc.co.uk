@@ -18,6 +18,7 @@ $sel_curr = $this->_request->params['args'][0];
 		<?php }	?>
 	<?php }else{?>
 		<li><a href="/Admin/index" ><?=$t("Summary")?></a></li>
+		<li><a href="/Admin/commission" ><?=$t("Commission")?></a></li>		
 		<li><a href="/Admin/approval"><?=$t("Approval")?></a></li>		
 		<li><a href="/Admin/bitcoin"><?=$t("Bitcoin")?></a></li>				
 		<li><a href="/Admin/transactions"><?=$t("Deposits")?></a></li>				

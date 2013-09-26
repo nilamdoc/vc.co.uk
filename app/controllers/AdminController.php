@@ -1129,5 +1129,10 @@ class AdminController extends \lithium\action\Controller {
 		
 		$this->redirect('Admin::user');	
 	}
+	
+	public function commission(){
+	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+	
+	}
 }
 ?>
