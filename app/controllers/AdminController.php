@@ -1164,7 +1164,44 @@ class AdminController extends \lithium\action\Controller {
 				array('$limit'=>30)
 			)
 		));
-	return compact('Commissions')	;
+		
+		$new = array();
+		for($i=0;$i<=30;$i++){
+			$date = gmdate('Y-m-d',time()-$i*60*60*24);
+			$new[$date] = array();
+		}
+		foreach($Commissions['result'] as $UR){
+			$URdate = date_create($UR['_id']['year']."-".$UR['_id']['month']."-".$UR['_id']['day']);			
+			$urDate = date_format($URdate,"Y-m-d");
+				$new[$urDate] = array(
+					'Transactions'=> $UR['Transactions']
+				);
+				if($UR['_id']['CommissionCurrency']=='BTC'){
+					$new[$urDate]['BTC'] = array(
+						'Amount' => $UR['_id']['CurrencyAmount'],										
+					);
+				}
+				if($UR['_id']['CommissionCurrency']=='GBP'){
+					$new[$urDate]['GBP'] = array(
+						'Amount' => $UR['_id']['CurrencyAmount'],										
+					);
+				}
+				if($UR['_id']['CommissionCurrency']=='USD'){
+					$new[$urDate]['USD'] = array(
+						'Amount' => $UR['_id']['CurrencyAmount'],										
+					);
+				}
+				if($UR['_id']['CommissionCurrency']=='EUR'){
+					$new[$urDate]['EUR'] = array(
+						'Amount' => $UR['_id']['CurrencyAmount'],										
+					);
+				}
+				
+				
+		}
+		
+		
+	return compact(	'new')	;
 	}
 }
 ?>

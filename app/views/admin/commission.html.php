@@ -13,17 +13,16 @@
 		<th style="text-align:center ;background-color:#B8EEB0">USD</th>
 	</tr>	
 <?php 
-print_r($Commissions);
-foreach ($Commissions['result'] as $co){
-				$COdate = date_create($co['_id']['year']."-".$co['_id']['month']."-".$co['_id']['day']);			
-				$CODate = date_format($COdate,"Y-m-d");
+print_r($new);
+foreach ($new	as $key=>$value){
 ?>
 	<tr>
-		<td><?=$CODate?></td>
-		<td><?php if($co['_id']['CommissionCurrency']=='BTC'){echo number_format($co['CommissionAmount'],8);}?></td>
-		<td><?php if($co['_id']['CommissionCurrency']=='GBP'){echo number_format($co['CommissionAmount'],2);}?></td>		
-		<td><?php if($co['_id']['CommissionCurrency']=='EUR'){echo number_format($co['CommissionAmount'],2);}?></td>		
-		<td><?php if($co['_id']['CommissionCurrency']=='USD'){echo number_format($co['CommissionAmount'],2);}?></td>		
+		<td><?=$key;?></td>
+		<td><?=$value['Transactions']?></td>		
+		<td><?=$value['BTC']?></td>
+		<td><?=$value['GBP']?></td>
+		<td><?=$value['EUR']?></td>
+		<td><?=$value['USD']?></td>						
 	</tr>
 <?php }?>
 </table>
