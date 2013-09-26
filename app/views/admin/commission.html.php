@@ -20,10 +20,10 @@ foreach ($Commissions['result'] as $co){
 ?>
 	<tr>
 		<td><?=$CODate?></td>
-		<td><?php if($co['CommissionCurrency']=='BTC'){echo number_format($co['CommissionAmount'],8);}?></td>
-		<td><?php if($co['CommissionCurrency']=='GBP'){echo number_format($co['CommissionAmount'],2);}?></td>		
-		<td><?php if($co['CommissionCurrency']=='EUR'){echo number_format($co['CommissionAmount'],2);}?></td>		
-		<td><?php if($co['CommissionCurrency']=='USD'){echo number_format($co['CommissionAmount'],2);}?></td>		
+		<td><?php if($co['_id']['CommissionCurrency']=='BTC'){echo number_format($co['CommissionAmount'],8);}?></td>
+		<td><?php if($co['_id']['CommissionCurrency']=='GBP'){echo number_format($co['CommissionAmount'],2);}?></td>		
+		<td><?php if($co['_id']['CommissionCurrency']=='EUR'){echo number_format($co['CommissionAmount'],2);}?></td>		
+		<td><?php if($co['_id']['CommissionCurrency']=='USD'){echo number_format($co['CommissionAmount'],2);}?></td>		
 	</tr>
 <?php }?>
 </table>
