@@ -33,6 +33,5 @@
 <?=NOREPLY?></p>
 
 <p>P.S. Please do not reply to this email. </p>
-<p>This email was sent to you as you tried to register on <?=COMPANY_URL?> with the email address. 
-If you did not register, then you can delete this email.</p>
+<p>If you did not initiate this action please contact IBWT as soon as possible via support@ibwt.co.uk or telephone 07914 446125.</p>
 <p>We do not spam. </p>
