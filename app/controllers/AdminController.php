@@ -1132,7 +1132,38 @@ class AdminController extends \lithium\action\Controller {
 	
 	public function commission(){
 	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
-	
+		$mongodb = Connections::get('default')->connection;
+		$Commissions = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Action'=>'$Action',					
+					'Amount'=>'$Amount',
+					'Completed'=>'$Completed',					
+					'CommissionAmount'=>'$Commission.Amount',
+					'CommissionCurrency'=>'$Commission.Currency',					
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',	
+					'DateTime' => '$DateTime',					
+				)),
+				array('$group' => array( '_id' => array(
+					'CommissionCurrency'=>'$CommissionCurrency',					
+					'year'=>array('$year' => '$DateTime'),
+					'month'=>array('$month' => '$DateTime'),						
+					'day'=>array('$dayOfMonth' => '$DateTime'),											
+					),
+					'CommissionAmount' => array('$sum' => '$CommissionAmount'), 
+				)),
+				array('$sort'=>array(
+					'_id.year'=>-1,
+					'_id.month'=>-1,
+					'_id.day'=>-1,										
+				)),
+				array('$limit'=>30)
+			)
+		));
+	print_r($Commissions)	;
 	}
 }
 ?>

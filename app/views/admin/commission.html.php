@@ -7,10 +7,10 @@
 		<th colspan="4" style="text-align:center ;background-color:#D1F4CC">Commission</th>
 	</tr>
 	<tr>
-		<th style="text-align:center ;background-color:#B8EEB0">BTC</th>
+		<th style="text-align:center ;background-color:#D1F4CC">BTC</th>
 		<th style="text-align:center ;background-color:#B8EEB0">GBP</th>		
 		<th style="text-align:center ;background-color:#B8EEB0">EUR</th>		
-		<th style="text-align:center ;background-color:#D1F4CC">USD</th>
+		<th style="text-align:center ;background-color:#B8EEB0">USD</th>
 	</tr>	
 </table>
 <br>
