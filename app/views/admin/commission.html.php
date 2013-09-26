@@ -13,7 +13,6 @@
 		<th style="text-align:center ;background-color:#B8EEB0">USD</th>
 	</tr>	
 <?php 
-print_r($new);
 foreach ($new	as $key=>$value){
 ?>
 	<tr>
