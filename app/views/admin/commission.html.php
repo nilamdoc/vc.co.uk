@@ -12,7 +12,9 @@
 		<th style="text-align:center ;background-color:#B8EEB0">EUR</th>		
 		<th style="text-align:center ;background-color:#B8EEB0">USD</th>
 	</tr>	
-<?php foreach ($Commissions['result'] as $co){
+<?php 
+print_r($Commissions);
+foreach ($Commissions['result'] as $co){
 				$COdate = date_create($co['_id']['year']."-".$co['_id']['month']."-".$co['_id']['day']);			
 				$CODate = date_format($COdate,"Y-m-d");
 ?>
