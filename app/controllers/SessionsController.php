@@ -41,6 +41,7 @@ class SessionsController extends \lithium\action\Controller {
 								Session::write('default',$default);
 								$user = Session::read('default');
 								return $this->redirect('ex::dashboard');
+								exit;
 							}else{
 								Auth::clear('member');
 								Session::delete('default');
@@ -50,6 +51,7 @@ class SessionsController extends \lithium\action\Controller {
 						Session::write('default',$default);
 						$user = Session::read('default');
 						return $this->redirect('ex::dashboard');
+						exit;
 					}
 				}else{
 					Auth::clear('member');
@@ -66,6 +68,7 @@ class SessionsController extends \lithium\action\Controller {
 			//Return noauth status
 			return compact('noauth');
 			return $this->redirect('/');
+			exit;
         // Handle failed authentication attempts
     }
 	 public function delete() {
