@@ -1177,24 +1177,16 @@ class AdminController extends \lithium\action\Controller {
 					'Transactions'=> $UR['Transactions']
 				);
 				if($UR['_id']['CommissionCurrency']=='BTC'){
-					$new[$urDate]['BTC'] = array(
-						'Amount' => $UR['_id']['CurrencyAmount'],										
-					);
+					$new[$urDate]['BTC'] = $UR['_id']['CommissionAmount'];
 				}
 				if($UR['_id']['CommissionCurrency']=='GBP'){
-					$new[$urDate]['GBP'] = array(
-						'Amount' => $UR['_id']['CurrencyAmount'],										
-					);
-				}
-				if($UR['_id']['CommissionCurrency']=='USD'){
-					$new[$urDate]['USD'] = array(
-						'Amount' => $UR['_id']['CurrencyAmount'],										
-					);
+					$new[$urDate]['GBP'] = $UR['_id']['CommissionAmount'];				
 				}
 				if($UR['_id']['CommissionCurrency']=='EUR'){
-					$new[$urDate]['EUR'] = array(
-						'Amount' => $UR['_id']['CurrencyAmount'],										
-					);
+					$new[$urDate]['EUR'] = $UR['_id']['CommissionAmount'];				
+				}
+				if($UR['_id']['CommissionCurrency']=='USD'){
+					$new[$urDate]['USD'] = $UR['_id']['CommissionAmount'];				
 				}
 				
 				
