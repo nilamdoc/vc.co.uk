@@ -23,21 +23,21 @@ function GetDetails(ex){
 				$("#SellPriceper").val(ReturnValues['Low']);
 			}
 			$("#LastPrice").html(ReturnValues['Last']);
-			var Volume = ReturnValues['VolumeFirst'] + " " + ReturnValues['VolumeFirstUnit'] +
+			Volume = ReturnValues['VolumeFirst'] + " " + ReturnValues['VolumeFirstUnit'] +
 			" / " + ReturnValues['VolumeSecond'] + " " + ReturnValues['VolumeSecondUnit'];
 			$("#Volume").html(Volume);					
 		}
 	);
 }
 function BuyFormCalculate (){
-var	BalanceSecond = $('#BalanceSecond').html();
-var	FirstCurrency = $('#BuyFirstCurrency').val();
-var	SecondCurrency = $('#BuySecondCurrency').val();
-var	BuyAmount = $('#BuyAmount').val();
-var	BuyPriceper = $('#BuyPriceper').val();
+	BalanceSecond = $('#BalanceSecond').html();
+	FirstCurrency = $('#BuyFirstCurrency').val();
+	SecondCurrency = $('#BuySecondCurrency').val();
+	BuyAmount = $('#BuyAmount').val();
+	BuyPriceper = $('#BuyPriceper').val();
 	if(BuyAmount=="" || BuyAmount==0){return false;}
 	if(BuyPriceper=="" || BuyPriceper==0){return false;}
-var	TotalValue = BuyAmount * BuyPriceper;
+	TotalValue = BuyAmount * BuyPriceper;
 	TotalValue = TotalValue.toFixed(6);
 	$("#BuyTotal").html(TotalValue);
 	
@@ -52,7 +52,7 @@ var	TotalValue = BuyAmount * BuyPriceper;
 			$('#BuyCommissionCurrency').val(FirstCurrency);			
 		}
 	);
-var	GrandTotal = TotalValue;
+	GrandTotal = TotalValue;
 	if(GrandTotal==0){
 		BuySummary = "Amount cannot be Zero";
 		$("#BuySummary").html(BuySummary);
@@ -61,14 +61,14 @@ var	GrandTotal = TotalValue;
 		return false;
 	}
 	if(parseFloat(BalanceSecond) <= parseFloat(GrandTotal)){
-var		Excess = parseFloat(GrandTotal) - parseFloat(BalanceSecond);
+		Excess = parseFloat(GrandTotal) - parseFloat(BalanceSecond);
 		Excess = Excess.toFixed(5)		
-var		BuySummary = "The transaction amount exceeds the balance by " + Excess + " " + SecondCurrency;
+		BuySummary = "The transaction amount exceeds the balance by " + Excess + " " + SecondCurrency;
 		$("#BuySummary").html(BuySummary);
 		$("#BuySubmitButton").attr("disabled", "disabled");
 		$("#BuySubmitButton").attr("class", "btn btn-warning");
 	}else{
-var		BuySummary = "The transaction amount " + GrandTotal  + " " + SecondCurrency;
+		BuySummary = "The transaction amount " + GrandTotal  + " " + SecondCurrency;
 		$("#BuySummary").html(BuySummary);
 		$("#BuySubmitButton").removeAttr('disabled');
 		$("#BuySubmitButton").attr("class", "btn btn-success");		
@@ -76,15 +76,15 @@ var		BuySummary = "The transaction amount " + GrandTotal  + " " + SecondCurrency
 	if(parseFloat(GrandTotal)===0){$("#BuySubmitButton").attr("disabled", "disabled");}
 }
 function SellFormCalculate (){
-var	BalanceFirst = $('#BalanceFirst').html();
-var	FirstCurrency = $('#SellFirstCurrency').val();
-var	SecondCurrency = $('#SellSecondCurrency').val();
-var	SellAmount = $('#SellAmount').val();
-var	SellPriceper = $('#SellPriceper').val();
+	BalanceFirst = $('#BalanceFirst').html();
+	FirstCurrency = $('#SellFirstCurrency').val();
+	SecondCurrency = $('#SellSecondCurrency').val();
+	SellAmount = $('#SellAmount').val();
+	SellPriceper = $('#SellPriceper').val();
 if(SellAmount=="" || SellAmount==0){return false;}
 if(SellPriceper=="" || SellPriceper==0){return false;}
 
-var	TotalValue = SellAmount * SellPriceper;
+	TotalValue = SellAmount * SellPriceper;
 	TotalValue = TotalValue.toFixed(6);
 	$("#SellTotal").html(TotalValue);
 	
@@ -92,7 +92,7 @@ var	TotalValue = SellAmount * SellPriceper;
 		function(ReturnValues){
 			$("#SellCommission").val(ReturnValues['Commission']);			
 			Commission = $('#SellCommission').val();;	
-var			Fees = TotalValue * Commission / 100;
+			Fees = TotalValue * Commission / 100;
 			Fees = Fees.toFixed(5);
 			$("#SellFee").html(Fees);	
 			$('#SellCommissionAmount').val(Fees);
@@ -100,9 +100,9 @@ var			Fees = TotalValue * Commission / 100;
 		}
 	);
 
-var	GrandTotal = SellAmount;
+	GrandTotal = SellAmount;
 	if(SellAmount==0){
-var		SellSummary = "Amount cannot be Zero";
+	SellSummary = "Amount cannot be Zero";
 		$("#SellSummary").html(SellSummary);
 		$("#SellSubmitButton").attr("disabled", "disabled");
 		$("#SellSubmitButton").attr("class", "btn btn-warning");		
@@ -110,14 +110,14 @@ var		SellSummary = "Amount cannot be Zero";
 	}
 
 	if(parseFloat(BalanceFirst) < parseFloat(GrandTotal)){
-var		Excess =  parseFloat(GrandTotal) - parseFloat(BalanceFirst)  ;
+		Excess =  parseFloat(GrandTotal) - parseFloat(BalanceFirst)  ;
 		Excess = Excess.toFixed(5)
-var		SellSummary = "The transaction amount exceeds the balance by " + Excess + " " + FirstCurrency;
+		SellSummary = "The transaction amount exceeds the balance by " + Excess + " " + FirstCurrency;
 		$("#SellSummary").html(SellSummary);
 		$("#SellSubmitButton").attr("disabled", "disabled");
 		$("#SellSubmitButton").attr("class", "btn btn-warning");				
 	}else{
-var		SellSummary = "The transaction amount " + GrandTotal  + " " + FirstCurrency;
+		SellSummary = "The transaction amount " + GrandTotal  + " " + FirstCurrency;
 		$("#SellSummary").html(SellSummary);
 		$("#SellSubmitButton").removeAttr('disabled');
 		$("#SellSubmitButton").attr("class", "btn btn-success");				
@@ -133,12 +133,12 @@ function BuyOrderFill(BuyOrderPrice,BuyOrderAmount){
 	$("#SellPriceper").val(BuyOrderPrice)  ;
 }
 function ConvertBalance(){
-var	BTCRate = $("#BTCRate").val();
-var	LTCRate = $("#LTCRate").val();	
-var	USDRate = $("#USDRate").val();	
-var	GBPRate = $("#GBPRate").val();	
-var	EURRate = $("#EURRate").val();	
-var	Currency = $("#Currency" ).val();		
+	BTCRate = $("#BTCRate").val();
+	LTCRate = $("#LTCRate").val();	
+	USDRate = $("#USDRate").val();	
+	GBPRate = $("#GBPRate").val();	
+	EURRate = $("#EURRate").val();	
+	Currency = $("#Currency" ).val();		
 	switch(Currency){
 		case "BTC":
 		  break;
@@ -199,11 +199,11 @@ function DeleteTOTP(){
 	);	
 }
 function CheckPayment(){
-var	address = $("#bitcoinaddress").val();
+	address = $("#bitcoinaddress").val();
 	if(address==""){return false;}
-var	amount = $("#Amount").val();
+	amount = $("#Amount").val();
 	if(amount==""){return false;}
-var	maxValue = $("#maxValue").val();
+	maxValue = $("#maxValue").val();
 	if(amount>=maxValue){return false;}
 	
 	$("#SendFees").html($("#txFee").val());
@@ -214,7 +214,7 @@ var	maxValue = $("#maxValue").val();
 	$.getJSON('/Updates/Address/'+address,
 		function(ReturnValues){
 			if(ReturnValues['verify']['isvalid']==true){
-var			address = "<a href='http://blockchain.info/address/"+ address +"' target='_blank'>"+ address +"</a> <i class='icon-ok'></i>";
+			address = "<a href='http://blockchain.info/address/"+ address +"' target='_blank'>"+ address +"</a> <i class='icon-ok'></i>";
 			$("#SendAddress").html(address); 	
 			$("#SendSuccessButton").removeAttr('disabled');				
 				}
@@ -223,7 +223,7 @@ var			address = "<a href='http://blockchain.info/address/"+ address +"' target='
 	}
 	
 function BitCoinAddress(){
-var	address = $("#bitcoinaddress").val();
+	address = $("#bitcoinaddress").val();
   $("#SendAddress").html(address); 	
 	SuccessButtonDisable();
 	}
@@ -231,23 +231,23 @@ function SuccessButtonDisable(){
 	$("#SendSuccessButton").attr("disabled", "disabled");
 	}
 function CheckDeposit(){
-var	AmountFiat = $("#AmountFiat").val();
+	AmountFiat = $("#AmountFiat").val();
 	if(AmountFiat==""){return false;}
 	}
 function CheckWithdrawal(){
-var	AccountName = $("#AccountName").val();
+	AccountName = $("#AccountName").val();
 	if(AccountName==""){return false;}
-var	SortCode = $("#SortCode").val();
+	SortCode = $("#SortCode").val();
 	if(SortCode==""){return false;}
-var	AccountNumber = $("#AccountNumber").val();
+	AccountNumber = $("#AccountNumber").val();
 	if(AccountNumber==""){return false;}
-var	WithdrawAmountFiat = $("#WithdrawAmountFiat").val();
+	WithdrawAmountFiat = $("#WithdrawAmountFiat").val();
 	if(WithdrawAmountFiat==""){return false;}
 	if(parseInt(WithdrawAmountFiat)<=5){return false;}
 	}
 function RejectReason(value){
-var	url = $("#RejectURL").attr('href');
+	url = $("#RejectURL").attr('href');
 	len = url.length-2;
-var	nurl = url.substr(0,len)+value;
+	nurl = url.substr(0,len)+value;
 	$("#RejectURL").attr('href',nurl);
 	}

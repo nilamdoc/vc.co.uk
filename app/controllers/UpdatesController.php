@@ -186,7 +186,7 @@ class UpdatesController extends \lithium\action\Controller {
 	public function Address($address = null){
 		$bitcoin = new Bitcoin('http://'.BITCOIN_WALLET_SERVER.':'.BITCOIN_WALLET_PORT,BITCOIN_WALLET_USERNAME,BITCOIN_WALLET_PASSWORD);
 			$verify = $bitcoin->validateaddress($address);
-		return $this->render(array('json' => array(
+			return $this->render(array('json' => array(
 			'verify'=> $verify,
 		)));
 	}
