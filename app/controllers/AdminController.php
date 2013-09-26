@@ -1154,6 +1154,7 @@ class AdminController extends \lithium\action\Controller {
 					'day'=>array('$dayOfMonth' => '$DateTime'),											
 					),
 					'CommissionAmount' => array('$sum' => '$CommissionAmount'), 
+					'Transactions' => array('$sum'=>1),
 				)),
 				array('$sort'=>array(
 					'_id.year'=>-1,
@@ -1163,7 +1164,7 @@ class AdminController extends \lithium\action\Controller {
 				array('$limit'=>30)
 			)
 		));
-	print_r($Commissions)	;
+	return compact('Commissions')	;
 	}
 }
 ?>
