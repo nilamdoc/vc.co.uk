@@ -1,11 +1,10 @@
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat;min-height:600px">
 <h3>Users and Order status - last 30 days</h3>
-Start date<a href="#" class="btn small" id="dp4" data-date-format="yyyy-mm-dd" data-date="2012-02-20">Change</a>
-End date<a href="#" class="btn small" id="dp5" data-date-format="yyyy-mm-dd" data-date="2012-02-25">Change</a>
-<span id="startDate">2012-02-20</span>
-<span id="endDate">2012-02-25</span>
+  <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+				<input class="span2" size="16" type="text" value="12-02-2012" readonly>
+				<span class="add-on"><i class="icon-calendar"></i></span>
+			  </div>
 <div class="alert alert-error" id="alert"><strong></strong></div>
-<script src="/js/admin.js"></script>
 <table class="table table-condensed table-bordered table-hover" style=" ">
 	<tr>
 		<th rowspan="3" style="text-align:center;">Date</th>
@@ -280,3 +279,4 @@ foreach($newYear as $key=>$value){
 <br>
 <br>
 </div>
+<script src="/js/admin.js"></script>

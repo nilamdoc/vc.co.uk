@@ -1,5 +1,6 @@
 		var startDate = new Date(2012,1,20);
 		var endDate = new Date(2012,1,25);
+			$('#alert').hide();		
 			$('#dp4').datepicker()
 				.on('changeDate', function(ev){
 					if (ev.date.valueOf() > endDate.valueOf()){
