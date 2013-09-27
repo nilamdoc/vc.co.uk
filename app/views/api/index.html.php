@@ -1,5 +1,43 @@
-<div>
-<h4>API Description</h4>
+<section id="API">
+	<div class="page-header">
+		<h1>API Documentation</h1>
+	</div>
+<h2>"<strong>In Bitcoin We Trust</strong>" supports two API's</h2>
+<ol>
+	<li><strong>Public access</strong>
+		<ul>
+			<li>Trades</li>
+			<li>Query</li>
+		</ul>
+	</li>
+	<li><strong>User Authenticated</strong>
+		<ul>
+			<li>Info</li>
+			<li>TransactionHistory</li>
+			<li>OrderHistory</li>
+			<li>OrderList</li>
+			<li>Trade</li>			
+			<li>CancelOrder</li>			
+		</ul>
+	</li>
+</ol>
+</section>
+<section id="Trades">
+          <div class="page-header">
+            <h1>Trades</h1>
+          </div>
+          <h2 id="headings">Headings</h2>
+          <p>All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are available.</p>
+          <div class="bs-docs-example">
+            <h1>h1. Heading 1</h1>
+            <h2>h2. Heading 2</h2>
+            <h3>h3. Heading 3</h3>
+            <h4>h4. Heading 4</h4>
+            <h5>h5. Heading 5</h5>
+            <h6>h6. Heading 6</h6>
+          </div>
+</section>
+</section>
 <h5>Authentication</h5>
 <p>Authorization is performed by sending the following HTTP Headers:<br>
 <ul>
@@ -24,9 +62,7 @@ If the completion is successful, there is an answer like:
 </pre>
 The answer in case of an error:
 
-{"success":0,"error":"<error text>"}
-
-
+{"success":0,"error":"&lt;error text&gt;"}
 Examples:
 
 PHP: http://pastebin.com/QyjS3U9M
