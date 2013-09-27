@@ -26,8 +26,8 @@
           <div class="page-header">
             <h1>Trades</h1>
           </div>
-          <h2 id="headings">Headings</h2>
-          <p>All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are available.</p>
+          <h2 id="headings">List recent trades in each currency</h2>
+          <p>All HTML headings, <code>&lt;h1&gt;</code> throughs <code>&lt;h6&gt;</code> are available.</p>
           <div class="bs-docs-example">
             <h1>h1. Heading 1</h1>
             <h2>h2. Heading 2</h2>

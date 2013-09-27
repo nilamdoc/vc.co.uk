@@ -19,7 +19,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td width="16%"><strong><?=$t("Verification Process")?></strong></td>
 					<td width="16%" style="text-align:center "><?php 
 					if($details['email.verified']=='Yes'){
-					?><a href="#" class="btn btn-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Email")?></a><?php }else{
+					?><a href="#" class="label label-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Email")?></a><?php }else{
 					?><a href="/users/email/" class="btn btn-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Email")?></a><?php }
 					?></td>					
 					<td width="16%" style="text-align:center "><?php 
