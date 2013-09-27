@@ -4,6 +4,7 @@ namespace app\controllers;
 use lithium\security\Auth;
 use lithium\util\String;
 use app\models\Users;
+use app\models\Pages;
 use app\models\Details;
 use lithium\storage\Session;
 use app\extensions\action\Functions;
@@ -15,7 +16,7 @@ class SessionsController extends \lithium\action\Controller {
 		   //assume there's no problem with authentication
 			$noauth = false;
 			//perform the authentication check and redirect on success
-
+			
 			Session::delete('default');				
 
 			if (Auth::check('member', $this->request)){
@@ -66,7 +67,14 @@ class SessionsController extends \lithium\action\Controller {
 				$noauth = true;
 			}
 			//Return noauth status
-			return compact('noauth');
+		$page = Pages::find('first',array(
+			'conditions'=>array('pagename'=>'login')
+		));
+
+		$title = $page['title'];
+		$keywords = $page['keywords'];
+		$description = $page['description'];
+			return compact('noauth','title','keywords','description');
 			return $this->redirect('/');
 			exit;
         // Handle failed authentication attempts

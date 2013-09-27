@@ -81,4 +81,5 @@ require __DIR__ . '/bootstrap/cache.php';
 if (PHP_SAPI === 'cli') {
 	require __DIR__ . '/bootstrap/console.php';
 }
+
 ?>

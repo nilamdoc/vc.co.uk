@@ -407,8 +407,15 @@ class ExController extends \lithium\action\Controller {
 				),
 			'order' => array('DateTime'=>-1)
 		));
+		$page = Pages::find('first',array(
+			'conditions'=>array('pagename'=>'ex/x/'.$currency)
+		));
 
-		return compact('title','details','SellOrders','BuyOrders','TotalSellOrders','TotalBuyOrders','YourOrders','YourCompleteOrders');
+		$title = $page['title'];
+		$keywords = $page['keywords'];
+		$description = $page['description'];
+
+		return compact('title','details','SellOrders','BuyOrders','TotalSellOrders','TotalBuyOrders','YourOrders','YourCompleteOrders','keywords','description');
 	}
 	
 	public function dashboard() {
@@ -440,7 +447,10 @@ class ExController extends \lithium\action\Controller {
 			$TotalCompleteOrders['Sell'] = $this->TotalCompleteOrders('Sell',substr($t['trade'],0,3),substr($t['trade'],4,3));						
 		}
 		$title = "Dashboard";
-		return compact('title','details','YourOrders','Commissions','CompletedCommissions','YourCompleteOrders','RequestFriends','UsersRegistered','OnlineUsers','TotalOrders','TotalCompleteOrders');
+		$keywords = "Dashboard, trading platform, bitcoin exchange, we trust, United Kingdom, UK";
+$description = "Dashboard for trading platform for bitcoin exchange in United Kingdom, UK";
+
+		return compact('title','details','YourOrders','Commissions','CompletedCommissions','YourCompleteOrders','RequestFriends','UsersRegistered','OnlineUsers','TotalOrders','TotalCompleteOrders','keywords','description');
 	}
 
 	public function TotalCommissions($id){

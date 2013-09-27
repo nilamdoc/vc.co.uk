@@ -191,8 +191,11 @@ class AdminController extends \lithium\action\Controller {
 						);
 
 			}
+			$title = "Admin";
+			$keywords = "Admin, Index";
+			$description = "Administer the site";
 
-	return compact('new','newYear','StartDate','EndDate');
+	return compact('new','newYear','StartDate','EndDate','title','keywords','description');
 	}
 	
 	public function Approval() {
@@ -360,7 +363,12 @@ class AdminController extends \lithium\action\Controller {
         break;
 		}
 //		print_r(count($details));
-		return compact('UserApproval','details');
+$title = "Admin Approval";
+$keywords = "Admin, Approval";
+$description = "Admin panel for approval";
+
+
+		return compact('UserApproval','details','title','keywords','description');
 		
 	}
 	
@@ -422,7 +430,12 @@ class AdminController extends \lithium\action\Controller {
 				file_put_contents($path, $image_utility->file->getBytes());
 		}
 			$this->_render['layout'] = 'image';
-			return compact('imagename_utility','media','id');
+$title = "Approve";
+$keywords = "Approve, documents";
+$description = "Admin Approve documents ";
+
+
+			return compact('imagename_utility','media','id','title','keywords','description');
 	}
 	
 	public function transactions(){
@@ -556,7 +569,12 @@ class AdminController extends \lithium\action\Controller {
 			'conditions'=>array('type'=>'Deposit'),
 			'order'=>array('code'=>1)
 		));		
-		return compact('Details','reasons');
+		$title = "Transactions";
+$keywords = "Transactions";
+$description = "Admin panel for transactions";
+
+
+		return compact('Details','reasons','title','keywords','description');
 	}
 	public function withdrawals(){
 		if($this->__init()==false){$this->redirect('ex::dashboard');	}
@@ -608,7 +626,12 @@ class AdminController extends \lithium\action\Controller {
 			'conditions'=>array('type'=>'Withdrawal'),
 			'order'=>array('code'=>1)
 		));
-		return compact('Fiattransactions','Details','reasons');
+		$title = "Withdrawals";
+$keywords = "Withdrawals, admin";
+$description = "Admin panel for withdrawal";
+
+
+		return compact('Fiattransactions','Details','reasons','title','keywords','description');
 	}
 	
 	
@@ -1036,7 +1059,12 @@ class AdminController extends \lithium\action\Controller {
 
 		$title = "User";
 		$TotalUsers = Users::count();
-		return compact('title','users','page_links','TotalUsers','Details');
+		$title = "Users";
+$keywords = "Admin, Users";
+$description = "Admin panel for users";
+
+
+		return compact('title','users','page_links','TotalUsers','Details','title','keywords','description');
 		
 	}
 	
@@ -1048,7 +1076,12 @@ class AdminController extends \lithium\action\Controller {
 				'conditions' => array('TransactionHash'=>$this->request->data['transactionhash'])
 			));
 		}
-		return compact('title','transactions');
+		$title = "Bitcoin transaction";
+$keywords = "Bitcoin, Admin";
+$description = "Admin panel for bitcoin transaction";
+
+
+		return compact('title','transactions','title','keywords','description');
 	}
 	public function reverse($txhash = null, $username = null, $amount = null){
 	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
@@ -1120,7 +1153,13 @@ class AdminController extends \lithium\action\Controller {
 				),
 			'order' => array('DateTime'=>-1)
 		));
-			return compact('title','transactions','details','user','UserOrders','Fiattransactions','UserCompleteOrders');
+		$title = "Detail user";
+$keywords = "Admin, Detail user";
+$description = "Admin Panel for user";
+
+
+		
+			return compact('title','transactions','details','user','UserOrders','Fiattransactions','UserCompleteOrders','title','keywords','description');
 	}
 	public function bankapprove($username = null){
 	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
@@ -1206,8 +1245,12 @@ class AdminController extends \lithium\action\Controller {
 				}
 		}
 		
-		
-	return compact(	'new','StartDate','EndDate')	;
+$title = "Commission";
+$keywords = "Admin Commission";
+$description = "Admin panel for commission";
+
+
+	return compact(	'new','StartDate','EndDate','title','keywords','description')	;
 	}
 }
 ?>

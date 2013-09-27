@@ -26,7 +26,7 @@ namespace app\controllers;
 class PagesController extends \lithium\action\Controller {
 
 	public function view() {
-		$options = array();
+		$options = array(		);
 		$path = func_get_args();
 
 		if (!$path || $path === array('home')) {
@@ -35,6 +35,7 @@ class PagesController extends \lithium\action\Controller {
 		}
 
 		$options['template'] = join('/', $path);
+		
 		return $this->render($options);
 	}
 }

@@ -1,44 +1,92 @@
 <?php
 namespace app\controllers;
 use app\models\Queries;
-
+use app\models\Pages;
 class CompanyController extends \lithium\action\Controller {
 
 	public function index() {
 
 	}
 	public function privacy() {
-		$title = "Privacy Policy";
-		return compact("title");
+		$page = Pages::find('first',array(
+			'conditions'=>array('pagename'=>'company/privacy')
+		));
+
+		$title = $page['title'];
+		$keywords = $page['keywords'];
+		$description = $page['description'];
+		return compact('title','keywords','description');
 
 	}
 	public function riskmanagement() {
-		$title = "Risk Management";
-		return compact("title");
+		$page = Pages::find('first',array(
+			'conditions'=>array('pagename'=>'company/riskmanagement')
+		));
+
+		$title = $page['title'];
+		$keywords = $page['keywords'];
+		$description = $page['description'];
+		return compact('title','keywords','description');
 	}
 	public function legal() {
-		$title = "Legal";
-		return compact("title");
+		$page = Pages::find('first',array(
+			'conditions'=>array('pagename'=>'company/legal')
+		));
+
+		$title = $page['title'];
+		$keywords = $page['keywords'];
+		$description = $page['description'];
+		return compact('title','keywords','description');
 	}
 	public function contact() {
-		$title = "Contact us";
-		return compact("title");
+		$page = Pages::find('first',array(
+			'conditions'=>array('pagename'=>'company/contact')
+		));
+
+		$title = $page['title'];
+		$keywords = $page['keywords'];
+		$description = $page['description'];
+		return compact('title','keywords','description');
 	}
 	public function termsofservice(){
-		$title = "Terms of service";
-		return compact("title");
+		$page = Pages::find('first',array(
+			'conditions'=>array('pagename'=>'company/termsofservice')
+		));
+
+		$title = $page['title'];
+		$keywords = $page['keywords'];
+		$description = $page['description'];
+		return compact('title','keywords','description');
 	}
 	public function FAQ(){
-		$title = "FAQ";
-		return compact("title");
+		$page = Pages::find('first',array(
+			'conditions'=>array('pagename'=>'company/FAQ')
+		));
+
+		$title = $page['title'];
+		$keywords = $page['keywords'];
+		$description = $page['description'];
+		return compact('title','keywords','description');
 	}
 	public function verification(){
-		$title = "Verification";
-		return compact("title");
+		$page = Pages::find('first',array(
+			'conditions'=>array('pagename'=>'company/verification')
+		));
+
+		$title = $page['title'];
+		$keywords = $page['keywords'];
+		$description = $page['description'];
+		return compact('title','keywords','description');
 	}
 	public function aboutus(){
-		$title = "About us";
-		return compact("title");
+		$page = Pages::find('first',array(
+			'conditions'=>array('pagename'=>'company/aboutus')
+		));
+
+		$title = $page['title'];
+		$keywords = $page['keywords'];
+		$description = $page['description'];
+		return compact('title','keywords','description');
 	}
 }
 ?>
