@@ -539,7 +539,7 @@ class UsersController extends \lithium\action\Controller {
 						'TransactionHash' => $transaction_hash,
 						'username' => $details['username'],
 						'address'=>$input_address,							
-						'Amount'=> (float)$value_in_btc,
+						'Amount'=> (float)number_format($value_in_btc,8),
 						'Currency'=> 'BTC',						
 						'Added'=>true,
 					);							
@@ -599,7 +599,7 @@ class UsersController extends \lithium\action\Controller {
 				);							
 				$tx->save($data);
 				$dataDetails = array(
-						'balance.BTC' => (float)$details['balance.BTC'] - (float)$amount - (float)$fee,
+						'balance.BTC' => (float)number_format($details['balance.BTC'] - (float)$amount - (float)$fee,8),
 					);
 						
 				$details = Details::find('all',
