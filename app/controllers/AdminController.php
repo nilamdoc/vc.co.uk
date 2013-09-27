@@ -22,6 +22,11 @@ class AdminController extends \lithium\action\Controller {
 
 	public function index() {
 		if($this->__init()==false){			$this->redirect('ex::dashboard');	}
+		if($this->request->data){
+			$StartDate = $this->request->data['StartDate'];
+			$EndDate = $this->request->data['EndDate'];			
+		}
+
 		$mongodb = Connections::get('default')->connection;
 		$UserRegistrations = Users::connection()->connection->command(array(
 			'aggregate' => 'users',
@@ -30,6 +35,7 @@ class AdminController extends \lithium\action\Controller {
 					'_id'=>0,
 					'created' => '$created',
 				)),
+				array( '$match' => array( 'created'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ) ),
 				array('$group' => array( '_id' => array(
 						'year'=>array('$year' => '$created'),
 						'month'=>array('$month' => '$created'),						
@@ -820,7 +826,7 @@ class AdminController extends \lithium\action\Controller {
 
 		$message = Swift_Message::newInstance();
 		$message->setSubject("Deposit Approved ".COMPANY_URL.": Depoit funds now!");
-		$message->setFrom(array(NOREPLY => 'Deposit Rejected '.COMPANY_URL.": Deposit funds now!"));
+		$message->setFrom(array(NOREPLY => 'Deposit Approved '.COMPANY_URL.": Deposit funds now!"));
 		$message->setTo($user['email']);
 		$message->addBcc(MAIL_1);
 		$message->addBcc(MAIL_2);			

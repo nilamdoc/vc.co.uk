@@ -1,10 +1,17 @@
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat;min-height:600px">
 <h3>Users and Order status - last 30 days</h3>
-  <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-				<input class="span2" size="16" type="text" value="12-02-2012" readonly>
-				<span class="add-on"><i class="icon-calendar"></i></span>
-			  </div>
+<form action="/Admin/index" method="post">
+<div class="input-append date" id="StartDate" data-date="<?=gmdate('Y-m-d',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)?>" data-date-format="yyyy-mm-dd">
+	<input class="span2" size="16" name="StartDate" type="text" value="<?=gmdate('Y-m-d',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)?>" readonly>
+	<span class="add-on"><i class="icon-calendar"></i></span>
+</div>
+<div class="input-append date" id="EndDate" data-date="<?=gmdate('Y-m-d',time())?>" data-date-format="yyyy-mm-dd">
+	<input class="span2" size="16"  name="EndDate" 	type="text" value="<?=gmdate('Y-m-d',time())?>" readonly>
+	<span class="add-on"><i class="icon-calendar"></i></span>
+</div>
+<input type="submit" value="Get report" class="btn btn-primary">
 <div class="alert alert-error" id="alert"><strong></strong></div>
+</form>
 <table class="table table-condensed table-bordered table-hover" style=" ">
 	<tr>
 		<th rowspan="3" style="text-align:center;">Date</th>
