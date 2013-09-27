@@ -10,6 +10,7 @@ use app\models\Users;
 use app\models\Details;
 use app\models\Orders;
 use app\models\Trades;
+use app\models\Pages;
 use lithium\data\Connections;
 use MongoID;
 use lithium\util\String;
