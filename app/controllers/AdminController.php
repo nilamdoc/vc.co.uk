@@ -30,6 +30,7 @@ class AdminController extends \lithium\action\Controller {
 			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time())))));
 		}
 		$mongodb = Connections::get('default')->connection;
+
 		$UserRegistrations = Users::connection()->connection->command(array(
 			'aggregate' => 'users',
 			'pipeline' => array( 
@@ -86,7 +87,7 @@ class AdminController extends \lithium\action\Controller {
 					'DateTime' => '$DateTime',					
 					'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),
 				)),
-				array( '$match' => array( 'created'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ) ),
+				array( '$match' => array( 'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ) ),
 				array('$group' => array( '_id' => array(
 					'Action'=>'$Action',
 					'Completed'=>'$Completed',					
@@ -147,9 +148,10 @@ class AdminController extends \lithium\action\Controller {
 
 	
 		$new = array();
-		print_r(date_diff($EndDate,$StartDate));
-		for($i=0;$i<=30;$i++){
-			$date = gmdate('Y-m-d',time()-$i*60*60*24);
+		
+  	$days = ($EndDate->sec - $StartDate->sec)/(60*60*24);
+		for($i=0;$i<=$days;$i++){
+			$date = gmdate('Y-m-d',($EndDate->sec)-$i*60*60*24);
 			$new[$date] = array();
 		}
 
@@ -194,7 +196,7 @@ class AdminController extends \lithium\action\Controller {
 
 			}
 
-	return compact('new','newYear');
+	return compact('new','newYear','StartDate','EndDate');
 	}
 	
 	public function Approval() {
@@ -1140,6 +1142,14 @@ class AdminController extends \lithium\action\Controller {
 	
 	public function commission(){
 	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		if($this->request->data){
+			$StartDate = new MongoDate(strtotime($this->request->data['StartDate']));
+			$EndDate = new MongoDate(strtotime($this->request->data['EndDate']));			
+		}else{
+			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
+			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time())))));
+		}
+	
 		$mongodb = Connections::get('default')->connection;
 		$Commissions = Orders::connection()->connection->command(array(
 			'aggregate' => 'orders',
@@ -1155,6 +1165,7 @@ class AdminController extends \lithium\action\Controller {
 					'SecondCurrency'=>'$SecondCurrency',	
 					'DateTime' => '$DateTime',					
 				)),
+				array( '$match' => array( 'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ) ),
 				array('$group' => array( '_id' => array(
 					'CommissionCurrency'=>'$CommissionCurrency',					
 					'year'=>array('$year' => '$DateTime'),
@@ -1174,8 +1185,9 @@ class AdminController extends \lithium\action\Controller {
 		));
 		
 		$new = array();
-		for($i=0;$i<=30;$i++){
-			$date = gmdate('Y-m-d',time()-$i*60*60*24);
+  	$days = ($EndDate->sec - $StartDate->sec)/(60*60*24);
+		for($i=0;$i<=$days;$i++){
+			$date = gmdate('Y-m-d',($EndDate->sec)-$i*60*60*24);
 			$new[$date] = array();
 		}
 		foreach($Commissions['result'] as $UR){
@@ -1196,12 +1208,10 @@ class AdminController extends \lithium\action\Controller {
 				if($UR['_id']['CommissionCurrency']=='USD'){
 					$new[$urDate]['USD'] = $UR['CommissionAmount'];				
 				}
-				
-				
 		}
 		
 		
-	return compact(	'new')	;
+	return compact(	'new','StartDate','EndDate')	;
 	}
 }
 ?>
