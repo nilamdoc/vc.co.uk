@@ -23,7 +23,7 @@ use app\extensions\action\Functions;
 					<li><a class=" tooltip-x" rel="tooltip-x" data-placement="bottom" title="Latest low price" href="#"><?=$t('Low')?>:<strong><span id="LowPrice" class="btn-success" style="padding:2px"></span></strong></a></li>
 					<li><a class=" tooltip-x" rel="tooltip-x" data-placement="bottom" title="Latest high price" href="#"><?=$t('High')?>:<strong><span id="HighPrice" class="btn-danger"  style="padding:2px"></span></strong></a></li>
 					<li><a class=" tooltip-x" rel="tooltip-x" data-placement="bottom" title="Latest price" href="#"><?=$t('Last')?>:<strong><span id="LastPrice" class="btn-info"  style="padding:2px"></span></strong></a></li>					
-					<li><a class=" tooltip-x" rel="tooltip-x" data-placement="bottom" title="Volume" href="#"><?=$t('Volume')?>:<strong><span id="Volume" class="btn-inverse"  style="padding:2px"></span></strong></a></li>										
+					<li><a class=" tooltip-x" rel="tooltip-x" data-placement="bottom" title="Volume" href="#"><?=$t('Vol')?>:<strong><span id="Volume" class="btn-inverse"  style="padding:2px"></span></strong></a></li>										
 			<?php if($user!=""){ ?>
 <!--					<li ><a href="/dashboard"><strong class="label label-success"><?=$t('Finances')?></strong></a></li>					
 -->
