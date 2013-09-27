@@ -52,7 +52,6 @@ class AdminController extends \lithium\action\Controller {
 					'_id.day'=>-1,					
 //					'_id.hour'=>-1,					
 				)),
-				array('$limit'=>30)
 			)
 		));
 		$TotalUserRegistrations = Users::connection()->connection->command(array(
@@ -70,7 +69,6 @@ class AdminController extends \lithium\action\Controller {
 				array('$sort'=>array(
 					'_id.year'=>-1,
 				)),
-				array('$limit'=>30)
 			)
 		));
 
@@ -105,7 +103,6 @@ class AdminController extends \lithium\action\Controller {
 					'_id.month'=>-1,
 					'_id.day'=>-1,										
 				)),
-				array('$limit'=>30)
 			)
 		));
 
@@ -135,7 +132,6 @@ class AdminController extends \lithium\action\Controller {
 				array('$sort'=>array(
 					'_id.year'=>-1,
 				)),
-				array('$limit'=>30)
 			)
 		));
 
