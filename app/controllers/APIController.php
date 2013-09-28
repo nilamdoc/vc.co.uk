@@ -10,7 +10,8 @@ class APIController extends \lithium\action\Controller {
 	}
 	public function trades(){
 		
-		return $this->render(array('result' => array(
+		return $this->render(array('json' => array('success'=>1,
+			'result'=>array(
 			'Refresh'=> $Refresh,
 			'URL'=> $URL,
 			'Low'=> number_format($Low,2),
@@ -20,7 +21,7 @@ class APIController extends \lithium\action\Controller {
 			'VolumeSecond'=> number_format($TotalOrders['result'][0]['TotalAmount'],0),
 			'VolumeFirstUnit'=> $FirstCurrency,			
 			'VolumeSecondUnit'=> $SecondCurrency,
-		)));	
+		))));	
 	
 	}
 }
