@@ -135,13 +135,14 @@ foreach ($Fiattransactions as $tx){?>
 			<div class="navbar-inner">
 			<a class="brand" href="#"><?=$t('Pending Orders')?> </a>
 			</div>
-			<table class="table table-condensed table-bordered table-hover" >
+			<table class="table table-condensed table-bordered table-hover"  style="font-size:11px" >
 			<thead>
 				<tr>
 					<th style="text-align:center "><?=$t('Exchange')?></th>
 					<th style="text-align:center "><?=$t('Price')?></th>
 					<th style="text-align:center "><?=$t('Amount')?></th>
 					<th style="text-align:center "><?=$t('Total')?></th>					
+					<th style="text-align:center "><?=$t('Commission')?></th>										
 				</tr>
 			</thead>
 			<tbody>
@@ -154,7 +155,7 @@ foreach ($Fiattransactions as $tx){?>
 							<td style="text-align:right "><?=number_format($YO['PerPrice'],5)?>...</td>
 							<td style="text-align:right "><?=number_format($YO['Amount'],4)?>...</td>
 							<td style="text-align:right "><?=number_format($YO['PerPrice']*$YO['Amount'],4)?>...</td>
-
+							<td style="text-align:right "><?=number_format($YO['Commission.Amount'],4)?> <?=$YO['Commission.Currency']?></td>							
 						</tr>
 					<?php }?>					
 			</tbody>
