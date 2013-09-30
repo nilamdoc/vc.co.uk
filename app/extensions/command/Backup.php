@@ -1,6 +1,6 @@
 <?php
 namespace app\extensions\command;
-use ZipArchive;
+use \ZipArchive;
 class Backup extends \lithium\console\Command {
 	public function run(){
 			$files_to_zip = array(
