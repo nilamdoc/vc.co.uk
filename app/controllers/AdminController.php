@@ -1220,8 +1220,9 @@ $description = "Admin Panel for user";
 		print_r($Commissions);
 		$new = array();
   	$days = ($EndDate->sec - $StartDate->sec)/(60*60*24);
-		for($i=0;$i<=$days;$i++){
+		for($i=1;$i<=$days+1;$i++){
 			$date = gmdate('Y-m-d',($EndDate->sec)-$i*60*60*24);
+			print_r($date);
 			$new[$date] = array();
 		}
 		foreach($Commissions['result'] as $UR){
