@@ -1222,7 +1222,6 @@ $description = "Admin Panel for user";
   	$days = ($EndDate->sec - $StartDate->sec)/(60*60*24);
 		for($i=1;$i<=$days+1;$i++){
 			$date = gmdate('Y-m-d',($EndDate->sec)-$i*60*60*24);
-			print_r($date);
 			$new[$date] = array();
 		}
 		foreach($Commissions['result'] as $UR){
@@ -1244,6 +1243,7 @@ $description = "Admin Panel for user";
 					$new[$urDate]['USD'] = $UR['CommissionAmount'];				
 				}
 		}
+print_r($new);
 		
 $title = "Commission";
 $keywords = "Admin Commission";
