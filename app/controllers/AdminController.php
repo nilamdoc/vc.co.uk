@@ -1217,7 +1217,6 @@ $description = "Admin Panel for user";
 				array('$limit'=>30)
 			)
 		));
-		print_r($Commissions);
 		$new = array();
   	$days = ($EndDate->sec - $StartDate->sec)/(60*60*24);
 		for($i=1;$i<=$days+1;$i++){
