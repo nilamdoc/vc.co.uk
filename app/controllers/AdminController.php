@@ -1227,9 +1227,8 @@ $description = "Admin Panel for user";
 		foreach($Commissions['result'] as $UR){
 			$URdate = date_create($UR['_id']['year']."-".$UR['_id']['month']."-".$UR['_id']['day']);			
 			$urDate = date_format($URdate,"Y-m-d");
-				$new[$urDate] = array(
-					'Transactions'=> $UR['Transactions']
-				);
+				$new[$urDate]['Transactions'] = $UR['Transactions']
+
 				if($UR['_id']['CommissionCurrency']=='BTC'){
 					$new[$urDate]['BTC'] = $UR['CommissionAmount'];
 				}
