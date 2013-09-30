@@ -1157,7 +1157,6 @@ $description = "Admin panel for bitcoin transaction";
 $keywords = "Admin, Detail user";
 $description = "Admin Panel for user";
 
-
 		
 			return compact('title','transactions','details','user','UserOrders','Fiattransactions','UserCompleteOrders','title','keywords','description');
 	}
@@ -1218,7 +1217,7 @@ $description = "Admin Panel for user";
 				array('$limit'=>30)
 			)
 		));
-		
+		print_r($Commissions);
 		$new = array();
   	$days = ($EndDate->sec - $StartDate->sec)/(60*60*24);
 		for($i=0;$i<=$days;$i++){
