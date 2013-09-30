@@ -1241,7 +1241,6 @@ $description = "Admin Panel for user";
 					$new[$urDate]['USD'] = $UR['CommissionAmount'];				
 				}
 		}
-print_r($new);
 		
 $title = "Commission";
 $keywords = "Admin Commission";
