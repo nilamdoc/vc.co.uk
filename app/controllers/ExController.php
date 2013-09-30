@@ -66,7 +66,7 @@ class ExController extends \lithium\action\Controller {
 				$Currency = 'balance.'.$SecondCurrency;
 				// Update balance of user with NewBalance Amount
 				$data = array(
-					'balance.'.$SecondCurrency => $NewBalanceAmount,
+					'balance.'.$SecondCurrency => (float)($NewBalanceAmount),
 				);
 				$details = Details::find('first',
 					array('conditions'=>array('user_id'=>$id))
@@ -87,7 +87,7 @@ class ExController extends \lithium\action\Controller {
 				$Currency = 'balance.'.$FirstCurrency;
 				// Update balance of user with NewBalance Amount				
 				$data = array(
-					'balance.'.$FirstCurrency => $NewBalanceAmount,
+					'balance.'.$FirstCurrency => (float)($NewBalanceAmount),
 				);
 				$details = Details::find('first',
 					array('conditions'=>array('user_id'=>$id))
@@ -174,87 +174,156 @@ class ExController extends \lithium\action\Controller {
 					}
 					
 					if((float)$PO['Amount']>(float)($Amount)){
+						// Update Previous Order with New Order Amount and New Commission and Transact User 
+						if($PO['Action']=="Buy"){
+							$PrevCommAmount = round(($PO['CommissionPercent'] * ($Amount) )/100,8);
+							$CurrCommAmount = round(($PO['CommissionPercent'] * ($PO['Amount'] - $Amount) * $PO['PrePrice'])/100,8);							
+							$PrevCommCurr = $PO['FirstCurrency'];
+							$CurrCommCurr = $PO['SecondCurrency'];							
+						}else{
+							$PrevCommAmount = round((float)$PO['CommissionPercent'] * (float)($Amount) * (float)($PerPrice)/100,8);
+							$CurrCommAmount = round(($PO['CommissionPercent'] * ($Amount) )/100,8);														
+							$PrevCommCurr = $PO['SecondCurrency'];
+							$CurrCommCurr = $PO['FirstCurrency'];														
+						}
+
 						$data = array(
+							'Commission.Amount' => (float)$PrevCommAmount,
 							'Amount' => (float)($Amount),
 							'Completed' => 'Y',
 							'Transact.id'=> $order_id,
 							'Transact.username' => $user['username'],
 							'Transact.user_id' => $user['_id'],
 							'Transact.DateTime' => new \MongoDate(),														
+							'Order'=>'P>C: Update Previous Commission and Amount and Complete Order'							
 						);
 						$orders = Orders::find('first',
 							array('conditions'=>array('_id'=>$PO['_id']))
 						)->save($data);
+						// --------------------Complete
+						// Create new Order for Previous Order so that the order tallies
+						if($PO['Action']=="Buy"){
+							$PrevCommAmount = round((float)(round((float)$PO['Amount'] - (float)($Amount),8)) * (float)($PO['CommissionPercent']) /100,8);
+						}else{
+							$PrevCommAmount = round((float)(round((float)$PO['Amount'] - (float)($Amount),8)) * (float)($PO['PerPrice']) * (float)($PO['CommissionPercent']) /100,8);						
+						}
 						$data = array(
-							'Amount' => (float)$PO['Amount'] - (float)($Amount),
+							'Amount' => (float)(round((float)$PO['Amount'] - (float)($Amount),8)),
 							'Action' => $PO['Action'],
 							'FirstCurrency' => $PO['FirstCurrency'],
 							'SecondCurrency' => $PO['SecondCurrency'],
 							'CommissionPercent' => (float)($PO['CommissionPercent']),
+/////////////////////////////////////////////////////////////////////////////////////////////
+							'Commission.Amount' => (float)($PrevCommAmount),
+							'Commission.Currency' => $PrevCommCurr,				
+/////////////////////////////////////////////////////////////////////////////////////////////							
 							'PerPrice' => (float)($PO['PerPrice']),
 							'DateTime' => $PO['DateTime'],
 							'Completed' => 'N',
 							'IP' => $PO['IP'],
 							'username' => $PO['username'],
 							'user_id' => $PO['user_id'],
+							'Order'=>'P>C: Create New Previous Order with Balance details'
 						);
 						$orders = Orders::create();	
 						$orders->save($data);
+						//-------------------Complete
+						//Update New order with Transact User
 						$data = array(
 							'Completed' => 'Y',
 							'Transact.id'=> $PO['_id'],
 							'Transact.username' => $PO['username'],
 							'Transact.user_id' => $PO['user_id'],
 							'Transact.DateTime' => new \MongoDate(),														
+							'Order'=>'P>C: Update current order no change in commission or amount'							
 						);
 						$orders = Orders::find('first',
 							array('conditions'=>array('_id'=>$order_id))
 						)->save($data);
+						//---------------------Complete
 						//To update Balance						
 						$this->updateBalance($order_id);
 						$this->updateBalance($PO['_id']);
 						$this->SendOrderCompleteEmails($order_id,$user['_id']);
 						$this->SendOrderCompleteEmails($PO['_id'],$PO['user_id']);						
-
 						break;
 					}
 					if((float)$PO['Amount']<(float)($Amount)){
+						// Update Previous Order with New Order Amount and New Commission and Transact User 
+					
+						if($PO['Action']=="Buy"){
+							$PrevCommAmount = round(($PO['CommissionPercent'] * ($PO['Amount'] - $Amount) )/100,8);
+							$CurrCommAmount = round(($PO['CommissionPercent'] * ($PO['Amount'] - $Amount) * $PO['PrePrice'])/100,8);							
+							$PrevCommCurr = $PO['FirstCurrency'];
+							$CurrCommCurr = $PO['SecondCurrency'];							
+						}else{
+							$PrevCommAmount = round(($PO['CommissionPercent'] * ($PO['Amount'] - $Amount) * $PO['PerPrice'])/100,8);
+							$CurrCommAmount = round(($PO['CommissionPercent'] * ($PO['Amount'] - $Amount) )/100,8);														
+							$PrevCommCurr = $PO['SecondCurrency'];
+							$CurrCommCurr = $PO['FirstCurrency'];														
+						}
+						if($PO['Action']=="Buy"){
+							$PrevCommAmount = round(($PO['CommissionPercent'] * ($PO['Amount']) )/100,8);
+						}else{
+							$PrevCommAmount = round(($PO['CommissionPercent'] * ($PO['Amount']) * $PO['PerPrice'])/100,8);
+						}
 						$data = array(
+							'Commission.Amount' => (float)$PrevCommAmount,
+							'Amount' => (float)($PO['Amount']),						
 							'Completed' => 'Y',
 							'Transact.id'=> $order_id,
 							'Transact.username' => $user['username'],
 							'Transact.user_id' => $user['_id'],
 							'Transact.DateTime' => new \MongoDate(),														
-							
+							'Order'=>'P<C: Update Previous Record'
 						);
 						$orders = Orders::find('first',
 							array('conditions'=>array('_id'=>$PO['_id']))
 						)->save($data);
-
+						//--------------------Complete
+						// Update current order with new commission and amount
+						if($PO['Action']=="Buy"){
+							$CurrCommAmount = round(($PO['CommissionPercent'] * ($PO['Amount']) * $PO['PerPrice'] /100 ),8);
+						}else{
+							$CurrCommAmount = round(($PO['CommissionPercent'] * ($PO['Amount']) /100 ),8);;
+						}
 						$data = array(
-							'Amount' => (float)($Amount),
+							'Commission.Amount' => (float)$CurrCommAmount,
+							'Amount' => (float)($PO['Amount']),
 							'Completed' => 'Y',
 							'Transact.id'=> $PO['_id'],
 							'Transact.username' => $PO['username'],
 							'Transact.user_id' => $PO['user_id'],
 							'Transact.DateTime' => new \MongoDate(),														
+							'Order'=>'P<C: Update current record'							
 						);
 						$orders = Orders::find('first',
 							array('conditions'=>array('_id'=>$order_id))
 						)->save($data);
-
+						//--------------------Complete
+						//Create a new order of pending amount 
+						if($PO['Action']=='Buy'){
+							$CurrCommAmount = round(($PO['CommissionPercent'] * ((float)(round((float)($Amount) - (float)$PO['Amount'],8))) * $PerPrice /100 ),8);
+						}else{
+							$CurrCommAmount = round(($PO['CommissionPercent'] * ((float)(round((float)($Amount) - (float)$PO['Amount'],8)))/100 ),8);;
+						}
 						$data = array(
 							'Action' => $Action,
 							'FirstCurrency' => $FirstCurrency,
 							'SecondCurrency' => $SecondCurrency,
 							'CommissionPercent' => (float)($Commission),
-							'Amount' => (float)($Amount) - (float)$PO['Amount'],
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+							'Commission.Amount' => (float)($CurrCommAmount),
+							'Commission.Currency' => $CurrCommCurr,				
+///////////////////////////////////////////////////////////////////////////////////////////////////////							
+							'Amount' => (float)(round((float)($Amount) - (float)$PO['Amount'],8)),
 							'PerPrice' => (float)($PerPrice),
 							'DateTime' => new \MongoDate(),
 							'Completed' => 'N',
 							'IP' => $_SERVER['REMOTE_ADDR'],
 							'username' => $user['username'],
 							'user_id' => $user['_id'],
+							'Order'=>'P<C: Create New Previous Order with Balance details'
 						);
 						$orders = Orders::create();	
 						$orders->save($data);
@@ -662,44 +731,42 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 		$Orders = Orders::find('first', array(
 			'conditions' => array('_id' => new MongoID($ID))
 		));
-		$details = Details::find('first', array(
-			'conditions' => array(
-				'user_id'=>(string)$Orders['user_id'], 
+		if($Orders['Completed']=='N')		{
+			$details = Details::find('first', array(
+				'conditions' => array('user_id'=>(string)$Orders['user_id'])
+			));
+			if($Orders['Action']=='Buy'){
+				$balanceFirst = 'balance.'.$Orders['FirstCurrency'];
+				$balanceSecond = 'balance.'.$Orders['SecondCurrency'];
+				$data = array(
+					$balanceSecond => (float)($details[$balanceSecond] + $Orders['PerPrice']*$Orders['Amount'])
+				);
 
-				)
-		));
-		if($Orders['Action']=='Buy'){
-			$balanceFirst = 'balance.'.$Orders['FirstCurrency'];
-			$balanceSecond = 'balance.'.$Orders['SecondCurrency'];
-			$data = array(
-				$balanceSecond => $details[$balanceSecond] + $Orders['PerPrice']*$Orders['Amount']
-			);
-	
-			$details = Details::find('all', array(
-				'conditions' => array(
-					'user_id'=>$Orders['user_id'], 
-					'username'=>$Orders['username']
-					)
-			))->save($data);
+				$details = Details::find('all', array(
+					'conditions' => array(
+						'user_id'=>$Orders['user_id'], 'username'=>$Orders['username']
+						)
+				))->save($data);
+			}
+			if($Orders['Action']=='Sell'){
+				$balanceFirst = 'balance.'.$Orders['FirstCurrency'];
+				$balanceSecond = 'balance.'.$Orders['SecondCurrency'];
+				$data = array(
+					$balanceFirst => (float)($details[$balanceFirst] + (float)$Orders['Amount'])
+				);
+		
+				$details = Details::find('all', array(
+					'conditions' => array(
+						'user_id'=>$Orders['user_id'], 
+						'username'=>$Orders['username']
+						)
+				))->save($data);
+			}
+			if(String::hash($Orders['_id'])==$OrderID){
+				$Remove = Orders::remove(array('_id'=>$ID));
+			}
 		}
-		if($Orders['Action']=='Sell'){
-			$balanceFirst = 'balance.'.$Orders['FirstCurrency'];
-			$balanceSecond = 'balance.'.$Orders['SecondCurrency'];
-			$data = array(
-				$balanceFirst => $details[$balanceFirst] + $Orders['Amount']
-			);
-	
-			$details = Details::find('all', array(
-				'conditions' => array(
-					'user_id'=>$Orders['user_id'], 
-					'username'=>$Orders['username']
-					)
-			))->save($data);
-		}
-		if(String::hash($Orders['_id'])==$OrderID){
-			Orders::remove(array('_id'=>$ID));
-		}
-			$this->redirect(array('controller'=>'ex','action'=>"x/".$back,'locale'=>$locale));		
+		$this->redirect(array('controller'=>'ex','action'=>"x/".$back,'locale'=>$locale));		
 	}
 	public function updateBalance($id){
 		$Orders = Orders::find('first', array(

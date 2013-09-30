@@ -195,7 +195,8 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 			<div class="navbar-inner">
 			<a class="brand" href="#"><?=$t('Orders:')?>
 			<small><?=$t('Sell')?> <?=$first_curr?> &gt; <?=$second_curr?></small></a>
-<?php  foreach($TotalSellOrders['result'] as $TSO){
+<?php 
+ foreach($TotalSellOrders['result'] as $TSO){
 	$SellAmount = $TSO['Amount'];
 	$SellTotalAmount = $TSO['TotalAmount'];
 }?>			

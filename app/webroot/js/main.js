@@ -1,9 +1,15 @@
 // JS Document
 function UpdateDetails(ex){
+	var delay = 5000;
+	var now, before = new Date();
 	GetDetails(ex);
 	setInterval(function() {
-		GetDetails(ex);
-	},20000);
+    now = new Date();
+    var elapsedTime = (now.getTime() - before.getTime());
+    GetDetails(ex);
+    before = new Date();    
+}, 5000);
+	
 }
 function GetDetails(ex){
 	$.getJSON('/Updates/Rates/'+ex,
