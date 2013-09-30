@@ -58,8 +58,8 @@ class Backup extends \lithium\console\Command {
 			$mailer = Swift_Mailer::newInstance($transport);
 	
 			$message = Swift_Message::newInstance();
-			$message->setSubject("Data Backup".COMPANY_URL);
-			$message->setFrom(array(NOREPLY => 'Data Backup'.COMPANY_URL));
+			$message->setSubject("Data Backup: ".COMPANY_URL);
+			$message->setFrom(array(NOREPLY => 'Data Backup: '.COMPANY_URL));
 			$message->setTo("nilamdoc@gmail.com");
 			$message->addBcc(MAIL_1);
 			$message->addBcc(MAIL_2);			
