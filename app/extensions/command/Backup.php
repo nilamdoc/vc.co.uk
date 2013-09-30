@@ -1,6 +1,12 @@
 <?php
 namespace app\extensions\command;
 use \ZipArchive;
+use \lithium\template\View;
+use \Swift_MailTransport;
+use \Swift_Mailer;
+use \Swift_Message;
+use \Swift_Attachment;
+
 class Backup extends \lithium\console\Command {
 	public function run(){
 			$files_to_zip = array(
@@ -26,7 +32,44 @@ class Backup extends \lithium\console\Command {
 		);
 //if true, good; if false, zip creation failed
 		$result = $this->create_zip($files_to_zip,BACKUP_DIR.'Backup.zip');
-		print_r(BACKUP_DIR.'Backup.zip');
+
+		$filename = BACKUP_DIR.'Backup.zip';
+
+			$view  = new View(array(
+				'loader' => 'File',
+				'renderer' => 'File',
+				'paths' => array(
+					'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+				)
+			));
+
+			$body = $view->render(
+				'template',
+				compact('filename'),
+				array(
+					'controller' => 'admin',
+					'template'=>'backup',
+					'type' => 'mail',
+					'layout' => false
+				)
+			);
+
+			$transport = Swift_MailTransport::newInstance();
+			$mailer = Swift_Mailer::newInstance($transport);
+	
+			$message = Swift_Message::newInstance();
+			$message->setSubject("Data Backup".COMPANY_URL);
+			$message->setFrom(array(NOREPLY => 'Data Backup'.COMPANY_URL));
+			$message->setTo("nilamdoc@gmail.com");
+			$message->addBcc(MAIL_1);
+			$message->addBcc(MAIL_2);			
+			$message->addBcc(MAIL_3);		
+			$message->attach(Swift_Attachment::fromPath($filename));
+			$message->setBody($body,'text/html');
+			
+			$mailer->send($message);
+
+
 	}
 
 	function create_zip($files = array(),$destination = '',$overwrite = false) {
