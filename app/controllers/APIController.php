@@ -9,7 +9,6 @@ class APIController extends \lithium\action\Controller {
 		return compact('title','keywords','description');
 	}
 	public function trades(){
-		
 		return $this->render(array('json' => array('success'=>1,
 			'result'=>array(
 			'Refresh'=> $Refresh,
