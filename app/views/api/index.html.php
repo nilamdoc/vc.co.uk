@@ -28,7 +28,7 @@
 			</div>
 			<h4 id="headings">List recent trades in each currency</h4>
 			<div class="bs-docs-example">
-				<p><a href="https://ibwt.co.uk/api/trades" target="_blank">https://ibwt.co.uk/api/trades</a></p>
+				<p><a href="https://ibwt.co.uk/API/trades" target="_blank">https://ibwt.co.uk/API/trades</a></p>
 				<pre>
 {
 	"success":1,
@@ -48,7 +48,7 @@
 			<h4 id="headings">List recent trades in each currency for a specific date</h4>
 			<p id="headings">If no date is specified, the result will include orders for today. The result includes all currencies, buy and sell, completed and pending.</p>
 			<div class="bs-docs-example">
-				<p><a href="https://ibwt.co.uk/api/tradesdate/" target="_blank">https://ibwt.co.uk/api/tradesdate/</a> This API function will output all orders for today.</p>
+				<p><a href="https://ibwt.co.uk/API/tradesdate/" target="_blank">https://ibwt.co.uk/API/tradesdate/</a> This API function will output all orders for today.</p>
 				<p><strong>Passing date in YYYY-MM-DD to the API will output data for that date.</strong></p>
  				<p><a href="https://ibwt.co.uk/api/tradesdate/2013-10-10" target="_blank">https://ibwt.co.uk/api/tradesdate/YYYY-MM-DD</a> This API will output all data for 10th October 2013.</p>
 				<pre>
@@ -76,7 +76,7 @@
 		</ul>
 		You can find your API Key in Settings / Security tab.
 		</p>
-		<p>All request are sent to https://ibwt.co.uk/api/<strong>FunctionName</strong></p>
+		<p>All request are sent to https://ibwt.co.uk/API/<strong>FunctionName</strong></p>
 		<pre>All requests must also include a special nonce POST parameter with increment integer. (>0)
 The method name is sent via POST parameter method.
 All the method parameters are sent via POST.
@@ -92,11 +92,11 @@ All server answers are in JSON format.
 		
 		Python: http://pastebin.com/ec11hxcP by miraclemax
 		
-		Python: https://github.com/alanmcintyre/btce-api by alanmcintyre
+		Python: https://github.com/alanmcintyre/btce-API by alanmcintyre
 		
 		Java: http://pastebin.com/jyd9tACF by dApZoKntut
 		
-		C#: https://github.com/DmT021/BtceApi by DmT
+		C#: https://github.com/DmT021/BtceAPI by DmT
 		
 		C++/CLI: http://pastebin.com/YvxmCRL9 by PoorGirl
 		
