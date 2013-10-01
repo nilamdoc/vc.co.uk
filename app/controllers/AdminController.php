@@ -23,8 +23,8 @@ class AdminController extends \lithium\action\Controller {
 	public function index() {
 		if($this->__init()==false){			$this->redirect('ex::dashboard');	}
 		if($this->request->data){
-			$StartDate = new MongoDate(strtotime($this->request->data['StartDate']));
-			$EndDate = new MongoDate(strtotime($this->request->data['EndDate']));			
+					$StartDate = new MongoDate(strtotime($this->request->data['StartDate']));
+					$EndDate = new MongoDate(strtotime($this->request->data['EndDate']));			
 		}else{
 			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
 			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time())))));

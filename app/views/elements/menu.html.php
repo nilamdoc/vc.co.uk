@@ -5,6 +5,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 use app\models\Trades;
 $trades = Trades::find('all');
 $sel_curr = $this->_request->params['args'][0];
+if($this->_request->params['controller']!='api'){
 ?>
 <h4><?php if($sel_curr==""){echo $t('Dashboard');}else{echo strtoupper(str_replace("_","/",$sel_curr));}?></h4>
 <ul class="nav nav-tabs push-right">
@@ -27,3 +28,4 @@ $sel_curr = $this->_request->params['args'][0];
 		<li><a href="/Admin/bitcointransaction"><?=$t("Transactions")?></a></li>										
 	<?php }	?>	
 </ul>
+<?php }	?>	

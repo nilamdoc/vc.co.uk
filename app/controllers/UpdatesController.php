@@ -29,6 +29,7 @@ class UpdatesController extends \lithium\action\Controller {
 		return $this->render(array('json' => 'Hello World'));
 	}
 	public function Rates($FirstCurrency="BTC",$SecondCurrency="USD") {
+
 		$title = $FirstCurrency . "/" . $SecondCurrency;
 		$back = strtolower($FirstCurrency . "_" . $SecondCurrency);		
 
@@ -155,6 +156,7 @@ class UpdatesController extends \lithium\action\Controller {
 				array('$limit'=>1)
 			)
 		));
+//		print_r($SecondCurrency);
 		return $this->render(array('json' => array(
 			'Refresh'=> $Refresh,
 			'URL'=> $URL,
