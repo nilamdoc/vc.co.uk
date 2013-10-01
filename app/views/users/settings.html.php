@@ -55,7 +55,9 @@ use li3_qrcode\extensions\action\QRcode;
 						echo "<span  class='label label-important'>Not Verified</span>";
 						}else{
 						echo "<span  class='label label-success'>Verified</span>";						
-					}?></td>
+					}?>
+				</form>	
+					</td>
 			</tr>
 			<?php }?>
 <!--
