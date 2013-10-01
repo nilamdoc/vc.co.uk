@@ -24,5 +24,6 @@ $sel_curr = $this->_request->params['args'][0];
 		<li><a href="/Admin/transactions"><?=$t("Deposits")?></a></li>				
 		<li><a href="/Admin/withdrawals"><?=$t("Withdrawals")?></a></li>						
 		<li><a href="/Admin/user"><?=$t("User")?></a></li>								
+		<li><a href="/Admin/bitcointransaction"><?=$t("Transactions")?></a></li>										
 	<?php }	?>	
 </ul>

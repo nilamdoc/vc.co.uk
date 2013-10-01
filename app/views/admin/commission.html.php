@@ -74,4 +74,4 @@ $USD = $USD + $value['USD'];
 <br>
 <br>
 </div>
-<script src="/js/admin.js"></script>
+	<script src="/js/admin.js"></script>
