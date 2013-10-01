@@ -76,22 +76,22 @@ class Pagination extends \lithium\action\Controller{
 
     $html = '<div class="pagination"><ul>';
     if(1 != $this->currentpage) {
-      $html .= '<li><a href="'.$this->preparePageLink($this->currentpage - 1).'">&laquo; Previous</a></li>';
+      $html .= '<li><a href="'.$this->preparePageLink($this->currentpage - 1,$this->itemsPerPage).'">&laquo; Previous</a></li>';
     }
     $VisiblePagelinkCount = 1;
     for($i=$this->currentpage; $i <= $this->totalPages+1; $i++) {
       if($VisiblePagelinkCount <= $setVisiblePagelinkCount) {
         if($this->currentpage == $i) {
-          $html .= '<li><a class="active " href="'.$this->preparePageLink($i).'">'.$i.'</a></li>';
+          $html .= '<li><a class="active " href="'.$this->preparePageLink($i,$this->itemsPerPage).'">'.$i.'</a></li>';
         }
         else {
-          $html .= '<li><a href="'.$this->preparePageLink($i).'">'.$i.'</a></li>';
+          $html .= '<li><a href="'.$this->preparePageLink($i,$this->itemsPerPage).'">'.$i.'</a></li>';
         }
       }
       $VisiblePagelinkCount++;
     }    
     if($this->totalPages != $this->currentpage) {
-      $html .= '<li><a href="'.$this->preparePageLink($this->currentpage + 1).'">Next &raquo;</a></li>';
+      $html .= '<li><a href="'.$this->preparePageLink($this->currentpage + 1,$this->itemsPerPage).'">Next &raquo;</a></li>';
     }
     $html .= '</ul></div>';
     
@@ -114,14 +114,14 @@ class Pagination extends \lithium\action\Controller{
 
   }
   
-  private function preparePageLink($currentPageIndex = 1) {
+  private function preparePageLink($currentPageIndex = 1,$itemsPerPage = 20) {
     global $var;
     $pageUrl = $this->currentURL;
     if(false === stristr($this->currentURL, '{{PAGE}}')) {
-      $pageUrl = $this->currentURL.'/'.$i;
+      $pageUrl = $this->currentURL.'/'.$i."/".$itemsPerPage;
     }
     else {
-      $pageUrl = str_ireplace('{{PAGE}}', $currentPageIndex, $this->currentURL);
+      $pageUrl = str_ireplace('{{PAGE}}', $currentPageIndex, $this->currentURL.$itemsPerPage);
     }
     
     return $pageUrl;

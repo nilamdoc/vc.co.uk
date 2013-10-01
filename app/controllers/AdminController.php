@@ -1023,12 +1023,16 @@ $description = "Admin panel for withdrawal";
 		$mailer->send($message);
 		$this->redirect('Admin::withdrawals');	
 	}
-	public function user($page=1){
+	public function user($page=1,$pagelength=20){
 		if($this->__init()==false){$this->redirect('ex::dashboard');	}	
 			
 		$mongodb = Connections::get('default')->connection;
 	  $pagination = new Pagination($mongodb, '/Admin/user/{{PAGE}}/');
-		$itemsPerPage   = 20;
+		if($this->request->data){
+			$itemsPerPage = $this->request->data['pagelength'];
+		}else{
+			$itemsPerPage = $pagelength;
+		}
 		$currentPage    = $page;
 		$pagination->setQuery(array(
 			'#collection'	=>  'details',
@@ -1043,6 +1047,70 @@ $description = "Admin panel for withdrawal";
 			$user = Users::find('first',array(
 				'conditions'=>array('username'=>$dt['username'])
 			));
+			
+		$mongodb = Connections::get('default')->connection;
+		$YourOrders = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Action' => '$Action',
+					'user_id' => '$user_id',					
+					'username' => '$username',
+					'Amount'=>'$Amount',
+					'PerPrice'=>'$PerPrice',
+					'Completed'=>'$Completed',
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+					'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),					
+				)),
+				array('$match'=>array(
+					'Completed'=>'N',
+					'username'=>$dt['username']
+					)),
+				array('$group' => array( '_id' => array(
+						'Action'=>'$Action',				
+						'FirstCurrency'=>'$FirstCurrency',
+						'SecondCurrency'=>'$SecondCurrency',						
+						),
+					'Amount' => array('$sum' => '$Amount'),  
+					'TotalAmount' => array('$sum' => '$TotalAmount'), 										
+					'No' => array('$sum'=>1)					
+				)),
+				array('$sort'=>array(
+					'_id.Action'=>1,
+				))
+			)
+		));
+
+		foreach($YourOrders['result'] as $YO){
+			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='USD'){
+				$Details[$i]['Buy']['BTC-USD']['Amount'] = $YO['Amount'];
+				$Details[$i]['Buy']['BTC-USD']['TotalAmount'] = $YO['TotalAmount'];
+			}
+			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='USD'){
+				$Details[$i]['Sell']['BTC-USD']['Amount'] = $YO['Amount'];
+				$Details[$i]['Sell']['BTC-USD']['TotalAmount'] = $YO['TotalAmount'];
+			}
+			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='GBP'){
+				$Details[$i]['Buy']['BTC-GBP']['Amount'] = $YO['Amount'];
+				$Details[$i]['Buy']['BTC-GBP']['TotalAmount'] = $YO['TotalAmount'];
+			}
+			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='GBP'){
+				$Details[$i]['Sell']['BTC-GBP']['Amount'] = $YO['Amount'];
+				$Details[$i]['Sell']['BTC-GBP']['TotalAmount'] = $YO['TotalAmount'];
+			}
+			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='EUR'){
+				$Details[$i]['Buy']['BTC-EUR']['Amount'] = $YO['Amount'];
+				$Details[$i]['Buy']['BTC-EUR']['TotalAmount'] = $YO['TotalAmount'];
+			}
+			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='EUR'){
+				$Details[$i]['Sell']['BTC-EUR']['Amount'] = $YO['Amount'];
+				$Details[$i]['Sell']['BTC-EUR']['TotalAmount'] = $YO['TotalAmount'];
+			}
+			
+		}
+		
 			$Details[$i]['username'] = $user['username'];							
 			$Details[$i]['firstname'] = $user['firstname'];							
 			$Details[$i]['lastname'] = $user['lastname'];										
@@ -1052,9 +1120,11 @@ $description = "Admin panel for withdrawal";
 			$Details[$i]['BTC'] = $dt['balance']['BTC'];													
 			$Details[$i]['USD'] = $dt['balance']['USD'];												
 			$Details[$i]['EUR'] = $dt['balance']['EUR'];													
-			$Details[$i]['GBP'] = $dt['balance']['GBP'];																							
+			$Details[$i]['GBP'] = $dt['balance']['GBP'];
+
 			$i++;
 		}
+
 		$page_links = $pagination->getPageLinks();
 
 		$title = "User";
@@ -1064,7 +1134,7 @@ $keywords = "Admin, Users";
 $description = "Admin panel for users";
 
 
-		return compact('title','users','page_links','TotalUsers','Details','title','keywords','description');
+		return compact('title','users','page_links','TotalUsers','Details','title','keywords','description','pagelength');
 		
 	}
 	

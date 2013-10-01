@@ -18,7 +18,7 @@ $EndDate=gmdate('Y-m-d',$EndDate->sec);
 	<input class="span2" size="16"  name="EndDate" 	type="text" value="<?=$EndDate?>" readonly>
 	<span class="add-on"><i class="icon-calendar"></i></span>
 </div>
-<input type="submit" value="Get report" class="btn btn-primary">
+	<input type="submit" value="Get report" class="btn btn-primary">
 <div class="alert alert-error" id="alert"><strong></strong></div>
 </form>
 <table class="table table-condensed table-bordered table-hover" style=" ">
