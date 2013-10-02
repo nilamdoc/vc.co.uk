@@ -458,6 +458,8 @@ $description = "Admin Approve documents ";
 				'conditions'=>array('username'=>$ft['username'])
 			));
 			$Details[$i]['BankVerified'] = $bankverified['bank.verified'];
+			$Details[$i]['UtilityVerified'] = $bankverified['utility.verified'];			
+			$Details[$i]['GovtVerified'] = $bankverified['government.verified'];			
 		/////////////////////////////////////////////////////////////////////////////////////////////			
 		/////////////////////////////////////////////////////////////////////////////////////////////			
 			//Summary of all deposits / withdrawals for a user
@@ -848,7 +850,7 @@ $description = "Admin panel for withdrawal";
 		$mailer = Swift_Mailer::newInstance($transport);
 
 		$message = Swift_Message::newInstance();
-		$message->setSubject("Deposit Approved ".COMPANY_URL.": Depoit funds now!");
+		$message->setSubject("Deposit Approved ".COMPANY_URL.": Deposit funds now!");
 		$message->setFrom(array(NOREPLY => 'Deposit Approved '.COMPANY_URL.": Deposit funds now!"));
 		$message->setTo($user['email']);
 		$message->addBcc(MAIL_1);

@@ -240,18 +240,72 @@ function initCanvas(ww,hh)
 			</div>
 		</div>
 	</div>
+
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle btn" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+
+			<?php 
+				if($details['bank']['verified']=="Yes" && $details['utility']['verified']=="Yes" && $details['government']['verified']=="Yes" ){?>
+			<span class="accordion-toggle btn" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">				
 				<strong><?=$t('USD / GBP / EUR Deposits / Withdrawals')?></strong> 
-			</a>
+			</span>
+			<?php }else{?>
+			<span class="accordion-toggle btn" data-toggle="collapse" data-parent="#accordion2" href="#collapseVerify">							
+				<strong>Verification incomplete!</strong>
+			</span>	
+			<?php }?>
+		</div>
+		<div id="collapseVerify" class="accordion-body collapse">
+			<div class="accordion-inner">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<a class="brand" href="#"><?=$t('Complete Verification')?> </a>
+					</div>				
+				<div class="well">
+<!-----Bank Details start----->					
+					<?php 
+					if(strlen($details['bank.verified'])==0){
+					?>
+						<a href="/users/settings/bank" class="label label-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Bank Account")?></a>
+					<?php }elseif($details['bank.verified']=='No'){?>
+						<a href="#" class="label label-important tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Bank Account")?></a>
+					<?php }else{ ?>
+						<a href="#" class="label label-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Bank Account")?></a>					
+					<?php }	?>
+<!-----Bank Details end----->					
+<!-----Government Details start----->					
+					<?php 
+					if(strlen($details['government.verified'])==0){
+					?>
+						<a href="/users/settings/government" class="label label-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Government Photo ID")?></a>
+					<?php }elseif($details['government.verified']=='No'){?>
+						<a href="#" class="label label-important tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Government Photo ID")?></a>
+					<?php }else{ ?>
+						<a href="#" class="label label-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Government ID")?></a>					
+					<?php }	?>
+<!-----Government Details end----->					
+<!-----Utility Details start----->					
+					<?php 
+					if(strlen($details['utility.verified'])==0){
+					?>
+						<a href="/users/settings/utility" class="label label-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Proof of Address")?></a>
+					<?php }elseif($details['utility.verified']=='No'){?>
+						<a href="#" class="label label-important tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Utility Bill")?></a>
+					<?php }else{ ?>
+						<a href="#" class="label label-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Utility Bill")?></a>					
+					<?php }	?>
+<!-----Utility Details end----->					
+
+					</div>
+				</div>
+			</div>
 		</div>
 		<div id="collapseTwo" class="accordion-body collapse">
 			<div class="accordion-inner">
 <!--------------------------------------------------------------------------->
 <div class="row">
 	<div class="span5">
-		<div class="navbar">
+		<div class="navbar"> 
 			<form action="/users/deposit/" method="post" class="form">
 			<div class="navbar-inner">
 			<a class="brand" href="#"><?=$t('Deposit USD / GBP / EUR')?> </a>
@@ -287,7 +341,7 @@ function initCanvas(ww,hh)
 				</tr>
 				<tr>
 					<td colspan="2">
-					<p><strong>Make SURE you deposit from your verified account. Money sent from any other account will result in the transaction being blocked and investigated.</strong></p>
+					<p><strong>Make SURE you deposit from your <font style="color:green">FULLY</font> Verified account. Money sent from any other account or an account <font style="color:red ">NOT FULLY</font> Verified will result in the transaction being blocked and investigated.</strong></p>
 					</td>
 				</tr>
 				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Once your email is approved, you will receive the funds in your account in ibwt.co.uk">

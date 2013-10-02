@@ -22,7 +22,15 @@ foreach ($Details	as $tx){?>
 			<td><a href="/Admin/detail/<?=$tx['username']?>" target="_blank"><?=$tx['username']?></a><br>
 				<span class="label
 				<?php if($tx['BankVerified']=="No"){echo " label-important ";}else{echo " label-success ";} ?>
-				">Bank Verified: <?=$tx['BankVerified']?></span>
+				">Bank Verified: <?=$tx['BankVerified']?></span><br>
+				<span class="label
+				<?php if($tx['GovtVerified']=="No"){echo " label-important ";}else{echo " label-success ";} ?>
+				">Government: <?=$tx['GovtVerified']?></span><br>
+				<span class="label
+				<?php if($tx['UtilityVerified']=="No"){echo " label-important ";}else{echo " label-success ";} ?>
+				">Proof of Address: <?=$tx['UtilityVerified']?></span>
+
+
 			</td>
 			<td><?=$tx['Reference']?></td>
 			<td style="text-align:right "><?=number_format($tx['Amount'],2)?><br>

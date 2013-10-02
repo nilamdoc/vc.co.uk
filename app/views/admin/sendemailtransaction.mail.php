@@ -2,9 +2,8 @@
 	<img src="https://<?=COMPANY_URL?>/img/<?=COMPANY_URL?>.gif" alt="<?=COMPANY_URL?>">
 </div>
 <h4>Hi <?=$user['firstname']?>,</h4>
-
-<p>Your deposit has been approved by <?=COMPANY_URL?>. Please make a deposit now as per the details below. Once we see the funds in our account, we will credit your account at <?=COMPANY_URL?>.</p>
-<p>You can also send a scanned receipt of your deposit to support@ibwt.co.uk.</p>
+<p>Your deposit has been approved by <?=COMPANY_URL?>. Please make a deposit now as per the details below. We will credit your account at <?=COMPANY_URL?> when your wire transfer has cleared.</p>
+<p>We always recommend taking a screenshot/scanned receipt of your deposit, which can be sent to support@<?=COMPANY_URL?> if any issues arise.</p>
 <table>
 		<tr>
 			<td>Sort code: </td>
