@@ -94,6 +94,12 @@ class APIController extends \lithium\action\Controller {
 			)));
 	}
 	public function Info($key = null){
+   if(!$this->request->data){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Not submitted through POST."
+			)));
+	 }
 	 if ($key==null){
 			return $this->render(array('json' => array('success'=>0,
 			'now'=>time(),

@@ -77,9 +77,9 @@
 		You can find your API Key in Settings / Security tab.
 
 		<p>All request are sent to https://ibwt.co.uk/API/<strong>FunctionName</strong></p>
-		<pre>All requests must also include a special nonce POST parameter with increment integer. (>0)
-The method name is sent via POST parameter method.
-All the method parameters are sent via POST.
+		<pre>All requests must also include a special <strong>nonce</strong> POST parameter with increment integer. (>0)
+The URL should include the key as a parameter.
+All other parameters should be submitted by POST method.
 All server answers are in JSON format.
 		</pre>
 		If the completion is successful, there is an answer like:
@@ -113,25 +113,58 @@ All server answers are in JSON format.
 			<h4 id="headings">List user information</h4>
 			<p id="headings">It returns the information about the user's current balance, API key privileges,the number of transactions, the number of open orders and the server time.</p>
 		<div class="bs-docs-example">
+		If you have signed in as a user you should be able to see the URL with your own API key. <br>
 		<?php 
-
+		if(strlen($details['key'])>0){
+		$key = $details['key'];
+		}else{
+		$key = "YOUR_API_KEY";
+		}
 		?>
-		<a href="https://ibwt.co.uk/API/Info/<?=$details['key']?>" target="_blank">https://ibwt.co.uk/API/Info/<?=$details['key']?></a>
+		URL: <a href="https://ibwt.co.uk/API/Info/<?=$key?>" target="_blank">https://ibwt.co.uk/API/Info/<?=$key?></a>
 		<h5>Parameters:</h5>
-		<p>Key :<?=$details['key']?></p>
+		<p>nounce : integer &gt; 0</p>
+		<?php 
+		if(strlen($details['key'])>0){?>
+		<div class="bs-docs-tryit">
+		<form action="/API/Info/<?=$key?>" method="post" target="_blank">
+			<input type="hidden" name="nounce" value="<?=time()?>">
+			<input type="submit" value="Info" class="btn btn-primary">
+		</form>
+		<h5>Code:</h5>
+		<pre>
+&lt;form action="/API/Info/<?=$key?>" method="post" target="_blank"&gt;
+	&lt;input type="hidden" name="nounce" value="<?=time()?>"&gt;
+	&lt;input type="submit" value="Info" class="btn btn-primary"&gt;
+&lt;/form&gt;
+		</pre>
+		</div>
+		<?php }else{?>
+		<div class="bs-docs-tryit">		
+		<p>Please sign in to check the code with an example.</p>
+<h5>Code:</h5>
+		<pre>
+&lt;form action="/API/Info/<?=$key?>" method="post" target="_blank"&gt;
+	&lt;input type="hidden" name="nounce" value="<?=time()?>"&gt;
+	&lt;input type="submit" value="Info" class="btn btn-primary"&gt;
+&lt;/form&gt;
+		</pre>		
+		</div>
+		<?php }?>
+		<h5>Expected Result:</h5>
 		<pre>
 {"success":1,
 	"now":1380701646,
 	"result":{
 	"TOTP":{"Validate":true,"Login":true,"Withdrawal":true,"Security":true},
-	"balance":{"BTC":5.856,"USD":17114.208,"GBP":10000,"EUR":10000},
-	"government":{"name":"Koala.jpg","verified":"Yes"},
-	"addressproof":{"name":"Chrysanthemum.jpg","verified":"Yes"},
-	"bank":{"name":"Nothern Bank","address":"Lanchaiser","account":"Nilam Doctor","number":"11111111","sortcode":"11-11-1111","verified":"Yes"},
-	"email":{"address":"nilam@ibwt.co.uk","verified":"Yes"},
-	"user":{"first_name":"Nilam","last_name":"Doctor","username":"NilamDoctor","created":1377849940},
-	"orders":{"pending":4,"complete":2,"sell":3,"buy":3},
-	"transactions":{"BTC":0,"Other":1}
+	"balance":{"BTC":5.856,"USD":1114.208,"GBP":458.23,"EUR":987.34},
+	"government":{"name":"Passport.jpg","verified":"Yes"},
+	"addressproof":{"name":"UtilityBill.jpg","verified":"Yes"},
+	"bank":{"name":"Nothern Bank","address":"Lanchaiser","account":"John Abraham","number":"12345678","sortcode":"12-34-5678","verified":"Yes"},
+	"email":{"address":"John@MyEmailAddress.com","verified":"Yes"},
+	"user":{"first_name":"John","last_name":"Abraham","username":"JohnA342","created":1377849940},
+	"orders":{"pending":4,"complete":12,"sell":8,"buy":4},
+	"transactions":{"BTC":10,"Other":12}
 	}
 }</pre>
 		</div>

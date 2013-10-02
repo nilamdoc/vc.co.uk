@@ -128,13 +128,13 @@ use li3_qrcode\extensions\action\QRcode;
 	</div>
 	<div id="collapseGovernment" class="accordion-body <?php if($option=="government"){?><?php }else{?>collapse<?php }?>">
 		<div class="accordion-inner">
-						<?php if(strlen($details['government.verified'])==0){?>
+
 						<?=$this->form->create(null, array('type' => 'file')); ?>
 						<?=$this->form->field('file', array('type' => 'file','label'=>'Upload a JPG')); ?><br>
 						<?=$this->form->field('option',array('type'=>'hidden','value'=>'government')); ?>												
 						<?=$this->form->submit('Save',array('class'=>'btn btn-primary')); ?>
 						<?=$this->form->end(); ?>
-						<?php }else{?>
+
 							<?php if($details['government.verified']=="No"){?>
 							<p class="label label-warning">Waiting for approval</p>
 							<?php	}else{?>
@@ -142,7 +142,6 @@ use li3_qrcode\extensions\action\QRcode;
 							<?php }?>
 						<?php	if($imagename_government!=""){?>
 							<img src="/documents/<?=$imagename_government?>" width="300px" style="padding:1px;border:1px solid black ">					
-							<?php }?>
 						<?php }?>						
 		</div>
 	</div>		
