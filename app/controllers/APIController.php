@@ -2,14 +2,28 @@
 namespace app\controllers;
 use app\controllers\UpdatesController;
 use MongoDate;
+use lithium\storage\Session;
+use app\models\Users;
+use app\models\Details;
+use app\models\Transactions;
+
 use app\models\Orders;
+
 class APIController extends \lithium\action\Controller {
 	public function index(){
+		$user = Session::read('default');
+		$id = $user['_id'];
 
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		$userInfo = Users::find('first',
+				array('conditions'=>array('_id'=> (string) $id))
+		);
 		$title = "API";
 		$keywords = "API, documentation, ibwt";
 		$description = "API documentation for ibwt.co.uk";
-		return compact('title','keywords','description');
+		return compact('title','keywords','description','details','userInfo');
 	}
 	public function trades(){
 		$updates = new UpdatesController();
@@ -79,6 +93,110 @@ class APIController extends \lithium\action\Controller {
 			'result'=>$result
 			)));
 	}
+	public function Info($key = null){
+	 if ($key==null){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Key not specified. Please get your key from your settings page under security."
+			)));
+	 }else{
+	 	$details = Details::find('first',array(
+			'conditions'=>array('key'=>$key)
+		));
+		if(count($details)==0){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Incorrect Key! Please get your key from your settings page under security."
+			)));
+		}else{
+			$user = Users::find('first',array(
+				'conditions'=>array('_id'=>$details['user_id'])
+			));
+			$ordersPending = Orders::count(array(
+				'username'=>$details['username'],
+				'Completed'=>'N'
+				)
+			);
+			$ordersComplete = Orders::count(array(
+				'username'=>$details['username'],
+				'Completed'=>'Y'
+				)
+			);
+			$ordersSell = Orders::count(array(
+				'username'=>$details['username'],
+				'Action'=>'Sell'
+				)
+			);
+			$ordersBuy = Orders::count(array(
+				'username'=>$details['username'],
+				'Action'=>'Buy'
+				)
+			);
+			$transactionsBTC = Transactions::count(array(
+				'username'=>$details['username'],
+				'Currency'=>'BTC'
+			));
+			$transactionsOther = Transactions::count(array(
+				'username'=>$details['username'],
+				'Currency'=>array('$ne'=>'BTC')
+			));			
+			$result = array(
+				'TOTP'=>array(
+					'Validate'=>$details['TOTP.Validate'],
+					'Login'=>$details['TOTP.Login'],
+					'Withdrawal'=>$details['TOTP.Withdrawal'],					
+					'Security'=>$details['TOTP.Security'],					
+				),
+				'balance'=>array(
+					'BTC'=>$details['balance.BTC'],
+					'USD'=>$details['balance.USD'],					
+					'GBP'=>$details['balance.GBP'],					
+					'EUR'=>$details['balance.EUR']
+				),
+				'government'=>array(
+					'name'=>$details['government.name'],
+					'verified'=>$details['government.verified'],
+				),
+				'addressproof'=>array(
+					'name'=>$details['utility.name'],				
+					'verified'=>$details['utility.verified']
+				),
+				'bank'=>array(
+					'name'=>$details['bank.bankname'],				
+					'address'=>$details['bank.branchaddress'],					
+					'account'=>$details['bank.accountname'],					
+					'number'=>$details['bank.accountnumber'],					
+					'sortcode'=>$details['bank.sortcode'],					
+					'verified'=>$details['bank.verified'],
+				),
+				'email'=>array(
+					'address'=>$user['email'],
+					'verified'=>$details['email.verified']
+				),
+				'user'=>array(
+					'first_name'=>$user['firstname'],
+					'last_name'=>$user['lastname'],
+					'username'=>$user['username'],
+					'created'=>$user['created']->sec
+				),
+				'orders'=>array(
+					'pending'=>$ordersPending,
+					'complete'=>$ordersComplete,
+					'sell'=>$ordersSell,
+					'buy'=>$ordersBuy
+				),
+				'transactions'=>array(
+					'BTC'=>$transactionsBTC,
+					'Other'=>$transactionsOther
+				)
+			);
+			return $this->render(array('json' => array('success'=>1,
+			'now'=>time(),
+			'result'=>$result
+			)));
+		}
+	 }
 	
+	}
 }
 ?>

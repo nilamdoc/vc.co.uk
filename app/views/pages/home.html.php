@@ -3,7 +3,7 @@
 <blockquote>"The day science begins to study non-physical phenomena, it will make more progress in one decade than in all the previous 
 centuries of its existence." <small>Nikola Tesla</small></blockquote>
 <p class="alert alert-error" style="font-size:16px;font-weight:bold ">One wonders how applicable Bitcoin is to Nikola Tesla's statement. Here at IBWT we plan to help put it to the test, by enabling you, our customers, to trade your Bitcoin for sterling with each other in a secure and trusted environment.</p>
-<div class="page-header" style="padding:3px;text-align:center;border:3px solid red "><h5>A UK Bitcoin/Virtual Currency exchange, offering a fully regulated, secure method, for individuals and businesses to trade bitcoins.</h5></div>
+<h5>A UK Bitcoin/Virtual Currency exchange, offering a fully regulated, secure method, for individuals and businesses to trade bitcoins.</h5>
 <img src="/img/Stamp.png" class="pull-right" width="300" style="padding:1px">
 <ul>
     <li>Fees are 0.8% per transaction</li>

@@ -6,13 +6,13 @@
 		<ol>
 			<li><strong>Public access</strong>
 				<ul>
-					<li><a href="#Trades">Trades</a></li>
-					<li><a href="#TradesDate">TradesDate</a></li>
+					<li>Trades</li>
+					<li>TradesDate</li>
 				</ul>
 			</li>
 			<li><strong>User Authenticated</strong>
 				<ul>
-					<li><a href="#Info">Info</a></li>
+					<li>Info</li>
 					<li>TransactionHistory</li>
 					<li>OrderHistory</li>
 					<li>OrderList</li>
@@ -75,7 +75,7 @@
 		<li>Sign &mdash; POST data (?key=val&amp;param1=val1)</li>
 		</ul>
 		You can find your API Key in Settings / Security tab.
-		</p>
+
 		<p>All request are sent to https://ibwt.co.uk/API/<strong>FunctionName</strong></p>
 		<pre>All requests must also include a special nonce POST parameter with increment integer. (>0)
 The method name is sent via POST parameter method.
@@ -86,8 +86,7 @@ All server answers are in JSON format.
 		<pre>{"success":1,"return":{&lt;return&gt;}}</pre>
 		The answer in case of an error:
 		<pre>{"success":0,"error":"&lt;error text&gt;"}</pre>
-		Examples:
-		
+		<div class="bs-docs-example">
 		PHP: http://pastebin.com/QyjS3U9M
 		
 		Python: http://pastebin.com/ec11hxcP by miraclemax
@@ -105,39 +104,38 @@ All server answers are in JSON format.
 		Objective-C: https://github.com/backmeupplz/BTCEBot by backmeupplz
 		
 		Ruby: https://github.com/cgore/ruby-btce by cgore & teddythetwig
-		
-		<h3>The list of methods</h3>
-		getInfo
-		
-		It returns the information about the user's current balance, API key privileges,the number of transactions, the number of open orders and the server time.
-		
-		Parameters:
-		
-		None.
-		
-		The example of an answer:
-		
-		{
-			"success":1,
-				"return":{
-				"funds":{
-					"usd":325,
-					"btc":23.998,
-					"sc":121.998,
-					"ltc":0,
-					"ruc":0,
-					"nmc":0
-				},
-				"rights":{
-					"info":1,
-					"trade":1
-				},
-				"transaction_count":80,
-				"open_orders":1,
-				"server_time":1342123547
-			}
-		}
-			
+		</div>		
+		<h3>The list of methods: User Authentication required</h3>
+		<section id="Info">
+			<div class="page-header">
+				<h1>Info</h1>
+			</div>
+			<h4 id="headings">List user information</h4>
+			<p id="headings">It returns the information about the user's current balance, API key privileges,the number of transactions, the number of open orders and the server time.</p>
+		<div class="bs-docs-example">
+		<?php 
+
+		?>
+		<a href="https://ibwt.co.uk/API/Info/<?=$details['key']?>" target="_blank">https://ibwt.co.uk/API/Info/<?=$details['key']?></a>
+		<h5>Parameters:</h5>
+		<p>Key :<?=$details['key']?></p>
+		<pre>
+{"success":1,
+	"now":1380701646,
+	"result":{
+	"TOTP":{"Validate":true,"Login":true,"Withdrawal":true,"Security":true},
+	"balance":{"BTC":5.856,"USD":17114.208,"GBP":10000,"EUR":10000},
+	"government":{"name":"Koala.jpg","verified":"Yes"},
+	"addressproof":{"name":"Chrysanthemum.jpg","verified":"Yes"},
+	"bank":{"name":"Nothern Bank","address":"Lanchaiser","account":"Nilam Doctor","number":"11111111","sortcode":"11-11-1111","verified":"Yes"},
+	"email":{"address":"nilam@ibwt.co.uk","verified":"Yes"},
+	"user":{"first_name":"Nilam","last_name":"Doctor","username":"NilamDoctor","created":1377849940},
+	"orders":{"pending":4,"complete":2,"sell":3,"buy":3},
+	"transactions":{"BTC":0,"Other":1}
+	}
+}</pre>
+		</div>
+		<section>			
 		
 		TransHistory
 		
