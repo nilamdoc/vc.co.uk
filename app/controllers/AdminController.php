@@ -1271,7 +1271,10 @@ $description = "Admin Panel for user";
 					'SecondCurrency'=>'$SecondCurrency',	
 					'DateTime' => '$DateTime',					
 				)),
-				array( '$match' => array( 'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ) ),
+				array( '$match' => array( 
+					'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ),
+					'Completed'=>'Y'
+					 )),
 				array('$group' => array( '_id' => array(
 					'CommissionCurrency'=>'$CommissionCurrency',					
 					'year'=>array('$year' => '$DateTime'),
