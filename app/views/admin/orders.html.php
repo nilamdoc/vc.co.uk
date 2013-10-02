@@ -29,6 +29,7 @@ $EndDate=gmdate('Y-m-d',$EndDate->sec);
 		<th style="text-align:center ">PerPrice</th>						
 		<th style="text-align:center ">Total</th>				
 		<th style="text-align:center ">Commission</th>						
+		<th>Calculated</th>
 		<th style="text-align:center ">Completed</th>		
 		<th style="text-align:center ">Username</th>		
 	</tr>
@@ -37,9 +38,16 @@ $EndDate=gmdate('Y-m-d',$EndDate->sec);
 		<td><?=gmdate('Y-M-d H:i:s',$od['DateTime']->sec)?></td>
 		<td><?=$od['Action']?> <?=$od['FirstCurrency']?>/<?=$od['SecondCurrency']?></td>
 		<td><?=number_format($od['Amount'],8)?></td>
-		<td><?=number_format($od['PerPrice'],8)?></td>				
+		<td><?=number_format($od['PerPrice'],4)?></td>				
 		<td><?=number_format($od['PerPrice']*$od['Amount'],4)?></td>						
-		<td><?=number_format($od['Commission']['Amount'],4)?> <?=$od['Commission']['Currency']?></td>						
+		<td><?=number_format($od['Commission']['Amount'],8)?> <?=$od['Commission']['Currency']?></td>						
+		<td><?php
+			if($od['Action']=="Buy"){
+			echo number_format($od['Amount']*.8/100,8)." ".$od['Commission']['Currency'];
+			}else{
+			echo number_format($od['Amount']*$od['PerPrice']*.8/100,8)." ".$od['Commission']['Currency'];
+			}
+		?></td>
 		<td><?=$od['Completed']?></td>				
 		<td><a href="/Admin/detail/<?=$od['username']?>" target="_blank"><?=$od['username']?></a></td>
 	</tr>
