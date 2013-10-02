@@ -152,19 +152,17 @@ use li3_qrcode\extensions\action\QRcode;
 	</div>
 	<div id="collapseUtility" class="accordion-body <?php if($option=="utility"){?><?php }else{?>collapse<?php }?>">
 		<div class="accordion-inner">
-						<?php if(strlen($details['utility.verified'])==0){?>
 						<?=$this->form->create(null, array('type' => 'file')); ?>
 						<?=$this->form->field('file', array('type' => 'file','label'=>'Upload a JPG')); ?><br>
 						<?=$this->form->field('option',array('type'=>'hidden','value'=>'utility')); ?>						
 						<?=$this->form->submit('Save',array('class'=>'btn btn-primary')); ?>
 						<?=$this->form->end(); ?>
-						<?php }else{?>						
+
 							<?php if($details['utility.verified']=="No"){?>
 							<p class="label label-warning">Waiting for approval</p>
 							<?php	}else{?>
 							<p class="label label-success">Approved</p>
 							<?php }?>
-						<?php }?>							
 						<?php if($imagename_utility!=""){?>
 						<img src="/documents/<?=$imagename_utility?>" width="300px" style="padding:1px;border:1px solid black ">					
 						<?php }?>
