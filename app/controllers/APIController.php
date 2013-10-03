@@ -202,7 +202,110 @@ class APIController extends \lithium\action\Controller {
 			)));
 		}
 	 }
-	
 	}
+	
+	public function Transactionhistory($key=null){
+	 if(!$this->request->data){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Not submitted through POST."
+			)));
+	 }
+	 if ($key==null){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Key not specified. Please get your key from your settings page under security."
+			)));
+	 }else{
+			$details = Details::find('first',array(
+				'conditions'=>array('key'=>$key)
+			));
+			if(count($details)==0){
+				return $this->render(array('json' => array('success'=>0,
+				'now'=>time(),
+				'error'=>"Incorrect Key! Please get your key from your settings page under security."
+				)));
+			}else{
+				$count = $this->request->data['count'];
+				if($count==""){$count=1000;}
+				$currency = $this->request->data['currency'];
+				if($currency==""){$currency='All';}			
+				$order = $this->request->data['order'];			
+				if($order==""){$order='DESC';}			
+				$start = $this->request->data['start'];			
+				if($start==""){$start='2013-10-01';}			
+				$end = $this->request->data['end'];			
+				if($end==""){$currency=gmdate('Y-m-d',time());}						
+				$type = $this->request->data['type'];			
+				if($type==""){$type="All";}
+				$StartDate = new MongoDate(strtotime($start));
+				$EndDate = new MongoDate(strtotime($end));				
+				if($type=="Deposit"){
+					$typeofTran = array(true);
+				}
+				if($type=="Withdrawal"){
+					$typeofTran = array(false);
+				}
+				if($type=="All"){
+					$typeofTran = array('$in'=>array(true,false));
+				}
+				if($currency=="All"){
+				
+				}
+				$conditions = array(
+						'username'=>$details['username'],
+						'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ),
+						'Added'=>$typeofTran,
+						'Currency' => 'GBP'
+					);
+				
+				$transactions = Transactions::find('all',array(
+					'conditions'=> $conditions,
+					'order'=>array('Datetime'=>$order)
+				));
+				$i = 0;
+				foreach ($transactions as $tx){
+					$result[$i]['DateTime'] = $tx['DateTime']->sec;
+				$i++;
+				}
+				return $this->render(array('json' => array('success'=>1,
+				'now'=>time(),
+				'result'=>$result
+				)));
+			}
+		}
+	}
+	public function Orderhistory($key=null){
+	 if(!$this->request->data){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Not submitted through POST."
+			)));
+	 }
+	 if ($key==null){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Key not specified. Please get your key from your settings page under security."
+			)));
+	 }else{
+			$details = Details::find('first',array(
+				'conditions'=>array('key'=>$key)
+			));
+			if(count($details)==0){
+				return $this->render(array('json' => array('success'=>0,
+				'now'=>time(),
+				'error'=>"Incorrect Key! Please get your key from your settings page under security."
+				)));
+			}else{
+				$count = $this->request->data['count'];
+				if($count==""){$count=1000;}
+				return $this->render(array('json' => array('success'=>1,
+				'now'=>time(),
+				'result'=>$result
+				)));
+			}
+		}
+	}
+
 }
 ?>

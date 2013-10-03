@@ -72,7 +72,7 @@
 		<p>Authorization is performed by sending the following HTTP Headers:<br>
 		<ul>
 		<li>Key &mdash; API key. The example of API key: <strong>FLDGNIMJVNRMB3MXPF2EVH2VKAYY7DUBA43YZF7RVQ4MMHAHABAUK7JJZSJG3PXE</strong></li>
-		<li>Sign &mdash; POST data (?key=val&amp;param1=val1)</li>
+		<li>POST &mdash; POST data (?key=val&amp;param1=val1)</li>
 		</ul>
 		You can find your API Key in Settings / Security tab.
 
@@ -123,7 +123,7 @@ All server answers are in JSON format.
 		?>
 		URL: <a href="https://ibwt.co.uk/API/Info/<?=$key?>" target="_blank">https://ibwt.co.uk/API/Info/<?=$key?></a>
 		<h5>Parameters:</h5>
-		<p>nounce : integer &gt; 0</p>
+		<p>nounce: integer &gt; 0</p>
 		<?php 
 		if(strlen($details['key'])>0){?>
 		<div class="bs-docs-tryit">
@@ -170,6 +170,152 @@ All server answers are in JSON format.
 		</div>
 		<section>			
 		
+
+		<section id="TransactionHistory">
+			<div class="page-header">
+				<h1>TransactionHistory</h1>
+			</div>
+			<h4 id="headings"></h4>
+			<p id="headings">It returns the transactions history.</p>
+		<div class="bs-docs-example">
+		If you have signed in as a user you should be able to see the URL with your own API key. <br>
+		<?php 
+		if(strlen($details['key'])>0){
+		$key = $details['key'];
+		}else{
+		$key = "YOUR_API_KEY";
+		}
+		?>
+		URL: <a href="https://ibwt.co.uk/API/Transactionhistory/<?=$key?>" target="_blank">https://ibwt.co.uk/API/Transactionhistory/<?=$key?></a>
+		<h5>Parameters:</h5>
+		<table class="table table-condensed table-bordered table-hover" style="width:50% ">
+			<tr>
+				<th>Parameter</th>
+				<th>Required</th>
+				<th>Description</th>
+				<th>Default</th>
+			</tr>
+			<tr>
+				<td>nounce</td>
+				<td>yes</td>
+				<td>integer > 0</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>count</td>
+				<td>no</td>
+				<td>number of records to fetch from the system</td>
+				<td>1000</td>
+			</tr>
+			<tr>
+				<td>order</td>
+				<td>no</td>
+				<td>ASC or DESC on DateTime</td>
+				<td>DESC</td>
+			</tr>
+			<tr>
+				<td>start</td>
+				<td>no</td>
+				<td>Starting date for the transactions in YYYY-MM-DD</td>
+				<td>2013-10-01</td>
+			</tr>
+			<tr>
+				<td>end</td>
+				<td>no</td>
+				<td>Ending date for the transactions in YYYY-MM-DD</td>
+				<td><?=gmdate('Y-m-d',time())?></td>
+			</tr>	
+			<tr>
+				<td>type</td>
+				<td>no</td>
+				<td>All / Deposit / Withdrawal</td>
+				<td>All</td>
+			</tr>					
+			<tr>
+				<td>currency</td>
+				<td>no</td>
+				<td>All / BTC / Other / USD / GBP / EUR</td>
+				<td>All</td>
+			</tr>								
+		</table>
+		<?php 
+		if(strlen($details['key'])>0){?>
+		<div class="bs-docs-tryit">
+		<form action="/API/Transactionhistory/<?=$key?>" method="post" target="_blank">
+			<input type="hidden" name="nounce" value="<?=time()?>">
+		<table class="table table-condensed " style="width:50% ">
+			<tr>
+				<td>Count:</td>
+				<td><input type="text" name="count" value="1000" class="span2"></td>
+			</tr>
+			<tr>
+				<td>Order:</td>
+				<td><select name="order" class="span2">
+				<option value="DESC">DESC</option>
+				<option value="ASC">ASC</option>
+			</select></td>
+			</tr>
+			<tr>
+				<td>Start:</td>
+				<td><input type="text" name="start" value="2013-10-01" class="span2"></td>
+			</tr>
+			<tr>
+				<td>End:</td>
+				<td><input type="text" name="end" value="<?=gmdate('Y-m-d',time())?>" class="span2"></td>
+			</tr>
+			<tr>
+				<td>Type:</td>
+				<td><select name="type" class="span2">
+				<option value="All">All</option>
+				<option value="Deposit">Deposit</option>
+				<option value="Withdrawal">Withdrawal</option>								
+			</select></td>
+			</tr>
+			<tr>
+				<td>Currency:</td>
+				<td><select name="currency" class="span2">
+				<option value="All">All</option>
+				<option value="BTC">BTC</option>
+				<option value="Other">Other, not BTC</option>				
+				<option value="USD">USD</option>				
+				<option value="GBP">GBP</option>				
+				<option value="EUR">EUR</option>				
+			</select></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Transaction History" class="btn btn-primary"></td>
+			</tr>
+		</table>
+		</form>
+		<h5>Code:</h5>
+		<pre>
+&lt;form action="/API/Info/<?=$key?>" method="post" target="_blank"&gt;
+	&lt;input type="hidden" name="nounce" value="<?=time()?>"&gt;
+	&lt;input type="submit" value="Info" class="btn btn-primary"&gt;
+&lt;/form&gt;
+		</pre>
+		</div>
+		<?php }else{?>
+		<div class="bs-docs-tryit">		
+		<p>Please sign in to check the code with an example.</p>
+<h5>Code:</h5>
+		<pre>
+&lt;form action="/API/Info/<?=$key?>" method="post" target="_blank"&gt;
+	&lt;input type="hidden" name="nounce" value="<?=time()?>"&gt;
+	&lt;input type="submit" value="Info" class="btn btn-primary"&gt;
+&lt;/form&gt;
+		</pre>		
+		</div>
+		<?php }?>
+		<h5>Expected Result:</h5>
+		<pre>
+{"success":1,
+	"now":1380701646,
+
+}</pre>
+		</div>
+		<section>			
+
 		TransHistory
 		
 		It returns the transactions history.
