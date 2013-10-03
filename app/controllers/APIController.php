@@ -248,24 +248,70 @@ class APIController extends \lithium\action\Controller {
 				}
 				if($type=="All"){
 					$typeofTran = array('$in'=>array(true,false));
+				}elseif($type=="Deposit"){
+					$typeofTran = array('$in'=>array(true));
+				}elseif($type=="Withdrawal"){
+					$typeofTran = array('$in'=>array(false));
 				}
-				if($currency=="All"){
-				
+				switch ($currency) {
+						case "All":
+								$currencyType = array('$in'=>array('BTC','USD','GBP','EUR'));
+								break;
+						case "BTC":
+								$currencyType = array('$in'=>array('BTC'));
+								break;
+						case "Other":
+								$currencyType = array('$in'=>array('USD','GBP','EUR'));
+								break;
+						case "USD":
+								$currencyType = array('$in'=>array('USD'));
+								break;
+						case "GBP":
+								$currencyType = array('$in'=>array('GBP'));
+								break;
+						case "EUR":
+								$currencyType = array('$in'=>array('EUR'));
+								break;
 				}
 				$conditions = array(
 						'username'=>$details['username'],
 						'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ),
 						'Added'=>$typeofTran,
-						'Currency' => 'GBP'
+						'Currency' => $currencyType,
 					);
 				
 				$transactions = Transactions::find('all',array(
 					'conditions'=> $conditions,
-					'order'=>array('Datetime'=>$order)
+					'limit'=> $count,
+					'order'=>array('Datetime'=>$order),
 				));
 				$i = 0;
 				foreach ($transactions as $tx){
 					$result[$i]['DateTime'] = $tx['DateTime']->sec;
+					$result[$i]['Amount'] = $tx['Amount'];					
+					$result[$i]['Currency'] = $tx['Currency'];					
+					if($tx['Added']==true){
+						$result[$i]['Type'] = "Deposit";					
+					}else{
+						$result[$i]['Type'] = "Withdrawal";					
+					}
+					if($tx['Currency']!="BTC"){
+						$result[$i]['Approved'] = $tx['Approved'];										
+						$result[$i]['Reference'] = $tx['Reference'];														
+						if($tx['Approved']=="Rejected")	{
+							$result[$i]['Reason'] = $tx['Reason'];										
+						}
+						if($tx['Approved']=="Yes")	{
+							$result[$i]['AmountApproved'] = $tx['AmountApproved'];										
+						}
+					}else{
+						$result[$i]['TransactionHash'] = $tx['TransactionHash'];																				
+						$result[$i]['Address'] = $tx['address'];																						
+						if($tx['Added']==false){
+							$result[$i]['txFee'] = $tx['txFee'];										
+							$result[$i]['Transfer'] = $tx['Transfer'];										
+						}
+					}
 				$i++;
 				}
 				return $this->render(array('json' => array('success'=>1,
@@ -299,6 +345,166 @@ class APIController extends \lithium\action\Controller {
 			}else{
 				$count = $this->request->data['count'];
 				if($count==""){$count=1000;}
+				$status = $this->request->data['status'];
+				if($status==""){$status='All';}			
+				$order = $this->request->data['order'];			
+				if($order==""){$order='DESC';}			
+				$start = $this->request->data['start'];			
+				if($start==""){$start='2013-10-01';}			
+				$end = $this->request->data['end'];			
+				if($end==""){$currency=gmdate('Y-m-d',time());}						
+				$type = $this->request->data['type'];			
+				if($type==""){$type="All";}
+				$StartDate = new MongoDate(strtotime($start));
+				$EndDate = new MongoDate(strtotime($end));				
+				
+				if($type=="All"){
+					$typeofTran = array('$in'=>array('Buy','Sell'));
+				}elseif($type=="Buy"){
+					$typeofTran = array('$in'=>array('Buy'));
+				}elseif($type=="Sell"){
+					$typeofTran = array('$in'=>array('Sell'));
+				}
+
+				if($status=="All"){
+					$StatusType = array('$in'=>array('N','Y'));
+				}elseif($type=="Complete"){
+					$StatusType = array('$in'=>array('Y'));
+				}elseif($type=="Pending"){
+					$StatusType = array('$in'=>array('N'));
+				}
+
+
+				$conditions = array(
+						'username'=>$details['username'],
+						'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ),
+						'Action'=>$typeofTran,
+						'Completed' => $StatusType,
+					);
+
+				$orders = Orders::find('all',array(
+					'conditions'=> $conditions,
+					'limit'=> $count,
+					'order'=>array('Datetime'=>$order),
+				));
+				
+				$i = 0;
+				foreach($orders as $or){
+					$result[$i]['DateTime'] = $or['DateTime']->sec;		
+					$result[$i]['type'] = $or['Action'];		
+					$result[$i]['pair'] = $or['FirstCurrency']."_".$or['SecondCurrency'];		
+					$result[$i]['CommissionAmount'] = $or['Commission']['Amount'];		
+					$result[$i]['CommissionCurrency'] = $or['Commission']['Currency'];							
+					$result[$i]['Amount'] = $or['Amount'];							
+					$result[$i]['Price'] = $or['PerPrice'];							
+					$result[$i]['TotalAmount'] = $or['Amount']*$or['PerPrice'];							
+					$result[$i]['status'] = $or['Completed'];		
+					$result[$i]['order_id'] = (string)$or['_id'];							
+					$i++;
+				}
+				
+				return $this->render(array('json' => array('success'=>1,
+				'now'=>time(),
+				'result'=>$result
+				)));
+			}
+		}
+	}
+
+	public function Orderlist($key=null){
+	 if(!$this->request->data){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Not submitted through POST."
+			)));
+	 }
+	 if ($key==null){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Key not specified. Please get your key from your settings page under security."
+			)));
+	 }else{
+			$details = Details::find('first',array(
+				'conditions'=>array('key'=>$key)
+			));
+			if(count($details)==0){
+				return $this->render(array('json' => array('success'=>0,
+				'now'=>time(),
+				'error'=>"Incorrect Key! Please get your key from your settings page under security."
+				)));
+			}else{
+				$count = $this->request->data['count'];
+				if($count==""){$count=1000;}
+				$pair = $this->request->data['pair'];
+				if($pair==""){$pair='All';}			
+				$order = $this->request->data['order'];			
+				if($order==""){$order='DESC';}			
+				$start = $this->request->data['start'];			
+				if($start==""){$start='2013-10-01';}			
+				$end = $this->request->data['end'];			
+				if($end==""){$currency=gmdate('Y-m-d',time());}						
+				$type = $this->request->data['type'];			
+				if($type==""){$type="All";}
+				$StartDate = new MongoDate(strtotime($start));
+				$EndDate = new MongoDate(strtotime($end));				
+				
+				if($type=="All"){
+					$typeofTran = array('$in'=>array('Buy','Sell'));
+				}elseif($type=="Buy"){
+					$typeofTran = array('$in'=>array('Buy'));
+				}elseif($type=="Sell"){
+					$typeofTran = array('$in'=>array('Sell'));
+				}
+				switch ($pair) {
+						case "All":
+								$FirstCurrency = array('$in'=>array('BTC'));
+								$SecondCurrency = array('$in'=>array('USD','GBP','EUR'));
+								break;
+						case "BTC_USD":
+								$FirstCurrency = array('$in'=>array('BTC'));
+								$SecondCurrency = array('$in'=>array('USD'));
+								break;
+						case "BTC_GBP":
+								$FirstCurrency = array('$in'=>array('BTC'));
+								$SecondCurrency = array('$in'=>array('GBP'));
+								break;
+						case "BTC_EUR":
+								$FirstCurrency = array('$in'=>array('BTC'));
+								$SecondCurrency = array('$in'=>array('EUR'));
+								break;
+								
+				}
+
+				$conditions = array(
+						'username'=>$details['username'],
+						'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ),
+						'Action'=>$typeofTran,
+						'Completed' => 'N',
+						'FirstCurrency'=>$FirstCurrency,
+						'SecondCurrency'=>$SecondCurrency,
+					);
+
+				$orders = Orders::find('all',array(
+					'conditions'=> $conditions,
+					'limit'=> $count,
+					'order'=>array('Datetime'=>$order),
+				));
+				
+				$i = 0;
+				foreach($orders as $or){
+					$result[$i]['DateTime'] = $or['DateTime']->sec;		
+					$result[$i]['type'] = $or['Action'];		
+					$result[$i]['pair'] = $or['FirstCurrency']."_".$or['SecondCurrency'];		
+					$result[$i]['CommissionAmount'] = $or['Commission']['Amount'];		
+					$result[$i]['CommissionCurrency'] = $or['Commission']['Currency'];							
+					$result[$i]['Amount'] = $or['Amount'];							
+					$result[$i]['Price'] = $or['PerPrice'];							
+					$result[$i]['TotalAmount'] = $or['Amount']*$or['PerPrice'];							
+					$result[$i]['status'] = $or['Completed'];		
+					$result[$i]['order_id'] = (string)$or['_id'];							
+					$i++;
+				}
+				
 				return $this->render(array('json' => array('success'=>1,
 				'now'=>time(),
 				'result'=>$result

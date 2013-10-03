@@ -154,18 +154,18 @@ All server answers are in JSON format.
 		<h5>Expected Result:</h5>
 		<pre>
 {"success":1,
-	"now":1380701646,
-	"result":{
-	"TOTP":{"Validate":true,"Login":true,"Withdrawal":true,"Security":true},
-	"balance":{"BTC":5.856,"USD":1114.208,"GBP":458.23,"EUR":987.34},
-	"government":{"name":"Passport.jpg","verified":"Yes"},
-	"addressproof":{"name":"UtilityBill.jpg","verified":"Yes"},
-	"bank":{"name":"Nothern Bank","address":"Lanchaiser","account":"John Abraham","number":"12345678","sortcode":"12-34-5678","verified":"Yes"},
-	"email":{"address":"John@MyEmailAddress.com","verified":"Yes"},
-	"user":{"first_name":"John","last_name":"Abraham","username":"JohnA342","created":1377849940},
-	"orders":{"pending":4,"complete":12,"sell":8,"buy":4},
-	"transactions":{"BTC":10,"Other":12}
-	}
+"now":1380701646,
+"result":{
+"TOTP":{"Validate":true,"Login":true,"Withdrawal":true,"Security":true},
+"balance":{"BTC":5.856,"USD":1114.208,"GBP":458.23,"EUR":987.34},
+"government":{"name":"Passport.jpg","verified":"Yes"},
+"addressproof":{"name":"UtilityBill.jpg","verified":"Yes"},
+"bank":{"name":"Nothern Bank","address":"Lanchaiser","account":"John Abraham","number":"12345678","sortcode":"12-34-5678","verified":"Yes"},
+"email":{"address":"John@MyEmailAddress.com","verified":"Yes"},
+"user":{"first_name":"John","last_name":"Abraham","username":"JohnA342","created":1377849940},
+"orders":{"pending":4,"complete":12,"sell":8,"buy":4},
+"transactions":{"BTC":10,"Other":12}
+}
 }</pre>
 		</div>
 		<section>			
@@ -289,10 +289,212 @@ All server answers are in JSON format.
 		</form>
 		<h5>Code:</h5>
 		<pre>
-&lt;form action="/API/Info/<?=$key?>" method="post" target="_blank"&gt;
-	&lt;input type="hidden" name="nounce" value="<?=time()?>"&gt;
-	&lt;input type="submit" value="Info" class="btn btn-primary"&gt;
-&lt;/form&gt;
+<?='<form action="/API/Transactionhistory/'.$key.'" method="post" target="_blank">
+<input type="hidden" name="nounce" value="'.time().'">
+Count: <input type="text" name="count" value="1000" class="span2">
+Order: <select name="order" class="span2">
+	<option value="DESC">DESC</option>
+	<option value="ASC">ASC</option>
+</select>
+Start: <input type="text" name="start" value="2013-10-01" class="span2">
+End: <input type="text" name="end" value="'.gmdate('Y-m-d',time()).'" class="span2">
+Type: <select name="type" class="span2">
+	<option value="All">All</option>
+	<option value="Deposit">Deposit</option>
+	<option value="Withdrawal">Withdrawal</option>								
+</select>
+Currency: <select name="currency" class="span2">
+	<option value="All">All</option>
+	<option value="BTC">BTC</option>
+	<option value="Other">Other, not BTC</option>				
+	<option value="USD">USD</option>				
+	<option value="GBP">GBP</option>				
+	<option value="EUR">EUR</option>				
+</select>
+<input type="submit" value="Transaction History" class="btn btn-primary">
+</form>'?>
+		</pre>
+		</div>
+		<?php }else{?>
+		<div class="bs-docs-tryit">		
+		<p>Please sign in to check the code with an example.</p>
+<h5>Code:</h5>
+		<pre><?='<form action="/API/Transactionhistory/'.$key.'" method="post" target="_blank">
+<input type="hidden" name="nounce" value="'.time().'">
+Count: <input type="text" name="count" value="1000" class="span2">
+Order: <select name="order" class="span2">
+	<option value="DESC">DESC</option>
+	<option value="ASC">ASC</option>
+</select>
+Start: <input type="text" name="start" value="2013-10-01" class="span2">
+End: <input type="text" name="end" value="'.gmdate('Y-m-d',time()).'" class="span2">
+Type: <select name="type" class="span2">
+	<option value="All">All</option>
+	<option value="Deposit">Deposit</option>
+	<option value="Withdrawal">Withdrawal</option>								
+</select>
+Currency: <select name="currency" class="span2">
+	<option value="All">All</option>
+	<option value="BTC">BTC</option>
+	<option value="Other">Other, not BTC</option>				
+	<option value="USD">USD</option>				
+	<option value="GBP">GBP</option>				
+	<option value="EUR">EUR</option>				
+</select>
+<input type="submit" value="Transaction History" class="btn btn-primary">
+</form>'?></pre>		
+		</div>
+		<?php }?>
+		<h5>Expected Result:</h5>
+		<pre>{"success":1,
+"now":1380783508,
+"result":[
+{"DateTime":1379650918,"Amount":0.05,"Currency":"BTC","Type":"Deposit","TransactionHash":"6e56defc13c783b39a1c878880b9a3c498e67039c5a7d6670d658e53bc12b04a","Address":"1NcBBigUFRNCqG2qvvbMm4Wb2ourKW4iQA"},
+{"DateTime":1380695609,"Amount":10,"Currency":"GBP","Type":"Deposit","Approved":"No","Reference":"JohnAbraham-67367"},
+{"DateTime":1380191863,"Amount":0.3,"Currency":"BTC","Type":"Deposit","TransactionHash":"9647bb757ce7a73a6a4f7dc10495b9c96805279b876bf8ba428c82799c9445a5","Address":"1NwhgWHbiaXqYiE4GPc1rxQJaaiu7cxcXD"},
+{"DateTime":1380705506,"Amount":50,"Currency":"GBP","Type":"Deposit","Approved":"Yes","Reference":"JohnAbraham-15444","AmountApproved":50},
+{"DateTime":1380563790,"Amount":1,"Currency":"GBP","Type":"Deposit","Approved":"Rejected","Reference":"JohnAbraham-71853","Reason":"Funds not received"},
+{"DateTime":1380729195,"Amount":-0.09869,"Currency":"BTC","Type":"Withdrawal","TransactionHash":"ec2a0f3604ad157695c7e7427806036af1d8b612b0027c7c171f2824a846b1fb","Address":"1G91BB3FrgMVChETXH6DfcU9CDimr6F4eM","txFee":-0.0005,"Transfer":"Sent 0.09869 BTC to 1G91BB3FrgMVChETXH6DfcU9CDimr6F4eM"}
+]}</pre>
+		</div>
+		<section>			
+
+<section id="OrderHistory">
+			<div class="page-header">
+				<h1>OrderHistory</h1>
+			</div>
+			<h4 id="headings"></h4>
+			<p id="headings">It returns the orders history.</p>
+		<div class="bs-docs-example">
+		If you have signed in as a user you should be able to see the URL with your own API key. <br>
+		<?php 
+		if(strlen($details['key'])>0){
+		$key = $details['key'];
+		}else{
+		$key = "YOUR_API_KEY";
+		}
+		?>
+		URL: <a href="https://ibwt.co.uk/API/Orderhistory/<?=$key?>" target="_blank">https://ibwt.co.uk/API/Orderhistory/<?=$key?></a>
+		<h5>Parameters:</h5>
+		<table class="table table-condensed table-bordered table-hover" style="width:50% ">
+			<tr>
+				<th>Parameter</th>
+				<th>Required</th>
+				<th>Description</th>
+				<th>Default</th>
+			</tr>
+			<tr>
+				<td>nounce</td>
+				<td>yes</td>
+				<td>integer > 0</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>count</td>
+				<td>no</td>
+				<td>number of records to fetch from the system</td>
+				<td>1000</td>
+			</tr>
+			<tr>
+				<td>order</td>
+				<td>no</td>
+				<td>ASC or DESC on DateTime</td>
+				<td>DESC</td>
+			</tr>
+			<tr>
+				<td>start</td>
+				<td>no</td>
+				<td>Starting date for the transactions in YYYY-MM-DD</td>
+				<td>2013-10-01</td>
+			</tr>
+			<tr>
+				<td>end</td>
+				<td>no</td>
+				<td>Ending date for the transactions in YYYY-MM-DD</td>
+				<td><?=gmdate('Y-m-d',time())?></td>
+			</tr>	
+			<tr>
+				<td>type</td>
+				<td>no</td>
+				<td>All / Buy / Sell</td>
+				<td>All</td>
+			</tr>					
+			<tr>
+				<td>Status</td>
+				<td>no</td>
+				<td>All / Complete / Pending</td>
+				<td>All</td>
+			</tr>								
+		</table>
+		<?php 
+		if(strlen($details['key'])>0){?>
+		<div class="bs-docs-tryit">
+		<form action="/API/Orderhistory/<?=$key?>" method="post" target="_blank">
+			<input type="hidden" name="nounce" value="<?=time()?>">
+		<table class="table table-condensed " style="width:50% ">
+			<tr>
+				<td>Count:</td>
+				<td><input type="text" name="count" value="1000" class="span2"></td>
+			</tr>
+			<tr>
+				<td>Order:</td>
+				<td><select name="order" class="span2">
+				<option value="DESC">DESC</option>
+				<option value="ASC">ASC</option>
+			</select></td>
+			</tr>
+			<tr>
+				<td>Start:</td>
+				<td><input type="text" name="start" value="2013-10-01" class="span2"></td>
+			</tr>
+			<tr>
+				<td>End:</td>
+				<td><input type="text" name="end" value="<?=gmdate('Y-m-d',time())?>" class="span2"></td>
+			</tr>
+			<tr>
+				<td>Type:</td>
+				<td><select name="type" class="span2">
+				<option value="All">All</option>
+				<option value="Buy">Buy</option>
+				<option value="Sell">Sell</option>								
+			</select></td>
+			</tr>
+			<tr>
+				<td>Status:</td>
+				<td><select name="status" class="span2">
+				<option value="All">All</option>
+				<option value="Complete">Complete</option>
+				<option value="Pending">Pending</option>				
+			</select></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Orders History" class="btn btn-primary"></td>
+			</tr>
+		</table>
+		</form>
+		<h5>Code:</h5>
+		<pre>
+<?='<form action="/API/Orderhistory/'.$key.'" method="post" target="_blank">
+<input type="hidden" name="nounce" value="'.time().'">
+Count: <input type="text" name="count" value="1000" class="span2">
+Order: <select name="order" class="span2">
+	<option value="DESC">DESC</option>
+	<option value="ASC">ASC</option>
+</select>
+Start: <input type="text" name="start" value="2013-10-01" class="span2">
+End: <input type="text" name="end" value="'.gmdate('Y-m-d',time()).'" class="span2">
+Type: <select name="type" class="span2">
+	<option value="All">All</option>
+	<option value="Buy">Buy</option>
+	<option value="Sell">Sell</option>								
+</select>
+Currency: <select name="status" class="span2">
+	<option value="All">All</option>
+	<option value="Complete">Complete</option>
+	<option value="Pending">Pending</option>				
+</select>
+<input type="submit" value="Orders History" class="btn btn-primary">
+</form>'?>
 		</pre>
 		</div>
 		<?php }else{?>
@@ -300,125 +502,227 @@ All server answers are in JSON format.
 		<p>Please sign in to check the code with an example.</p>
 <h5>Code:</h5>
 		<pre>
-&lt;form action="/API/Info/<?=$key?>" method="post" target="_blank"&gt;
-	&lt;input type="hidden" name="nounce" value="<?=time()?>"&gt;
-	&lt;input type="submit" value="Info" class="btn btn-primary"&gt;
-&lt;/form&gt;
+<?='<form action="/API/Orderhistory/'.$key.'" method="post" target="_blank">
+<input type="hidden" name="nounce" value="'.time().'">
+Count: <input type="text" name="count" value="1000" class="span2">
+Order: <select name="order" class="span2">
+	<option value="DESC">DESC</option>
+	<option value="ASC">ASC</option>
+</select>
+Start: <input type="text" name="start" value="2013-10-01" class="span2">
+End: <input type="text" name="end" value="'.gmdate('Y-m-d',time()).'" class="span2">
+Type: <select name="type" class="span2">
+	<option value="All">All</option>
+	<option value="Buy">Buy</option>
+	<option value="Sell">Sell</option>								
+</select>
+Currency: <select name="status" class="span2">
+	<option value="All">All</option>
+	<option value="Complete">Complete</option>
+	<option value="Pending">Pending</option>				
+</select>
+<input type="submit" value="Orders History" class="btn btn-primary">
+</form>'?>
+
 		</pre>		
 		</div>
 		<?php }?>
 		<h5>Expected Result:</h5>
-		<pre>
-{"success":1,
-	"now":1380701646,
-
-}</pre>
+		<pre>{"success":1,
+"now":1380796105,
+"result":[
+{"DateTime":1380523982,"type":"Buy","pair":"BTC_USD","CommissionAmount":0.032,"CommissionCurrency":"BTC","Amount":4,"Price":90,"TotalAmount":360,"status":"Y","order_id":"52491fce9d5d0c6c0c000040"},
+{"DateTime":1380605922,"type":"Buy","pair":"BTC_USD","CommissionAmount":0.048,"CommissionCurrency":"BTC","Amount":6,"Price":90,"TotalAmount":540,"status":"Y","order_id":"52491fce9d5d0c6c0c000050"},
+{"DateTime":1380605925,"type":"Buy","pair":"BTC_USD","CommissionAmount":0.032,"CommissionCurrency":"BTC","Amount":4,"Price":90,"TotalAmount":360,"status":"N","order_id":"52491fce9d5d0c6c0c000440"},
+{"DateTime":1380605936,"type":"Sell","pair":"BTC_USD","CommissionAmount":8.008,"CommissionCurrency":"USD","Amount":11,"Price":91,"TotalAmount":1001,"status":"N","order_id":"52491fce9d5d0c6c0c006040"},
+{"DateTime":1380606850,"type":"Sell","pair":"BTC_EUR","CommissionAmount":8,"CommissionCurrency":"EUR","Amount":10,"Price":100,"TotalAmount":1000,"status":"N","order_id":"52491fce9d5d0c6c0c080040"},
+{"DateTime":1380606864,"type":"Sell","pair":"BTC_EUR","CommissionAmount":24,"CommissionCurrency":"EUR","Amount":20,"Price":150,"TotalAmount":3000,"status":"N","order_id":"52491fce9d5d0c6c0c000090"}
+]}</pre>
 		</div>
 		<section>			
+<section id="OrderList">
+			<div class="page-header">
+				<h1>OrderList</h1>
+			</div>
+			<h4 id="headings"></h4>
+			<p id="headings">It returns the open orders list .</p>
+		<div class="bs-docs-example">
+		If you have signed in as a user you should be able to see the URL with your own API key. <br>
+		<?php 
+		if(strlen($details['key'])>0){
+		$key = $details['key'];
+		}else{
+		$key = "YOUR_API_KEY";
+		}
+		?>
+		URL: <a href="https://ibwt.co.uk/API/Orderlist/<?=$key?>" target="_blank">https://ibwt.co.uk/API/Orderlist/<?=$key?></a>
+		<h5>Parameters:</h5>
+		<table class="table table-condensed table-bordered table-hover" style="width:50% ">
+			<tr>
+				<th>Parameter</th>
+				<th>Required</th>
+				<th>Description</th>
+				<th>Default</th>
+			</tr>
+			<tr>
+				<td>nounce</td>
+				<td>yes</td>
+				<td>integer > 0</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>count</td>
+				<td>no</td>
+				<td>number of records to fetch from the system</td>
+				<td>1000</td>
+			</tr>
+			<tr>
+				<td>order</td>
+				<td>no</td>
+				<td>ASC or DESC on DateTime</td>
+				<td>DESC</td>
+			</tr>
+			<tr>
+				<td>start</td>
+				<td>no</td>
+				<td>Starting date for the transactions in YYYY-MM-DD</td>
+				<td>2013-10-01</td>
+			</tr>
+			<tr>
+				<td>end</td>
+				<td>no</td>
+				<td>Ending date for the transactions in YYYY-MM-DD</td>
+				<td><?=gmdate('Y-m-d',time())?></td>
+			</tr>	
+			<tr>
+				<td>type</td>
+				<td>no</td>
+				<td>All / Buy / Sell</td>
+				<td>All</td>
+			</tr>
+			<tr>
+				<td>pair</td>
+				<td>no</td>
+				<td>All / BTC_USD / BTC_GBP / BTC_EUR</td>
+				<td>All</td>
+			</tr>			
+		</table>
+		<?php 
+		if(strlen($details['key'])>0){?>
+		<div class="bs-docs-tryit">
+		<form action="/API/Orderlist/<?=$key?>" method="post" target="_blank">
+			<input type="hidden" name="nounce" value="<?=time()?>">
+		<table class="table table-condensed " style="width:50% ">
+			<tr>
+				<td>Count:</td>
+				<td><input type="text" name="count" value="1000" class="span2"></td>
+			</tr>
+			<tr>
+				<td>Order:</td>
+				<td><select name="order" class="span2">
+				<option value="DESC">DESC</option>
+				<option value="ASC">ASC</option>
+			</select></td>
+			</tr>
+			<tr>
+				<td>Start:</td>
+				<td><input type="text" name="start" value="2013-10-01" class="span2"></td>
+			</tr>
+			<tr>
+				<td>End:</td>
+				<td><input type="text" name="end" value="<?=gmdate('Y-m-d',time())?>" class="span2"></td>
+			</tr>
+			<tr>
+				<td>Type:</td>
+				<td><select name="type" class="span2">
+				<option value="All">All</option>
+				<option value="Buy">Buy</option>
+				<option value="Sell">Sell</option>								
+			</select></td>
+			</tr>
+			<tr>
+				<td>Pair:</td>
+				<td><select name="pair" class="span2">
+				<option value="All">All</option>
+				<option value="BTC_USD">BTC_USD</option>
+				<option value="BTC_GBP">BTC_GBP</option>
+				<option value="BTC_EUR">BTC_EUR</option>
+			</select></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Order List" class="btn btn-primary"></td>
+			</tr>
+		</table>
+		</form>
+		<h5>Code:</h5>
+		<pre>
+<?='<form action="/API/Orderlist/'.$key.'" method="post" target="_blank">
+<input type="hidden" name="nounce" value="'.time().'">
+Count: <input type="text" name="count" value="1000" class="span2">
+Order: <select name="order" class="span2">
+	<option value="DESC">DESC</option>
+	<option value="ASC">ASC</option>
+</select>
+Start: <input type="text" name="start" value="2013-10-01" class="span2">
+End: <input type="text" name="end" value="'.gmdate('Y-m-d',time()).'" class="span2">
+Type: <select name="type" class="span2">
+	<option value="All">All</option>
+	<option value="Buy">Buy</option>
+	<option value="Sell">Sell</option>								
+</select>
+Pair: <select name="pair" class="span2">
+	<option value="All">All</option>
+	<option value="BTC_USD">BTC_USD</option>
+	<option value="BTC_GBP">BTC_GBP</option>
+	<option value="BTC_EUR">BTC_EUR</option>
+</select>
+<input type="submit" value="Order List" class="btn btn-primary">
+</form>'?>
+		</pre>
+		</div>
+		<?php }else{?>
+		<div class="bs-docs-tryit">		
+		<p>Please sign in to check the code with an example.</p>
+<h5>Code:</h5>
+		<pre>
+<?='<form action="/API/Orderhistory/'.$key.'" method="post" target="_blank">
+<input type="hidden" name="nounce" value="'.time().'">
+Count: <input type="text" name="count" value="1000" class="span2">
+Order: <select name="order" class="span2">
+	<option value="DESC">DESC</option>
+	<option value="ASC">ASC</option>
+</select>
+Start: <input type="text" name="start" value="2013-10-01" class="span2">
+End: <input type="text" name="end" value="'.gmdate('Y-m-d',time()).'" class="span2">
+Type: <select name="type" class="span2">
+	<option value="All">All</option>
+	<option value="Buy">Buy</option>
+	<option value="Sell">Sell</option>								
+</select>
+Pair: <select name="pair" class="span2">
+	<option value="All">All</option>
+	<option value="BTC_USD">BTC_USD</option>
+	<option value="BTC_GBP">BTC_GBP</option>
+	<option value="BTC_EUR">BTC_EUR</option>
+</select>
+<input type="submit" value="Order List" class="btn btn-primary">
+</form>'?>
 
-		TransHistory
-		
-		It returns the transactions history.
-		
-		Parameters:
-		parameter 	oblig? 	description 	it takes on the values 	standard value
-		from 	No 	The ID of the transaction to start displaying with 	numerical 	0
-		count 	No 	The number of transactions for displaying 	numerical 	1,000
-		from_id 	No 	The ID of the transaction to start displaying with 	numerical 	0
-		end_id 	No 	The ID of the transaction to finish displaying with 	numerical 	8
-		order 	No 	sorting 	ASC or DESC 	DESC
-		since 	No 	When to start displaying? 	UNIX time 	0
-		end 	No 	When to finish displaying? 	UNIX time 	8
-		
-		Note: while using since or end parameters, the order parameter automatically take up ASC value.
-		
-		The example of an answer:
-		
-		{
-			"success":1,
-			"return":{
-				"1081672":{
-					"type":1,
-					"amount":1.00000000,
-					"currency":"BTC",
-					"desc":"BTC Payment",
-					"status":2,
-					"timestamp":1342448420
-				}
-			}
-		}
-			
-		
-		TradeHistory
-		
-		It returns the trade history
-		
-		Parameters:
-		parameter 	????? 	description 	It takes up the value 	standard value
-		from 	No 	the number of the transaction to start displaying with 	numerical 	0
-		count 	No 	the number of transactions for displaying 	numerical 	1000
-		from_id 	No 	the ID of the transaction to start displaying with 	numerical 	0
-		end_id 	No 	the ID of the transaction to finish displaying with 	numerical 	8
-		order 	No 	sorting 	ASC or DESC 	DESC
-		since 	No 	when to start the displaying 	UNIX time 	0
-		end 	No 	when to finish the displaying 	UNIX time 	8
-		pair 	No 	the pair to show the transactions 	btc_usd (example) 	all pairs
-		
-		Note: while using since or end parameters, order parameter automatically takes up ASC value.
-		
-		The example of an answer:
-		
-		{
-			"success":1,
-			"return":{
-				"166830":{
-					"pair":"btc_usd",
-					"type":"sell",
-					"amount":1,
-					"rate":1,
-					"order_id":343148,
-					"is_your_order":1,
-					"timestamp":1342445793
-				}
-			}
-		}
-			
-		
-		OrderList
-		
-		It returns your open orders/the orders history.
-		
-		Parameters:
-		parameter 	oblig? 	description 	it takes up values 	standard value
-		from 	No 	the number of the order to start displaying with 	numerical 	0
-		count 	No 	The number of orders for displaying 	numerical 	1000
-		from_id 	No 	id of the order to start displaying with 	numerical 	0
-		end_id 	No 	id of the order to finish displaying 	numerical 	8
-		order 	No 	sorting 	ASC or DESC 	DESC
-		since 	No 	when to start displaying 	UNIX time 	0
-		end 	No 	when to finish displaying 	UNIX time 	8
-		pair 	No 	the pair to display the orders 	btc_usd (example) 	all pairs
-		active 	No 	is it displaying of active orders only? 	1 or 0 	1
-		
-		Note: while using since or end parameters, order parameter automatically takes up ASC value.
-		
-		The example of an answer
-		
-		{
-			"success":1,
-			"return":{
-				"343152":{
-					"pair":"btc_usd",
-					"type":"sell",
-					"amount":1.00000000,
-					"rate":3.00000000,
-					"timestamp_created":1342448420,
-					"status":0
-				}
-			}
-		}
-			
-		
+		</pre>		
+		</div>
+		<?php }?>
+		<h5>Expected Result:</h5>
+		<pre>{"success":1,
+"now":1380798462,
+"result":[
+{"DateTime":1380605925,"type":"Buy","pair":"BTC_USD","CommissionAmount":0.032,"CommissionCurrency":"BTC","Amount":4,"Price":90,"TotalAmount":360,"status":"N","order_id":"524a5fe59d5d0cb80b000001"},
+{"DateTime":1380605936,"type":"Sell","pair":"BTC_USD","CommissionAmount":8.008,"CommissionCurrency":"USD","Amount":11,"Price":91,"TotalAmount":1001,"status":"N","order_id":"524a5ff09d5d0cd00c000000"},
+{"DateTime":1380606850,"type":"Sell","pair":"BTC_EUR","CommissionAmount":8,"CommissionCurrency":"EUR","Amount":10,"Price":100,"TotalAmount":1000,"status":"N","order_id":"524a63829d5d0cb80b000002"},
+{"DateTime":1380606864,"type":"Sell","pair":"BTC_EUR","CommissionAmount":24,"CommissionCurrency":"EUR","Amount":20,"Price":150,"TotalAmount":3000,"status":"N","order_id":"524a63909d5d0cb80b000003"}
+]}</pre>
+		</div>
+		<section>			
+<!--
 		Trade
 		
 		Trading is done according to this method.
@@ -474,3 +778,4 @@ All server answers are in JSON format.
 				}
 			}
 		}
+-->
