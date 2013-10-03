@@ -50,7 +50,7 @@
 			<div class="bs-docs-example">
 				<p><a href="https://ibwt.co.uk/API/tradesdate/" target="_blank">https://ibwt.co.uk/API/tradesdate/</a> This API function will output all orders for today.</p>
 				<p><strong>Passing date in YYYY-MM-DD to the API will output data for that date.</strong></p>
- 				<p><a href="https://ibwt.co.uk/api/tradesdate/2013-10-10" target="_blank">https://ibwt.co.uk/api/tradesdate/YYYY-MM-DD</a> This API will output all data for 10th October 2013.</p>
+ 				<p><a href="https://ibwt.co.uk/API/tradesdate/2013-10-02" target="_blank">https://ibwt.co.uk/API/tradesdate/YYYY-MM-DD</a> This API will output all data for 2nd October 2013.</p>
 				<pre>
 {
 	"success":1,
@@ -86,6 +86,7 @@ All server answers are in JSON format.
 		<pre>{"success":1,"return":{&lt;return&gt;}}</pre>
 		The answer in case of an error:
 		<pre>{"success":0,"error":"&lt;error text&gt;"}</pre>
+	<!--
 		<div class="bs-docs-example">
 		PHP: http://pastebin.com/QyjS3U9M
 		
@@ -105,6 +106,7 @@ All server answers are in JSON format.
 		
 		Ruby: https://github.com/cgore/ruby-btce by cgore & teddythetwig
 		</div>		
+		-->
 		<h3>The list of methods: User Authentication required</h3>
 		<section id="Info">
 			<div class="page-header">
@@ -121,7 +123,7 @@ All server answers are in JSON format.
 		$key = "YOUR_API_KEY";
 		}
 		?>
-		URL: <a href="https://ibwt.co.uk/API/Info/<?=$key?>" target="_blank">https://ibwt.co.uk/API/Info/<?=$key?></a>
+		URL: https://ibwt.co.uk/API/Info/<?=$key?>
 		<h5>Parameters:</h5>
 		<p>nounce: integer &gt; 0</p>
 		<?php 
@@ -186,7 +188,7 @@ All server answers are in JSON format.
 		$key = "YOUR_API_KEY";
 		}
 		?>
-		URL: <a href="https://ibwt.co.uk/API/Transactionhistory/<?=$key?>" target="_blank">https://ibwt.co.uk/API/Transactionhistory/<?=$key?></a>
+		URL: https://ibwt.co.uk/API/Transactionhistory/<?=$key?>
 		<h5>Parameters:</h5>
 		<table class="table table-condensed table-bordered table-hover" style="width:50% ">
 			<tr>
@@ -374,7 +376,7 @@ Currency: <select name="currency" class="span2">
 		$key = "YOUR_API_KEY";
 		}
 		?>
-		URL: <a href="https://ibwt.co.uk/API/Orderhistory/<?=$key?>" target="_blank">https://ibwt.co.uk/API/Orderhistory/<?=$key?></a>
+		URL: https://ibwt.co.uk/API/Orderhistory/<?=$key?>
 		<h5>Parameters:</h5>
 		<table class="table table-condensed table-bordered table-hover" style="width:50% ">
 			<tr>
@@ -555,7 +557,7 @@ Currency: <select name="status" class="span2">
 		$key = "YOUR_API_KEY";
 		}
 		?>
-		URL: <a href="https://ibwt.co.uk/API/Orderlist/<?=$key?>" target="_blank">https://ibwt.co.uk/API/Orderlist/<?=$key?></a>
+		URL: https://ibwt.co.uk/API/Orderlist/<?=$key?>
 		<h5>Parameters:</h5>
 		<table class="table table-condensed table-bordered table-hover" style="width:50% ">
 			<tr>
