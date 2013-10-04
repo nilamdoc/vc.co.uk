@@ -3,7 +3,7 @@
 <?php 
 if($StartDate==""){
 $StartDate = gmdate('Y-m-d',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30);
-$EndDate = gmdate('Y-m-d',time());
+$EndDate = gmdate('Y-m-d',time()+1*60*60*24);
 }else{
 $StartDate=gmdate('Y-m-d',$StartDate->sec);
 $EndDate=gmdate('Y-m-d',$EndDate->sec);

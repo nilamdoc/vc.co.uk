@@ -7,6 +7,7 @@ use app\models\Transactions;
 use app\models\Reasons;
 use app\models\File;
 use app\models\Orders;
+use app\models\Requests;
 use lithium\data\Connections;
 use app\extensions\action\Pagination;
 use lithium\util\String;
@@ -27,7 +28,7 @@ class AdminController extends \lithium\action\Controller {
 					$EndDate = new MongoDate(strtotime($this->request->data['EndDate']));			
 		}else{
 			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
-			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time())))));
+			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
 		}
 		$mongodb = Connections::get('default')->connection;
 
@@ -1253,7 +1254,7 @@ $description = "Admin Panel for user";
 			$EndDate = new MongoDate(strtotime($this->request->data['EndDate']));			
 		}else{
 			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
-			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time())))));
+			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
 		}
 	
 		$mongodb = Connections::get('default')->connection;
@@ -1294,7 +1295,7 @@ $description = "Admin Panel for user";
 		));
 		$new = array();
   	$days = ($EndDate->sec - $StartDate->sec)/(60*60*24);
-		for($i=1;$i<=$days+1;$i++){
+		for($i=0;$i<=$days+1;$i++){
 			$date = gmdate('Y-m-d',($EndDate->sec)-$i*60*60*24);
 			$new[$date] = array();
 		}
@@ -1331,7 +1332,7 @@ $description = "Admin panel for commission";
 			$EndDate = new MongoDate(strtotime($this->request->data['EndDate']));			
 		}else{
 			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
-			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time())))));
+			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
 		}
 		
 		$transactions = Transactions::find('all',array(
@@ -1357,7 +1358,7 @@ $description = "Admin panel for bitcoin transactions";
 			$EndDate = new MongoDate(strtotime($this->request->data['EndDate']));			
 		}else{
 			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
-			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time())))));
+			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
 		}
 		
 		$Orders = Orders::find('all',array(
@@ -1373,6 +1374,65 @@ $description = "Admin panel for Orders";
 
 		return compact(	'Orders','StartDate','EndDate','title','keywords','description')	;
 	
+	}
+	public function api(){
+		if($this->__init()==false){$this->redirect('ex::dashboard');	}		
+		if($this->request->data){
+			$StartDate = new MongoDate(strtotime($this->request->data['StartDate']));
+			$EndDate = new MongoDate(strtotime($this->request->data['EndDate']));			
+		}else{
+			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*2)));
+			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
+		}
+		$mongodb = Connections::get('default')->connection;
+
+		$Requests = Requests::connection()->connection->command(array(
+			'aggregate' => 'requests',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'DateTime' => '$DateTime',
+					'API' => '$API',
+					'username' => '$username',					
+					'IP' => '$IP',					
+					'nounce' => '$nounce',					
+				)),
+				array( '$match' => array( 'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ) ),
+				array('$group' => array( '_id' => array(
+						'year'=>array('$year' => '$DateTime'),
+						'month'=>array('$month' => '$DateTime'),						
+						'day'=>array('$dayOfMonth' => '$DateTime'),												
+						'username'=>'$username',
+						'IP'=>'$IP',
+						'API'=>'$API'
+				),
+						'count' => array('$sum' => 1), 
+				)),
+				array('$sort'=>array(
+					'_id.year'=>-1,
+					'_id.month'=>-1,
+					'_id.day'=>-1,
+					'_id.username'=>1,
+					'_id.API'=>1
+				)),
+			)
+		));
+		$new = array();
+		
+  	$days = ($EndDate->sec - $StartDate->sec)/(60*60*24);
+		for($i=0;$i<=$days;$i++){
+			$date = gmdate('Y-m-d',($EndDate->sec)-$i*60*60*24);
+			$new[$date] = array();
+		}
+
+		foreach($Requests['result'] as $rq){
+				$RQdate = date_create($rq['_id']['year']."-".$rq['_id']['month']."-".$rq['_id']['day']);			
+				$RQDate = date_format($RQdate,"Y-m-d");
+					$new[$RQDate][$rq['_id']['username']][$rq['_id']['API']][$rq['_id']['IP']] = array(
+						'Request'=>$rq['count'],
+					);
+		}
+		return compact('new')		;		
 	}
 }
 ?>

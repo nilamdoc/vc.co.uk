@@ -6,10 +6,33 @@ use lithium\storage\Session;
 use app\models\Users;
 use app\models\Details;
 use app\models\Transactions;
-
 use app\models\Orders;
+use app\models\Requests;
 
 class APIController extends \lithium\action\Controller {
+
+	public function requestAPI($API = null,$username=null){
+			$data = array(
+			'API' => $API,
+			'IP' => $_SERVER['REMOTE_ADDR'],
+			'username' => $username,
+			'nounce' => gmdate(time()),
+			'DateTime' => new \MongoDate()
+		);	
+		$requests = Requests::find('first',array(
+			'conditions' => array(
+				'IP'=>$_SERVER['REMOTE_ADDR'],
+				'API'=>$API
+			),
+			'order'=> array('DateTime'=>-1)
+		));
+		Requests::create()->save($data);
+		if(gmdate(time())-$requests['nounce']<=1000){
+			return false;
+		}
+		return true;
+	}
+
 	public function index(){
 		$user = Session::read('default');
 		$id = $user['_id'];
@@ -26,6 +49,13 @@ class APIController extends \lithium\action\Controller {
 		return compact('title','keywords','description','details','userInfo');
 	}
 	public function trades(){
+		if(!$this->requestAPI("trades","public")){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Too many requests from your IP. Try after some time."
+			)));
+		}
+
 		$updates = new UpdatesController();
 		$upBU = $updates->Rates('BTC','USD');
 		$jdecBU = json_decode($upBU->body[0]);
@@ -62,7 +92,16 @@ class APIController extends \lithium\action\Controller {
 				),
 		))));	
 	}
+	
 	public function tradesdate($date=null){
+
+		if(!$this->requestAPI("tradesdate","public")){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Too many requests from your IP. Try after some time."
+			)));
+		}
+
 		if($date==null){
 			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time())))));
 			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+24*60*60)));
@@ -106,6 +145,7 @@ class APIController extends \lithium\action\Controller {
 			'error'=>"Key not specified. Please get your key from your settings page under security."
 			)));
 	 }else{
+	 
 	 	$details = Details::find('first',array(
 			'conditions'=>array('key'=>$key)
 		));
@@ -115,6 +155,13 @@ class APIController extends \lithium\action\Controller {
 			'error'=>"Incorrect Key! Please get your key from your settings page under security."
 			)));
 		}else{
+				if(!$this->requestAPI("info",$details['username'])){
+					return $this->render(array('json' => array('success'=>0,
+					'now'=>time(),
+					'error'=>"Too many requests from your IP. Try after some time."
+					)));
+				}
+		
 			$user = Users::find('first',array(
 				'conditions'=>array('_id'=>$details['user_id'])
 			));
@@ -217,6 +264,8 @@ class APIController extends \lithium\action\Controller {
 			'error'=>"Key not specified. Please get your key from your settings page under security."
 			)));
 	 }else{
+	 
+ 
 			$details = Details::find('first',array(
 				'conditions'=>array('key'=>$key)
 			));
@@ -226,6 +275,14 @@ class APIController extends \lithium\action\Controller {
 				'error'=>"Incorrect Key! Please get your key from your settings page under security."
 				)));
 			}else{
+
+				if(!$this->requestAPI("transactionhistory",$details['username'])){
+					return $this->render(array('json' => array('success'=>0,
+					'now'=>time(),
+					'error'=>"Too many requests from your IP. Try after some time."
+					)));
+				}
+
 				$count = $this->request->data['count'];
 				if($count==""){$count=1000;}
 				$currency = $this->request->data['currency'];
@@ -343,6 +400,13 @@ class APIController extends \lithium\action\Controller {
 				'error'=>"Incorrect Key! Please get your key from your settings page under security."
 				)));
 			}else{
+				if(!$this->requestAPI("orderhistory",$details['username'])){
+					return $this->render(array('json' => array('success'=>0,
+					'now'=>time(),
+					'error'=>"Too many requests from your IP. Try after some time."
+					)));
+				}
+			
 				$count = $this->request->data['count'];
 				if($count==""){$count=1000;}
 				$status = $this->request->data['status'];
@@ -424,6 +488,7 @@ class APIController extends \lithium\action\Controller {
 			'error'=>"Key not specified. Please get your key from your settings page under security."
 			)));
 	 }else{
+	 
 			$details = Details::find('first',array(
 				'conditions'=>array('key'=>$key)
 			));
@@ -433,6 +498,14 @@ class APIController extends \lithium\action\Controller {
 				'error'=>"Incorrect Key! Please get your key from your settings page under security."
 				)));
 			}else{
+
+				if(!$this->requestAPI("orderlist",$details['username'])){
+					return $this->render(array('json' => array('success'=>0,
+					'now'=>time(),
+					'error'=>"Too many requests from your IP. Try after some time."
+					)));
+				}
+			
 				$count = $this->request->data['count'];
 				if($count==""){$count=1000;}
 				$pair = $this->request->data['pair'];
@@ -511,6 +584,82 @@ class APIController extends \lithium\action\Controller {
 				)));
 			}
 		}
+	}
+	public function trade($key=null){
+	 if(!$this->request->data){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Not submitted through POST."
+			)));
+	 }
+	 if ($key==null){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Key not specified. Please get your key from your settings page under security."
+			)));
+	 }else{
+	 
+			$details = Details::find('first',array(
+				'conditions'=>array('key'=>$key)
+			));
+			if(count($details)==0){
+				return $this->render(array('json' => array('success'=>0,
+				'now'=>time(),
+				'error'=>"Incorrect Key! Please get your key from your settings page under security."
+				)));
+			}else{
+				if(!$this->requestAPI("trade",$details['username'])){
+					return $this->render(array('json' => array('success'=>0,
+					'now'=>time(),
+					'error'=>"Too many requests from your IP. Try after some time."
+					)));
+				}
+			
+				return $this->render(array('json' => array('success'=>1,
+				'now'=>time(),
+				'result'=>$result
+				)));
+			}
+		}
+	
+	}
+	public function cancelorder($key=null){
+	 if(!$this->request->data){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Not submitted through POST."
+			)));
+	 }
+	 if ($key==null){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"Key not specified. Please get your key from your settings page under security."
+			)));
+	 }else{
+	 
+			$details = Details::find('first',array(
+				'conditions'=>array('key'=>$key)
+			));
+			if(count($details)==0){
+				return $this->render(array('json' => array('success'=>0,
+				'now'=>time(),
+				'error'=>"Incorrect Key! Please get your key from your settings page under security."
+				)));
+			}else{
+				if(!$this->requestAPI("cancelorder",$details['username'])){
+					return $this->render(array('json' => array('success'=>0,
+					'now'=>time(),
+					'error'=>"Too many requests from your IP. Try after some time."
+					)));
+				}
+			
+				return $this->render(array('json' => array('success'=>1,
+				'now'=>time(),
+				'result'=>$result
+				)));
+			}
+		}
+	
 	}
 
 }
