@@ -54,7 +54,8 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 ?>
 <div style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <div class="row" >
-<?php if($USD!=0){ ?>
+<?php 
+if($$second_curr!=0){ ?>
 	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner">
