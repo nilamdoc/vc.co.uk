@@ -55,15 +55,15 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					</td>
 					<td width="16%" style="text-align:center ">
 <!-----Utility Details start----->					
-					<?php 
-					if(strlen($details['utility.verified'])==0){
-					?>
-						<a href="/users/settings/utility" class="label label-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Proof of Address")?></a>
-					<?php }elseif($details['utility.verified']=='No'){?>
-						<a href="#" class="label label-important tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Utility Bill")?></a>
-					<?php }else{ ?>
-						<a href="#" class="label label-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Utility Bill")?></a>					
-					<?php }	?>
+						<?php 
+						if(strlen($details['utility.verified'])==0){
+						?>	
+							<a href="/users/settings/utility" class="label label-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Proof of Address")?></a>
+						<?php }elseif($details['utility.verified']=='No'){?>
+							<a href="#" class="label label-important tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Proof of Address")?></a>
+						<?php }else{ ?>
+							<a href="#" class="label label-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Proof of Address")?></a>					
+						<?php }	?>
 <!-----Utility Details end----->					
 					
 					</td>

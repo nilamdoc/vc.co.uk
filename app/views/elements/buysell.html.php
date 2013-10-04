@@ -54,6 +54,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 ?>
 <div style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <div class="row" >
+<?php if($USD!=0){ ?>
 	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner">
@@ -106,6 +107,65 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 		</table>
 		<?=$this->form->end(); ?>
 	</div>
+<?php }else{?>
+	<div class="span4">
+		<div class="navbar">
+			<div class="navbar-inner">
+			<a class="brand" href="#">No funds in <?=$second_curr?></a>
+			</div>
+		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px;height:288px">
+			<tr>
+				<td>
+					You should verify:
+				</td>
+			</tr>
+			<tr>
+				<td>
+	<?php if(strlen($details['bank.verified'])==0){	?>
+							<a href="/users/settings/bank" class="label label-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Bank Account")?></a>
+						<?php }elseif($details['bank.verified']=='No'){?>
+							<a href="#" class="label label-important tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Bank Account")?></a>
+						<?php }else{ ?>
+							<a href="#" class="label label-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Bank Account")?></a>					
+						<?php }	?>				
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<?php 
+					if(strlen($details['government.verified'])==0){
+					?>
+						<a href="/users/settings/government" class="label label-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Government Photo ID")?></a>
+					<?php }elseif($details['government.verified']=='No'){?>
+						<a href="#" class="label label-important tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Government Photo ID")?></a>
+					<?php }else{ ?>
+						<a href="#" class="label label-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Government ID")?></a>					
+					<?php }	?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<?php 
+					if(strlen($details['utility.verified'])==0){
+					?>
+						<a href="/users/settings/utility" class="label label-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Proof of Address")?></a>
+					<?php }elseif($details['utility.verified']=='No'){?>
+						<a href="#" class="label label-important tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Proof of Address")?></a>
+					<?php }else{ ?>
+						<a href="#" class="label label-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Proof of Address")?></a>					
+					<?php }	?>
+				</td>
+			</tr>
+			<tr>
+			<td>If all the above are verified, add funds:<br>
+				<a href="/users/funding" class="btn btn-primary"><?=$t("Funding")?></a>
+			</td>
+			</tr>
+		</table>			
+		</div>
+	</div>
+<?php }?>	
+<?php if($BTC!=0){ ?>
 	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner">
@@ -158,6 +218,23 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 		</table>
 		<?=$this->form->end(); ?>		
 	</div>
+	<?php }else{?>
+	<div class="span4">
+		<div class="navbar">
+			<div class="navbar-inner">
+			<a class="brand" href="#">No funds in <?=$first_curr?></a>
+			</div>
+		</div>
+		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px;height:288px">
+			<tr>
+				<td>
+				Add BTC through the link below:<br>
+				<a href="/users/funding" class="btn btn-primary"><?=$t("Funding")?></a>
+				</td>
+			</tr>
+		</table>		
+	</div>
+	<?php }?>
 	<div class="span3"  style="height:314px;">
 		<div class="navbar">
 			<div class="navbar-inner">
