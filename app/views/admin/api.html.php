@@ -32,11 +32,12 @@ $EndDate=gmdate('Y-m-d',$EndDate->sec);
 		<?php foreach($val as $userkey=>$userval){ ?>
 			<strong><?php print_r($userkey);?></strong><br>
 			<?php foreach($userval as $funckey=>$funcval){ ?>
-					<strong> &raquo; <?php print_r($funckey)?></strong>: 
+					<strong> &nbsp;&raquo; <?php print_r($funckey)?></strong>: 
 					<?php foreach($funcval as $ipkey=>$ipval){ ?>
 					IP: <?php print_r($ipkey)?>, Requests: <?php print_r($ipval['Request'])?><br>
 					<?php }?>
 			<?php }?>
+			<br>
 		<?php }?>		
 		</td>
 	</tr>
