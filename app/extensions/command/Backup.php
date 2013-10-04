@@ -31,7 +31,7 @@ class Backup extends \lithium\console\Command {
 			"/backup/VCCoUK/users.metadata.json",
 		);
 //if true, good; if false, zip creation failed
-		$result = $this->create_zip($files_to_zip,BACKUP_DIR.'Backup.zip');
+		$result = $this->create_zip($files_to_zip,BACKUP_DIR.'Backup.zip',true);
 
 		$filename = BACKUP_DIR.'Backup.zip';
 

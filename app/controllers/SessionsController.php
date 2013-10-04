@@ -83,6 +83,7 @@ class SessionsController extends \lithium\action\Controller {
         Auth::clear('member');
 		Session::delete('default');
         return $this->redirect('/');
+				exit;
     }
 }
 ?>
