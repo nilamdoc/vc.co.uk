@@ -584,9 +584,9 @@ class UsersController extends \lithium\action\Controller {
 			$json_feed = json_decode($json_data);
 			$message = $json_feed->message;
 			$txid = $json_feed->tx_hash;
-
-			$tx = Transactions::create();
-			$data = array(
+			if($txid!=null){
+				$tx = Transactions::create();
+				$data = array(
 					'DateTime' => new \MongoDate(),
 					'TransactionHash' => $txid,
 					'username' => $details['username'],
@@ -601,14 +601,13 @@ class UsersController extends \lithium\action\Controller {
 				$dataDetails = array(
 						'balance.BTC' => (float)number_format($details['balance.BTC'] - (float)$amount - (float)$fee,8),
 					);
-						
 				$details = Details::find('all',
 					array(
 							'conditions'=>array(
 								'user_id'=> (string) $id
 							)
 						))->save($dataDetails);
-
+			}
 			return compact('message','txid','json_url','json_feed','title');
 		
 		}
