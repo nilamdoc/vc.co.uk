@@ -64,11 +64,13 @@
 //	print_r(strlen($_SERVER['REQUEST_URI']));
 if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environment::get('locale');}
 if(Session::read('ex')==""){
-		Session::write('ex','BTC/USD');
+		Session::write('ex','BTC/GBP');
 	}else{
 		if(strlen($_SERVER['REQUEST_URI'])==16 || strlen($_SERVER['REQUEST_URI'])==13){
 		$request_uri = str_replace("/".$locale,"",$_SERVER['REQUEST_URI']);
-
+		if($request_uri=="_ex"){
+			$request_uri = "btc_gbp";
+		}
 			if($locale==""){
 				$ex = str_replace("_","/",strtoupper(str_replace("/ex/x/","",$request_uri)));
 			}else{
