@@ -1,25 +1,3 @@
-<!-- <!doctype html>
-<html>
-<head>
-	<?php echo $this->html->charset(); ?>
-	<title>Unhandled exception</title>
-	<?php echo $this->html->style(array('debug', 'lithium')); ?>
-	<?php echo $this->scripts(); ?>
-	<?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
-</head>
-<body class="app">
-	<div id="container">
-		<div id="header">
-			<h1>Some error!</h1>
-			<h3>Check the URL you have entered!</h3>
-		</div>
-		<div id="content">
-			<?php   echo $this->content(); ?>
-		</div>
-	</div>
-</body>
-</html>
--->
 <html>
 <head></head>
 <body>
