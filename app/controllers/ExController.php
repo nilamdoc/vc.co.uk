@@ -334,7 +334,7 @@ class ExController extends \lithium\action\Controller {
 					}
 			}
 			$this->redirect($this->request->params);			
-			exit;
+
 		}
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=>$id))
@@ -767,7 +767,7 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 			}
 		}
 		$this->redirect(array('controller'=>'ex','action'=>"x/".$back,'locale'=>$locale));		
-		exit;
+		
 	}
 	public function updateBalance($id){
 		$Orders = Orders::find('first', array(
