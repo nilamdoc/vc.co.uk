@@ -24,7 +24,7 @@
 	<ul class="unstyled">
 		<li><a href="http://blockchain.info/charts" target="_blank">Blockchain</a></li>
 		<li><a href="http://bitcoincharts.com/" target="_blank">Bitcoin Charts</a></li>		
-		<li><a href="https://bitcoinaverage.com/#GBP">Bitcoin Average</a></li>
+		<li><a href="https://bitcoinaverage.com/#GBP" target="_blank">Bitcoin Average</a></li>
 	</ul>
 </blockquote>
 
@@ -41,8 +41,8 @@
 	<ul class="unstyled">
 		<li><a href="https://www.bitcoinstore.com/" target="_blank">Bitcoin Store, electronics, hardware and more.</a></li>
 		<li><a href="https://www.bitcoinshop.us/" target="_blank">Bitcoin Shop, electronics, hardware and more.</a></li>		
-		<li><a href="https://www.simplytravelonline.com/">Simply Travel Online, 300,000 hotels around the globe</a></li>
-		<li><a href="http://wordpress.com/">Word Press</a></li>
+		<li><a href="https://www.simplytravelonline.com/" target="_blank">Simply Travel Online, 300,000 hotels around the globe</a></li>
+		<li><a href="http://wordpress.com/" target="_blank">Word Press</a></li>
 		<li><a href="http://www.gyft.com/" target="_blank">Gyft, global gift cards</a></li>
 		<li><a href="http://www.bitpremier.com/" target="_blank">Premium items.</a></li>
 		<li><a href="http://www.8ballbikes.co.uk/" target="_blank">Bikes</a></li>
