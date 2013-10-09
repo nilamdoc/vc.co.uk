@@ -724,60 +724,222 @@ Pair: <select name="pair" class="span2">
 ]}</pre>
 		</div>
 		<section>			
-<!--
-		Trade
-		
-		Trading is done according to this method.
-		
-		Parameters:
-		parameter 	oblig? 	description 	it takes up the values 	standard value
-		pair 	Yes 	pair 	btc_usd (example) 	-
-		type 	Yes 	The transaction type 	buy or sell 	-
-		rate 	Yes 	The rate to buy/sell 	numerical 	-
-		amount 	Yes 	The amount which is necessary to buy/sell 	numerical 	-
-		
-		The example of an asnwer:
-		
-		{
-			"success":1,
-			"return":{
-				"received":0.1,
-				"remains":0,
-				"order_id":0,
-				"funds":{
-					"usd":325,
-					"btc":2.498,
-					"sc":121.998,
-					"ltc":0,
-					"ruc":0,
-					"nmc":0
-				}
-			}
+
+
+		<section>			
+<section id="Trade">
+			<div class="page-header">
+				<h1>Trade</h1>
+			</div>
+			<h4 id="headings"></h4>
+			<p id="headings">It submits an order in the selected currency pair.</p>
+		<div class="bs-docs-example">
+		If you have signed in as a user you should be able to see the URL with your own API key. <br>
+		<?php 
+		if(strlen($details['key'])>0){
+		$key = $details['key'];
+		}else{
+		$key = "YOUR_API_KEY";
 		}
-			
-		
-		CancelOrder
-		
-		Cancellation of the order
-		
-		Parameters:
-		parameter 	oblig? 	description 	it takes up the values 	standard value
-		order_id 	Yes 	Order id 	numerical 	-
-		
-		The example of an answer:
-		
-		{
-			"success":1,
-			"return":{
-				"order_id":343154,
-				"funds":{
-					"usd":325,
-					"btc":24.998,
-					"sc":121.998,
-					"ltc":0,
-					"ruc":0,
-					"nmc":0
-				}
-			}
+		?>
+		URL: https://ibwt.co.uk/API/Trade/<?=$key?>
+		<h5>Parameters:</h5>
+		<table class="table table-condensed table-bordered table-hover" style="width:50% ">
+			<tr>
+				<th>Parameter</th>
+				<th>Required</th>
+				<th>Description</th>
+				<th>Default</th>
+			</tr>
+			<tr>
+				<td>nounce</td>
+				<td>yes</td>
+				<td>integer > 0</td>
+				<td>1</td>
+			</tr>
+			<tr>
+			<tr>
+				<td>type</td>
+				<td>yes</td>
+				<td>Buy / Sell</td>
+				<td>Buy</td>
+			</tr>
+			<tr>
+				<td>pair</td>
+				<td>yes</td>
+				<td>BTC_USD / BTC_GBP / BTC_EUR</td>
+				<td>BTC_GBP</td>
+			</tr>			
+			<tr>
+				<td>amount</td>
+				<td>yes</td>
+				<td>amount of BTC > 0</td>
+				<td>1.0</td>
+			</tr>			
+			<tr>
+				<td>price</td>
+				<td>yes</td>
+				<td>price per BTC > 0</td>
+				<td>null</td>
+			</tr>						
+		</table>
+		<?php 
+		if(strlen($details['key'])>0){?>
+		<div class="bs-docs-tryit">
+		<form action="/API/Trade/<?=$key?>" method="post" target="_blank">
+			<input type="hidden" name="nounce" value="<?=time()?>">
+		<table class="table table-condensed " style="width:50% ">
+			<tr>
+				<td>Type:</td>
+				<td><select name="type" class="span2">
+				<option value="Buy">Buy</option>
+				<option value="Sell">Sell</option>								
+			</select></td>
+			</tr>
+			<tr>
+				<td>Pair:</td>
+				<td><select name="pair" class="span2">
+				<option value="BTC_USD">BTC_USD</option>
+				<option value="BTC_GBP" selected="selected">BTC_GBP</option>
+				<option value="BTC_EUR">BTC_EUR</option>
+			</select></td>
+			</tr>
+			<tr>
+				<td>Amount:</td>
+				<td><input type="text" value="" placeholder="1.0" min="0.000001" max="9999" name="amount" id="amountBTC" class="span2"></td>
+			</tr>
+			<tr>
+				<td>Price:</td>
+				<td><input type="text" value="" placeholder="100.0" min="1" max="99999" name="price" id="PerPriceBTC" class="span2"></td>
+			</tr>			
+			<tr>
+				<td colspan="2"><input type="submit" value="Trade" class="btn btn-primary"></td>
+			</tr>
+		</table>
+		</form>
+		<h5>Code:</h5>
+		<pre>
+<?='<form action="/API/Trade/'.$key.'" method="post" target="_blank">
+<input type="hidden" name="nounce" value="'.time().'">
+Type: <select name="type" class="span2">
+<option value="Buy">Buy</option>
+<option value="Sell">Sell</option>								
+</select>
+Pair: <select name="pair" class="span2">
+<option value="BTC_USD">BTC_USD</option>
+<option value="BTC_GBP" selected="selected">BTC_GBP</option>
+<option value="BTC_EUR">BTC_EUR</option>
+</select>
+Amount: <input type="text" value="" placeholder="1.0" min="0.000001" max="9999" name="amount" id="amountBTC" class="span2">
+Price: <input type="text" value="" placeholder="100.0" min="1" max="99999" name="price" id="PerPriceBTC" class="span2">
+<input type="submit" value="Trade" class="btn btn-primary">
+</form>'?>
+		</pre>
+		</div>
+		<?php }else{?>
+		<div class="bs-docs-tryit">		
+		<p>Please sign in to check the code with an example.</p>
+<h5>Code:</h5>
+		<pre>
+<?=''?></pre>		
+		</div>
+		<?php }?>
+		<h5>Expected Result:</h5>
+		<pre>{"success":1,
+"now":1381215939,
+"result":
+{
+	"Order_id":"5253aec39d5d0c1c0c000009",
+	"pair":"BTC_GBP",
+	"type":"Buy",
+	"Commission.Amount":0.008,
+	"Commission.Currency":"BTC",
+	"amount":1,
+	"price":100,
+	"time":1381215939,
+	"Completed":"N",
+	"username":"JohnAbraham"
+}}</pre>		</div>
+		<section>			
+
+
+<section id="CancelOrder">
+			<div class="page-header">
+				<h1>Cancelorder</h1>
+			</div>
+			<h4 id="headings"></h4>
+			<p id="headings">It will cancel an order placed with the order_id</p>
+		<div class="bs-docs-example">
+		If you have signed in as a user you should be able to see the URL with your own API key. <br>
+		<?php 
+		if(strlen($details['key'])>0){
+		$key = $details['key'];
+		}else{
+		$key = "YOUR_API_KEY";
 		}
--->
+		?>
+		URL: https://ibwt.co.uk/API/cancelorder/<?=$key?>
+		<h5>Parameters:</h5>
+		<table class="table table-condensed table-bordered table-hover" style="width:50% ">
+			<tr>
+				<th>Parameter</th>
+				<th>Required</th>
+				<th>Description</th>
+				<th>Default</th>
+			</tr>
+			<tr>
+				<td>nounce</td>
+				<td>yes</td>
+				<td>integer > 0</td>
+				<td>1</td>
+			</tr>
+			<tr>
+			<tr>
+				<td>order_id</td>
+				<td>yes</td>
+				<td>The Order_id generated with the Trade API</td>
+				<td>null</td>
+			</tr>
+		</table>
+		<?php 
+		if(strlen($details['key'])>0){?>
+		<div class="bs-docs-tryit">
+		<form action="/API/cancelorder/<?=$key?>" method="post" target="_blank">
+			<input type="hidden" name="nounce" value="<?=time()?>">
+		<table class="table table-condensed " style="width:50% ">
+			<tr>
+				<td>Order_id:</td>
+				<td><input type="text" value="<?=(string)$order['_id']?>" name="order_id" id="order_id" class="span4"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Cancel order" class="btn btn-primary"></td>
+			</tr>
+		</table>
+		</form>
+		<h5>Code:</h5>
+		<pre>
+<?='<form action="/API/cancelorder/'.$key.'" method="post" target="_blank">
+<input type="hidden" name="nounce" value="'.time().'">
+<input type="text" value="" name="order_id" id="order_id" class="span4">
+<input type="submit" value="Cancel order" class="btn btn-primary">
+</form>'?>
+		</pre>
+		</div>
+		<?php }else{?>
+		<div class="bs-docs-tryit">		
+		<p>Please sign in to check the code with an example.</p>
+<h5>Code:</h5>
+		<pre>
+<?='<form action="/API/cancelorder/'.$key.'" method="post" target="_blank">
+<input type="hidden" name="nounce" value="'.time().'">
+<input type="text" value="" name="order_id" id="order_id" class="span4">
+<input type="submit" value="Cancel order" class="btn btn-primary">
+</form>'?></pre>		
+		</div>
+		<?php }?>
+		<h5>Expected Result:</h5>
+		<pre>{"success":1,"now":1381218058,"result":true}</pre>		
+	</div>
+<section>			
+
+

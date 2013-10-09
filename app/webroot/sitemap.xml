@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>http://ibwt.co.uk/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/company/contact</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/company/aboutus</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/company/riskmanagement</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/company/verification</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/company/privacy</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/company/termsofservice</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/company/legal</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/company/FAQ</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/news</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/login</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/ex/x/btc_usd</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/ex/x/btc_btc</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/ex/x/btc_gbp</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>

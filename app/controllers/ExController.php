@@ -31,6 +31,9 @@ class ExController extends \lithium\action\Controller {
 	}
 	public function x($currency = null) {
 
+	if($this->request->query['json']==true){
+		$this->_render['type'] = 'json';		
+	}
 		if($currency==null){$this->redirect(array('controller'=>'ex','action'=>'dashboard/'));}
 
 		$first_curr = strtoupper(substr($currency,0,3));
@@ -122,7 +125,7 @@ class ExController extends \lithium\action\Controller {
 			))->save($data);
 			
 			$this->SendEmails($order_id,$user['_id']);
-			$this->SendFriendsEmails($order_id,$user['_id']);			
+//			$this->SendFriendsEmails($order_id,$user['_id']);			
 
 			$PendingOrders = Orders::find('all',
 				array(
@@ -489,6 +492,10 @@ class ExController extends \lithium\action\Controller {
 	}
 	
 	public function dashboard() {
+	if($this->request->query['json']==true){
+		$this->_render['type'] = 'json';		
+	}
+	
 		$user = Session::read('member');
 		$id = $user['_id'];
 		if ($user==""){		return $this->redirect('/login');exit;}
@@ -765,9 +772,13 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 			if(String::hash($Orders['_id'])==$OrderID){
 				$Remove = Orders::remove(array('_id'=>$ID));
 			}
+				$data = array(
+				'page.refresh' => true
+				);
+				Details::find('all')->save($data);
+			
 		}
 		$this->redirect(array('controller'=>'ex','action'=>"x/".$back,'locale'=>$locale));		
-		
 	}
 	public function updateBalance($id){
 		$Orders = Orders::find('first', array(
