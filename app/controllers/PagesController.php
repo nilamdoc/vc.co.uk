@@ -33,7 +33,6 @@ class PagesController extends \lithium\action\Controller {
 			$path = array('home');
 			$options['compiler'] = array('fallback' => true);
 		}
-
 		$options['template'] = join('/', $path);
 		
 		return $this->render($options);
