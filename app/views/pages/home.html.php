@@ -25,6 +25,7 @@ centuries of its existence." <small>Nikola Tesla</small></blockquote>
 	<li>We use <strong>Two Factor Authentication</strong> for your account to login to <?=COMPANY_URL?>.</li>
 	<li>We use <strong>Time-based One-time Password Algorithm (TOTP)</strong> for login, withdrawal/deposits and settings.</li>
 </ul>
+<!--
 <h3>News</h3>
 <ul>
 	<li><a href="/files/News Release 27-09-13.pdf">Launching on 30th September 2013</a></li>
@@ -33,7 +34,9 @@ centuries of its existence." <small>Nikola Tesla</small></blockquote>
 <h3>Find us</h3>
 <ul class="unstyled">
 	<li><a  target="_blank" href="https://www.facebook.com/pages/IBWT/425446187570505"><img src="/img/Facebook-logo.png" alt="Facebook" width="30px"></a></li>
-</ul><br>
+</ul>
+-->
+<br>
 <br>
 <br>
 <br>
