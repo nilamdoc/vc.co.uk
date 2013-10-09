@@ -10,6 +10,7 @@
 		<li><a href="/company/legal"><?=$t("Legal")?></a></li>		
 		<li><a href="/company/FAQ"><?=$t("FAQ")?></a></li>				
 		<li><a href="/news"><?=$t("News")?></a></li>						
+		<li><a href="/company/resources"><?=$t("Resources")?></a></li>								
 	</ul>
 	<p class="nav" style="font-size:11px;border-top:1px solid black ">
 		<?=$t("IBWT is a trading name of ")?><strong>IBWT JD Ltd</strong>. <?=$t("Registered in England and Wales.")?> 

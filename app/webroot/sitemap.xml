@@ -13,6 +13,11 @@
   <changefreq>monthly</changefreq>
 </url>
 <url>
+  <loc>http://ibwt.co.uk/company/resources</loc>
+  <changefreq>monthly</changefreq>
+</url>
+
+<url>
   <loc>http://ibwt.co.uk/company/aboutus</loc>
   <changefreq>monthly</changefreq>
 </url>
