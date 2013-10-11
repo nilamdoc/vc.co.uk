@@ -149,8 +149,8 @@ class MobileController extends \lithium\action\Controller {
 				$Details[$i]['Sell']['BTC-EUR']['Amount'] = $YO['Amount'];
 				$Details[$i]['Sell']['BTC-EUR']['TotalAmount'] = $YO['TotalAmount'];
 			}
-			
 		}
+		
 			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
 			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
 		
@@ -220,7 +220,6 @@ class MobileController extends \lithium\action\Controller {
 			'online'=>$OnlineUsers,
 			'PendingOrders'=>$OrdersN,
 			'DetailPendingOrders'=>$DetailPendingOrders,
-			'CompletedOrders'=>$OrdersY,
 			'DetailCompletedOrders'=>$DetailCompletedOrders,			
 			'Details'=>$Details,
 			
