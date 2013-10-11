@@ -83,8 +83,10 @@ class MobileController extends \lithium\action\Controller {
 			)
 		));
 		
-		$users = Details::find('all');
-				$Details = array();$i = 0;
+		$users = Details::find('all',array(
+			'order'=>array('username'=>1)
+		));
+		$Details = array();$i = 0;
 		foreach($users as $dt){
 			$user = Users::find('first',array(
 				'conditions'=>array('username'=>$dt['username'])
