@@ -1,0 +1,220 @@
+<?php
+namespace app\controllers;
+use MongoDate;
+use lithium\storage\Session;
+use app\models\Users;
+use app\models\Details;
+use app\models\Transactions;
+use app\models\Orders;
+use app\models\Trades;
+use app\models\Requests;
+use app\models\Parameters;
+use lithium\util\String;
+use app\extensions\action\Functions;
+use MongoID;
+class MobileController extends \lithium\action\Controller {
+
+	public function index(){
+		$UsersRegistered = Details::count();
+		$functions = new Functions();
+		$OnlineUsers = 	$functions->OnlineUsers();
+		$OrdersN = Orders::count(
+			array('Completed'=>'N')
+		);
+		$OrdersC = Orders::count(
+			array('Completed'=>'Y')
+		);
+		
+			$DetailPendingOrders = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Action' => '$Action',
+					'Amount'=>'$Amount',
+					'Completed'=>'$Completed',
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+					'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),					
+				)),
+				array('$match'=>array(
+					'Completed'=>'N',										
+					)),
+				array('$group' => array( '_id' => array(
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+					'Action' => '$Action',
+				),
+					'Amount' => array('$sum' => '$Amount'),  
+					'TotalAmount' => array('$sum' => '$TotalAmount'), 					
+				)),
+				array('$sort'=>array(
+					'PerPrice'=>1,
+				))
+			)
+		));
+
+			$DetailCompletedOrders = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Action' => '$Action',
+					'Amount'=>'$Amount',
+					'Completed'=>'$Completed',
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+					'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),					
+				)),
+				array('$match'=>array(
+					'Completed'=>'Y',										
+					)),
+				array('$group' => array( '_id' => array(
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+					'Action' => '$Action',
+				),
+					'Amount' => array('$sum' => '$Amount'),  
+					'TotalAmount' => array('$sum' => '$TotalAmount'), 					
+				)),
+				array('$sort'=>array(
+					'PerPrice'=>1,
+				))
+			)
+		));
+		
+		$users = Details::find('all');
+				$Details = array();$i = 0;
+		foreach($users as $dt){
+			$user = Users::find('first',array(
+				'conditions'=>array('username'=>$dt['username'])
+			));
+
+		$YourOrders = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Action' => '$Action',
+					'user_id' => '$user_id',					
+					'username' => '$username',
+					'Amount'=>'$Amount',
+					'PerPrice'=>'$PerPrice',
+					'Completed'=>'$Completed',
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+					'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),					
+				)),
+				array('$match'=>array(
+					'Completed'=>'N',
+					'username'=>$dt['username']
+					)),
+				array('$group' => array( '_id' => array(
+						'Action'=>'$Action',				
+						'FirstCurrency'=>'$FirstCurrency',
+						'SecondCurrency'=>'$SecondCurrency',						
+						),
+					'Amount' => array('$sum' => '$Amount'),  
+					'TotalAmount' => array('$sum' => '$TotalAmount'), 										
+					'No' => array('$sum'=>1)					
+				)),
+				array('$sort'=>array(
+					'_id.Action'=>1,
+				))
+			)
+		));
+
+		foreach($YourOrders['result'] as $YO){
+			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='USD'){
+				$Details[$i]['Buy']['BTC-USD']['Amount'] = $YO['Amount'];
+				$Details[$i]['Buy']['BTC-USD']['TotalAmount'] = $YO['TotalAmount'];
+			}
+			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='USD'){
+				$Details[$i]['Sell']['BTC-USD']['Amount'] = $YO['Amount'];
+				$Details[$i]['Sell']['BTC-USD']['TotalAmount'] = $YO['TotalAmount'];
+			}
+			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='GBP'){
+				$Details[$i]['Buy']['BTC-GBP']['Amount'] = $YO['Amount'];
+				$Details[$i]['Buy']['BTC-GBP']['TotalAmount'] = $YO['TotalAmount'];
+			}
+			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='GBP'){
+				$Details[$i]['Sell']['BTC-GBP']['Amount'] = $YO['Amount'];
+				$Details[$i]['Sell']['BTC-GBP']['TotalAmount'] = $YO['TotalAmount'];
+			}
+			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='EUR'){
+				$Details[$i]['Buy']['BTC-EUR']['Amount'] = $YO['Amount'];
+				$Details[$i]['Buy']['BTC-EUR']['TotalAmount'] = $YO['TotalAmount'];
+			}
+			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='EUR'){
+				$Details[$i]['Sell']['BTC-EUR']['Amount'] = $YO['Amount'];
+				$Details[$i]['Sell']['BTC-EUR']['TotalAmount'] = $YO['TotalAmount'];
+			}
+			
+		}
+		
+			$Details[$i]['username'] = $user['username'];							
+			$Details[$i]['firstname'] = $user['firstname'];							
+			$Details[$i]['lastname'] = $user['lastname'];										
+			$Details[$i]['email'] = $user['email'];													
+			$Details[$i]['ip'] = $user['ip'];													
+			$Details[$i]['created'] = $user['created'];													
+			$Details[$i]['BTC'] = $dt['balance']['BTC'];													
+			$Details[$i]['USD'] = $dt['balance']['USD'];												
+			$Details[$i]['EUR'] = $dt['balance']['EUR'];													
+			$Details[$i]['GBP'] = $dt['balance']['GBP'];
+
+			$i++;
+		}
+
+			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
+			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
+		
+		$transactions = Transactions::find('all',array(
+			'conditions'=>array(
+				'Currency'=>'BTC',
+				'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ,			
+				),
+			'order'=>array('DateTime'=>-1)
+		));
+
+
+		$FiatDepositTransactions = Transactions::find('all',array(
+			'conditions'=>array(
+				'Currency'=>array('$ne'=>'BTC'),
+				'Approved'=>'No',
+				'Added'=>true
+			),
+			'order'=>array('DateTime'=>-1)
+		));
+
+		$FiatWithdrawalTransactions = Transactions::find('all',array(
+			'conditions'=>array(
+				'Currency'=>array('$ne'=>'BTC'),
+				'Approved'=>'No',
+				'Added'=>false
+			),
+			'order'=>array('DateTime'=>-1)
+		));
+		
+		$result = array(
+			'users'=>$UsersRegistered,
+			'online'=>$OnlineUsers,
+			'PendingOrders'=>$OrdersN,
+			'DetailPendingOrders'=>$DetailPendingOrders,
+			'CompletedOrders'=>$OrdersY,
+			'DetailCompletedOrders'=>$DetailCompletedOrders,			
+			'Details'=>$Details,
+			'Transactions'=>$transactions,
+			'FiatDepositTransactions'=>$FiatDepositTransactions,
+			'FiatWithdrawalTransactions'=>$FiatWithdrawalTransactions,			
+			
+		);
+	
+					return $this->render(array('json' => array('success'=>1,
+						'now'=>time(),
+						'result'=>$result
+						)));
+	}
+
+}
+?>
