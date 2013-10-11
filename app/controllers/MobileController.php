@@ -151,7 +151,53 @@ class MobileController extends \lithium\action\Controller {
 			}
 			
 		}
+			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
+			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
 		
+		$Transactions = Transactions::find('all',array(
+			'conditions'=>array(
+				'Currency'=>'BTC',
+				'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ,			
+				),
+			'order'=>array('DateTime'=>-1)
+		));
+
+	foreach($Transactions as $tx)		{
+		$Details[$i]['tx']['username'] = $user['username'];							
+		$Details[$i]['tx']['DateTime'] = $tx['DateTime']->sec;							
+		$Details[$i]['tx']['Amount'] = $tx['Amount'];									
+		$Details[$i]['tx']['txFee'] = $tx['txFee'];									
+		$Details[$i]['tx']['Added'] = $tx['Added'];									
+	}
+
+		$FiatDepositTransactions = Transactions::find('all',array(
+			'conditions'=>array(
+				'Currency'=>array('$ne'=>'BTC'),
+				'Approved'=>'No',
+				'Added'=>true
+			),
+			'order'=>array('DateTime'=>-1)
+		));
+	foreach($FiatDepositTransactions as $tx)		{
+		$Details[$i]['FiatDeposit']['username'] = $user['username'];							
+		$Details[$i]['FiatDeposit']['DateTime'] = $tx['DateTime']->sec;							
+		$Details[$i]['FiatDeposit']['Amount'] = $tx['Amount'];									
+		$Details[$i]['FiatDeposit']['Currency'] = $tx['Currency'];									
+	}
+		$FiatWithdrawalTransactions = Transactions::find('all',array(
+			'conditions'=>array(
+				'Currency'=>array('$ne'=>'BTC'),
+				'Approved'=>'No',
+				'Added'=>false
+			),
+			'order'=>array('DateTime'=>-1)
+		));
+	foreach($FiatWithdrawalTransactions as $tx)		{
+		$Details[$i]['FiatWithdrawal']['username'] = $user['username'];							
+		$Details[$i]['FiatWithdrawal']['DateTime'] = $tx['DateTime']->sec;							
+		$Details[$i]['FiatWithdrawal']['Amount'] = $tx['Amount'];									
+		$Details[$i]['FiatWithdrawal']['Currency'] = $tx['Currency'];									
+	}
 			$Details[$i]['username'] = $user['username'];							
 			$Details[$i]['firstname'] = $user['firstname'];							
 			$Details[$i]['lastname'] = $user['lastname'];										
@@ -166,35 +212,8 @@ class MobileController extends \lithium\action\Controller {
 			$i++;
 		}
 
-			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
-			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
-		
-		$Transactions = Transactions::find('all',array(
-			'conditions'=>array(
-				'Currency'=>'BTC',
-				'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ,			
-				),
-			'order'=>array('DateTime'=>-1)
-		));
 
 
-		$FiatDepositTransactions = Transactions::find('all',array(
-			'conditions'=>array(
-				'Currency'=>array('$ne'=>'BTC'),
-				'Approved'=>'No',
-				'Added'=>true
-			),
-			'order'=>array('DateTime'=>-1)
-		));
-
-		$FiatWithdrawalTransactions = Transactions::find('all',array(
-			'conditions'=>array(
-				'Currency'=>array('$ne'=>'BTC'),
-				'Approved'=>'No',
-				'Added'=>false
-			),
-			'order'=>array('DateTime'=>-1)
-		));
 		
 		$result = array(
 			'users'=>$UsersRegistered,
