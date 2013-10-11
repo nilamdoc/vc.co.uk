@@ -173,7 +173,7 @@ class MobileController extends \lithium\action\Controller {
 		$FiatDepositTransactions = Transactions::find('all',array(
 			'conditions'=>array(
 				'Currency'=>array('$ne'=>'BTC'),
-				'Approved'=>'No',
+				'Approved'=>'Yes',
 				'Added'=>true
 			),
 			'order'=>array('DateTime'=>-1)
@@ -187,7 +187,7 @@ class MobileController extends \lithium\action\Controller {
 		$FiatWithdrawalTransactions = Transactions::find('all',array(
 			'conditions'=>array(
 				'Currency'=>array('$ne'=>'BTC'),
-				'Approved'=>'No',
+				'Approved'=>'Yes',
 				'Added'=>false
 			),
 			'order'=>array('DateTime'=>-1)
@@ -223,9 +223,6 @@ class MobileController extends \lithium\action\Controller {
 			'CompletedOrders'=>$OrdersY,
 			'DetailCompletedOrders'=>$DetailCompletedOrders,			
 			'Details'=>$Details,
-			'Transactions'=>$Transactions,
-			'FiatDepositTransactions'=>$FiatDepositTransactions,
-			'FiatWithdrawalTransactions'=>$FiatWithdrawalTransactions,			
 			
 		);
 	
