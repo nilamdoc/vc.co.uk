@@ -169,7 +169,7 @@ class MobileController extends \lithium\action\Controller {
 			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
 			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
 		
-		$transactions = Transactions::find('all',array(
+		$Transactions = Transactions::find('all',array(
 			'conditions'=>array(
 				'Currency'=>'BTC',
 				'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ,			
@@ -204,7 +204,7 @@ class MobileController extends \lithium\action\Controller {
 			'CompletedOrders'=>$OrdersY,
 			'DetailCompletedOrders'=>$DetailCompletedOrders,			
 			'Details'=>$Details,
-			'Transactions'=>$transactions,
+			'Transactions'=>$Transactions,
 			'FiatDepositTransactions'=>$FiatDepositTransactions,
 			'FiatWithdrawalTransactions'=>$FiatWithdrawalTransactions,			
 			
