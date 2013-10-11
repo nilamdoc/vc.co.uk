@@ -28,6 +28,10 @@ class UpdatesController extends \lithium\action\Controller {
 	public function to_json() {
 		return $this->render(array('json' => 'Hello World'));
 	}
+	public function R() {
+		return '{"Nilam";""}';
+	}
+
 	public function Rates($FirstCurrency="BTC",$SecondCurrency="USD") {
 
 		$title = $FirstCurrency . "/" . $SecondCurrency;
