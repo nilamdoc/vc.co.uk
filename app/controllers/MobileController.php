@@ -212,6 +212,13 @@ class MobileController extends \lithium\action\Controller {
 			$Details[$i]['USD'] = $dt['balance']['USD'];												
 			$Details[$i]['EUR'] = $dt['balance']['EUR'];													
 			$Details[$i]['GBP'] = $dt['balance']['GBP'];
+			$Details[$i]['BankVerified'] = $dt['bank']['verified'];			
+			$Details[$i]['GovtVerified'] = $dt['government']['verified'];						
+			$Details[$i]['UtilVerified'] = $dt['utility']['verified'];			
+			$Details[$i]['TOTPvalidate'] = $dt['TOTP']['Validate'];			
+			$Details[$i]['TOTPlogin'] = $dt['TOTP']['Login'];			
+			$Details[$i]['TOTPwithdrawal'] = $dt['TOTP']['Withdrawal'];			
+			$Details[$i]['TOTPsecurity'] = $dt['TOTP']['Security'];												
 
 			$i++;
 		}
