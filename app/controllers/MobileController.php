@@ -47,6 +47,7 @@ class MobileController extends \lithium\action\Controller {
 				),
 					'Amount' => array('$sum' => '$Amount'),  
 					'TotalAmount' => array('$sum' => '$TotalAmount'), 					
+					'count' => array('$sum'=>1)
 				)),
 				array('$sort'=>array(
 					'PerPrice'=>1,
@@ -76,6 +77,7 @@ class MobileController extends \lithium\action\Controller {
 				),
 					'Amount' => array('$sum' => '$Amount'),  
 					'TotalAmount' => array('$sum' => '$TotalAmount'), 					
+					'count' => array('$sum'=>1)					
 				)),
 				array('$sort'=>array(
 					'PerPrice'=>1,
@@ -221,6 +223,7 @@ class MobileController extends \lithium\action\Controller {
 			'users'=>$UsersRegistered,
 			'online'=>$OnlineUsers,
 			'PendingOrders'=>$OrdersN,
+			'CompletedOrders'=>$OrdersC,			
 			'DetailPendingOrders'=>$DetailPendingOrders,
 			'DetailCompletedOrders'=>$DetailCompletedOrders,			
 			'Details'=>$Details,
