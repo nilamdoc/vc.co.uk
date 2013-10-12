@@ -120,7 +120,7 @@ class MobileController extends \lithium\action\Controller {
 						),
 					'Amount' => array('$sum' => '$Amount'),  
 					'TotalAmount' => array('$sum' => '$TotalAmount'), 										
-					'No' => array('$sum'=>1)					
+					'count' => array('$sum'=>1)					
 				)),
 				array('$sort'=>array(
 					'_id.Action'=>1,
@@ -132,26 +132,32 @@ class MobileController extends \lithium\action\Controller {
 			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='USD'){
 				$Details[$i]['Buy']['BTC-USD']['Amount'] = $YO['Amount'];
 				$Details[$i]['Buy']['BTC-USD']['TotalAmount'] = $YO['TotalAmount'];
+				$Details[$i]['Buy']['BTC-USD']['count'] = $YO['count'];				
 			}
 			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='USD'){
 				$Details[$i]['Sell']['BTC-USD']['Amount'] = $YO['Amount'];
 				$Details[$i]['Sell']['BTC-USD']['TotalAmount'] = $YO['TotalAmount'];
+				$Details[$i]['Sell']['BTC-USD']['count'] = $YO['count'];								
 			}
 			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='GBP'){
 				$Details[$i]['Buy']['BTC-GBP']['Amount'] = $YO['Amount'];
 				$Details[$i]['Buy']['BTC-GBP']['TotalAmount'] = $YO['TotalAmount'];
+				$Details[$i]['Buy']['BTC-GBP']['count'] = $YO['count'];								
 			}
 			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='GBP'){
 				$Details[$i]['Sell']['BTC-GBP']['Amount'] = $YO['Amount'];
 				$Details[$i]['Sell']['BTC-GBP']['TotalAmount'] = $YO['TotalAmount'];
+				$Details[$i]['Sell']['BTC-GBP']['count'] = $YO['count'];								
 			}
 			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='EUR'){
 				$Details[$i]['Buy']['BTC-EUR']['Amount'] = $YO['Amount'];
 				$Details[$i]['Buy']['BTC-EUR']['TotalAmount'] = $YO['TotalAmount'];
+				$Details[$i]['Buy']['BTC-EUR']['count'] = $YO['count'];								
 			}
 			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='EUR'){
 				$Details[$i]['Sell']['BTC-EUR']['Amount'] = $YO['Amount'];
 				$Details[$i]['Sell']['BTC-EUR']['TotalAmount'] = $YO['TotalAmount'];
+				$Details[$i]['Sell']['BTC-EUR']['count'] = $YO['count'];								
 			}
 		}
 		
