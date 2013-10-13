@@ -94,6 +94,30 @@ class MobileController extends \lithium\action\Controller {
 				'conditions'=>array('username'=>$dt['username'])
 			));
 
+				$Details[$i]['Buy']['BTC-USD']['Amount'] = 0;
+				$Details[$i]['Buy']['BTC-USD']['TotalAmount'] = 0;
+				$Details[$i]['Buy']['BTC-USD']['count'] = 0;				
+
+				$Details[$i]['Sell']['BTC-USD']['Amount'] = 0;
+				$Details[$i]['Sell']['BTC-USD']['TotalAmount'] = 0;
+				$Details[$i]['Sell']['BTC-USD']['count'] = 0;								
+
+				$Details[$i]['Buy']['BTC-GBP']['Amount'] = 0;
+				$Details[$i]['Buy']['BTC-GBP']['TotalAmount'] = 0;
+				$Details[$i]['Buy']['BTC-GBP']['count'] = 0;								
+
+				$Details[$i]['Sell']['BTC-GBP']['Amount'] = 0;
+				$Details[$i]['Sell']['BTC-GBP']['TotalAmount'] = 0;
+				$Details[$i]['Sell']['BTC-GBP']['count'] = 0;								
+
+				$Details[$i]['Buy']['BTC-EUR']['Amount'] = 0;
+				$Details[$i]['Buy']['BTC-EUR']['TotalAmount'] = 0;
+				$Details[$i]['Buy']['BTC-EUR']['count'] = 0;								
+
+				$Details[$i]['Sell']['BTC-EUR']['Amount'] = 0;
+				$Details[$i]['Sell']['BTC-EUR']['TotalAmount'] = 0;
+				$Details[$i]['Sell']['BTC-EUR']['count'] = 0;								
+
 		$YourOrders = Orders::connection()->connection->command(array(
 			'aggregate' => 'orders',
 			'pipeline' => array( 
@@ -133,55 +157,31 @@ class MobileController extends \lithium\action\Controller {
 				$Details[$i]['Buy']['BTC-USD']['Amount'] = $YO['Amount'];
 				$Details[$i]['Buy']['BTC-USD']['TotalAmount'] = $YO['TotalAmount'];
 				$Details[$i]['Buy']['BTC-USD']['count'] = $YO['count'];				
-			}else{
-				$Details[$i]['Buy']['BTC-USD']['Amount'] = 0;
-				$Details[$i]['Buy']['BTC-USD']['TotalAmount'] = 0;
-				$Details[$i]['Buy']['BTC-USD']['count'] = 0;				
 			}
 			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='USD'){
 				$Details[$i]['Sell']['BTC-USD']['Amount'] = $YO['Amount'];
 				$Details[$i]['Sell']['BTC-USD']['TotalAmount'] = $YO['TotalAmount'];
 				$Details[$i]['Sell']['BTC-USD']['count'] = $YO['count'];								
-			}else{
-				$Details[$i]['Sell']['BTC-USD']['Amount'] = 0;
-				$Details[$i]['Sell']['BTC-USD']['TotalAmount'] = 0;
-				$Details[$i]['Sell']['BTC-USD']['count'] = 0;								
 			}
 			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='GBP'){
 				$Details[$i]['Buy']['BTC-GBP']['Amount'] = $YO['Amount'];
 				$Details[$i]['Buy']['BTC-GBP']['TotalAmount'] = $YO['TotalAmount'];
 				$Details[$i]['Buy']['BTC-GBP']['count'] = $YO['count'];								
-			}else{
-				$Details[$i]['Buy']['BTC-GBP']['Amount'] = 0;
-				$Details[$i]['Buy']['BTC-GBP']['TotalAmount'] = 0;
-				$Details[$i]['Buy']['BTC-GBP']['count'] = 0;								
 			}
 			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='GBP'){
 				$Details[$i]['Sell']['BTC-GBP']['Amount'] = $YO['Amount'];
 				$Details[$i]['Sell']['BTC-GBP']['TotalAmount'] = $YO['TotalAmount'];
 				$Details[$i]['Sell']['BTC-GBP']['count'] = $YO['count'];								
-			}else{
-				$Details[$i]['Sell']['BTC-GBP']['Amount'] = 0;
-				$Details[$i]['Sell']['BTC-GBP']['TotalAmount'] = 0;
-				$Details[$i]['Sell']['BTC-GBP']['count'] = 0;								
 			}
 			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='EUR'){
 				$Details[$i]['Buy']['BTC-EUR']['Amount'] = $YO['Amount'];
 				$Details[$i]['Buy']['BTC-EUR']['TotalAmount'] = $YO['TotalAmount'];
 				$Details[$i]['Buy']['BTC-EUR']['count'] = $YO['count'];								
-			}else{
-				$Details[$i]['Buy']['BTC-EUR']['Amount'] = 0;
-				$Details[$i]['Buy']['BTC-EUR']['TotalAmount'] = 0;
-				$Details[$i]['Buy']['BTC-EUR']['count'] = 0;								
 			}
 			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='EUR'){
 				$Details[$i]['Sell']['BTC-EUR']['Amount'] = $YO['Amount'];
 				$Details[$i]['Sell']['BTC-EUR']['TotalAmount'] = $YO['TotalAmount'];
 				$Details[$i]['Sell']['BTC-EUR']['count'] = $YO['count'];								
-			}else{
-				$Details[$i]['Sell']['BTC-EUR']['Amount'] = 0;
-				$Details[$i]['Sell']['BTC-EUR']['TotalAmount'] = 0;
-				$Details[$i]['Sell']['BTC-EUR']['count'] = 0;								
 			}
 		}
 		
