@@ -182,7 +182,6 @@ class MobileController extends \lithium\action\Controller {
 				$Details[$i]['Sell']['BTC-EUR']['Amount'] = 0;
 				$Details[$i]['Sell']['BTC-EUR']['TotalAmount'] = 0;
 				$Details[$i]['Sell']['BTC-EUR']['count'] = 0;								
-			
 			}
 		}
 		
@@ -196,13 +195,14 @@ class MobileController extends \lithium\action\Controller {
 				),
 			'order'=>array('DateTime'=>-1)
 		));
-
+	$j = 0;
 	foreach($Transactions as $tx)		{
-		$Details[$i]['tx']['username'] = $user['username'];							
-		$Details[$i]['tx']['DateTime'] = $tx['DateTime']->sec;							
-		$Details[$i]['tx']['Amount'] = $tx['Amount'];									
-		$Details[$i]['tx']['txFee'] = $tx['txFee'];									
-		$Details[$i]['tx']['Added'] = $tx['Added'];									
+		$Details[$i]['tx'][$j]['username'] = $user['username'];							
+		$Details[$i]['tx'][$j]['DateTime'] = $tx['DateTime']->sec;							
+		$Details[$i]['tx'][$j]['Amount'] = $tx['Amount'];									
+		$Details[$i]['tx'][$j]['txFee'] = $tx['txFee'];									
+		$Details[$i]['tx'][$j]['Added'] = $tx['Added'];									
+		$j++;
 	}
 
 		$FiatDepositTransactions = Transactions::find('all',array(
@@ -213,11 +213,13 @@ class MobileController extends \lithium\action\Controller {
 			),
 			'order'=>array('DateTime'=>-1)
 		));
+		$j = 0;
 	foreach($FiatDepositTransactions as $tx)		{
-		$Details[$i]['FiatDeposit']['username'] = $user['username'];							
-		$Details[$i]['FiatDeposit']['DateTime'] = $tx['DateTime']->sec;							
-		$Details[$i]['FiatDeposit']['Amount'] = $tx['Amount'];									
-		$Details[$i]['FiatDeposit']['Currency'] = $tx['Currency'];									
+		$Details[$i]['FiatDeposit'][$j]['username'] = $user['username'];							
+		$Details[$i]['FiatDeposit'][$j]['DateTime'] = $tx['DateTime']->sec;							
+		$Details[$i]['FiatDeposit'][$j]['Amount'] = $tx['Amount'];									
+		$Details[$i]['FiatDeposit'][$j]['Currency'] = $tx['Currency'];									
+		$j++;
 	}
 		$FiatWithdrawalTransactions = Transactions::find('all',array(
 			'conditions'=>array(
@@ -227,11 +229,13 @@ class MobileController extends \lithium\action\Controller {
 			),
 			'order'=>array('DateTime'=>-1)
 		));
+		$j = 0;
 	foreach($FiatWithdrawalTransactions as $tx)		{
-		$Details[$i]['FiatWithdrawal']['username'] = $user['username'];							
-		$Details[$i]['FiatWithdrawal']['DateTime'] = $tx['DateTime']->sec;							
-		$Details[$i]['FiatWithdrawal']['Amount'] = $tx['Amount'];									
-		$Details[$i]['FiatWithdrawal']['Currency'] = $tx['Currency'];									
+		$Details[$i]['FiatWithdrawal'][$j]['username'] = $user['username'];							
+		$Details[$i]['FiatWithdrawal'][$j]['DateTime'] = $tx['DateTime']->sec;							
+		$Details[$i]['FiatWithdrawal'][$j]['Amount'] = $tx['Amount'];									
+		$Details[$i]['FiatWithdrawal'][$j]['Currency'] = $tx['Currency'];									
+		$j++;
 	}
 			$Details[$i]['username'] = $user['username'];							
 			$Details[$i]['firstname'] = $user['firstname'];							
