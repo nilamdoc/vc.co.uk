@@ -44,12 +44,12 @@
 		<li><a href="https://www.simplytravelonline.com/" target="_blank">Simply Travel Online, 300,000 hotels around the globe</a></li>
 		<li><a href="http://wordpress.com/" target="_blank">Word Press</a></li>
 		<li><a href="http://www.gyft.com/" target="_blank">Gyft, global gift cards</a></li>
-		<li><a href="http://www.bitpremier.com/" target="_blank">Premium items.</a></li>
+		<li><a href="http://www.bitpremier.com/" target="_blank">Premium items</a></li>
 		<li><a href="http://www.8ballbikes.co.uk/" target="_blank">Bikes</a></li>
 		<li><a href="http://www.individualpubs.co.uk/" target="_blank">Beer</a></li>
 		<li><a href="http://www.cumbriacabs.co.uk/" target="_blank">Taxis</a></li>
 		<li><a href="http://www.beesbros.com/index.html" target="_blank">Honey</a></li>
-		<li><a href="http://seansoutpost.com/" target="_blank">Carity</a></li>
+		<li><a href="http://seansoutpost.com/" target="_blank">Charity</a></li>
 		<li><a href="http://shop.rbitco.in" target="_blank">Bitcoin Shop</a></li>
 	</ul>
 </blockquote>

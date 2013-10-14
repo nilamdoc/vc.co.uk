@@ -5,6 +5,8 @@
 <p><?=$t("To reach our full team and our primary source of contact please email us at;")?></p>
 <a href="mailto:support@ibwt.co.uk">support@ibwt.co.uk</a>
 <p><?=$t("We aim to respond to emails within 48 hours barring national bank holidays or unforeseen circumstances.")?></p>
+<h5><?=$t("Press Contact")?></h5>
+<p><?=$t("For Press, media and related matters please contact ")?><a href="mailto:press@ibwt.co.uk">press@ibwt.co.uk</a></p>
 
 <h5><?=$t("Write to Us")?></h5>
 
@@ -16,8 +18,6 @@ Keyham, Plymouth, Devon,<br>
 PL2 2AR, United Kingdom.<br>
 </address>
 </blockquote>
-
-
 
 <h5><?=$t("Phone Us")?></h5>
 <blockquote><?=$t("For the most immediate concerns, please call us at the number below;")?>
