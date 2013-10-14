@@ -461,7 +461,7 @@ class UsersController extends \lithium\action\Controller {
 					$user = Users::find('first', array(
 						'conditions' => array(
 							'_id' => $details['user_id'],
-							'password' => String::hash($this->request->data['oldpassword']),
+							'email' => $this->request->data['email'],
 						)
 					));
 
@@ -472,7 +472,7 @@ class UsersController extends \lithium\action\Controller {
 					$user = Users::find('all', array(
 						'conditions' => array(
 							'_id' => $details['user_id'],
-							'password' => String::hash($this->request->data['oldpassword']),
+							'email' => $this->request->data['email'],
 						)
 					))->save($data,array('validate' => false));
 					
