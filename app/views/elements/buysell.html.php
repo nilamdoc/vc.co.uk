@@ -14,7 +14,7 @@ $BalanceFirst = 0;
 $BalanceSecond = 0;
 switch ($first_curr) {
     case "BTC":
-        $BalanceFirst = $BTC;
+    $BalanceFirst = $BTC;
         break;
     case "LTC":
 		$BalanceFirst = $LTC;
@@ -32,7 +32,7 @@ switch ($first_curr) {
 if (is_null($BalanceFirst)){$BalanceFirst = 0;}
 switch ($second_curr) {
     case "BTC":
-        $BalanceSecond = $BTC;
+    $BalanceSecond = $BTC;
         break;
     case "LTC":
 		$BalanceSecond = $LTC;
@@ -158,7 +158,7 @@ if($$second_curr!=0){ ?>
 				</td>
 			</tr>
 			<tr>
-			<td>If all the above are verified, add funds:<br>
+			<td>If all the above are verified, add BTC/LTC or Fiat currency through the link below:<br>
 				<a href="/users/funding" class="btn btn-primary"><?=$t("Funding")?></a>
 			</td>
 			</tr>
@@ -166,7 +166,7 @@ if($$second_curr!=0){ ?>
 		</div>
 	</div>
 <?php }?>	
-<?php if($BTC!=0){ ?>
+<?php if($$first_curr!=0){ ?>
 	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner">
@@ -229,7 +229,7 @@ if($$second_curr!=0){ ?>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px;height:288px">
 			<tr>
 				<td>
-				Add BTC through the link below:<br>
+				Add BTC/LTC or Fiat currency through the link below:<br>
 				<a href="/users/funding" class="btn btn-primary"><?=$t("Funding")?></a>
 				</td>
 			</tr>

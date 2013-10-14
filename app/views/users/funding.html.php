@@ -128,7 +128,9 @@ function initCanvas(ww,hh)
 		flash = document.getElementById("embedflash");
 		flash.ccCapture();
 		qrcode.decode();
+
  }
+
 </script>
 <h4>Funding</h4>
 
@@ -142,7 +144,6 @@ function initCanvas(ww,hh)
 		<div id="collapseOne" class="accordion-body collapse">
 			<div class="accordion-inner">
 <!------------------------------------------------------------------>
-
 <div class="row">
 	<div class="span5">
 		<div class="navbar">
@@ -204,6 +205,7 @@ function initCanvas(ww,hh)
 							<?=$this->form->field('amount', array('label'=>'Amount', 'placeholder'=>'0.0', 'class'=>'span2', 'max'=>$max,'min'=>'0.001','onblur'=>'SuccessButtonDisable();' )); ?>
 							<input type="hidden" id="maxValue" value="<?=$max?>" name="maxValue">
 							<input type="hidden" id="txFee" value="<?=$txfee?>" name="txFee">							
+							<input type="hidden" id="TransferAmount" value="0" name="TransferAmount">														
 							<div id="SendCalculations">
 								<table class="table table-condensed table-bordered table-hover">
 									<tr>
@@ -211,7 +213,7 @@ function initCanvas(ww,hh)
 										<td id="SendAddress"></td>
 									</tr>
 									<tr>
-										<th>Amount:</th>
+										<th>Total Amount:</th>
 										<td id="SendAmount"></td>
 									</tr>
 									<tr>
@@ -220,7 +222,7 @@ function initCanvas(ww,hh)
 										<td id="SendFees"></td>
 									</tr>
 									<tr>
-										<th>Total:</th>
+										<th>Amount You Receive:</th>
 										<th id="SendTotal"></th>
 									</tr>
 								</table>
@@ -240,6 +242,8 @@ function initCanvas(ww,hh)
 			</div>
 		</div>
 	</div>
+<!--===========================================================================-->
+<!--===========================================================================-->
 
 	<div class="accordion-group">
 		<div class="accordion-heading">

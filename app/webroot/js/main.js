@@ -214,8 +214,8 @@ function CheckPayment(){
 	
 	$("#SendFees").html($("#txFee").val());
 	$("#SendAmount").html(amount);	
-	$("#SendTotal").html(parseFloat(amount)+parseFloat($("#txFee").val()));	
-
+	$("#SendTotal").html(parseFloat(amount)-parseFloat($("#txFee").val()));	
+	$("#TransferAmount").val(parseFloat(amount)-parseFloat($("#txFee").val()));
 
 	$.getJSON('/Updates/Address/'+address,
 		function(ReturnValues){
@@ -256,4 +256,12 @@ function RejectReason(value){
 	len = url.length-2;
 	nurl = url.substr(0,len)+value;
 	$("#RejectURL").attr('href',nurl);
+}
+function LitecoinAddress(){
+	address = $("#litecoinaddress").val();
+  $("#SendLiteAddress").html(address); 	
+	SuccessLiteButtonDisable();
+	}
+function SuccessLiteButtonDisable(){
+	$("#SendLiteSuccessButton").attr("disabled", "disabled");
 	}

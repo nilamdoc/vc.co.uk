@@ -417,7 +417,7 @@ class UsersController extends \lithium\action\Controller {
 			$message = Swift_Message::newInstance();
 			$message->setSubject("Password reset link from ".COMPANY_URL);
 			$message->setFrom(array(NOREPLY => 'Password reset email '.COMPANY_URL));
-			$message->setTo($user->email);
+			$message->setTo($user['email']);
 			$message->addBcc(MAIL_1);
 			$message->addBcc(MAIL_2);			
 			$message->addBcc(MAIL_3);		
@@ -507,6 +507,7 @@ class UsersController extends \lithium\action\Controller {
 		$object = json_decode($response);
 //		print_r($object);
 		$address = $object->input_address;
+		$laddress = 'LADDRESS';				
 		$paytxfee = Parameters::find('first');
 		$txfee = $paytxfee['paytxfee'];
 		$transactions = Transactions::find('all',array(
@@ -516,7 +517,7 @@ class UsersController extends \lithium\action\Controller {
 				'Approved'=>'No'
 				)
 		));
-			return compact('details','address','txfee','title','transactions')	;
+			return compact('details','address','txfee','title','transactions','laddress')	;
 	}
 	public function receipt(){
 		$secret = $_GET['secret'];;
@@ -574,7 +575,7 @@ class UsersController extends \lithium\action\Controller {
 			$guid=BITCOIN_GUID;
 			$firstpassword=BITCOIN_FIRST;
 			$secondpassword=BITCOIN_SECOND;
-			$amount = $this->request->data['amount'];
+			$amount = $this->request->data['TransferAmount'];
 			$fee = $this->request->data['txFee'];
 			$address = $this->request->data['bitcoinaddress'];
 			$satoshi = (float)$amount * 100000000;

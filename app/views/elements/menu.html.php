@@ -15,7 +15,9 @@ if($this->_request->params['controller']!='api'){
 	</li>
 		<?php foreach($trades as $tr){?>
 			<li <?php if($sel_curr==strtolower(str_replace("/","_",$tr['trade']))){echo "class='active'";}?>>
-			<a href="/<?=$locale?>/ex/x/<?=strtolower(str_replace("/","_",$tr['trade']))?>"><?=$tr['trade']?></a></li>
+			<a href="/<?=$locale?>/ex/x/<?=strtolower(str_replace("/","_",$tr['trade']))?>" class="tooltip-x" rel="tooltip-x" data-placement="top" title="<?=$tr['trade']?>">
+			<img src="/img/<?=$tr['First']?>.png">&raquo;<img src="/img/<?=$tr['Second']?>.png">
+			</a></li>
 		<?php }	?>
 	<?php }else{?>
 		<li><a href="/Admin/index" ><?=$t("Summary")?></a></li>
