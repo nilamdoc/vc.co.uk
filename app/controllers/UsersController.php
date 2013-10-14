@@ -382,6 +382,7 @@ class UsersController extends \lithium\action\Controller {
 				),
 				'fields' => array('_id')
 			));
+			$email = $user['email'];
 //		print_r($user['_id']);
 			$details = Details::find('first', array(
 				'conditions' => array(
@@ -417,7 +418,7 @@ class UsersController extends \lithium\action\Controller {
 			$message = Swift_Message::newInstance();
 			$message->setSubject("Password reset link from ".COMPANY_URL);
 			$message->setFrom(array(NOREPLY => 'Password reset email '.COMPANY_URL));
-			$message->setTo($user['email']);
+			$message->setTo($email);
 			$message->addBcc(MAIL_1);
 			$message->addBcc(MAIL_2);			
 			$message->addBcc(MAIL_3);		
