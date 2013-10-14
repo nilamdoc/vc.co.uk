@@ -298,8 +298,8 @@ class MobileController extends \lithium\action\Controller {
 		));
 		
 		$users = Details::find('all',array(
-			'conditions'=>array('username'=>$user)
-			'order'=>array('username'=>1)
+			'conditions'=>array('username'=>$user),
+			'order'=>array('username'=>1),
 		));
 		$Details = array();$i = 0;
 	
