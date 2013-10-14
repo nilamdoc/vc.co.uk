@@ -416,10 +416,8 @@ class MobileController extends \lithium\action\Controller {
 			$Details[$i]['TOTPlogin'] = $dt['TOTP']['Login'];			
 			$Details[$i]['TOTPwithdrawal'] = $dt['TOTP']['Withdrawal'];			
 			$Details[$i]['TOTPsecurity'] = $dt['TOTP']['Security'];												
-
-			$i++;
 		}
-	
+		
 				$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
 				$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
 			
