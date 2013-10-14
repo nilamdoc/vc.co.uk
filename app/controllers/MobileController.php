@@ -226,7 +226,83 @@ class MobileController extends \lithium\action\Controller {
 						)));
 	}
 
-	public function user(){
+	public function user($user = null){
+		$UsersRegistered = Details::count();
+		$functions = new Functions();
+		$OnlineUsers = 	$functions->OnlineUsers();
+		$OrdersN = Orders::count(
+			array('Completed'=>'N')
+		);
+		$OrdersC = Orders::count(
+			array('Completed'=>'Y')
+		);
+		
+			$DetailPendingOrders = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Action' => '$Action',
+					'Amount'=>'$Amount',
+					'Completed'=>'$Completed',
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+					'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),					
+				)),
+				array('$match'=>array(
+					'Completed'=>'N',										
+					)),
+				array('$group' => array( '_id' => array(
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+					'Action' => '$Action',
+				),
+					'Amount' => array('$sum' => '$Amount'),  
+					'TotalAmount' => array('$sum' => '$TotalAmount'), 					
+					'count' => array('$sum'=>1)
+				)),
+				array('$sort'=>array(
+					'PerPrice'=>1,
+				))
+			)
+		));
+
+			$DetailCompletedOrders = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Action' => '$Action',
+					'Amount'=>'$Amount',
+					'Completed'=>'$Completed',
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+					'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),					
+				)),
+				array('$match'=>array(
+					'Completed'=>'Y',										
+					)),
+				array('$group' => array( '_id' => array(
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+					'Action' => '$Action',
+				),
+					'Amount' => array('$sum' => '$Amount'),  
+					'TotalAmount' => array('$sum' => '$TotalAmount'), 					
+					'count' => array('$sum'=>1)					
+				)),
+				array('$sort'=>array(
+					'PerPrice'=>1,
+				))
+			)
+		));
+		
+		$users = Details::find('all',array(
+			'conditions'=>array('username'=>$user)
+			'order'=>array('username'=>1)
+		));
+		$Details = array();$i = 0;
+	
 				$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
 				$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
 			
@@ -274,8 +350,10 @@ class MobileController extends \lithium\action\Controller {
 			$Details[$i]['FiatWithdrawal']['Amount'] = $tx['Amount'];									
 			$Details[$i]['FiatWithdrawal']['Currency'] = $tx['Currency'];									
 		}
-	
-	
+		return $this->render(array('json' => array('success'=>1,
+			'now'=>time(),
+			'result'=>$result
+			)));
 	}
 
 }
