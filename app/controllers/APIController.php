@@ -69,34 +69,34 @@ class APIController extends \lithium\action\Controller {
 		$updates = new UpdatesController();
 		$upBU = $updates->Rates('BTC','USD');
 		$jdecBU = json_decode($upBU->body[0]);
-print_r($jdecBU)		;
+//print_r($jdecBU)		;
 		$upBG = $updates->Rates('BTC','GBP');
 		$jdecBG = json_decode($upBG->body[1]);
-print_r($jdecBG)		;		
+//print_r($jdecBG)		;		
 		$upBE = $updates->Rates('BTC','EUR');
 		$jdecBE = json_decode($upBE->body[2]);
-print_r($jdecBE)		;
+//print_r($jdecBE)		;
 		return $this->render(array('json' => array('success'=>1,
 			'now'=>gmdate(time()),
 			'result'=>array(
 				array(
 					'Low'=> number_format($jdecBU->Low,2),
 					'High' => number_format($jdecBU->High,2),
-					'Last'=> number_format($jdecBU->LastPrice,2),			
+					'Last'=> number_format($jdecBU->Last,2),			
 					'FirstUnit'=> 'BTC',			
 					'SecondUnit'=> 'USD',
 				),
 				array(
 					'Low'=> number_format($jdecBG->Low,2),
 					'High' => number_format($jdecBG->High,2),
-					'Last'=> number_format($jdecBG->LastPrice,2),			
+					'Last'=> number_format($jdecBG->Last,2),			
 					'FirstUnit'=> 'BTC',			
 					'SecondUnit'=> 'GBP',
 				),
 				array(
 					'Low'=> number_format($jdecBE->Low,2),
 					'High' => number_format($jdecBE->High,2),
-					'Last'=> number_format($jdecBE->LastPrice,2),			
+					'Last'=> number_format($jdecBE->Last,2),			
 					'FirstUnit'=> 'BTC',			
 					'SecondUnit'=> 'EUR',
 				),
