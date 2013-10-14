@@ -10,7 +10,7 @@
 <p>Phone: 0303 123 1113<br>
 Registered ICO No: ZA007784<br>
 <a href="http://www.ico.org.uk/" target="_blank">http://www.ico.org.uk/</a></p>
-
+<p>VAT No: 165221136</p> 
 
 <p><?=$t("IBWT is the trading name of IBWT JD LTD, which is a Private Limited Company registered in England and Wales.")?></p>
 
