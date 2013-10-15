@@ -210,9 +210,10 @@ function CheckPayment(){
 	amount = $("#Amount").val();
 	if(amount==""){return false;}
 	maxValue = $("#maxValue").val();
-	if(amount>=maxValue){return false;}
+	if(amount>maxValue){return false;}
 	
 	$("#SendFees").html($("#txFee").val());
+
 	$("#SendAmount").html(amount);	
 	$("#SendTotal").html(parseFloat(amount)-parseFloat($("#txFee").val()));	
 	$("#TransferAmount").val(parseFloat(amount)-parseFloat($("#txFee").val()));

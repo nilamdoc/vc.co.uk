@@ -200,7 +200,7 @@ function initCanvas(ww,hh)
 					</div>
 
 					<?php
-					$max = (float)$details['balance.BTC'] - (float)$txfee;
+					$max = (float)$details['balance.BTC'];
 					?>
 							<?=$this->form->field('amount', array('label'=>'Amount', 'placeholder'=>'0.0', 'class'=>'span2', 'max'=>$max,'min'=>'0.001','onblur'=>'SuccessButtonDisable();' )); ?>
 							<input type="hidden" id="maxValue" value="<?=$max?>" name="maxValue">
