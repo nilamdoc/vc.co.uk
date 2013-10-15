@@ -328,7 +328,7 @@ function initCanvas(ww,hh)
 				</tr>
 				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Quote this reference number in your deposit">
 					<td>Reference:</td>
-					<?php $Reference = substr($details['username'],0,10)."-".rand(10000,99999);?>
+					<?php $Reference = substr($details['username'],0,10).rand(10000,99999);?>
 					<td><?=$Reference?></td>
 				</tr>
 				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Amount should be between 1 and 10000">
@@ -411,7 +411,7 @@ function initCanvas(ww,hh)
 				</tr>
 				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Quote this reference number in your withdrawal">
 					<td colspan="2">Reference:</td>
-					<?php $Reference = substr($details['username'],0,10)."-".rand(10000,99999);?>
+					<?php $Reference = substr($details['username'],0,10).rand(10000,99999);?>
 					<td colspan="2"><?=$Reference?></td>
 				</tr>
 				<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Amount should be between 6 and 10000">
