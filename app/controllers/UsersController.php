@@ -11,6 +11,7 @@ use lithium\data\Connections;
 use app\extensions\action\Functions;
 
 use app\extensions\action\Bitcoin;
+use app\extensions\action\Litecoin;
 use lithium\security\Auth;
 use lithium\storage\Session;
 use app\extensions\action\GoogleAuthenticator;
@@ -488,8 +489,8 @@ class UsersController extends \lithium\action\Controller {
 
 	return compact('msg');
 	}
-	public function funding(){
-				$title = "Funding";
+	public function funding_btc(){
+				$title = "Funding BTC";
 
 		$user = Session::read('default');
 		if ($user==""){		return $this->redirect('/login');}
@@ -520,6 +521,31 @@ class UsersController extends \lithium\action\Controller {
 		));
 			return compact('details','address','txfee','title','transactions','laddress')	;
 	}
+	public function funding_ltc(){
+				$title = "Funding LTC";
+
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+		$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
+		$address = $litecoin->getnewaddress($user['username']);
+
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		$secret = $details['secret'];
+		$userid = $details['user_id'];		
+		$paytxfee = Parameters::find('first');
+		$txfee = $paytxfee['paytxfee'];
+		$transactions = Transactions::find('all',array(
+				'conditions'=>array(
+				'username'=>$user['username'],
+				'Added'=>false,
+				'Approved'=>'No'
+				)
+		));
+			return compact('details','address','txfee','title','transactions')	;
+	}	
 	public function receipt(){
 		$secret = $_GET['secret'];;
 		$userid = $_GET['userid']; //invoice_id is past back to the callback URL

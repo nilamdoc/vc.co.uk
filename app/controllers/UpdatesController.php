@@ -14,6 +14,7 @@ use app\models\Orders;
 use lithium\data\Connections;
 use lithium\storage\Session;
 use app\extensions\action\Bitcoin;
+use app\extensions\action\Litecoin;
 
 class UpdatesController extends \lithium\action\Controller {
 
@@ -193,6 +194,15 @@ class UpdatesController extends \lithium\action\Controller {
 			'verify'=> $verify,
 		)));
 	}
+
+	public function LTCAddress($address = null){
+		$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
+			$verify = $litecoin->validateaddress($address);
+			return $this->render(array('json' => array(
+			'verify'=> $verify,
+		)));
+	}
+
 }
 
 ?>

@@ -258,11 +258,35 @@ function RejectReason(value){
 	nurl = url.substr(0,len)+value;
 	$("#RejectURL").attr('href',nurl);
 }
-function LitecoinAddress(){
+function litecoinAddress(){
 	address = $("#litecoinaddress").val();
-  $("#SendLiteAddress").html(address); 	
-	SuccessLiteButtonDisable();
+  $("#SendLTCAddress").html(address); 	
+	SuccessLTCButtonDisable();
 	}
-function SuccessLiteButtonDisable(){
+function SuccessLTCButtonDisable(){
 	$("#SendLiteSuccessButton").attr("disabled", "disabled");
+	}
+function CheckLTCPayment(){
+	address = $("#litecoinaddress").val();
+	if(address==""){return false;}
+	amount = $("#Amount").val();
+	if(amount==""){return false;}
+	maxValue = $("#maxValue").val();
+	if(amount>maxValue){return false;}
+	
+	$("#SendLTCFees").html($("#txFee").val());
+
+	$("#SendLTCAmount").html(amount);	
+	$("#SendLTCTotal").html(parseFloat(amount)-parseFloat($("#txFee").val()));	
+	$("#TransferLTCAmount").val(parseFloat(amount)-parseFloat($("#txFee").val()));
+
+	$.getJSON('/Updates/LTCAddress/'+address,
+		function(ReturnValues){
+			if(ReturnValues['verify']['isvalid']==true){
+			address = "<a href='http://ltc.block-explorer.com/address/"+ address +"' target='_blank'>"+ address +"</a> <i class='icon-ok'></i>";
+			$("#SendLTCAddress").html(address); 	
+			$("#SendLTCSuccessButton").removeAttr('disabled');				
+				}
+		});
+	return true;
 	}

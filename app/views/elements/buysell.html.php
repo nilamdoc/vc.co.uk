@@ -159,7 +159,8 @@ if($$second_curr!=0){ ?>
 			</tr>
 			<tr>
 			<td>If all the above are verified, add BTC/LTC or Fiat currency through the link below:<br>
-				<a href="/users/funding" class="btn btn-primary"><?=$t("Funding")?></a>
+				<a href="/users/funding_btc" class="btn btn-primary"><?=$t("Funding BTC")?></a>
+				<a href="/users/funding_ltc" class="btn btn-primary"><?=$t("Funding LTC")?></a>				
 			</td>
 			</tr>
 		</table>			
@@ -230,7 +231,8 @@ if($$second_curr!=0){ ?>
 			<tr>
 				<td>
 				Add BTC/LTC or Fiat currency through the link below:<br>
-				<a href="/users/funding" class="btn btn-primary"><?=$t("Funding")?></a>
+				<a href="/users/funding_btc" class="btn btn-primary"><?=$t("Funding BTC")?></a>
+				<a href="/users/funding_ltc" class="btn btn-primary"><?=$t("Funding LTC")?></a>				
 				</td>
 			</tr>
 		</table>		

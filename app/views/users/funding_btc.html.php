@@ -132,7 +132,7 @@ function initCanvas(ww,hh)
  }
 
 </script>
-<h4>Funding</h4>
+<h4>Funding - BTC / USD / GBP / EUR</h4>
 
 <div class="accordion" id="accordion2">
 	<div class="accordion-group">

@@ -10,7 +10,8 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 		<div class="navbar">
 			<div class="navbar-inner">
 			<a class="brand" href="#"><?=$t('Accounts')?> </a>
-			<a href="/users/funding" class="btn btn-primary"><?=$t("Funding")?></a>
+			<a href="/users/funding_btc" class="btn btn-primary"><?=$t("Funding BTC")?></a>
+			<a href="/users/funding_ltc" class="btn btn-primary"><?=$t("Funding LTC")?></a>			
 			<a href="/users/transactions" class="btn btn-primary"><?=$t("Transactions")?></a>			
 			</div>
 		</div>
