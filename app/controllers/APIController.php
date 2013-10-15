@@ -31,7 +31,7 @@ class APIController extends \lithium\action\Controller {
 			'order'=> array('DateTime'=>-1)
 		));
 		Requests::create()->save($data);
-		if(gmdate(time())-$requests['nounce']<=1000){
+		if(gmdate(time())-$requests['nounce']<=60){
 			return false;
 		}
 		return true;
