@@ -3,7 +3,7 @@
 </div>
 <h4>Hi <?=$user['firstname']?>,</h4>
 
-<p>Your deposit has been approved <?=COMPANY_URL?>.</p>
+<p>Your withdrawal has been approved <?=COMPANY_URL?>.</p>
 <table>
 		<tr>
 			<td>Account name:</td>
