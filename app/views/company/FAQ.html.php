@@ -22,7 +22,7 @@
 
 <li><strong><?=$t("VERY IMPORTANT")?></strong>: <?=$t("Please make sure to INCLUDE your CUSTOMER REFERENCE, which you can find on your account page, so that we can credit your account appropriately.")?></li>
 
-<u><?=$t("Example")?></u>: JD001Z</ul>
+<u><?=$t("Example")?></u>: 15828</ul>
 </blockquote>
 <p><strong><u><?=$t("Time Delays")?></u></strong></p>
 
