@@ -1,3 +1,3 @@
 <?
-print_r($response);
+print_r($parameters);
 ?>

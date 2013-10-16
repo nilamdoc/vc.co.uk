@@ -28,7 +28,7 @@ ErrorHandler::apply('lithium\action\Dispatcher::run', array(), function($info, $
 		'layout' => 'error',
 		'request' => $params['request']
 	));
-
+$parameters = (array) $params['request'];
 	$view  = new View(array(
 			'loader' => 'File',
 			'renderer' => 'File',
@@ -39,7 +39,7 @@ ErrorHandler::apply('lithium\action\Dispatcher::run', array(), function($info, $
 		$email = 'nilam@ibwt.co.uk';
 			$body = $view->render(
 				'template',
-				compact('response'),
+				compact('parameters'),
 				array(
 					'controller' => 'users',
 					'template'=>'error',
