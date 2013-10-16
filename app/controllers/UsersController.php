@@ -658,6 +658,7 @@ class UsersController extends \lithium\action\Controller {
 			$address = $this->request->data['litecoinaddress'];
 			$satoshi = (float)$amount * 100000000;
 			$fee_satoshi = (float)$fee * 100000000;
+			$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
 
 				$comment = "User: ".$details['username']."; Address: ".$address."; Amount:".$Amount.";";
 				$txid = $litecoin->sendfrom('NilamDoctor', $address, (float)$amount,(int)0,$comment);
@@ -675,6 +676,7 @@ class UsersController extends \lithium\action\Controller {
 					'Added'=>false,
 					'Transfer'=>$comment,
 				);							
+				$message = "Transfered";
 				$tx->save($data);
 				$dataDetails = array(
 						'balance.LTC' => (float)number_format($details['balance.LTC'] - (float)$amount - (float)$fee,8),
