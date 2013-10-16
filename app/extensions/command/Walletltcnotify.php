@@ -16,7 +16,7 @@ class Walletltcnotify extends \lithium\console\Command {
 
 		$getrawtransaction = $litecoin->getrawtransaction($s);
 		$decoderawtransaction = $litecoin->decoderawtransaction($getrawtransaction);		
-print_r($decoderawtransaction);
+
 			foreach($decoderawtransaction['vout'] as $out){
 				foreach($out['scriptPubKey']['addresses'] as $address){
 					$Amount = (float)$out['value'];
@@ -41,7 +41,7 @@ print_r($decoderawtransaction);
 							$t = Transactions::create();
 							$Amount = $Amount - (float)$txfee;
 							$comment = "User: ".$details['username']."; Address: ".$address."; Amount:".$Amount.";";
-							$transfer = $litecoin->sendfrom($details['username'], LITECOIN_ADDRESS, (float)$Amount,(int)0,$comment);
+							$transfer = $litecoin->move($details['username'], "NilamDoctor", (float)$Amount,(int)0,$comment);
 
 							if(isset($transfer['error'])){
 								$error = $transfer['error']; 

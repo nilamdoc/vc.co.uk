@@ -642,7 +642,7 @@ class UsersController extends \lithium\action\Controller {
 	}
 
 	public function paymentltc(){
-			$title = "Payment";
+			$title = "Payment LTC";
 
 		$user = Session::read('default');
 		if ($user==""){		return $this->redirect('/login');}
