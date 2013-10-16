@@ -278,7 +278,7 @@ function CheckLTCPayment(){
 
 	$("#SendLTCAmount").html(amount);	
 	$("#SendLTCTotal").html(parseFloat(amount)-parseFloat($("#txFee").val()));	
-	$("#TransferLTCAmount").val(parseFloat(amount)-parseFloat($("#txFee").val()));
+	$("#TransferAmount").val(parseFloat(amount)-parseFloat($("#txFee").val()));
 
 	$.getJSON('/Updates/LTCAddress/'+address,
 		function(ReturnValues){
