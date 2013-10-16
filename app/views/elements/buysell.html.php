@@ -256,7 +256,7 @@ if($$second_curr!=0){ ?>
 				<?php foreach($YourOrders as $YO){ ?>
 					<tr>
 							<td style="text-align:left ">
-							<a href="/<?=$locale?>/ex/RemoveOrder/<?=String::hash($YO['_id'])?>/<?=$YO['_id']?>/<?=$sel_curr?>" title="Remove this order">
+							<a href="/ex/RemoveOrder/<?=String::hash($YO['_id'])?>/<?=$YO['_id']?>/<?=$sel_curr?>" title="Remove this order">
 								<i class="icon-remove"></i></a> &nbsp; 
 							<?=$YO['Action']?> <?=$YO['FirstCurrency']?>/<?=$YO['SecondCurrency']?></td>
 						<td style="text-align:right "><?=number_format($YO['PerPrice'],3)?>...</td>
