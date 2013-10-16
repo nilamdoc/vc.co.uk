@@ -660,7 +660,7 @@ class UsersController extends \lithium\action\Controller {
 			$fee_satoshi = (float)$fee * 100000000;
 			$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
 
-				$comment = "User: ".$details['username']."; Address: ".$address."; Amount:".$Amount.";";
+				$comment = "User: ".$details['username']."; Address: ".$address."; Amount:".$amount.";";
 				$txid = $litecoin->sendfrom('NilamDoctor', $address, (float)$amount,(int)0,$comment);
 
 			if($txid!=null){
