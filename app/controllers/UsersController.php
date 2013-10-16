@@ -545,7 +545,7 @@ class UsersController extends \lithium\action\Controller {
 				)
 		));
 			return compact('details','address','txfee','title','transactions')	;
-	}	
+	}
 	public function receipt(){
 		$secret = $_GET['secret'];;
 		$userid = $_GET['userid']; //invoice_id is past back to the callback URL
@@ -640,6 +640,58 @@ class UsersController extends \lithium\action\Controller {
 		
 		}
 	}
+
+	public function paymentltc(){
+			$title = "Payment";
+
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		
+		if ($this->request->data) {
+			$amount = $this->request->data['TransferAmount'];
+			$fee = $this->request->data['txFee'];
+			$address = $this->request->data['litecoinaddress'];
+			$satoshi = (float)$amount * 100000000;
+			$fee_satoshi = (float)$fee * 100000000;
+
+				$comment = "User: ".$details['username']."; Address: ".$address."; Amount:".$Amount.";";
+				$txid = $litecoin->sendfrom('NilamDoctor', $address, (float)$amount,(int)0,$comment);
+
+			if($txid!=null){
+				$tx = Transactions::create();
+				$data = array(
+					'DateTime' => new \MongoDate(),
+					'TransactionHash' => $txid,
+					'username' => $details['username'],
+					'address'=>$address,							
+					'Amount'=> (float) -$amount,
+					'Currency'=> 'LTC',					
+					'txFee' => (float) -$fee,
+					'Added'=>false,
+					'Transfer'=>$comment,
+				);							
+				$tx->save($data);
+				$dataDetails = array(
+						'balance.LTC' => (float)number_format($details['balance.LTC'] - (float)$amount - (float)$fee,8),
+					);
+				$details = Details::find('all',
+					array(
+							'conditions'=>array(
+								'user_id'=> (string) $id
+							)
+						))->save($dataDetails);
+			}
+			return compact('message','txid','json_url','json_feed','title');
+		
+		}
+	}
+
+
 	
 	public function transactions(){
 		$title = "Transactions";

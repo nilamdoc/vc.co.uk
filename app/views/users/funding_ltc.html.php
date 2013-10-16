@@ -180,7 +180,7 @@ function initCanvas(ww,hh)
 				</tr>
 				<tr>
 					<td style="height:280px ">
-						<form action="/users/payment/" method="post">
+						<form action="/users/paymentltc/" method="post">
 						<div class="input-append">
 						<label for="litecoinaddress">Litecoin Address</label>
 <input type="text" name="litecoinaddress" id="litecoinaddress" placeholder="L5AXfnf7hshkwgzA8UKvSyjpQdtz34H9LE" class="span4" title="To Address" data-content="This is the Litecoin Address of the recipient." value="" onblur="litecoinAddress();"/>
