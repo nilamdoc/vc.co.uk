@@ -1,4 +1,7 @@
 <div style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
+
+<p class="alert alert-error" style="font-size:16px;font-weight:bold ">We are facing some problems with the UK bank account. Please do not trade or deposit funds in GBP / USD in the bank account. We are working with the banks to solve the problem. Thanks for your support!</p>
+
 <div class="row">
 	<div class="span4 well" >
 		<div class="navbar">
