@@ -3,5 +3,5 @@
 <p><?php 
 print_r($message);	
 ?></p>
-<a href="/users/funding" class="btn btn-primary">Withdraw funds</a>
+<a href="/users/funding_btc" class="btn btn-primary">Withdraw funds</a>
 <a href="/users/transactions" class="btn btn-primary">Transactions</a>

@@ -114,7 +114,7 @@ use li3_qrcode\extensions\action\QRcode;
 					if($details['bank']['verified']=='Yes'){
 						echo '<a href="#" class="label label-success">Verified</a>';
 						}else{
-						echo '<a href="/users/funding"  class="label label-important">Verify</a>';
+						echo '<a href="/users/funding_btc"  class="label label-important">Verify</a>';
 						}?>
 				</td>
 			</tr>
