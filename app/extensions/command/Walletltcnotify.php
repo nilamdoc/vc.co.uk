@@ -47,10 +47,14 @@ class Walletltcnotify extends \lithium\console\Command {
 							'Currency'=>'LTC',							
 							'Amount'=> $Amount,
 							'Added'=>true,
-							'Transfer'=>$error,
+							'Transfer'=>$comment,
 						);							
 						$t->save($data);
-							
+						$details = Details::find('all',
+								array(
+										'conditions'=>array('username'=>$username)
+									));
+									
 						$dataDetails = array(
 								'balance.LTC' => (float)$details['balance.LTC'] + $Amount,
 							);
