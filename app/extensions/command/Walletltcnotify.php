@@ -19,6 +19,9 @@ class Walletltcnotify extends \lithium\console\Command {
 
 			foreach($decoderawtransaction['vout'] as $out){
 				foreach($out['scriptPubKey']['addresses'] as $address){
+				
+				$username = $litecoin->getaccount($address);
+				
 					$Amount = (float)number_format($out['value'],8);
 					if($litecoin->getaccount($address)!=""){
 						$Transactions = Transactions::find('first',array(
@@ -27,8 +30,8 @@ class Walletltcnotify extends \lithium\console\Command {
 						if($Transactions['_id']==""){
 							$t = Transactions::create();
 							$Amount = $Amount;
-							$comment = "Move from User: ".$details['username']."; Address: ".$address."; Amount:".$Amount.";";
-							$transfer = $litecoin->move($details['username'], "NilamDoctor", (float)$Amount,(int)0,$comment);
+							$comment = "Move from User: ".$username."; Address: ".$address."; Amount:".$Amount.";";
+							$transfer = $litecoin->move($username, "NilamDoctor", (float)$Amount,(int)0,$comment);
 
 							if(isset($transfer['error'])){
 								$error = $transfer['error']; 
@@ -39,7 +42,7 @@ class Walletltcnotify extends \lithium\console\Command {
 						$data = array(
 							'DateTime' => new \MongoDate(),
 							'TransactionHash' => $s,
-							'username' => $details['username'],
+							'username' => $username,
 							'address'=>$address,							
 							'Currency'=>'LTC',							
 							'Amount'=> $Amount,
