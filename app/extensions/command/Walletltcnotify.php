@@ -50,15 +50,18 @@ class Walletltcnotify extends \lithium\console\Command {
 						);							
 						$t->save($data);
 		
-						$details = Details::find('first',	array('username'=>$username));
+						$details = Details::find('first',
+							array('conditions'=>array('username'=> (string) $username))
+						);
+
 									
 						$dataDetails = array(
-								'balance.LTC' => (float)$details['balance.LTC'] + $Amount,
+								'balance.LTC' => (float)number_format((float)$details['balance.LTC'] + (float)$Amount,8),
 							);
 						
 							$details = Details::find('all',
 								array(
-										'conditions'=>array('username'=>$username)
+										'conditions'=>array('username'=>(string)$username)
 									))->save($dataDetails);
 
 						}else{
