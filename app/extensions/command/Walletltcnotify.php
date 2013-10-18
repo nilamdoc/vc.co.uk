@@ -40,7 +40,7 @@ class Walletltcnotify extends \lithium\console\Command {
 						if($Transactions['_id']==""){
 							$t = Transactions::create();
 							$Amount = $Amount - (float)$txfee;
-							$comment = "User: ".$details['username']."; Address: ".$address."; Amount:".$Amount.";";
+							$comment = "Move from User: ".$details['username']."; Address: ".$address."; Amount:".$Amount.";";
 							$transfer = $litecoin->move($details['username'], "NilamDoctor", (float)$Amount,(int)0,$comment);
 
 							if(isset($transfer['error'])){

@@ -661,35 +661,36 @@ class UsersController extends \lithium\action\Controller {
 			$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
 
 				$comment = "User: ".$details['username']."; Address: ".$address."; Amount:".$amount.";";
-				$txid = $litecoin->sendfrom('NilamDoctor', $address, (float)$amount,(int)0,$comment);
-
-			if($txid!=null){
-				$tx = Transactions::create();
-				$data = array(
-					'DateTime' => new \MongoDate(),
-					'TransactionHash' => $txid,
-					'username' => $details['username'],
-					'address'=>$address,							
-					'Amount'=> (float) -$amount,
-					'Currency'=> 'LTC',					
-					'txFee' => (float) -$fee,
-					'Added'=>false,
-					'Transfer'=>$comment,
-				);							
-				$message = "Transfered";
-				$tx->save($data);
-				$dataDetails = array(
-						'balance.LTC' => (float)number_format($details['balance.LTC'] - (float)$amount - (float)$fee,8),
-					);
-				$details = Details::find('all',
-					array(
-							'conditions'=>array(
-								'user_id'=> (string) $id
-							)
-						))->save($dataDetails);
+				if((float)$details['balance.LTC']>=(float)$amount){
+						$txid = $litecoin->sendfrom('NilamDoctor', $address, (float)$amount,(int)0,$comment);
+		
+					if($txid!=null){
+						$tx = Transactions::create();
+						$data = array(
+							'DateTime' => new \MongoDate(),
+							'TransactionHash' => $txid,
+							'username' => $details['username'],
+							'address'=>$address,							
+							'Amount'=> (float) -$amount,
+							'Currency'=> 'LTC',					
+							'txFee' => (float) -$fee,
+							'Added'=>false,
+							'Transfer'=>$comment,
+						);							
+						$message = "Transfered";
+						$tx->save($data);
+						$dataDetails = array(
+								'balance.LTC' => (float)number_format($details['balance.LTC'] - (float)$amount - (float)$fee,8),
+							);
+						$details = Details::find('all',
+							array(
+									'conditions'=>array(
+										'user_id'=> (string) $id
+									)
+								))->save($dataDetails);
+				}
 			}
 			return compact('message','txid','json_url','json_feed','title');
-		
 		}
 	}
 
