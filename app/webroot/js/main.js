@@ -76,7 +76,7 @@ function BuyFormCalculate (){
 	}else{
 		BuySummary = "The transaction amount " + GrandTotal  + " " + SecondCurrency;
 		$("#BuySummary").html(BuySummary);
-		$("#BuySubmitButton").removeAttr('disabled');
+//		$("#BuySubmitButton").removeAttr('disabled');
 		$("#BuySubmitButton").attr("class", "btn btn-success");		
 	}
 	if(parseFloat(GrandTotal)===0){$("#BuySubmitButton").attr("disabled", "disabled");}
