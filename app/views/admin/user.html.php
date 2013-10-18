@@ -12,6 +12,7 @@
 			<th>Full Name</th>			
 			<th>Email</th>						
 			<th>BTC</th>			
+			<th>LTC</th>						
 			<th>USD</th>															
 			<th>GBP</th>												
 			<th>EUR</th>						
@@ -20,14 +21,20 @@
 		</tr>
 	</thead>
 	<tbody>
-<?php foreach ($Details as $user){ ?>
+<?php 
+
+foreach ($Details as $user){ ?>
 	<tr>
 		<td><a href="/Admin/detail/<?=$user['username']?>"><?=$user['username']?></a></td>
 		<td><?=$user['firstname']?> <?=$user['lastname']?></td>		
 		<td><?=$user['email']?></td>				
 		<td style="text-align:right "><?=number_format($user['BTC'],8)?><br>
-		Orders: <?=number_format($user['Sell']['BTC-USD']['Amount']+$user['Sell']['BTC-GBP']['Amount']+$user['Sell']['BTC-EUR']['Amount'],8)?><br>
-		<strong>Total: <?=number_format($user['BTC']+$user['Sell']['BTC-USD']['Amount']+$user['Sell']['BTC-GBP']['Amount']+$user['Sell']['BTC-EUR']['Amount'],8)?></strong>
+		Orders: <?=number_format($user['Sell']['BTC-USD']['Amount']+$user['Sell']['BTC-GBP']['Amount']+$user['Sell']['BTC-EUR']['Amount']+$user['Sell']['BTC-LTC']['Amount'],8)?><br>
+		<strong>Total: <?=number_format($user['BTC']+$user['Sell']['BTC-USD']['Amount']+$user['Sell']['BTC-GBP']['Amount']+$user['Sell']['BTC-EUR']['Amount']+$user['Sell']['BTC-LTC']['Amount'],8)?></strong>
+		</td>				
+		<td style="text-align:right "><?=number_format($user['LTC'],8)?><br>
+		Orders: <?=number_format($user['Sell']['LTC-USD']['Amount']+$user['Sell']['LTC-GBP']['Amount']+$user['Sell']['LTC-EUR']['Amount']+$user['Buy']['BTC-LTC']['TotalAmount'],8)?><br>
+		<strong>Total: <?=number_format($user['LTC']+$user['Sell']['LTC-USD']['Amount']+$user['Sell']['LTC-GBP']['Amount']+$user['Sell']['LTC-EUR']['Amount']+$user['Buy']['BTC-LTC']['TotalAmount'],8)?></strong>
 		</td>				
 		<td style="text-align:right "><?=number_format($user['USD'],4)?><br>
 		Orders: <?=number_format($user['Buy']['BTC-USD']['TotalAmount'],4)?><br>
@@ -45,7 +52,8 @@
 		<td><?=$user['ip']?></td>
 	</tr>
 <?php 
-	$TotalBTC = $TotalBTC + $user['BTC']+$user['Sell']['BTC-USD']['Amount']+$user['Sell']['BTC-GBP']['Amount']+$user['Sell']['BTC-EUR']['Amount'];
+	$TotalBTC = $TotalBTC + $user['BTC']+$user['Sell']['BTC-USD']['Amount']+$user['Sell']['BTC-GBP']['Amount']+$user['Sell']['BTC-EUR']['Amount']+$user['Sell']['BTC-LTC']['Amount'];
+	$TotalLTC = $TotalLTC + $user['LTC']+$user['Sell']['LTC-USD']['Amount']+$user['Sell']['LTC-GBP']['Amount']+$user['Sell']['LTC-EUR']['Amount']+$user['Buy']['BTC-LTC']['TotalAmount'];
 	$TotalUSD = $TotalUSD + $user['USD']+$user['Buy']['BTC-USD']['TotalAmount'];
 	$TotalGBP = $TotalGBP + $user['GBP']+$user['Buy']['BTC-GBP']['TotalAmount'];
 	$TotalEUR = $TotalEUR + $user['EUR']+$user['Buy']['BTC-EUR']['TotalAmount'];		
@@ -53,6 +61,7 @@
 	<tr>
 		<td colspan="3"><strong>Total</strong></td>
 		<td style="text-align:right "><strong><?=number_format($TotalBTC,8)?></strong></td>
+		<td style="text-align:right "><strong><?=number_format($TotalLTC,8)?></strong></td>		
 		<td style="text-align:right "><strong><?=number_format($TotalUSD,4)?></strong></td>
 		<td style="text-align:right "><strong><?=number_format($TotalGBP,4)?></strong></td>
 		<td style="text-align:right "><strong><?=number_format($TotalEUR,4)?></strong></td>						

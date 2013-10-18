@@ -6,6 +6,7 @@ use app\models\Details;
 use app\models\Transactions;
 use app\models\Reasons;
 use app\models\File;
+use app\models\Trades;
 use app\models\Orders;
 use app\models\Requests;
 use lithium\data\Connections;
@@ -1085,33 +1086,27 @@ $description = "Admin panel for withdrawal";
 				))
 			)
 		));
+		
+		$trades = Trades::find('all',array(
+			'fields'=>array('trade')
+		));
 
 		foreach($YourOrders['result'] as $YO){
-			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='USD'){
-				$Details[$i]['Buy']['BTC-USD']['Amount'] = $YO['Amount'];
-				$Details[$i]['Buy']['BTC-USD']['TotalAmount'] = $YO['TotalAmount'];
+			foreach($trades as $trade){
+				$FC = substr($trade['trade'],0,3);
+				$SC = substr($trade['trade'],4,3);
+				$CGroup = $FC.'-'.$SC;
+				if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == $FC && $YO['_id']['SecondCurrency']==$SC){
+					$Details[$i]['Buy'][$CGroup]['Amount'] = $YO['Amount'];
+					$Details[$i]['Buy'][$CGroup]['TotalAmount'] = $YO['TotalAmount'];
+				}				
+				if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == $FC && $YO['_id']['SecondCurrency']==$SC){
+					$Details[$i]['Sell'][$CGroup]['Amount'] = $YO['Amount'];
+					$Details[$i]['Sell'][$CGroup]['TotalAmount'] = $YO['TotalAmount'];
+				}
+				$Details[$i][$FC] = $dt['balance'][$FC];
+				$Details[$i][$SC] = $dt['balance'][$SC];				
 			}
-			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='USD'){
-				$Details[$i]['Sell']['BTC-USD']['Amount'] = $YO['Amount'];
-				$Details[$i]['Sell']['BTC-USD']['TotalAmount'] = $YO['TotalAmount'];
-			}
-			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='GBP'){
-				$Details[$i]['Buy']['BTC-GBP']['Amount'] = $YO['Amount'];
-				$Details[$i]['Buy']['BTC-GBP']['TotalAmount'] = $YO['TotalAmount'];
-			}
-			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='GBP'){
-				$Details[$i]['Sell']['BTC-GBP']['Amount'] = $YO['Amount'];
-				$Details[$i]['Sell']['BTC-GBP']['TotalAmount'] = $YO['TotalAmount'];
-			}
-			if($YO['_id']['Action']=='Buy' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='EUR'){
-				$Details[$i]['Buy']['BTC-EUR']['Amount'] = $YO['Amount'];
-				$Details[$i]['Buy']['BTC-EUR']['TotalAmount'] = $YO['TotalAmount'];
-			}
-			if($YO['_id']['Action']=='Sell' && $YO['_id']['FirstCurrency'] == 'BTC' && $YO['_id']['SecondCurrency']=='EUR'){
-				$Details[$i]['Sell']['BTC-EUR']['Amount'] = $YO['Amount'];
-				$Details[$i]['Sell']['BTC-EUR']['TotalAmount'] = $YO['TotalAmount'];
-			}
-			
 		}
 		
 			$Details[$i]['username'] = $user['username'];							
@@ -1120,10 +1115,6 @@ $description = "Admin panel for withdrawal";
 			$Details[$i]['email'] = $user['email'];													
 			$Details[$i]['ip'] = $user['ip'];													
 			$Details[$i]['created'] = $user['created'];													
-			$Details[$i]['BTC'] = $dt['balance']['BTC'];													
-			$Details[$i]['USD'] = $dt['balance']['USD'];												
-			$Details[$i]['EUR'] = $dt['balance']['EUR'];													
-			$Details[$i]['GBP'] = $dt['balance']['GBP'];
 
 			$i++;
 		}
@@ -1348,6 +1339,31 @@ $description = "Admin panel for commission";
 $title = "Bitcoin Transactions";
 $keywords = "Bitcoin Transactions";
 $description = "Admin panel for bitcoin transactions";
+		
+
+		return compact(	'transactions','StartDate','EndDate','title','keywords','description')	;
+		
+	}
+	public function litecointransaction(){
+		if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		if($this->request->data){
+			$StartDate = new MongoDate(strtotime($this->request->data['StartDate']));
+			$EndDate = new MongoDate(strtotime($this->request->data['EndDate']));			
+		}else{
+			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
+			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
+		}
+		
+		$transactions = Transactions::find('all',array(
+			'conditions'=>array(
+				'Currency'=>'LTC',
+				'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ,			
+				),
+			'order'=>array('DateTime'=>-1)
+		));
+$title = "Litecoin Transactions";
+$keywords = "Litecoin Transactions";
+$description = "Admin panel for Litecoin transactions";
 		
 
 		return compact(	'transactions','StartDate','EndDate','title','keywords','description')	;
