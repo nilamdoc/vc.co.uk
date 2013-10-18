@@ -663,7 +663,7 @@ class UsersController extends \lithium\action\Controller {
 				$comment = "User: ".$details['username']."; Address: ".$address."; Amount:".$amount.";";
 				if((float)$details['balance.LTC']>=(float)$amount){
 						$settxfee = $litecoin->settxfee($fee);
-						$txid = $litecoin->sendfrom('NilamDoctor', $address, (float)$amount,(int)0,$comment);
+						$txid = $litecoin->sendfrom('NilamDoctor', $address, (float)$amount,(int)1,$comment);
 					if($txid!=null){
 						$tx = Transactions::create();
 						$data = array(
@@ -671,13 +671,13 @@ class UsersController extends \lithium\action\Controller {
 							'TransactionHash' => $txid,
 							'username' => $details['username'],
 							'address'=>$address,							
-							'Amount'=> (float) -$amount,
+							'Amount'=> (float) number_format(-$amount,8),
 							'Currency'=> 'LTC',					
 							'txFee' => (float) -$fee,
 							'Added'=>false,
 							'Transfer'=>$comment,
 						);							
-						$message = "Transfered";
+						$message = number_format($amount,8) . " LTC transfered to ".$address;
 						$tx->save($data);
 						$dataDetails = array(
 								'balance.LTC' => (float)number_format($details['balance.LTC'] - (float)$amount - (float)$fee,8),
