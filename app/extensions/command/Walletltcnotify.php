@@ -31,7 +31,7 @@ class Walletltcnotify extends \lithium\console\Command {
 							'username' => $details['username'],
 							'address'=>$address,
 							'Currency'=>'LTC',
-							'Amount'=> $Amount - (float)$txfee,
+							'Amount'=> $Amount,
 							'Added'=>false
 						);
 						$Transactions = Transactions::find('first',array(
@@ -55,14 +55,14 @@ class Walletltcnotify extends \lithium\console\Command {
 							'username' => $details['username'],
 							'address'=>$address,							
 							'Currency'=>'LTC',							
-							'Amount'=> $Amount - (float)$txfee,
+							'Amount'=> $Amount,
 							'Added'=>true,
 							'Transfer'=>$error,
 						);							
 						$t->save($data);
 							
 						$dataDetails = array(
-								'balance.LTC' => (float)$details['balance.LTC'] + $Amount - (float)$txfee,
+								'balance.LTC' => (float)$details['balance.LTC'] + $Amount,
 							);
 						
 							$details = Details::find('all',

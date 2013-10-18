@@ -662,8 +662,8 @@ class UsersController extends \lithium\action\Controller {
 
 				$comment = "User: ".$details['username']."; Address: ".$address."; Amount:".$amount.";";
 				if((float)$details['balance.LTC']>=(float)$amount){
+						$settxfee = $litecoin->settxfee($fee);
 						$txid = $litecoin->sendfrom('NilamDoctor', $address, (float)$amount,(int)0,$comment);
-		
 					if($txid!=null){
 						$tx = Transactions::create();
 						$data = array(
