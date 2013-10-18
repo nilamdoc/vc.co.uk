@@ -57,7 +57,7 @@ class Walletltcnotify extends \lithium\console\Command {
 						
 							$details = Details::find('all',
 								array(
-										'conditions'=>array('username'=>$litecoin->getaccount($address))
+										'conditions'=>array('username'=>$username)
 									))->save($dataDetails);
 
 						}else{
