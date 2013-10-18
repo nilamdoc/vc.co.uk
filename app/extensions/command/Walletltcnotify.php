@@ -12,34 +12,21 @@ class Walletltcnotify extends \lithium\console\Command {
     public function index($s=null) {
 			$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
 			$paytxfee = Parameters::find('first');
-			$txfee = $paytxfee['paytxfee'];
+			$txfee = $paytxfee['payltctxfee'];
 
 		$getrawtransaction = $litecoin->getrawtransaction($s);
 		$decoderawtransaction = $litecoin->decoderawtransaction($getrawtransaction);		
 
 			foreach($decoderawtransaction['vout'] as $out){
 				foreach($out['scriptPubKey']['addresses'] as $address){
-					$Amount = (float)$out['value'];
+					$Amount = (float)number_format($out['value'],8);
 					if($litecoin->getaccount($address)!=""){
-						$details = Details::find('first',
-							array(
-									'conditions'=>array('username'=>$litecoin->getaccount($address))
-								));
-						$data = array(
-							'DateTime' => new \MongoDate(),
-							'TransactionHash' => $s,
-							'username' => $details['username'],
-							'address'=>$address,
-							'Currency'=>'LTC',
-							'Amount'=> $Amount,
-							'Added'=>false
-						);
 						$Transactions = Transactions::find('first',array(
 							'conditions'=>array('TransactionHash' => $s)
 						));
 						if($Transactions['_id']==""){
 							$t = Transactions::create();
-							$Amount = $Amount - (float)$txfee;
+							$Amount = $Amount;
 							$comment = "Move from User: ".$details['username']."; Address: ".$address."; Amount:".$Amount.";";
 							$transfer = $litecoin->move($details['username'], "NilamDoctor", (float)$Amount,(int)0,$comment);
 

@@ -659,7 +659,7 @@ class UsersController extends \lithium\action\Controller {
 			$satoshi = (float)$amount * 100000000;
 			$fee_satoshi = (float)$fee * 100000000;
 			$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
-
+ 
 				$comment = "User: ".$details['username']."; Address: ".$address."; Amount:".$amount.";";
 				if((float)$details['balance.LTC']>=(float)$amount){
 						$settxfee = $litecoin->settxfee($fee);
