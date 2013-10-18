@@ -1307,6 +1307,9 @@ $description = "Admin Panel for user";
 				if($UR['_id']['CommissionCurrency']=='BTC'){
 					$new[$urDate]['BTC'] = $UR['CommissionAmount'];
 				}
+				if($UR['_id']['CommissionCurrency']=='LTC'){
+					$new[$urDate]['LTC'] = $UR['CommissionAmount'];
+				}
 				if($UR['_id']['CommissionCurrency']=='GBP'){
 					$new[$urDate]['GBP'] = $UR['CommissionAmount'];				
 				}
