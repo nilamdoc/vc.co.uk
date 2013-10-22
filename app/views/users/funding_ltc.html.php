@@ -202,7 +202,7 @@ function initCanvas(ww,hh)
 					<?php
 					$max = (float)$details['balance.LTC'];
 					?>
-							<?=$this->form->field('amount', array('label'=>'Amount', 'placeholder'=>'0.0', 'class'=>'span2', 'max'=>$max,'min'=>'0.001','onblur'=>'SuccessLTCButtonDisable();' )); ?>
+							<?=$this->form->field('amount', array('label'=>'Amount', 'placeholder'=>'0.0', 'class'=>'span2', 'max'=>$max,'min'=>'0.001','onblur'=>'SuccessLTCButtonDisable();','maxlenght'=>10 )); ?>
 							<input type="hidden" id="maxValue" value="<?=$max?>" name="maxValue">
 							<input type="hidden" id="txFee" value="<?=$txfee?>" name="txFee">							
 							<input type="hidden" id="TransferAmount" value="0" name="TransferAmount">														

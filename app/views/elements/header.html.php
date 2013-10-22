@@ -19,6 +19,7 @@ use app\extensions\action\Functions;
 
 			<!-- .nav, .navbar-search, .navbar-form, etc -->
 				<div class="nav-collapse collapse">
+				<?php if($this->_request->controller=='ex'){ ?>
 				<ul class="nav" style="font-size:12px ">
 					<li><a class=" tooltip-x" rel="tooltip-x" data-placement="bottom" title="Latest low price" href="#"><?=$t('Low')?>:<strong><span id="LowPrice" class="btn-success" style="padding:2px"></span></strong></a></li>
 					<li><a class=" tooltip-x" rel="tooltip-x" data-placement="bottom" title="Latest high price" href="#"><?=$t('High')?>:<strong><span id="HighPrice" class="btn-danger"  style="padding:2px"></span></strong></a></li>
@@ -29,6 +30,7 @@ use app\extensions\action\Functions;
 -->
 			<?php }?>
 				</ul>
+				<?php }?>
 				</div>
 			</div>
 			<ul class="nav pull-right">

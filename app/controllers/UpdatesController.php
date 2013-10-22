@@ -11,6 +11,7 @@ use app\models\Parameters;
 use app\models\Details;
 use app\models\Trades;
 use app\models\Orders;
+use MongoDate;
 use lithium\data\Connections;
 use lithium\storage\Session;
 use app\extensions\action\Bitcoin;
@@ -202,6 +203,62 @@ class UpdatesController extends \lithium\action\Controller {
 			'verify'=> $verify,
 		)));
 	}
+
+	public function OHLC($FirstCurrency="BTC",$SecondCurrency="GBP"){
+			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
+			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
+	
+		$mongodb = Connections::get('default')->connection;
+		$Rates = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( 
+				'$project' => array(
+					'_id'=>0,
+					'Action' => '$Action',
+					'PerPrice'=>'$PerPrice',					
+					'Completed'=>'$Completed',					
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',	
+					'TransactDateTime' => '$Transact.DateTime',
+				)),
+				array('$match'=>array(
+					'Completed'=>'Y',					
+					'FirstCurrency'=>$FirstCurrency,
+					'SecondCurrency'=>$SecondCurrency,							
+					'TransactDateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate )
+					)),
+				array('$group' => array( '_id' => array(
+							'year'=>array('$year' => '$TransactDateTime'),
+							'month'=>array('$month' => '$TransactDateTime'),						
+							'day'=>array('$dayOfMonth' => '$TransactDateTime'),												
+  						'hour'=>array('$hour' => '$TransactDateTime'),
+							'FirstCurrency'=>'$FirstCurrency',
+							'SecondCurrency'=>'$SecondCurrency',							
+						),
+					'Open' => array('$first' => '$PerPrice'), 						
+					'Low' => array('$min' => '$PerPrice'), 
+					'High' => array('$max' => '$PerPrice'), 
+					'Close' => array('$last' => '$PerPrice'), 					
+				)),
+				array('$sort'=>array(
+					'_id.year'=>-1,
+					'_id.month'=>-1,
+					'_id.day'=>-1,					
+					'_id.hour'=>-1,					
+				)),
+//				array('$limit'=>1)
+			)
+		));
+
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'Date'=>gmdate('Y-m-d H:i:s',time()),
+			'Data'=>$Rates
+			)));
+	
+	}
+
 
 }
 

@@ -80,13 +80,13 @@ if($$second_curr!=0){ ?>
 			</tr>
 			<tr>
 				<td>
-				<?=$this->form->field('BuyAmount', array('label'=>'Amount '.$first_curr,'class'=>'span1', 'value'=>0, 'onBlur'=>'$("#BuySubmitButton").attr("disabled", "disabled");')); ?>				
+				<?=$this->form->field('BuyAmount', array('label'=>'Amount '.$first_curr,'class'=>'span1', 'value'=>0, 'onBlur'=>'$("#BuySubmitButton").attr("disabled", "disabled");','min'=>'0','max'=>'99999999','maxlength'=>'10')); ?>				
 				</td>
 				<td>
 				<div class="input-append">
 					<label for="BuyPriceper"><?=$t("Price per ")?><?=$first_curr?></label>
-					<input class="span1" id="BuyPriceper" name="BuyPriceper" type="text" onBlur='$("#BuySubmitButton").attr("disabled", "disabled");'>
-					<span class="add-on"> <?=$second_curr?></span>
+					<input class="span1" id="BuyPriceper" name="BuyPriceper" type="text" onBlur='$("#BuySubmitButton").attr("disabled", "disabled");' min="0" max="99999999" maxlength="10">
+					<span class="add-on"> <strong><?=$second_curr?></strong></span>
 				</div>				
 				</td>				
 			</tr>
@@ -192,13 +192,13 @@ if($$second_curr!=0){ ?>
 			</tr>
 			<tr>
 				<td>
-				<?=$this->form->field('SellAmount', array('label'=>'Amount '.$first_curr,'class'=>'span1', 'value'=>0, 'onBlur'=>'$("#SellSubmitButton").attr("disabled", "disabled");')); ?>				
+				<?=$this->form->field('SellAmount', array('label'=>'Amount '.$first_curr,'class'=>'span1', 'value'=>0, 'onBlur'=>'$("#SellSubmitButton").attr("disabled", "disabled");','min'=>'0','max'=>'99999999','maxlength'=>'10')); ?>				
 				</td>
 				<td>
 				<div class="input-append">
 					<label for="SellPriceper"><?=$t("Price per ")?><?=$first_curr?></label>
-					<input class="span1" id="SellPriceper" name="SellPriceper" type="text"  onBlur='$("#SellSubmitButton").attr("disabled", "disabled");'>
-					<span class="add-on"> <?=$second_curr?></span>
+					<input class="span1" id="SellPriceper" name="SellPriceper" type="text"  onBlur='$("#SellSubmitButton").attr("disabled", "disabled");' min="0" max="99999999" maxlength="10">
+					<span class="add-on"> <strong><?=$second_curr?></strong></span>
 				</div>				
 				</td>				
 			</tr>

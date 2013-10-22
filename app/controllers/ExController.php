@@ -152,7 +152,7 @@ class ExController extends \lithium\action\Controller {
 						$orders = Orders::find('first',
 							array('conditions'=>array('_id'=>$PO['_id']))
 						)->save($data);
-						
+
 						$orders = Orders::find('first',
 							array('conditions'=>array('_id'=>$PO['_id']))
 						);
@@ -202,6 +202,7 @@ class ExController extends \lithium\action\Controller {
 						$orders = Orders::find('first',
 							array('conditions'=>array('_id'=>$PO['_id']))
 						)->save($data);
+
 						// --------------------Complete
 						// Create new Order for Previous Order so that the order tallies
 						if($PO['Action']=="Buy"){
@@ -242,6 +243,7 @@ class ExController extends \lithium\action\Controller {
 						$orders = Orders::find('first',
 							array('conditions'=>array('_id'=>$order_id))
 						)->save($data);
+
 						//---------------------Complete
 						//To update Balance						
 						$this->updateBalance($order_id);
@@ -282,6 +284,7 @@ class ExController extends \lithium\action\Controller {
 						$orders = Orders::find('first',
 							array('conditions'=>array('_id'=>$PO['_id']))
 						)->save($data);
+
 						//--------------------Complete
 						// Update current order with new commission and amount
 						if($PO['Action']=="Buy"){
@@ -302,6 +305,7 @@ class ExController extends \lithium\action\Controller {
 						$orders = Orders::find('first',
 							array('conditions'=>array('_id'=>$order_id))
 						)->save($data);
+
 						//--------------------Complete
 						//Create a new order of pending amount 
 						if($PO['Action']=='Buy'){
@@ -1106,6 +1110,8 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 		$mailer->send($message);
 
 	}
+	
+	
 }
 
 ?>
