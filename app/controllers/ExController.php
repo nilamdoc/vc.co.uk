@@ -1143,7 +1143,7 @@ foreach($values['result'] as $result){
 			$ohlc->SetBox();
 
 			$ohlc->tabtitle->Set($first_curr . " / " . $second_curr." - Volume");
-			$ohlc->tabtitle->SetFont(FF_ARIAL,FS_BOLD,12);
+//			$ohlc->tabtitle->SetFont(FF_ARIAL,FS_BOLD,12);
 			
 			// Get week days in curent locale
 //			$days = $gDateLocale->GetShortDay();
