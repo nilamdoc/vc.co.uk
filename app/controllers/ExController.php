@@ -46,7 +46,7 @@ class ExController extends \lithium\action\Controller {
 		$second_curr = strtoupper(substr($currency,4,3));
 		$title = $first_curr . "/" . $second_curr;
 		
-		$this->SetGraph($first_curr,$second_curr);
+//		$this->SetGraph($first_curr,$second_curr);
 		
 		$user = Session::read('member');
 		$id = $user['_id'];
