@@ -11,6 +11,7 @@ require dirname(__FILE__) . '/jpgraph_scatter.php';
 require dirname(__FILE__) . '/jpgraph_contour.php';
 require dirname(__FILE__) . '/jpgraph_regstat.php';
 require dirname(__FILE__) . '/jpgraph_flags.php';
+require dirname(__FILE__) . '/jpgraph_mgraph.php';
 require dirname(__FILE__) . '/jpgraph_plotline.php';
 require dirname(__FILE__) . '/jpgraph_canvas.php';
 require dirname(__FILE__) . '/jpgraph_error.php';

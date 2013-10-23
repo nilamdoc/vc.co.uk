@@ -216,7 +216,8 @@ class UpdatesController extends \lithium\action\Controller {
 				'$project' => array(
 					'_id'=>0,
 					'Action' => '$Action',
-					'PerPrice'=>'$PerPrice',					
+					'PerPrice'=>'$PerPrice',			
+					'Amount' => '$Amount',
 					'Completed'=>'$Completed',					
 					'FirstCurrency'=>'$FirstCurrency',
 					'SecondCurrency'=>'$SecondCurrency',	
@@ -237,25 +238,22 @@ class UpdatesController extends \lithium\action\Controller {
 							'SecondCurrency'=>'$SecondCurrency',							
 						),
 					'Open' => array('$first' => '$PerPrice'), 						
-					'Low' => array('$min' => '$PerPrice'), 
 					'High' => array('$max' => '$PerPrice'), 
+					'Low' => array('$min' => '$PerPrice'), 
 					'Close' => array('$last' => '$PerPrice'), 					
+					'Volume'=> array('$sum'=>'$Amount'),
 				)),
 				array('$sort'=>array(
-					'_id.year'=>-1,
-					'_id.month'=>-1,
-					'_id.day'=>-1,					
-					'_id.hour'=>-1,					
+					'_id.year'=>1,
+					'_id.month'=>1,
+					'_id.day'=>1,					
+					'_id.hour'=>1,					
 				)),
 //				array('$limit'=>1)
 			)
 		));
 
-			return $this->render(array('json' => array('success'=>0,
-			'now'=>time(),
-			'Date'=>gmdate('Y-m-d H:i:s',time()),
-			'Data'=>$Rates
-			)));
+			return $Rates;
 	
 	}
 

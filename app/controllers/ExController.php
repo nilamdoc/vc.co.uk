@@ -13,11 +13,16 @@ use app\models\Trades;
 use app\models\Pages;
 use lithium\data\Connections;
 use MongoID;
+use \Graph;
+use \StockPlot;
+use \BarPlot;
+use \Mgraph;
+use \DateScaleUtils;
 use lithium\util\String;
 use lithium\security\Auth;
 use lithium\storage\Session;
 use app\extensions\action\Functions;
-
+use app\controllers\UpdatesController;
 use \lithium\template\View;
 use \Swift_MailTransport;
 use \Swift_Mailer;
@@ -31,6 +36,7 @@ class ExController extends \lithium\action\Controller {
 	}
 	public function x($currency = null) {
 
+
 	if($this->request->query['json']==true){
 		$this->_render['type'] = 'json';		
 	}
@@ -40,6 +46,7 @@ class ExController extends \lithium\action\Controller {
 		$second_curr = strtoupper(substr($currency,4,3));
 		$title = $first_curr . "/" . $second_curr;
 		
+		$this->SetGraph($first_curr,$second_curr);
 		
 		$user = Session::read('member');
 		$id = $user['_id'];
@@ -1111,7 +1118,78 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 
 	}
 	
-	
+	public function SetGraph($first_curr,$second_curr){
+		$updates = new UpdatesController();
+		$values = $updates->OHLC($first_curr,$second_curr);
+			$datay = array();
+			$days = array();
+			$datav = array();
+			if(count($values['result'])==0){return;}
+foreach($values['result'] as $result){
+	array_push($datay, $result['Open']);
+	array_push($datay, $result['High']);	
+	array_push($datay, $result['Low']);		
+	array_push($datay, $result['Close']);		
+	array_push($datav, $result['Volume']);		
+	array_push($days,$result['_id']['day']."/".$result['_id']['month']."\n ".$result['_id']['hour']."h");
+}
+			
+			// Setup basic graph
+			$ohlc = new Graph(750,300);
+			$ohlc->SetScale("textlin");
+			$ohlc->SetMarginColor('white');
+			$ohlc->SetFrame(true);
+			$ohlc->ygrid->SetFill(true,'#EFEFEF@0.5','#BBCCFF@0.5');
+			$ohlc->SetBox();
+
+			$ohlc->tabtitle->Set($first_curr . " / " . $second_curr." - Volume");
+			$ohlc->tabtitle->SetFont(FF_ARIAL,FS_BOLD,12);
+			
+			// Get week days in curent locale
+//			$days = $gDateLocale->GetShortDay();
+//			array_shift($days); // Start on monday
+			$ohlc->xaxis->SetTickLabels($days);
+			
+			// Create stock plot
+			$p1 = new StockPlot($datay);
+			
+			// Indent plot so first and last bar isn't on the edges
+			$p1->SetCenter();
+			
+			// Add and stroke
+			$ohlc->Add($p1);
+$handle1 = $ohlc->Stroke(_IMG_HANDLER);
+
+// Create the graph and setup the basic parameters 
+$bar = new Graph(750,300,'auto');	
+$bar->img->SetMargin(41,20,42,50);
+$bar->SetScale("textint");
+$bar->xaxis->SetTickLabels($days);
+$bar->yaxis->SetLabelSide(SIDE_RIGHT);
+$bar->yaxis->SetLabelMargin(691);
+$bar->SetFrame(true); // No border around the graph
+// Create a bar pot
+
+$bplot = new BarPlot($datav);
+// Setup the values that are displayed on top of each bar
+$bar->Add($bplot);
+
+// Finally stroke the graph
+
+$handle2 = $bar->Stroke(_IMG_HANDLER);
+
+
+$image = imagecreatetruecolor(750,300);
+imagealphablending($image,true);
+imagecopymerge($image, $handle1,0, 0, 0, 0, 750,300,100);
+imagecopymerge($image, $handle2,0, 0, 0, 0, 750,300,30);
+imagealphablending($image,flase);
+// Stream the result back as a PNG image
+$fileName = LITHIUM_APP_PATH . '/webroot/documents/'. $first_curr."_".$second_curr.".png";
+
+imagepng ($image,$fileName,0,NULL);
+
+	}
 }
 
 ?>

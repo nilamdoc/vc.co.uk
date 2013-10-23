@@ -54,12 +54,26 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 ?>
 <div style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <div class="row" >
+
+<div class="span8" id="Graph" style="text-aligh:center;display:none" >
+		<div class="navbar">
+			<div class="navbar-inner">
+			<a class="brand" href="#" onclick="document.getElementById('Graph').style.display='none';">Graph
+				<i class="icon-remove"></i>
+			</a>
+
+			</div>
+		</div>
+		<div style="padding-bottom:15px;padding-left:10px;margin-top:-20px">
+		<img src="/documents/<?=$first_curr?>_<?=$second_curr?>.png">
+		</div>
+</div>
 <?php 
 if($$second_curr!=0){ ?>
 	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner">
-			<a class="brand" href="#"><?=$t('Buy')?> <?=$first_curr?> <?=$t("with")?> <?=$second_curr?></a>
+			<a class="brand" href="#"  onclick="document.getElementById('Graph').style.display='block';"><?=$t('Buy')?> <?=$first_curr?> <?=$t("with")?> <?=$second_curr?> <i class="icon-indent-left"></i></a>
 			</div>
 		</div>
 		<?=$this->form->create(null); ?>
@@ -112,7 +126,7 @@ if($$second_curr!=0){ ?>
 	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner">
-			<a class="brand" href="#">No funds in <?=$second_curr?></a>
+			<a class="brand" href="#"  onclick="document.getElementById('Graph').style.display='block';">No funds in <?=$second_curr?>  <i class="icon-indent-left"></i></a>
 			</div>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px;height:288px">
 			<tr>
@@ -171,7 +185,7 @@ if($$second_curr!=0){ ?>
 	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner">
-			<a class="brand" href="#"><?=$t('Sell')?> <?=$first_curr?> <?=$t("get")?> <?=$second_curr?></a>
+			<a class="brand" href="#"  onclick="document.getElementById('Graph').style.display='block';"><?=$t('Sell')?> <?=$first_curr?> <?=$t("get")?> <?=$second_curr?> <i class="icon-indent-left"></i></a>
 			</div>
 		</div>
 		<?=$this->form->create(null); ?>		
@@ -224,7 +238,7 @@ if($$second_curr!=0){ ?>
 	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner">
-			<a class="brand" href="#">No funds in <?=$first_curr?></a>
+			<a class="brand" href="#"  onclick="document.getElementById('Graph').style.display='block';">No funds in <?=$first_curr?> <i class="icon-indent-left"></i></a>
 			</div>
 		</div>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px;height:288px">
@@ -241,7 +255,7 @@ if($$second_curr!=0){ ?>
 	<div class="span3"  style="height:314px;">
 		<div class="navbar">
 			<div class="navbar-inner">
-			<a class="brand" href="#"><?=$t('Pending orders')?></a>
+			<a class="brand" href="#"  onclick="document.getElementById('Graph').style.display='block';"><?=$t('Pending orders')?> <i class="icon-indent-left"></i></a>
 			</div>
 			<div id="YourOrders" style="height:280px;overflow:auto;">			
 			<table class="table table-condensed table-bordered table-hover" style="font-size:11px">

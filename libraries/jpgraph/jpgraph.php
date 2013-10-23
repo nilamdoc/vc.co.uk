@@ -17,6 +17,7 @@ require_once('jpgraph_text.inc.php');
 require_once('jpgraph_legend.inc.php');
 require_once('jpgraph_theme.inc.php');
 require_once('gd_image.inc.php');
+require_once('jpgraph_utils.inc.php');
 
 // Version info
 define('JPG_VERSION','3.5.0b1');

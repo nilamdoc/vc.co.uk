@@ -84,7 +84,7 @@ $ex = Session::read('ex');
 
 <body 
 <?php if($this->_request->controller=='ex'){ ?>
-onLoad="UpdateDetails('<?=$ex?>');"
+onLoad="UpdateDetails('<?=$ex?>');UpdateGraph('<?=$ex?>');"
 <?php }?>
  style="background-image:url(/img/worldmap.png);background-position:top;background-repeat:no-repeat ">
 	<div id="container" class="container-fluid">
