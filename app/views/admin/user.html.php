@@ -22,7 +22,7 @@
 	</thead>
 	<tbody>
 <?php 
-print_r($Details);
+
 foreach ($Details as $user){ ?>
 	<tr>
 		<td><a href="/Admin/detail/<?=$user['username']?>"><?=$user['username']?></a></td>
