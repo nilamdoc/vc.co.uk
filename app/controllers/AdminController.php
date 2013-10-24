@@ -1086,7 +1086,7 @@ $description = "Admin panel for withdrawal";
 				))
 			)
 		));
-		
+
 		$trades = Trades::find('all',array(
 			'fields'=>array('trade')
 		));
@@ -1104,10 +1104,10 @@ $description = "Admin panel for withdrawal";
 					$Details[$i]['Sell'][$CGroup]['Amount'] = $YO['Amount'];
 					$Details[$i]['Sell'][$CGroup]['TotalAmount'] = $YO['TotalAmount'];
 				}
-				$Details[$i][$FC] = $dt['balance'][$FC];
-				$Details[$i][$SC] = $dt['balance'][$SC];				
 			}
 		}
+			$Details[$i][$FC] = $dt['balance'][$FC];
+			$Details[$i][$SC] = $dt['balance'][$SC];				
 		
 			$Details[$i]['username'] = $user['username'];							
 			$Details[$i]['firstname'] = $user['firstname'];							
