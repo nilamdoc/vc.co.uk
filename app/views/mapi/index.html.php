@@ -16,7 +16,7 @@
 		<li><strong>BTC</strong></li>
 		<li><strong>LTC</strong></li>
 	</ul>
-	<h4 id="headings">BTC Checkout Button</h4>
+	<h4 id="headings">Simple BTC Checkout Button</h4>
 			<p id="headings">All payments received through this checkout button will be credited to you ibwt.co.uk account</p>
 		<div class="bs-docs-example">
 		If you have signed in as a user you should be able to see the URL with your own API key. <br>
@@ -38,6 +38,7 @@
 		</table>
 		<?php if(strlen($details['key'])>0){?>
 		<div class="bs-docs-tryit">
+		<h4>Get only JSON</h4>
 		<form action="/MAPI/BTC/<?=$key?>" method="post" target="_blank">
 		<table class="table table-condensed " style="width:50% ">
 			<tr>
@@ -51,6 +52,7 @@
 		</form>
 		</div>
 		<div class="bs-docs-tryit">
+		<h4>JSON example to get the Bitcoin Address and QR Image</h4>
 			<table class="table table-condensed " style="width:50% ">
 				<tr>
 					<td>Invoice:</td>
@@ -66,16 +68,37 @@
 				</div>
 				<div id="ibwtBTCImage"></div>
 			</div>
+		<pre  class=" linenums"><?='
+<input type="text" name="invoice_t" id="invoice_t" class="span2" value="">
+
+<a href="#" onclick="GetJSONIBWT();"><img src="/img/ibwt.co.uk-checkout.png" border="0"></a>
+
+<div id="ibwtBTC">
+ <div>Send Bitcoin payment to: 
+  <div id="ibwtBTCAddress"></div>
+ </div>
+ <div id="ibwtBTCImage"></div>
+</div>
+
+<script>
+function GetJSONIBWT(){
+var invoice = document.getElementById("invoice_t").value;
+$.getJSON("http://ibwt.co.uk/MAPI/BTC/'.$key.'?invoice="+invoice,
+ function(ReturnValues){
+ document.getElementById("ibwtBTCAddress").innerHTML = ReturnValues["result"]["address"];
+ document.getElementById("ibwtBTCImage").innerHTML = "<img src=\'"+ReturnValues["result"]["QRimage"]+"\'>";			
+ });
+}
+</script>'?>
+</pre>
 		</div>
 		<?php }?>
 	</div>
-	<pre><?='<span class="ibwtMerchant" data-id="'.$key.'" data-amount="101" data-currency="BTC">
-<a href="https://ibwt.co.uk/MAPI/BTC/'.$key.'">
-	<img src="https://ibwt.co.uk/img/ibwt.co.uk-checkout.png" border="0" />
-</a>
-</span>
-<![if !IE]><script type="text/javascript" src="https://ibwt.co.uk/js/button.min.js"></script><![endif]>'?>
-</pre>
+	<h4 id="headings">BTC Checkout Button with success / cancel URL</h4>
+			<p id="headings">All payments received through this checkout button will be credited to you ibwt.co.uk account</p>
+		<div class="bs-docs-example">
+		New Example
+		</div>	
 </section>
 <script>
 function GetJSONIBWT(){

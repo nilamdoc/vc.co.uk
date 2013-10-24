@@ -95,7 +95,7 @@ class MAPIController extends \lithium\action\Controller {
 		
 		$qrcode->png($address, QR_OUTPUT_DIR.$address.'.png', 'H', 7, 2);
 		
-		$qrimage = "https://ibwt.co.uk/".QR_OUTPUT_RELATIVE_DIR.$address.".png";
+		$qrimage = "https://ibwt.co.uk".QR_OUTPUT_RELATIVE_DIR.$address.".png";
 		$result = array(
 			'address'=>$address,
 			'QRimage' => $qrimage,
