@@ -16,8 +16,7 @@
 			<th>USD</th>															
 			<th>GBP</th>												
 			<th>EUR</th>						
-			<th>Sign in</th>
-			<th>IP</th>
+			<th>Sign in/IP</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -48,8 +47,8 @@ foreach ($Details as $user){ ?>
 		Orders: <?=number_format($user['Buy']['BTC-EUR']['TotalAmount'],4)?><br>
 		<strong>Total: <?=number_format($user['EUR']+$user['Buy']['BTC-EUR']['TotalAmount'],4)?></strong>
 		</td>				
-		<td><?=gmdate('Y-M-d H:i:s',$user['created']->sec)?></td>
-		<td><?=$user['ip']?></td>
+		<td><?=gmdate('Y-M-d H:i:s',$user['created']->sec)?><br>
+			<?=$user['ip']?></td>
 	</tr>
 <?php 
 	$TotalBTC = $TotalBTC + $user['BTC']+$user['Sell']['BTC-USD']['Amount']+$user['Sell']['BTC-GBP']['Amount']+$user['Sell']['BTC-EUR']['Amount']+$user['Sell']['BTC-LTC']['Amount'];
