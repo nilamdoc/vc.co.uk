@@ -1106,9 +1106,13 @@ $description = "Admin panel for withdrawal";
 				}
 			}
 		}
-			$Details[$i][$FC] = $dt['balance'][$FC];
-			$Details[$i][$SC] = $dt['balance'][$SC];				
-		
+
+			foreach($trades as $trade){
+				$FC = substr($trade['trade'],0,3);
+				$SC = substr($trade['trade'],4,3);
+				$Details[$i][$FC] = $dt['balance'][$FC];
+				$Details[$i][$SC] = $dt['balance'][$SC];				
+			}
 			$Details[$i]['username'] = $user['username'];							
 			$Details[$i]['firstname'] = $user['firstname'];							
 			$Details[$i]['lastname'] = $user['lastname'];										
