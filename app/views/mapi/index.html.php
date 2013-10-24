@@ -86,7 +86,7 @@ var invoice = document.getElementById("invoice_t").value;
 $.getJSON("http://ibwt.co.uk/MAPI/BTC/'.$key.'?invoice="+invoice,
  function(ReturnValues){
  document.getElementById("ibwtBTCAddress").innerHTML = ReturnValues["result"]["address"];
- document.getElementById("ibwtBTCImage").innerHTML = "<img src=\'"+ReturnValues["result"]["QRimage"]+"\'>";			
+ document.getElementById("ibwtBTCImage").innerHTML = "<img src=\'"+ReturnValues["result"]["QRimage"]+"\' border="1">";			
  });
 }
 </script>'?>
