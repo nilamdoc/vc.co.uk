@@ -1,21 +1,30 @@
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("Verification Page")?></h3>
+
 <p><?=$t("Though IBWT is not regulated by HMRC, FCA and KYC/AML/MSB standards, we still require a certain level of verification and identity checks. This helps us prevent fraud, keep customers accounts secure and ensure best business practices.")?></p>
 <p><?=$t("Our aim is to inspire trust with customers and establishments to build long lasting relationships.")?></p>
-<p><?=$t("To become IBWT customer")?><sup>1</sup><?=$t(" and use our platform and services, you must submit the following information:")?>
+<p><?=$t("To become IBWT customer and use our platform and services, you must submit the following information:")?><br>
+<?=$t("You can become an IBWT customer of 3 different tiers, having provided the relevant verified information. Each tier offers the services of the lower tiers and increased services.")?></p>
+ 
+<strong><?=$t("Registered")?></strong>
 <ul>
-<li><?=$t("Full name.")?></li>
-<li><?=$t("Government issued photo identification.")?></li>
-<li><?=$t("Proof of address (utility bill, credit statement, or official recognised* letter, NOT mobile phone bill).")?></li>
-<li><?=$t("Bank details for linked bank account, must be in customers own name (account number, sort code, account name).")?></li>
-<li><?=$t("Contact telephone number.")?></li>
-<li><?=$t("Contact email.")?></li>
-<li><?=$t("Deposit ")?>&pound;<?=$t("1 for bank identification.")?></li>
+<li><?=$t("Registered with username and verified with email.")?></li>
+<li><?=$t("May deposit or withdraw bitcoin or litecoin.")?></li>
+<li><?=$t("May use the trading platform.")?></li>
 </ul>
-</p>
-<p><?=$t("IBWT reserve the right to seek more information to verify a customer's identity, and/or to refuse an account if the customer's identity is not verified to our legal requirement.")?></p>
-<p><?=$t("Your information is subject to our ")?><a href="/company/privacy"><?=$t("Privacy Policy")?></a>.</p>
-<p><?=$t("To register an account and submit your verification information please click ")?><a href="/users/signup"><?=$t("here")?></a>.</p>
+<strong><?=$t("Verified")?></strong>
+<ul>
+<li><?=$t("Verified with address.")?></li>
+<li><?=$t("May deposit or withdraw fiat of their locality (up to ")?>&pound;10,000).</li>
+</ul>
+<strong><?=$t("Fully Verified")?></strong>
+<ul>
+<li><?=$t("Verified with Government photo ID.")?></li>
+<li><?=$t("May deposit or withdraw fiat of their locality (up to")?> &pound;50,000).</li>
+</ul> 
+<p><?=$t("IBWT reserve the right to seek more information to verify a customer's identity, and/or to refuse an account if the customer's identity is not verified to our requirement.")?></p>
+<p><?=$t("Your information is subject to our")?> <a href="/company/privacy"><?=$t("Privacy Policy")?>.</a></p>
+<p><?=$t("To register an account and submit your verification information please")?> <a href="/users/signup"><?=$t("click here")?>.</a></p>
 <br>
 <br>
 <br>

@@ -10,9 +10,8 @@ centuries of its existence." <small>Nikola Tesla</small></blockquote>
     <li>Simple verification means you could be a full customer in a matter of days</li>
     <li>Security ensured with Cold Storage, SSL 256bit encryption & 2FA</li>
     <li>Dedicated Server for an enhanced customer experience</li>
-    <li>Deposits & Withdrawals via wire transfers</li>
+    <li>Deposits & Withdrawals via secure mail services.</li>
     <li>Services only available to UK residents</li>
-    <li>Based and registered within the UK to help build your trust</li>
 </ul>
 <h3>About Bitcoin</h3>
 <ul>
