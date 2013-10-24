@@ -1,16 +1,17 @@
 <div id="footer" style="padding:1px 20px; margin-top:20px;border-top:1px solid gray;" class="navbar-inner navbar ">
 	<ul class="nav" style="font-size:11px ">
 		<li><a href="/"><?=$t("Copyright ")?>&copy; IBWT JD LTD. <?=$t("All rights reserved.")?></a></li>
-		<li><a href="/company/contact"><?=$t("Contact us")?></a></li>		
-		<li><a href="/company/aboutus"><?=$t("About us")?></a></li>		
-		<li><a href="/company/riskmanagement"><?=$t("Risk Management")?></a></li>				
+		<li><a href="/company/contact"><?=$t("Contact")?></a></li>		
+		<li><a href="/company/aboutus"><?=$t("About")?></a></li>		
+		<li><a href="/company/riskmanagement"><?=$t("Risk")?></a></li>				
 		<li><a href="/company/verification"><?=$t("Verification")?></a></li>						
-		<li><a href="/company/privacy"><?=$t("Privacy Policy")?></a></li>		
-		<li><a href="/company/termsofservice"><?=$t("Terms of Service")?></a></li>				
+		<li><a href="/company/privacy"><?=$t("Privacy")?></a></li>		
+		<li><a href="/company/termsofservice"><?=$t("Terms")?></a></li>				
 		<li><a href="/company/legal"><?=$t("Legal")?></a></li>		
 		<li><a href="/company/FAQ"><?=$t("FAQ")?></a></li>				
 		<li><a href="/news"><?=$t("News")?></a></li>						
 		<li><a href="/API"><?=$t("API")?></a></li>								
+<!--		<li><a href="/MAPI"><?=$t("Merchant API")?></a></li>										-->
 		<li><a href="/company/resources"><?=$t("Resources")?></a></li>								
 	</ul>
 	<p class="nav" style="font-size:11px;border-top:1px solid black ">

@@ -549,6 +549,7 @@ class UsersController extends \lithium\action\Controller {
 	public function receipt(){
 		$secret = $_GET['secret'];;
 		$userid = $_GET['userid']; //invoice_id is past back to the callback URL
+		$invoice = $_GET['invoice'];
 		$transaction_hash = $_GET['transaction_hash'];
 		$input_transaction_hash = $_GET['input_transaction_hash'];
 		$input_address = $_GET['input_address'];
@@ -584,6 +585,8 @@ class UsersController extends \lithium\action\Controller {
 										)
 									))->save($dataDetails);
 				}
+// Send email to client for payment receipt, if invoice number is present. or not
+
 			return $this->render(array('layout' => false));	
 	}
 	
