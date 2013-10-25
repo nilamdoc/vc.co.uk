@@ -9,6 +9,7 @@
 		<li><a href="/company/termsofservice"><?=$t("Terms")?></a></li>				
 		<li><a href="/company/legal"><?=$t("Legal")?></a></li>		
 		<li><a href="/company/FAQ"><?=$t("FAQ")?></a></li>				
+		<li><a href="/company/funding"><?=$t("Funding")?></a></li>						
 		<li><a href="/news"><?=$t("News")?></a></li>						
 		<li><a href="/API"><?=$t("API")?></a></li>								
 <!--		<li><a href="/MAPI"><?=$t("Merchant API")?></a></li>										-->
