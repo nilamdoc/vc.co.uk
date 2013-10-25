@@ -140,7 +140,7 @@ $Amount = 0;
 			<div class="navbar-inner">
 			<a class="brand" href="#"><?=$t('Transaction in Fiat')?> </a>
 			</div>
-		<table class="table table-condensed table-bordered table-hover" >
+		<table class="table table-condensed table-bordered table-hover" style="font-size:11px">
 		<thead>
 			<tr>
 				<th>Date</th>
