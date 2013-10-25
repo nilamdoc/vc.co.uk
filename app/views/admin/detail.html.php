@@ -251,6 +251,7 @@ foreach ($Fiattransactions as $tx){?>
 				<tr>
 					<th>Summary</th>
 					<th>BTC</th>
+					<th>LTC</th>					
 					<th>USD</th>
 					<th>EUR</th>
 					<th>GBP</th>
@@ -262,9 +263,13 @@ foreach ($Fiattransactions as $tx){?>
 					<td></td>
 					<td></td>
 					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<th>Current Balance</th>
+					<td></td>
+					<td></td>
 					<td></td>
 					<td></td>
 					<td></td>
@@ -274,9 +279,13 @@ foreach ($Fiattransactions as $tx){?>
 					<td></td>
 					<td></td>
 					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<th>Pending Sell Orders</th>
+					<td></td>
+					<td></td>
 					<td></td>
 					<td></td>
 					<td></td>
@@ -286,9 +295,13 @@ foreach ($Fiattransactions as $tx){?>
 					<td></td>
 					<td></td>
 					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<th>Commission</th>
+					<td></td>
+					<td></td>
 					<td></td>
 					<td></td>
 					<td></td>
@@ -298,15 +311,21 @@ foreach ($Fiattransactions as $tx){?>
 					<td></td>
 					<td></td>
 					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<th>Completed Sell Orders</th>
 					<td></td>
 					<td></td>
 					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<th>Completed Order Commission</th>
+					<td></td>
+					<td></td>
 					<td></td>
 					<td></td>
 					<td></td>
