@@ -46,6 +46,10 @@
   <changefreq>monthly</changefreq>
 </url>
 <url>
+  <loc>http://ibwt.co.uk/company/funding</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
   <loc>http://ibwt.co.uk/news</loc>
   <changefreq>monthly</changefreq>
 </url>
@@ -63,6 +67,22 @@
 </url>
 <url>
   <loc>http://ibwt.co.uk/ex/x/btc_gbp</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/ex/x/btc_ltc</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/ex/x/ltc_usd</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/ex/x/ltc_usd</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://ibwt.co.uk/ex/x/ltc_usd</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
