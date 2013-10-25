@@ -17,10 +17,12 @@
 		<td><?=$ur['email']?></td>				
 		<td><?=gmdate('Y-M-d H:i:s',$ur['created']->sec)?></td>
 		<td><?=$ur['ip']?></td>
+		<td></td>
 	</tr>
 <?php  }?>
 	<tr>
 		<th style="text-align:center ">BTC</th>
+		<th style="text-align:center ">LTC</th>		
 		<th style="text-align:center ">USD</th>
 		<th style="text-align:center ">GBP</th>
 		<th style="text-align:center ">EUR</th>
@@ -29,6 +31,7 @@
 <?php foreach($details as $dt){?>
 	<tr>
 		<td style="text-align:center "><?=number_format($dt['balance.BTC'],8)?></td>
+		<td style="text-align:center "><?=number_format($dt['balance.LTC'],8)?></td>		
 		<td style="text-align:center "><?=number_format($dt['balance.USD'],4)?></td>
 		<td style="text-align:center "><?=number_format($dt['balance.GBP'],4)?></td>
 		<td style="text-align:center "><?=number_format($dt['balance.EUR'],4)?></td>
@@ -41,6 +44,7 @@
 		<th style="text-align:center ">Account number</th>
 		<th style="text-align:center ">Bank name</th>
 		<th style="text-align:center ">Bank address</th>
+		<td></td>
 	</tr>
 <?php foreach($details as $dt){?>
 	<tr>
@@ -56,18 +60,21 @@
 		<span class="label label-success">Verified</span>
 		<?php }?>
 		</td>				
+		<td></td>
 	</tr>
-<?php  }?>
+<?php  }
+$Amount = 0;
+?>
 	</tbody>
 </table>
 <hr>
 <div class="row">
-	<div class="span5">
+	<div class="span3">
 		<div class="navbar">
 			<div class="navbar-inner">
 			<a class="brand" href="#"><?=$t('Transactions in BTC')?> </a>
 			</div>
-			<table class="table table-condensed table-bordered table-hover" >
+			<table class="table table-condensed table-bordered table-hover" style="font-size:11px">
 			<thead>
 				<tr>
 					<th>Date</th>
@@ -94,10 +101,44 @@
 			</table>
 		</div>
 	</div>
+
+	<div class="span3">
+		<div class="navbar">
+			<div class="navbar-inner">
+			<a class="brand" href="#"><?=$t('Transactions in LTC')?> </a>
+			</div>
+			<table class="table table-condensed table-bordered table-hover"  style="font-size:11px">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Amount LTC</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php $Amount = 0;
+			foreach ($transactionsLTC as $tx){?>
+			<tr <?php ?> style="background-color:#669933 "></tr>
+				<td><?=gmdate('Y-M-d H:i:s',$tx['DateTime']->sec)?></td>
+				<td style="text-align:right "><?=number_format($tx['Amount'],8)?></td>
+				<td><?php if($tx['Added']==true){echo "Deposit";}else{echo "Withdraw";}?></td>
+			</tr>
+			<?php 
+			$Amount = $Amount + number_format($tx['Amount'],8);
+			} ?>
+			<tr>
+				<th >Total</th>
+				<td style="text-align:right "><?=number_format($Amount,8)?></td>
+				<td></td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+	</div>	
 	<div class="span5">
 		<div class="navbar">
 			<div class="navbar-inner">
-			<a class="brand" href="#"><?=$t('Transaction in other currencies')?> </a>
+			<a class="brand" href="#"><?=$t('Transaction in Fiat')?> </a>
 			</div>
 		<table class="table table-condensed table-bordered table-hover" >
 		<thead>
