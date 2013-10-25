@@ -1127,7 +1127,11 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 			$datav = array();
 			$alts = array();
 			$targ = array();
-			if(count($values['result'])==0){return;}
+			if(count($values['result'])==0){
+				$datay = array(0,0,0,0,0,0,0,0);
+				$datav = array(0,0);
+				$days = array('N','N');
+			}
 			foreach($values['result'] as $result){
 				array_push($datay, $result['Open']);
 				array_push($datay, $result['High']);	
