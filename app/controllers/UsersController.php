@@ -521,6 +521,25 @@ class UsersController extends \lithium\action\Controller {
 		));
 			return compact('details','address','txfee','title','transactions','laddress')	;
 	}
+	public function funding_fiat(){
+				$title = "Funding Fiat";
+
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		$transactions = Transactions::find('all',array(
+				'conditions'=>array(
+				'username'=>$user['username'],
+				'Added'=>false,
+				'Approved'=>'No'
+				)
+		));
+			return compact('details','title','transactions')	;
+	}
 	public function funding_ltc(){
 				$title = "Funding LTC";
 

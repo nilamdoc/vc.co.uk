@@ -43,7 +43,10 @@ use app\extensions\action\Functions;
 				<li><a href="/users/settings"><?=$t('Settings')?></a></li>			
 				<li><a href="/ex/dashboard"><?=$t('Dashboard')?></a></li>
 				<li class="divider"></li>				
-				<li><a href="/users/funding_btc"><?=$t('Funding')?></a></li>							
+				<li><a href="/users/funding_btc"><?=$t('Funding BTC')?></a></li>							
+				<li><a href="/users/funding_ltc"><?=$t('Funding LTC')?></a></li>											
+				<li><a href="/users/funding_fiat"><?=$t('Funding Fiat')?></a></li>											
+				<li class="divider"></li>								
 				<li><a href="/users/transactions"><?=$t('Transactions')?></a></li>							
 				<li class="divider"></li>
 				<li><a href="/logout"><?=$t('Logout')?></a></li>

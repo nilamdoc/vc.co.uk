@@ -15,6 +15,7 @@ use lithium\data\Connections;
 use MongoID;
 use \Graph;
 use \StockPlot;
+use \LinePlot;
 use \BarPlot;
 use \Mgraph;
 use \DateScaleUtils;
@@ -1124,6 +1125,8 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 			$datay = array();
 			$days = array();
 			$datav = array();
+			$alts = array();
+			$targ = array();
 			if(count($values['result'])==0){return;}
 foreach($values['result'] as $result){
 	array_push($datay, $result['Open']);
@@ -1131,10 +1134,12 @@ foreach($values['result'] as $result){
 	array_push($datay, $result['Low']);		
 	array_push($datay, $result['Close']);		
 	array_push($datav, $result['Volume']);		
+	array_push($alts,"O:".$result['Open']);
+	array_push($targ,"1");
 	array_push($days,$result['_id']['day']."/".$result['_id']['month']."\n ".$result['_id']['hour']."h");
 }
 			
-			// Setup basic graph
+/*			// Setup basic graph
 			$ohlc = new Graph(750,300);
 			$ohlc->SetScale("textlin");
 			$ohlc->SetMarginColor('white');
@@ -1152,7 +1157,7 @@ foreach($values['result'] as $result){
 			
 			// Create stock plot
 			$p1 = new StockPlot($datay);
-			
+			$p1->SetCSIMTargets($targ,$alts);			
 			// Indent plot so first and last bar isn't on the edges
 			$p1->SetCenter();
 			
@@ -1188,7 +1193,86 @@ imagealphablending($image,flase);
 $fileName = LITHIUM_APP_PATH . '/webroot/documents/'. $first_curr."_".$second_curr.".png";
 
 imagepng ($image,$fileName,0,NULL);
+*/
 
+
+$graph = new Graph(750,300);
+
+$stock_color_list = array(
+  'pos_lcolor' => '#555555',
+  'pos_color'  => '#5555ee',
+  'neg_lcolor' => '#555555',
+  'neg_color'  => '#ee5555',
+);
+
+$color_list = array(
+  '#cc0055',
+  '#00cc55',
+);
+
+$stock_values     = $datay;
+
+$line_values_list = $datav;
+
+
+$x_labels         = $days;
+
+for ($lg_num = 0; $lg_num <= 1; $lg_num++) {
+  $line_plot_list[$lg_num] = new LinePlot($line_values_list[$lg_num]);
+  $line_plot_list[$lg_num]->SetColor($color_list[$lg_num]);
+  $line_plot_list[$lg_num]->SetWeight(2);
+  $line_plot_list[$lg_num]->SetBarCenter();
+//  $line_plot_list[$lg_num]->SetLegend('??'. intval($lg_num + 1));
+  $graph->add($line_plot_list[$lg_num]);
+}
+
+$graph->SetScale("textlin");
+$graph->SetFrame(false);
+$graph->yaxis->HideTicks(true);
+$graph->SetColor('#ffffff');
+
+$p1 = new StockPlot($stock_values);
+$p1->SetCenter();
+$p1->SetWidth(4);
+$p1->SetColor(
+  $stock_color_list['pos_lcolor'],
+  $stock_color_list['pos_color'],
+  $stock_color_list['neg_lcolor'],
+  $stock_color_list['neg_color']
+);
+$p1->HideEndLines(true);
+$p1->SetLegend('BTC/GBP');
+
+$gb = new BarPlot($datav);
+$gb->SetColor('#5555cc');
+
+$gb->SetLegend('Volume');
+
+
+
+$graph->xaxis->SetTickLabels($x_labels);
+$graph->SetY2Scale('lin');
+$graph->y2scale->SetAutoMin(min($datav));
+$graph->y2scale->SetAutoMax(max($datav));
+$graph->y2axis->HideTicks(true);
+$graph->Add($p1);
+$graph->AddY2($gb);
+$graph->SetMargin(50,50,50,30);
+
+$graph->legend->SetFrameWeight(0);
+$graph->legend->SetShadow(false);
+
+$graph->legend->SetFillColor('#aaaaaa@0.7');
+$graph->legend->SetLineSpacing(8);
+$graph->legend->SetMarkAbsSize(8);
+$graph->legend->SetVColMargin(10);
+$graph->legend->SetHColMargin(15);
+$graph->legend->SetLeftMargin(15);
+$graph->legend->SetPos(0.08, 0.09);
+
+$image = $graph->Stroke(_IMG_HANDLER);
+$fileName = LITHIUM_APP_PATH . '/webroot/documents/'. $first_curr."_".$second_curr.".png";
+imagepng ($image,$fileName,0,NULL);
 	}
 }
 

@@ -98,6 +98,16 @@ class CompanyController extends \lithium\action\Controller {
 		$description = $page['description'];
 		return compact('title','keywords','description');
 	}
+	public function funding(){
+		$page = Pages::find('first',array(
+			'conditions'=>array('pagename'=>'company/funding')
+		));
+
+		$title = $page['title'];
+		$keywords = $page['keywords'];
+		$description = $page['description'];
+		return compact('title','keywords','description');
+	}
 
 }
 ?>

@@ -1,6 +1,12 @@
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("Resources")?></h3>
 
+<blockquote><strong>Archive</strong>
+<ul class="unstyled">
+	<li><a href="/files/HMRC.pdf" target="_blank">Regulation as an MSB/HMRC</a></li>
+	<li><a href="/files/FAC-file.pdf" target="_blank">Regulated Businesses under FCA & FSMA (2000/2001)</a></li>
+</ul>
+</blockquote>
 <blockquote><strong>Alternative Coins</strong>
 		<ul class="unstyled">
 			<li><a href="https://litecoin.org/" target="_blank">Litecoin</a></li>
