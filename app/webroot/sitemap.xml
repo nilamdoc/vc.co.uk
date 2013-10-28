@@ -9,84 +9,76 @@
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/company/contact</loc>
+  <loc>http://ibwt.co.uk/en/company/contact</loc>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/company/resources</loc>
+  <loc>http://ibwt.co.uk/en/company/resources</loc>
   <changefreq>monthly</changefreq>
 </url>
 
 <url>
-  <loc>http://ibwt.co.uk/company/aboutus</loc>
+  <loc>http://ibwt.co.uk/en/company/aboutus</loc>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/company/riskmanagement</loc>
+  <loc>http://ibwt.co.uk/en/company/riskmanagement</loc>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/company/verification</loc>
+  <loc>http://ibwt.co.uk/en/company/verification</loc>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/company/privacy</loc>
+  <loc>http://ibwt.co.uk/en/company/privacy</loc>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/company/termsofservice</loc>
+  <loc>http://ibwt.co.uk/en/company/termsofservice</loc>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/company/legal</loc>
+  <loc>http://ibwt.co.uk/en/company/legal</loc>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/company/FAQ</loc>
+  <loc>http://ibwt.co.uk/en/company/FAQ</loc>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/company/funding</loc>
+  <loc>http://ibwt.co.uk/en/company/funding</loc>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/news</loc>
+  <loc>http://ibwt.co.uk/en/news</loc>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/login</loc>
+  <loc>http://ibwt.co.uk/en/login</loc>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/ex/x/btc_usd</loc>
+  <loc>http://ibwt.co.uk/en/ex/x/btc_usd</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/ex/x/btc_btc</loc>
+  <loc>http://ibwt.co.uk/en/ex/x/btc_gbp</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/ex/x/btc_gbp</loc>
+  <loc>http://ibwt.co.uk/en/ex/x/btc_eur</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/ex/x/btc_ltc</loc>
+  <loc>http://ibwt.co.uk/en/ex/x/btc_ltc</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/ex/x/ltc_usd</loc>
+  <loc>http://ibwt.co.uk/en/ex/x/ltc_usd</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://ibwt.co.uk/ex/x/ltc_usd</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/ex/x/ltc_usd</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/</loc>
+  <loc>http://ibwt.co.uk/en/</loc>
   <changefreq>monthly</changefreq>
 </url>
 </urlset>
