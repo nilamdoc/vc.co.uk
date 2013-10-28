@@ -210,7 +210,7 @@ function CheckPayment(){
 	amount = $("#Amount").val();
 	if(amount==""){return false;}
 	maxValue = $("#maxValue").val();
-	if(amount>maxValue){return false;}
+	if(parseFloat(amount)>parseFloat(maxValue)){return false;}
 	
 	$("#SendFees").html($("#txFee").val());
 
@@ -272,7 +272,7 @@ function CheckLTCPayment(){
 	amount = $("#Amount").val();
 	if(amount==""){return false;}
 	maxValue = $("#maxValue").val();
-	if(amount>maxValue){return false;}
+	if(parseFloat(amount)>parseFloat(maxValue)){return false;}
 	
 	$("#SendLTCFees").html($("#txFee").val());
 

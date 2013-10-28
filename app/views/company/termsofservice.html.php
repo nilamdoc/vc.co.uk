@@ -9,10 +9,10 @@
 
 <p><?=$t("By submitting a request to open an account ('Account') customers confirm that they;")?>
 <ul>
-<li><?=$t("are at least 18 years of age and have the full capacity to wilfully accept these Terms of Service and enter into a transaction resulting on the Platform. ")?></li>
-<li><?=$t("have submitted a true representation of documents to verify their identity. ")?></li>
-<li><?=$t("are resident within the United Kingdom. ")?></li>
-<li><?=$t("and have accepted these Terms of Service.")?></li>
+<li><?=$t('have the full capacity to wilfully accept these Terms of Service and enter into a transaction resulting on the Platform.')?></li>
+<li><?=$t('have submitted a true representation of documents to verify their identity if required for higher deposits/withdrawals.')?></li>
+<li><?=$t('are resident within the United Kingdom.')?></li>
+<li><?=$t('and have accepted these Terms of Service.')?></li>
 </ul>
 </p>
 <p><?=$t("IBWT reserves the right to amend, change, add or remove sections of these Terms at any time. Customers will be notified via a News Release on the IBWT site. It is Customers responsibility to review any such amendments.")?></p>
@@ -30,8 +30,7 @@
 <p><strong><?=$t("Buyer(s)")?></strong>: <?=$t("means Customers(s) that submit an offer to buy Bitcoin(s) on the Platform.")?></p>
 
 <p><strong><?=$t("Customer(s)")?></strong>: <?=$t("Any holder of an account.")?></p>
-
-<p><strong><?=$t("Price")?></strong>: <?=$t("means 'price per coin' for which Customers are willing to purchase or sell Bitcoins, using the Platform in a Bitcoin Purchase Transaction. Customers may only deposit Sterling (GBP) into their account. ")?></p>
+<p><strong><?=$t("Price")?></strong>: <?=$t("means 'price per coin' for which Customers are willing to purchase or sell Bitcoins or Litecoins, using the Platform in a Bitcoin Purchase Transaction. Customers may only deposit Sterling (GBP) to IBWT JD Ltd and have their IBWT account credited the respective amount.")?></p>
 <p><strong><?=$t("Commission")?></strong>: <?=$t("refers to the fee which is payable to IBWT on each Transaction. Fee's at this time are 0.8% per transaction. For Bitcoin Purchases and Sales Transactions,  commission is charged to each customer per transaction in the received denomination. No fees are charged on Bitcoin Transfers or for Bank Transfers. ")?></p>
 
 <p><strong><?=$t("Transaction Price")?></strong>: <?=$t("means the total price paid by the Buyer in respect of each Transaction performed on the Platform.")?></p>
@@ -50,7 +49,7 @@
 <p><?=$t("Customers agree to provide IBWT with complete and accurate information about themselves as required by the verification process. Customers accept it is their responsibility to update any relevant information and that it is their liability of any losses incurred, and that accounts may be frozen until relevant information is updated suitably.")?></p>
 <p><?=$t("Customers are responsible for the security and confidentiality of their Account information, including but not limited to their password, transactions and other related matters. Customers accept it is their responsibility to contact IBWT immediately if they suspect any unauthorized use of their Account, or any other breach of security by email addressed to")?> <a href="mailto:security@<?=COMPANY_URL?>">security@<?=COMPANY_URL?></a>. </p>
 <p><?=$t("Customers may only have one Account at a time, unless they use our services for their business and wish to open a business Account (linked to a registered verified business) and have a personal Account. ")?></p>
-<p><?=$t("Customers agree that all Accounts are personal Accounts, in that linked bank accounts must be in their name. And that no business Account will be opened unless requested via email to ")?><a href="mailto:support@<?=COMPANY_URL?>">support@<?=COMPANY_URL?></a>. </p>
+<p><?=$t("Customers agree that all Accounts are personal Accounts, in that any linked bank accounts must be in their name. And that no business Account will be linked unless requested via email to ")?><a href="mailto:support@<?=COMPANY_URL?>">support@<?=COMPANY_URL?></a>. </p>
 <p><?=$t("The attempted creation or use of Accounts without obtaining such prior express permission from the Platform will lead to the immediate suspension of all said Accounts, as well as all pending purchase/sale offers.")?></p>
 <p><?=$t("IBWT will request identification information (such as invoices, Government issued photographic identification, utility bill, recognised e-bills, residential certificate, banking information, or similar) depending on the amounts deposited on the Accounts or the presence of suspicious activity which may indicate money-laundering or other illegal activity. Identification of the bank account from which funds are transferred to the Account may also be requested. In certain cases extra confirmation of certain documents may be requested from third parties. Transactions may be frozen until the identity check has been considered satisfactory by IBWT. IBWT may request additional identification information at any time at the request by application of any applicable law or regulation.")?></p>
 <p><?=$t("Customers accept that a telephone call may be initiated by IBWT to verify any of the following, but not limited to: verifying identity, transactions, random security checks, or any other related activity.")?></p>
@@ -73,14 +72,12 @@
 <li><strong><?=$t("DEPOSITS & WITHDRAWALS")?></strong>
 <p><?=$t("Customers agree to submit a deposit request before transferring any funds to their IBWT account. And Customers agree to abide by the limits set by IBWT in deposit limits and to wait until their submitted deposit request has been cleared by IBWT. Customers will be notified that their deposit request has been cleared by email notification.")?></p>
 <p><?=$t("If Customers try to deposit without first receiving a cleared deposit request then their funds and account may be frozen and funds returned after investigation into the occurrence.")?></p>
-<p><?=$t("Customers agree to submit a withdrawal request and to wait for their withdrawal request to be confirmed by IBWT before acknowledging the time for their withdrawal to take. Customers acknowledge that withdrawals may take from 24-48 hours, and that IBWT reserve the right to delay withdrawal and/or deposit requests to allow for traffic of customers transfer of funds to move easier.")?></p>
+<p><?=$t("Customers agree to submit a withdrawal request and to wait for their withdrawal request to be confirmed by IBWT before acknowledging the time for their withdrawal to take. Customers acknowledge that withdrawals may take from 1-3 days, depending upon the time the request is made and upon Royal Mail, and that IBWT is not liable for Royal Mail or any other postal or parcel services that are used.")?></p>
 <p><?=$t("Customers will be notified of their cleared deposit request or any issues with their request via their registered email as the primary contact source.")?></p>
 <p><?=$t("Customers assume full liability for any bank charges incurred as a result of wire transfers being reversed due to not waiting for a cleared deposit request.")?></p>
-<p><?=$t("Customers accept that they have 24 hours to transfer funds from receiving the cleared deposit request, if funds are not deposited within the 24 hours of receipt (of the deposit request) then Customers accept that IBWT will assume the deposit request has been cancelled and Customers will have to submit another deposit request.")?></p>
-<p><?=$t("Trying to conduct wire transfers with cleared deposit requests or outside of the 24 hour time period after receiving a cleared request will be considered suspicious activity and will be investigated and related accounts and funds may be frozen until the issue is resolved.")?></p>
+<p><?=$t("Customers accept that they are liable for compensation cover fees that Royal Mail or any other parcel or postal service may charge. And that these fee’s will be subtracted from their IBWT account.")?></p>
+<p><?=$t("Customers acknowledge that if they do not have suitable funds in their IBWT account to cover the withdrawal compensation cover, that their withdrawal will be declined. And that they will be emailed as such.")?></p>
 <p><?=$t("Customers acknowledge that deposits/withdrawals made after 17:00 on a Friday may not be processed until the following Monday.")?></p>
-<p><?=$t("From September the 30th onwards (2013), due to our banking partner, withdrawals are subject to a ")?>&pound;1 <?=$t("flat fee, regardless of amount withdrawn per withdrawal. This amount is noted on your funding withdrawal page and automatically added to your withdrawal.")?></p>
-<p><?=$t("IBWT reserves the right to temporarily move fiat capital to trusted associated accounts in the case of capital parameters being exceeded (e.g. Customers wrongly using the IBWT platform as a place of fiat storage for a long period of time).  Such capital is returned to the primary business account once fiat capital total is lowered. This action may cause a slight delay (an extra 24 hours) in withdrawal for those customers that have used their account in such a (storage) way. We try to remind our customers at every opportunity that our services operate as an exchange, and should not be used as a place of storage.")?></p>
 </li>
 <li><strong><?=$t("OBLIGATIONS")?></strong>
 <p><u><?=$t("IBWT Obligations")?></u>
@@ -91,8 +88,9 @@
 <li><?=$t("That once offers have been met, they cannot be withdrawn.")?></li>
 <li><?=$t("It will hold all GBP and Bitcoins deposited by each Customer in their Accounts, in that Customers registered name and with relation to their details and on such Customers behalf.")?></li>
 <li><?=$t("IBWT will ensure that it keeps itself updated with regards to the development of the Bitcoin economy and any relevant regulation with regard to its Services it provides and the Platform it operates.")?></li>
-<li><?=$t("IBWT reserves the right to suspend/freeze your account if you, as a Customer breaks these Terms of Service.</li>
-<li>Customers understand and accept that IBWT cannot process requests made after 17:00 (GMT) Fridays until the following Monday, and that IBWT is not liable for any loss caused by delays of processing requests.")?></li>
+<li><?=$t("IBWT reserves the right to suspend/freeze your account if you, as a Customer breaks these Terms of Service.")?></li>
+<li><?=$t("IBWT will use suitable 3rd party storage facilities (safety deposit boxes and similar) to safeguard user funds.")?></li>
+<li><?=$t("Customers understand and accept that IBWT cannot process requests made after 17:00 (GMT) Fridays until the following Monday, and that IBWT is not liable for any loss caused by delays of processing requests.")?></li>
 </ul>
 </p>
 <p><u><?=$t("Customers Obligations")?></u>
@@ -164,11 +162,11 @@
 <p><?=$t("In the case where Customers do not wish to make use of the functionalities of the Platform after having transferred currencies on their account, they may request that said currencies be returned to them. In this case, the same procedure as stipulated under the preceding paragraph shall apply.")?></p>
 </li>
 <li><strong><?=$t("GOVERNING LAW")?></strong>
-<p><?=$t("This website is controlled by IBWT JD Ltd from our offices located in the county of Devon, England and Wales. By accessing our website, customer agrees that the statutes and laws of the England and Wales, without regard to the conflict of laws and the United Nations Convention on the International Sales of Goods, will apply to all matters relating to the use of this website and the purchase of any products or services through this site.")?></p>
+<p><?=$t("This website is controlled by IBWT JD Ltd from our offices located in the county of Devon, England and Wales, and via trusted IBWT staff located globally. By accessing our website, customer agrees that the statutes and laws of the England and Wales, without regard to the conflict of laws and the United Nations Convention on the International Sales of Goods, will apply to all matters relating to the use of this website and the purchase of any products or services through this site.")?></p>
 <p><?=$t("Furthermore, any action to enforce this User Agreement shall be brought in the courts located in England and Wales, Devon. Customer  hereby agree to personal jurisdiction by such courts, and waive any jurisdictional, venue, or inconvenient forum objections to such courts.")?></p>
 </li>
 <li><strong><?=$t("DATA PROTECTION ACT (1998)")?></strong>
-<p><?=$t("When a customer opens an Account to use the Platform or otherwise use this Site IBWT may ask the customer  to provide us with personal information. As IBWT is governed by the Data Protection Act (1998) any personal information that  a customer  provides to IBWT through this Site shall be subject to our privacy policy. Click the following to see our privacy policy.")?></p>
+<p><?=$t("When a customer opens an Account to use the Platform or otherwise use this Site IBWT may ask the customer to provide us with personal information. As IBWT is governed by the Data Protection Act (1998) any personal information that a customer provides to IBWT through this Site shall be subject to our ")?><a href="/company/privacy">Privacy Policy.</a></p>
 </li>
 <li><strong><?=$t("MISCELLANEOUS")?></strong>
 <p><?=$t("In case of a force majeure event as defined by applicable law, the liabilities of the affected party to these Terms will be suspended pending resolution of such event.")?></p>

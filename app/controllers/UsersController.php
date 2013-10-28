@@ -621,10 +621,12 @@ class UsersController extends \lithium\action\Controller {
 		);
 		
 		if ($this->request->data) {
+
 			$guid=BITCOIN_GUID;
 			$firstpassword=BITCOIN_FIRST;
 			$secondpassword=BITCOIN_SECOND;
 			$amount = $this->request->data['TransferAmount'];
+			if($details['balance.BTC']<=$amount){return false;}			
 			$fee = $this->request->data['txFee'];
 			$address = $this->request->data['bitcoinaddress'];
 			$satoshi = (float)$amount * 100000000;
@@ -676,6 +678,8 @@ class UsersController extends \lithium\action\Controller {
 		
 		if ($this->request->data) {
 			$amount = $this->request->data['TransferAmount'];
+			if($details['balance.LTC']<=$amount){return false;}		
+
 			$fee = $this->request->data['txFee'];
 			$address = $this->request->data['litecoinaddress'];
 			$satoshi = (float)$amount * 100000000;
