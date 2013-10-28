@@ -201,10 +201,10 @@ function initCanvas(ww,hh)
 									<?php
 									$max = (float)$details['balance.BTC'];
 									?>
-											<?=$this->form->field('amount', array('label'=>'Amount', 'placeholder'=>'0.0', 'class'=>'span2', 'max'=>$max,'min'=>'0.001','onblur'=>'SuccessButtonDisable();','maxlenght'=>10)); ?>
+											<?=$this->form->field('amount', array('label'=>'Amount', 'placeholder'=>'0.0', 'class'=>'span2', 'max'=>$max,'min'=>'0.001','onFocus'=>'SuccessButtonDisable();','maxlenght'=>10)); ?>
 											<input type="hidden" id="maxValue" value="<?=$max?>" name="maxValue">
 											<input type="hidden" id="txFee" value="<?=$txfee?>" name="txFee">							
-											<input type="hidden" id="TransferAmount" value="0" name="TransferAmount">														
+											<input type="hidden" id="TransferAmount" value="0" name="TransferAmount" onFocus="SuccessButtonDisable()">														
 											<div id="SendCalculations">
 												<table class="table table-condensed table-bordered table-hover">
 													<tr>

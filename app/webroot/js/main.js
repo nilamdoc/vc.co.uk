@@ -264,7 +264,7 @@ function litecoinAddress(){
 	SuccessLTCButtonDisable();
 	}
 function SuccessLTCButtonDisable(){
-	$("#SendLiteSuccessButton").attr("disabled", "disabled");
+	$("#SendLTCSuccessButton").attr("disabled", "disabled");
 	}
 function CheckLTCPayment(){
 	address = $("#litecoinaddress").val();

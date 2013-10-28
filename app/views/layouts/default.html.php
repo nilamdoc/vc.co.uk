@@ -27,7 +27,7 @@
 	<script src="/bootstrap/js/jquery.js"></script>	
 	<script src="/bootstrap/js/bootstrap-datepicker.js"></script>	
 	<?php
-	$this->scripts('<script src="/js/main.js"></script>'); 	
+	$this->scripts('<script src="/js/main.js?v='.rand(1,100000000).'"></script>'); 	
 	$this->scripts('<script src="/bootstrap/js/application.js"></script>'); 
 	$this->scripts('<script src="/bootstrap/js/bootstrap-affix.js"></script>'); 
 	$this->scripts('<script src="/bootstrap/js/bootstrap-alert.js"></script>'); 
