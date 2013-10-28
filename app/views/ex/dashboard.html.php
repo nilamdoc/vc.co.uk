@@ -304,16 +304,16 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 				<?php foreach ($TotalOrders['Buy']['result'] as $r){ ?>
 					<tr>
 						<td><?=$r['_id']['Action']?> <?=$r['_id']['FirstCurrency']?> with <?=$r['_id']['SecondCurrency']?></td>
-						<td style="text-align:right "><?=$r['Amount']?></td>
-						<td style="text-align:right "><?=$r['TotalAmount']?></td>						
+						<td style="text-align:right "><?=number_format($r['Amount'],8)?></td>
+						<td style="text-align:right "><?=number_format($r['TotalAmount'],8)?></td>						
 						<td style="text-align:right "><?=number_format($r['TotalAmount']/$r['Amount'],8)?></td>												
 					</tr>
 				<?php }?>
 				<?php foreach ($TotalOrders['Sell']['result'] as $r){ ?>
 					<tr>
 						<td><?=$r['_id']['Action']?> <?=$r['_id']['FirstCurrency']?> with <?=$r['_id']['SecondCurrency']?></td>
-						<td style="text-align:right "><?=$r['Amount']?></td>
-						<td style="text-align:right "><?=$r['TotalAmount']?></td>						
+						<td style="text-align:right "><?=number_format($r['Amount'],8)?></td>
+						<td style="text-align:right "><?=number_format($r['TotalAmount'],8)?></td>						
 						<td style="text-align:right "><?=number_format($r['TotalAmount']/$r['Amount'],8)?></td>																		
 					</tr>
 				<?php }?>
@@ -323,16 +323,16 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 				<?php foreach ($TotalCompleteOrders['Buy']['result'] as $r){ ?>
 					<tr>
 						<th><?=$r['_id']['Action']?> <?=$r['_id']['FirstCurrency']?> with <?=$r['_id']['SecondCurrency']?></th>
-						<th style="text-align:right "><?=$r['Amount']?></th>
-						<th style="text-align:right "><?=$r['TotalAmount']?></th>						
+						<th style="text-align:right "><?=number_format($r['Amount'],8)?></th>
+						<th style="text-align:right "><?=number_format($r['TotalAmount'],8)?></th>						
 						<td style="text-align:right "><?=number_format($r['TotalAmount']/$r['Amount'],8)?></td>																		
 					</tr>
 				<?php }?>
 				<?php foreach ($TotalCompleteOrders['Sell']['result'] as $r){ ?>
 					<tr>
 						<th><?=$r['_id']['Action']?> <?=$r['_id']['FirstCurrency']?> with <?=$r['_id']['SecondCurrency']?></th>
-						<th style="text-align:right "><?=$r['Amount']?></th>
-						<th style="text-align:right "><?=$r['TotalAmount']?></th>						
+						<th style="text-align:right "><?=number_format($r['Amount'],8)?></th>
+						<th style="text-align:right "><?=number_format($r['TotalAmount'],8)?></th>						
 						<td style="text-align:right "><?=number_format($r['TotalAmount']/$r['Amount'],8)?></td>																		
 					</tr>
 				<?php }?>
