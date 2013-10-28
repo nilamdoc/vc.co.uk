@@ -25,8 +25,9 @@ If you have no printer (or ran out of ink) please make sure you copy the followi
 	<li>The AMOUNT deposited</li>
 	<li>The TIMESTAMP/DATE deposited</li>
 	<li>The REFERENCE on your deposit request</li>
-Please address to the company's registered address;
-	<li>IBWT JD Ltd</li>
+</ul>
+<span>Please address to the company's registered address;</span>
+<ul class="unstyled">	<li>IBWT JD Ltd</li>
 	<li>31 North Down Crescent</li>
 	<li>Keyham, Plymouth</li>
 	<li>Devon, PL2 2AR</li>
