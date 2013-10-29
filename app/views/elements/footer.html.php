@@ -32,4 +32,4 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-43128731-1', 'ibwt.co.uk');
   ga('send', 'pageview');
-</script>s
+</script>
