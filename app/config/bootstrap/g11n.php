@@ -48,7 +48,7 @@ date_default_timezone_set('UTC');
  * @see lithiumm\core\Environment
  */
 $locale = 'en';
-$locales = array('en' => 'English', 'fr' => 'French');
+$locales = array('en' => 'English');
 Environment::set('production', compact('locale', 'locales'));
 Environment::set('development', compact('locale', 'locales'));
 Environment::set('test', array('locale' => 'en', 'locales' => array('en' => 'English')));

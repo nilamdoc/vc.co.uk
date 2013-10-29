@@ -2,6 +2,9 @@
 use lithium\storage\Session;
 use app\extensions\action\Functions;
 ?>
+<?php use lithium\core\Environment; 
+if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = Environment::get('locale');}
+?>
 <?php $user = Session::read('member'); ?>
 <div class="navbar navbar-fixed-top" >
 	<div class="navbar-inner" style="width: auto; padding: 0 20px;">
@@ -13,7 +16,7 @@ use app\extensions\action\Functions;
 			<span class="icon-bar"></span>
 			</a>
 			<!-- Be sure to leave the brand out there if you want it shown -->
-			<a class="brand" href="/"><img src="/img/ibwt.co.uk.gif" alt="ibwt.co.uk"></a>
+			<a class="brand" href="/<?=$locale?>/"><img src="/img/ibwt.co.uk.gif" alt="ibwt.co.uk"></a>
 			<!-- Everything you want hidden at 940px or less, place within here -->
 		<div>
 
