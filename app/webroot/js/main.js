@@ -242,12 +242,29 @@ function CheckDeposit(){
 	if(AmountFiat==""){return false;}
 	}
 function CheckWithdrawal(){
-	AccountName = $("#AccountName").val();
-	if(AccountName==""){return false;}
-	SortCode = $("#SortCode").val();
-	if(SortCode==""){return false;}
-	AccountNumber = $("#AccountNumber").val();
-	if(AccountNumber==""){return false;}
+	
+	if($("#WithdrawalMethod").val()=="bank"){
+		AccountName = $("#AccountName").val();		
+		if(AccountName==""){return false;}
+		SortCode = $("#SortCode").val();
+		if(SortCode==""){return false;}
+		AccountNumber = $("#AccountNumber").val();
+		if(AccountNumber==""){return false;}
+	}
+	if($("#WithdrawalMethod").val()=="post"){
+		PostalName = $("#PostalName").val();
+		if(PostalName==""){return false;}		
+		PostalStreet = $("#PostalStreet").val();
+		if(PostalStreet==""){return false;}		
+		PostalAddress = $("#PostalAddress").val();
+		if(PostalAddress==""){return false;}		
+		PostalCity = $("#PostalCity").val();
+		if(PostalCity==""){return false;}		
+		PostalZip = $("#PostalZip").val();
+		if(PostalZip==""){return false;}		
+		PostalCountry = $("#PostalCountry").val();
+		if(PostalCountry==""){return false;}		
+	}
 	WithdrawAmountFiat = $("#WithdrawAmountFiat").val();
 	if(WithdrawAmountFiat==""){return false;}
 	if(parseInt(WithdrawAmountFiat)<=5){return false;}
