@@ -10,10 +10,11 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 		<div class="navbar">
 			<div class="navbar-inner">
 			<a class="brand" href="#"><?=$t('Accounts')?> </a>
-			<a href="/users/funding_btc" class="btn btn-primary"><?=$t("Funding BTC")?></a>
-			<a href="/users/funding_ltc" class="btn btn-primary"><?=$t("Funding LTC")?></a>			
-			<a href="/users/funding_fiat" class="btn btn-primary"><?=$t("Funding Fiat ")?></a>						
-			<a href="/users/transactions" class="btn btn-primary"><?=$t("Transactions")?></a>			
+			<a href="/<?=$locale?>/users/funding_btc" class="btn btn-primary"><?=$t("Funding BTC")?></a>
+			<a href="/<?=$locale?>/users/funding_ltc" class="btn btn-primary"><?=$t("Funding LTC")?></a>			
+			<a href="/<?=$locale?>/users/funding_fiat" class="btn btn-primary"><?=$t("Funding Fiat")?></a>						
+			<a href="/<?=$locale?>/users/transactions" class="btn btn-primary"><?=$t("Transactions")?></a>			
+			<a href="/<?=$locale?>/users/settings" class="btn btn-primary"><?=$t("Settings")?></a>									
 			</div>
 		</div>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">

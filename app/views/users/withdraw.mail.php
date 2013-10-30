@@ -5,6 +5,9 @@
 
 <p>You have requested to withdraw money from <?=COMPANY_URL?>.</p>
 <table>
+<?php 
+	if($data['WithdrawalMethod']=='bank'){
+?>
 		<tr>
 			<td>Account name:</td>
 			<td><?=$data['AccountName']?></td>
@@ -17,6 +20,35 @@
 			<td>Account number:</td>
 			<td><?=$data['AccountNumber']?></td>
 		</tr>
+<?php }?>
+<?php 
+	if($data['WithdrawalMethod']=='post'){
+?>
+		<tr>
+			<td>Name:</td>
+			<td><?=$data['Postal']['Name']?></td>
+		</tr>
+		<tr>
+			<td>Address:</td>
+			<td><?=$data['Postal']['Address']?></td>
+		</tr>
+		<tr>
+			<td>Street:</td>
+			<td><?=$data['Postal']['Street']?></td>
+		</tr>
+		<tr>
+			<td>City:</td>
+			<td><?=$data['Postal']['City']?></td>
+		</tr>
+		<tr>
+			<td>Zip:</td>
+			<td><?=$data['Postal']['Zip']?></td>
+		</tr>
+		<tr>
+			<td>Country:</td>
+			<td><?=$data['Postal']['Country']?></td>
+		</tr>
+<?php }?>		
 		<tr>
 			<td>Reference:</td>
 			<td><strong><?=$data['Reference']?></strong></td>

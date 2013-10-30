@@ -8,12 +8,12 @@
 
 <table>
 		<tr>
-			<td>Sort code: </td>
-			<td>08-71-99</td>	
-		</tr>
-		<tr>
-			<td>Account number:</td>
-			<td>59044675</td>
+			<td>Registered Address: </td>
+			<td>IBWT JD Ltd<br>
+				 31 North Down Crescent<br>
+				 Keyham, Plymouth<br>
+				 Devon, PL2 2AR<br>
+				United Kingdom</td>
 		</tr>
 		<tr>
 			<td>Reference:</td>

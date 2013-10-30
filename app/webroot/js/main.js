@@ -290,3 +290,14 @@ function CheckLTCPayment(){
 		});
 	return true;
 	}
+function PaymentMethod(value){
+	if(value=="bank"){
+		$("#WithdrawalBank").show();
+		$("#WithdrawalPost").hide();
+	}
+	if(value=="post"){
+		$("#WithdrawalBank").hide();
+		$("#WithdrawalPost").show();
+	}
+	
+	}

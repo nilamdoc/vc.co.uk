@@ -43,19 +43,19 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 			<?=$user['username']?> <i class=' icon-chevron-down'></i>
 			</a>
 			<ul class="dropdown-menu">
-				<li><a href="/users/settings"><?=$t('Settings')?></a></li>			
-				<li><a href="/ex/dashboard"><?=$t('Dashboard')?></a></li>
+				<li><a href="/<?=$locale?>/users/settings"><?=$t('Settings')?></a></li>			
+				<li><a href="/<?=$locale?>/ex/dashboard"><?=$t('Dashboard')?></a></li>
 				<li class="divider"></li>				
-				<li><a href="/users/funding_btc"><?=$t('Funding BTC')?></a></li>							
-				<li><a href="/users/funding_ltc"><?=$t('Funding LTC')?></a></li>											
-				<li><a href="/users/funding_fiat"><?=$t('Funding Fiat')?></a></li>											
+				<li><a href="/<?=$locale?>/users/funding_btc"><?=$t('Funding BTC')?></a></li>							
+				<li><a href="/<?=$locale?>/users/funding_ltc"><?=$t('Funding LTC')?></a></li>											
+				<li><a href="/<?=$locale?>/users/funding_fiat"><?=$t('Funding Fiat')?></a></li>											
 				<li class="divider"></li>								
-				<li><a href="/users/transactions"><?=$t('Transactions')?></a></li>							
+				<li><a href="/<?=$locale?>/users/transactions"><?=$t('Transactions')?></a></li>							
 				<li class="divider"></li>
-				<li><a href="/logout"><?=$t('Logout')?></a></li>
+				<li><a href="/<?=$locale?>/logout"><?=$t('Logout')?></a></li>
 			</ul>
 			<?php }else{?>
-					<a href="/login" class="btn"><?=$t('Login / Register')?></a>			
+					<a href="/<?=$locale?>/login" class="btn"><?=$t('Login / Register')?></a>			
 			<?php }?>				
 			</ul>			
 		</div>

@@ -1,3 +1,6 @@
+<?php use lithium\core\Environment; 
+if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = Environment::get('locale');}
+?>
 <?php
 use li3_qrcode\extensions\action\QRcode;
 ?>
@@ -26,7 +29,7 @@ use li3_qrcode\extensions\action\QRcode;
 					if($details['email']['verified']=='Yes'){
 						echo '<a href="#" class="label label-success">Verified</a>';
 						}else{
-						echo '<a href="/users/email"  class="label label-important">Verify</a>';
+						echo '<a href="/'.$locale.'/users/email"  class="label label-important">Verify</a>';
 						}?></td>
 			</tr>
 			<tr>
@@ -85,43 +88,76 @@ use li3_qrcode\extensions\action\QRcode;
 	</div>
 	<div id="collapseBank" class="accordion-body <?php if($option=="bank"){?><?php }else{?>collapse<?php }?>">
 		<div class="accordion-inner">
-		<a href="/users/addbank">Add/Edit bank details</a>
-		<table class="table">
-			<tr>
-				<td>Account name:</td>
-				<td><?=$details['bank']['accountname']?></td>
-			</tr>
-			<tr>
-				<td>Sort Code:</td>
-				<td><?=$details['bank']['sortcode']?></td>
-			</tr>
-			<tr>
-				<td>Account number:</td>
-				<td><?=$details['bank']['accountnumber']?></td>
-			</tr>
-			<tr>
-				<td>Bank name:</td>
-				<td><?=$details['bank']['bankname']?></td>
-			</tr>
-			<tr>
-				<td>Branch address:</td>
-				<td><?=$details['bank']['branchaddress']?></td>
-			</tr>
-			<tr>
-				<td>Verified:</td>
-				<td><?=$details['bank']['verified']?>
-				<?php 
-					if($details['bank']['verified']=='Yes'){
-						echo '<a href="#" class="label label-success">Verified</a>';
-						}else{
-						echo '<a href="/users/funding_fiat"  class="label label-important">Funding Fiat</a>';
-						}?>
-				</td>
-			</tr>
-		</table>
+			<div class="row">
+				<div class="span5">
+				<a href="/<?=$locale?>/users/addbank">Add/Edit bank details</a>
+				<table class="table">
+					<tr>
+						<td>Account name:</td>
+						<td><?=$details['bank']['accountname']?></td>
+					</tr>
+					<tr>
+						<td>Sort Code:</td>
+						<td><?=$details['bank']['sortcode']?></td>
+					</tr>
+					<tr>
+						<td>Account number:</td>
+						<td><?=$details['bank']['accountnumber']?></td>
+					</tr>
+					<tr>
+						<td>Bank name:</td>
+						<td><?=$details['bank']['bankname']?></td>
+					</tr>
+					<tr>
+						<td>Branch address:</td>
+						<td><?=$details['bank']['branchaddress']?></td>
+					</tr>
+					<tr>
+						<td>Verified:</td>
+						<td><?=$details['bank']['verified']?>
+						<?php 
+							if($details['bank']['verified']=='Yes'){
+								echo '<a href="#" class="label label-success">Verified</a>';
+								}else{
+								echo '<a href="/users/funding_fiat"  class="label label-important">Funding Fiat</a>';
+								}?>
+						</td>
+					</tr>
+				</table>
+				</div>
+				<div class="span5">
+				<a href="/<?=$locale?>/users/addpostal">Add/Edit Postal address</a>
+				<table class="table">
+					<tr>
+						<td>Name:</td>
+						<td><?=$details['postal']['Name']?></td>
+					</tr>
+					<tr>
+						<td>Address:</td>
+						<td><?=$details['postal']['Address']?></td>
+					</tr>
+					<tr>
+						<td>Street:</td>
+						<td><?=$details['postal']['Street']?></td>
+					</tr>
+					<tr>
+						<td>City:</td>
+						<td><?=$details['postal']['City']?></td>
+					</tr>
+					<tr>
+						<td>Postal / Zip Code:</td>
+						<td><?=$details['postal']['Zip']?></td>
+					</tr>
+					<tr>
+						<td>Country:</td>
+						<td><?=$details['postal']['Country']?></td>
+					</tr>
+				</table>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="accordion-heading" style="background-color:#c0d1b0">
+	<div class="accordion-heading" style="background-color:#C5E3B0">
 		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseGovernment">
 		<strong class="label label-success">Government ID:</strong>
 		</a>

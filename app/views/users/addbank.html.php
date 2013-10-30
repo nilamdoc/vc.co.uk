@@ -11,7 +11,7 @@ foreach($details as  $d){
 <?=$this->form->field('accountnumber', array('label'=>'3. Account number','placeholder'=>'Account number','value'=>$d['bank']['accountnumber'] )); ?>
 <?=$this->form->field('bankname', array('label'=>'4. Bank name','placeholder'=>'Bank name','value'=>$d['bank']['bankname'] )); ?>
 <?=$this->form->field('branchaddress', array('label'=>'5. Branch address','placeholder'=>'Branch address','value'=>$d['bank']['branchaddress'] )); ?>
-<?=$this->form->submit('Save bank',array('class'=>'btn btn-primary','onclick'=>'return addBank();')); ?>
+<?=$this->form->submit('Save bank',array('class'=>'btn btn-primary')); ?>
 <?=$this->form->end(); ?>
 <?php }?>
 	</div>

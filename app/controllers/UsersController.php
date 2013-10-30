@@ -827,19 +827,37 @@ class UsersController extends \lithium\action\Controller {
 		$AccountName = $this->request->data['AccountName'];
 		$SortCode = $this->request->data['SortCode'];
 		$AccountNumber = $this->request->data['AccountNumber'];		
+
+		$PostalName = $this->request->data['PostalName'];		
+		$PostalStreet = $this->request->data['PostalStreet'];		
+		$PostalCity = $this->request->data['PostalCity'];		
+		$PostalAddress = $this->request->data['PostalAddress'];		
+		$PostalZip = $this->request->data['PostalZip'];		
+		$PostalCountry = $this->request->data['PostalCountry'];		
+		$WithdrawalMethod = $this->request->data['WithdrawalMethod'];
 		$amountFiat = $this->request->data['WithdrawAmountFiat'];
 		$Currency = $this->request->data['WithdrawCurrency']; 
 		$Reference = $this->request->data['WithdrawReference']; 		
+		
 		$data = array(
 				'DateTime' => new \MongoDate(),
 				'username' => $details['username'],
 				'Amount'=> (float)$amountFiat,
-				'Currency'=> $Currency,					
+				'Currency' => $Currency,					
 				'Added'=>false,
 				'Reference'=>$Reference,
 				'AccountName'=>$AccountName,
 				'SortCode'=>$SortCode,
 				'AccountNumber'=>$AccountNumber,
+				'WithdrawalMethod' => $WithdrawalMethod,
+				'Postal'=>array(
+					'Name' => $PostalName,
+					'Address' => $PostalAddress,					
+					'Street' => $PostalStreet,					
+					'City' => $PostalCity,					
+					'Zip' => $PostalZip,					
+					'Country' => $PostalCountry,					
+				),
 				'Approved'=>'No'
 		);
 		$tx = Transactions::create();
@@ -898,5 +916,33 @@ class UsersController extends \lithium\action\Controller {
 	}
 
 	public function deleteaccount(){}
+	
+	public function addpostal(){
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('Users::index');}		
+		$user_id = $user['_id'];
+		$details = Details::find('all',array(
+				'conditions'=>array('user_id'=>$user_id)
+			));		
+		$title = "Add Address";
+			
+		return compact('details','title');
+	
+	}
+	public function addpostaldetails(){
+		$user = Session::read('default');
+		$user_id = $user['_id'];
+		$data = array();
+		if($this->request->data) {	
+			$data['postal'] = $this->request->data;
+			$data['postal']['id'] = new MongoID;
+			$data['postal']['verified'] = 'No';
+			Details::find('all',array(
+				'conditions'=>array('user_id'=>$user_id)
+			))->save($data);
+		}
+		return $this->redirect('Users::settings');
+	
+	}
 }
 ?>

@@ -2,6 +2,7 @@
 .Address_success{background-color: #9FFF9F;font-weight:bold}
 </style>
 <h4>Funding - GBP / USD / EUR</h4>
+<h2 class="alert alert-error">Please do not send funds to Bank Account through wire transfer!</h2>
 <div class="accordion" id="accordion2">
 	<div class="accordion-group">
 		<div class="accordion-heading">
@@ -155,17 +156,61 @@
 									<td style="text-align:right "><?=$details['balance.EUR']-$AmountEUR?> EUR</td>					
 								</tr>							
 								<tr>
-									<td colspan="2">Account name:</td>
-									<td colspan="2"><input type="text" name="AccountName" id="AccountName" placeholder="Verified bank account name" value="<?=$details['bank.bankname']?>"></td>
+									<td colspan="2">Withdrawal Method:</td>
+									<td colspan="2">
+										<select name="WithdrawalMethod" id="WithdrawalMethod" onChange="PaymentMethod(this.value);">
+											<option value="post">Postal Address - Royal Mail</option>
+											<option value="bank" disabled="disabled">Bank - Disabled</option>
+										</select>
+									</td>
 								</tr>
-								<tr>
-									<td colspan="2">Sort code: </td>
-									<td colspan="2"><input type="text" name="SortCode" id="SortCode" placeholder="01-01-10" value="<?=$details['bank.sortcode']?>"></td>
-								</tr>
-								<tr>
-									<td colspan="2">Account number:</td>
-									<td colspan="2"><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bank.accountnumber']?>"></td>
-								</tr>
+								<td colspan="4">
+									<div id="WithdrawalBank" style="display:none">
+								<table class="table table-condensed table-bordered table-hover">								
+									<tr>
+										<td>Account name:</td>
+										<td><input type="text" name="AccountName" id="AccountName" placeholder="Verified bank account name" value="<?=$details['bank.bankname']?>"></td>
+									</tr>
+									<tr>
+										<td>Sort code: </td>
+										<td><input type="text" name="SortCode" id="SortCode" placeholder="01-01-10" value="<?=$details['bank.sortcode']?>"></td>
+									</tr>
+									<tr>
+										<td>Account number:</td>
+										<td><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bank.accountnumber']?>"></td>
+									</tr>
+									</table>
+									</div>
+									<div id="WithdrawalPost"  style="display:block">
+									<table class="table table-condensed table-bordered table-hover">
+									<tr>
+										<td>Name:</td>
+										<td><input type="text" name="PostalName" id="PostalName" placeholder="Name" value="<?=$details['postal.Name']?>"></td>
+									</tr>
+									<tr>
+										<td>Address:</td>
+										<td><input type="text" name="PostalAddress" id="PostalAddress" placeholder="Name" value="<?=$details['postal.Address']?>"></td>
+									</tr>
+									<tr>
+										<td>Street:</td>
+										<td><input type="text" name="PostalStreet" id="PostalStreet" placeholder="Street" value="<?=$details['postal.Street']?>"></td>
+									</tr>
+									<tr>
+										<td>City:</td>
+										<td><input type="text" name="PostalCity" id="PostalCity" placeholder="City" value="<?=$details['postal.City']?>"></td>
+									</tr>
+									<tr>
+										<td>Postal / Zip code:</td>
+										<td><input type="text" name="PostalZip" id="PostalZip" placeholder="Zip" value="<?=$details['postal.Zip']?>"></td>
+									</tr>
+									<tr>
+										<td>Country:</td>
+										<td><input type="text" name="PostalCountry" id="PostalCountry" placeholder="Country" value="<?=$details['postal.Country']?>"></td>
+									</tr>
+									
+									</table>
+									</div>
+							</td>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Quote this reference number in your withdrawal">
 									<td colspan="2">Reference:</td>
 									<?php $Reference = substr($details['username'],0,10).rand(10000,99999);?>
