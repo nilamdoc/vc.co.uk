@@ -111,8 +111,7 @@
 <ul ><li><?=$t("Litecoin deposits and withdrawals are subject to the Litecoin protocol.")?></li></ul>
 </blockquote>
 
-<p><strong><u><?=$t("Security")?></u></strong></p>
-<blockquote>
+
 
 <a href="/users/funding_btc" class="btn btn-primary">Funding BTC</a>
 <a href="/users/funding_ltc" class="btn btn-primary">Funding LTC</a>
