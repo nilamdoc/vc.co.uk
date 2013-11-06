@@ -1,3 +1,7 @@
+<?php
+use app\models\Parameters;
+$Comm = Parameters::find('first');
+?>
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("Terms of Service")?></h3>
 
@@ -31,7 +35,7 @@
 
 <p><strong><?=$t("Customer(s)")?></strong>: <?=$t("Any holder of an account.")?></p>
 <p><strong><?=$t("Price")?></strong>: <?=$t("means 'price per coin' for which Customers are willing to purchase or sell Bitcoins or Litecoins, using the Platform in a Bitcoin Purchase Transaction. Customers may only deposit Sterling (GBP) to IBWT JD Ltd and have their IBWT account credited the respective amount.")?></p>
-<p><strong><?=$t("Commission")?></strong>: <?=$t("refers to the fee which is payable to IBWT on each Transaction. Fee's at this time are 0.8% per transaction. For Bitcoin Purchases and Sales Transactions,  commission is charged to each customer per transaction in the received denomination. No fees are charged on Bitcoin Transfers or for Bank Transfers. ")?></p>
+<p><strong><?=$t("Commission")?></strong>: <?=$t("refers to the fee which is payable to IBWT on each Transaction. Fee's at this time are ")?> <strong><?=$Comm['value']?></strong>% <?=$t("per transaction. For Bitcoin Purchases and Sales Transactions,  commission is charged to each customer per transaction in the received denomination. No fees are charged on Bitcoin Transfers or for Bank Transfers. ")?></p>
 
 <p><strong><?=$t("Transaction Price")?></strong>: <?=$t("means the total price paid by the Buyer in respect of each Transaction performed on the Platform.")?></p>
 <p><strong><?=$t("Transaction")?></strong>: <?=$t("means;")?> 

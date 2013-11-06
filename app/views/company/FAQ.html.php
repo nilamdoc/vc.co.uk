@@ -1,3 +1,7 @@
+<?php
+use app\models\Parameters;
+$Comm = Parameters::find('first');
+?>
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("FAQ")?></h3>
 
@@ -7,9 +11,9 @@
 </blockquote>
 <p><strong><u><?=$t("Fees")?></u></strong></p>
 <blockquote><ul>
-<li><?=$t("We charge 0.8% per transaction.")?></li>
-<li><?=$t("If you ")?><strong><?=$t("buy")?></strong><?=$t(" 1 Bitcoin our fee is ")?><strong>0.008</strong><?=$t(" Bitcoins.")?></li>
-<li><?=$t("If you ")?><strong><?=$t("sell")?></strong> &pound;100 <?=$t("worth of Bitcoins our fee is ")?><strong>80</strong> <?=$t("pence")?>.</li>
+<li>We charge <strong><?=$Comm['value']?></strong>% per transaction.</li>
+<li><?=$t("If you ")?><strong><?=$t("buy")?></strong><?=$t(" 1 Bitcoin our fee is ")?><strong><?=$Comm['value']/100?></strong><?=$t(" Bitcoins.")?></li>
+<li><?=$t("If you ")?><strong><?=$t("sell")?></strong> &pound;100 <?=$t("worth of Bitcoins our fee is ")?><strong><?=$Comm['value']*100?></strong> <?=$t("pence")?>.</li>
 </ul>
 </blockquote>
 <p><strong><u><?=$t("Deposits/Withdrawals")?></u></strong></p>

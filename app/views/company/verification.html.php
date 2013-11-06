@@ -11,11 +11,12 @@
 <li><?=$t("Registered with username and verified with email.")?></li>
 <li><?=$t("May deposit or withdraw bitcoin or litecoin.")?></li>
 <li><?=$t("May use the trading platform.")?></li>
+<li><?=$t("May deposit fiat to purchase Bitcoins (")?>&pound;<?=$t("10,000 daily).")?></li>
 </ul>
 <strong><?=$t("Verified")?></strong>
 <ul>
 <li><?=$t("Verified with address.")?></li>
-<li><?=$t("May deposit or withdraw fiat of their locality (up to ")?>&pound;10,000).</li>
+<li><?=$t("May withdraw fiat of their locality (up to ")?>&pound;10,000).</li>
 </ul>
 <strong><?=$t("Fully Verified")?></strong>
 <ul>

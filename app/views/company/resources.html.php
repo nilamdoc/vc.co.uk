@@ -3,6 +3,8 @@
 
 <blockquote><strong>Archive</strong>
 <ul class="unstyled">
+	<li><a href="/files/Processes.pdf" target="_blank">IBWT Processes</a></li>
+	<li><a href="/files/Brito_BitcoinPrimer.pdf" target="_blank">Bitcoin - A Primer for Policy Makers</a></li>
 	<li><a href="/files/HMRC.pdf" target="_blank">Regulation as an MSB/HMRC</a></li>
 	<li><a href="/files/25-10-2013-FCA.pdf" target="_blank">Regulated Businesses under FCA & FSMA (2000/2001)</a></li>
 </ul>
@@ -10,6 +12,7 @@
 <blockquote><strong>Alternative Coins</strong>
 		<ul class="unstyled">
 			<li><a href="https://litecoin.org/" target="_blank">Litecoin</a></li>
+			<li><a href="https://litecoin.info/Main_Page" target="_blank">Litecoin Information</a></li>
 		</ul>
 	</li>
 </blockquote>	

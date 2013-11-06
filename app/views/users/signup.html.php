@@ -1,3 +1,7 @@
+<?php
+use app\models\Parameters;
+$Comm = Parameters::find('first');
+?>
 <div class="row">
 	<div class="span4 well">
 		<div class="navbar">
@@ -29,7 +33,7 @@
 			</div><br>
 		<h3>In Bitcoin We Trust: ibwt.co.uk</h3>
 		<ul>
-			<li>Fees are 0.8% per transaction.</li>
+			<li>Fees are <strong><?=$Comm['value']?></strong>% per transaction.</li>
 			<li>Simple verification means you could be a full customer in a matter of days.</li>
 			<li>Security ensured with Cold Storage, SSL 256bit encryption & 2FA.</li>
 			<li>Dedicated Server for an enhanced customer experience.</li>
@@ -44,6 +48,7 @@
 			<li>Proof of address (utility bill, credit statement, or official recognised letter, NOT mobile phone bill).</li>
 			For business customers wishing to link a business account, please contact <a href="mailto:support@ibwt.co.uk">support@ibwt.co.uk</a>.
 			<li>Bank details for linked bank account, must be in customers own name (account number, sort code, account name).</li>
+			<li>Address proof for sending withdrawals.</li>
 			<li>Contact telephone number.</li>
 			<li>Contact email.</li>
 		</ul>
