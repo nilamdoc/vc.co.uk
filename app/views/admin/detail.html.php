@@ -62,6 +62,23 @@
 		</td>				
 		<td></td>
 	</tr>
+	<tr>
+		<th style="text-align:center ">Name</th>
+		<th style="text-align:center ">Address</th>
+		<th style="text-align:center ">Street</th>
+		<th style="text-align:center ">City</th>
+		<th style="text-align:center ">Zip</th>
+		<th style="text-align:center ">Country</th>
+	</tr>
+	<tr>
+		<td style="text-align:center "><?=$dt['postal.Name']?></td>
+		<td style="text-align:center "><?=$dt['postal.Address']?></td>
+		<td style="text-align:center "><?=$dt['postal.Street']?></td>
+		<td style="text-align:center "><?=$dt['postal.City']?></td>
+		<td style="text-align:center "><?=$dt['postal.Zip']?></td>				
+		<td style="text-align:center "><?=$dt['postal.Country']?></td>
+
+	</tr>
 <?php  }
 $Amount = 0;
 ?>
