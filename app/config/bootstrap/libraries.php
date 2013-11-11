@@ -125,6 +125,7 @@ Libraries::add('li3_behaviors');
 Libraries::add('li3_translate');
 Libraries::add('li3_qrcode');
 Libraries::add('li3_pdf');
+//Libraries::add('li3_show');
 Libraries::add('jpgraph', array( 	'bootstrap' => 'jpgraph_required.php' ));
 Libraries::add('swiftmailer', array(	'bootstrap' => 'swift_required.php'));
 ?>
