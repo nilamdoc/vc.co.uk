@@ -1,6 +1,10 @@
 <?php
 use app\models\Parameters;
+use lithium\core\Environment; 
 $Comm = Parameters::find('first');
+?>
+<?php 
+if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = Environment::get('locale');}
 ?>
 <div class="row">
 	<div class="well span8" >
@@ -19,9 +23,10 @@ $Comm = Parameters::find('first');
 	</ul>
 	<h3>About Bitcoin</h3>
 	<ul>
-		<li><a href="http://www.coindesk.com/information/" target="_blank">Information from Coindesk</a></li>
+		<li><a href="http://www.coindesk.com/information/" target="_blank">Beginners Guide To Bitcoin</a></li>
 		<li><a href="http://bitcoin.org/en/" target="_blank">Bitcoin Organization</a></li>
 		<li><a href="https://en.bitcoin.it/wiki/Main_Page" target="_blank">Bitcoin Wiki</a></li>
+		<li><a href="http://bitcoinmagazine.com/" target="_blank">Bitcoin Magazine</a></li>
 	</ul>
 	<h3>Security</h3>
 	<ul>
@@ -38,6 +43,7 @@ $Comm = Parameters::find('first');
 	<div class="span3 bs-docs-site" style="min-height:732px; ">
 		<div style="overflow:auto;height:425px">
 			<ul class="unstyled">
+				<li><a href="/<?=$locale?>/news">News</a></li>
 				<li><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank">Explanation: Bitcoin - The Future Currency</a></li>
 			</ul>
 		</div>
