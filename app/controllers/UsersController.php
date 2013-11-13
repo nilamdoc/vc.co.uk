@@ -835,6 +835,7 @@ class UsersController extends \lithium\action\Controller {
 		$PostalZip = $this->request->data['PostalZip'];		
 		$PostalCountry = $this->request->data['PostalCountry'];		
 		$WithdrawalMethod = $this->request->data['WithdrawalMethod'];
+		$WithdrawalCharges = $this->request->data['WithdrawalCharges'];		
 		$amountFiat = $this->request->data['WithdrawAmountFiat'];
 		$Currency = $this->request->data['WithdrawCurrency']; 
 		$Reference = $this->request->data['WithdrawReference']; 		
@@ -850,6 +851,7 @@ class UsersController extends \lithium\action\Controller {
 				'SortCode'=>$SortCode,
 				'AccountNumber'=>$AccountNumber,
 				'WithdrawalMethod' => $WithdrawalMethod,
+				'WithdrawalCharges' => $WithdrawalCharges,
 				'Postal'=>array(
 					'Name' => $PostalName,
 					'Address' => $PostalAddress,					

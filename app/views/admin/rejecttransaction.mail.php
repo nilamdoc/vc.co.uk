@@ -7,14 +7,6 @@
 <strong style="color:#FF0000 "><?=$Transactions['Reason']?></strong>
 <table>
 		<tr>
-			<td>Sort code: </td>
-			<td>08-71-99</td>	
-		</tr>
-		<tr>
-			<td>Account number:</td>
-			<td>59044675</td>
-		</tr>
-		<tr>
 			<td>Reference:</td>
 			<td><strong><?=$Transactions['Reference']?></strong></td>
 		</tr>

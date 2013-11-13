@@ -48,15 +48,15 @@ $parameters = (array) $params['request'];
 				)
 			);
 
-			$transport = Swift_MailTransport::newInstance();
-			$mailer = Swift_Mailer::newInstance($transport);
+//			$transport = Swift_MailTransport::newInstance();
+//			$mailer = Swift_Mailer::newInstance($transport);
 	
-			$message = Swift_Message::newInstance();
-			$message->setSubject("ERROR ".COMPANY_URL);
-			$message->setFrom(array(NOREPLY => 'ERROR '.COMPANY_URL));
-			$message->setTo($email);
-			$message->setBody($body,'text/html');
-			$mailer->send($message);
+//			$message = Swift_Message::newInstance();
+//			$message->setSubject("ERROR ".COMPANY_URL);
+//			$message->setFrom(array(NOREPLY => 'ERROR '.COMPANY_URL));
+//			$message->setTo($email);
+//			$message->setBody($body,'text/html');
+//			$mailer->send($message);
 
 	return $response;
 });
