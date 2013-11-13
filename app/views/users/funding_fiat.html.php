@@ -28,11 +28,11 @@
 					<?php 
 					if(strlen($details['bank.verified'])==0){
 					?>
-						<a href="/users/settings/bank" class="label label-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Bank Account")?></a>
+						<a href="/users/settings/bank" class="label label-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Withdrawal Address & Bank")?></a>
 					<?php }elseif($details['bank.verified']=='No'){?>
-						<a href="#" class="label label-important tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Bank Account")?></a>
+						<a href="#" class="label label-important tooltip-x" rel="tooltip-x" data-placement="top" title="Pending verification!"><i class="icon-edit icon-black"></i> <?=$t("Withdrawal Address & Bank")?></a>
 					<?php }else{ ?>
-						<a href="#" class="label label-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Bank Account")?></a>					
+						<a href="#" class="label label-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Withdrawal Address & Bank")?></a>					
 					<?php }	?>
 <!-----Bank Details end----->					
 <!-----Government Details start----->					
@@ -164,6 +164,24 @@
 										</select>
 									</td>
 								</tr>
+								<tr>
+									<td colspan="2">Withdrawal Charges </td>
+									<td colspan="2">
+									<input type="radio" name="WithdrawalCharges" value="PriceFinder" id="WithdrawalCharges">
+								<strong>1st Class</strong> <a href="http://www.royalmail.com/price-finder" target="_blank">Price Finder</a><br>
+									&pound;50 = &pound;1.70<br>
+									&pound;500 = &pound;6.22<br>
+									&pound;1,000 = &pound;19.84<br>
+									&pound;2,500 = &pound;23.34<br>
+										<input type="radio" name="WithdrawalCharges" value="PostalOrder" id="WithdrawalCharges">
+									<a href="http://www.postoffice.co.uk/postal-orders" target="_blank">Postal Order</a><br>
+									&pound;0.50 - &pound;4.99 = 50p<br>
+									&pound;5 - &pound;9.99 = &pound;1.00<br>
+									&pound;10.00 - &pound;99.99 = 12.50%<br>
+									&pound;100 - &pound;250 = 12.50%<br>
+</td>
+								</tr>
+								
 								<td colspan="4">
 									<div id="WithdrawalBank" style="display:none">
 								<table class="table table-condensed table-bordered table-hover">								
@@ -230,8 +248,11 @@
 											<option value="EUR">EUR</option>							
 									</select></td>
 								</tr>
+								<tr>
+									<td colspan="4"><p><strong>Make SURE you choose the appropriate Royal Mail charge to cover the amount you are withdrawing and that your IBWT account contains enough to cover the charge. Otherwise your withdrawal will be declined by IBWT.</strong></p></td>
+								</tr>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Once your email is approved, you will receive the funds in your bank account">
-									<td colspan="2" style="text-align:center ">
+									<td colspan="4" style="text-align:center ">
 									<input type="hidden" name="WithdrawReference" id="WithdrawReference" value="<?=$Reference?>">
 										<input type="submit" value="Send email to admin for approval" class="btn btn-primary" onclick="return CheckWithdrawal();">
 									</td>

@@ -3,7 +3,7 @@
 </div>
 <h4>Hi <?=$user['firstname']?>,</h4>
 
-<p>You have requested to withdraw money from <?=COMPANY_URL?>.</p>
+<p>You have requested to withdraw money from <?=COMPANY_URL?> through <strong><?=$data['WithdrawalCharges']?></strong>.</p>
 <table>
 <?php 
 	if($data['WithdrawalMethod']=='bank'){
@@ -61,6 +61,10 @@
 			<td>Currency:</td>
 			<td><?=$data['Currency']?></td>
 		</tr>		
+		<tr>
+			<td>Withdrawal Charges:</td>
+			<td><?=$data['WithdrawalCharges']?></td>
+		</tr>
 </table>
 <p><strong><u>Deposits/Withdrawals</u></strong></p>
 <blockquote>

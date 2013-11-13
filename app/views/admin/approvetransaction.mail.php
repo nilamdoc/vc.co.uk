@@ -6,14 +6,6 @@
 <p>Your deposit has been approved <?=COMPANY_URL?>.</p>
 <table>
 		<tr>
-			<td>Sort code: </td>
-			<td>08-71-99</td>	
-		</tr>
-		<tr>
-			<td>Account number:</td>
-			<td>59044675</td>
-		</tr>
-		<tr>
 			<td>Reference:</td>
 			<td><strong><?=$Transactions['Reference']?></strong></td>
 		</tr>

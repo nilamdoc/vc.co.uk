@@ -3,7 +3,7 @@
 <h5>Hi <?=$user['firstname']?>,</h5>
 
 <p>You have requested to deposit money to <?=COMPANY_URL?>.</p>
-<p><strong>Make SURE you deposit from your verified account. Money sent from any other account will result in the transaction being blocked and investigated.</strong></p>
+<p><strong>Make SURE you deposit to your verified account. Money attempted to be sent to any other account will result in the transaction being blocked and investigated.</strong></p>
 <table>
 		<tr>
 			<td>Registered Address: </td>
@@ -65,10 +65,10 @@
 <u>GBP / USD / EUR</u>
 <ul >
 <li><?=$t("Transfers are only processed weekdays, barring bank holidays.")?></li>
-<li><?=$t("It can take us up to 24 hours to verify and confirm your deposit request. Customers then have 24 hours to make their deposit. If a deposit is not made in the 24 window then IBWT assumes you have cancelled your deposit request and you will need to make request if you wish to deposit.")?></li>
-<li><?=$t("If your bank does not subscribe to Faster Payments (most UK banks do) then please let us know.")?></li>
-<li><?=$t("It can take us up to 24 hours to verify, confirm and start the process transfer for your withdrawal requests.")?></li>
-<li><?=$t("If the Customer's bank subscribes to Faster Payments the money will reach their account usually within 24 hours but can sometimes take up to close of business the next working day. Otherwise payments take 4 working days to process.")?></li>
+<li><?=$t("It can take us up to 24 hours to verify and confirm your deposit request once received. Royal Mail takes 1-4 days to deliver, depending upon your choice of 1st or 2nd class.")?></li>
+<li><?=$t("It can take us up to 24 hours to verify, confirm and start the process for your withdrawal requests.")?></li>
+<li><?=$t("It can then take Royal Mail 1-3 days to deliver your withdrawal (we always use 1st Class).")?></li>
+<li><?=$t("We are not liable for Royal Mail incidents.")?></li>
 </ul>
 <u><?=$t("Bitcoin")?></u>
 <ul ><li><?=$t("Bitcoin deposits and withdrawals are subject to the Bitcoin protocol.")?></li></ul>

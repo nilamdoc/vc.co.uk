@@ -1,3 +1,6 @@
+<?php use lithium\core\Environment; 
+if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = Environment::get('locale');}
+?>
 <div id="footer" style="padding:1px 20px; margin-top:20px;border-top:1px solid gray;" class="navbar-inner navbar ">
 	<ul class="nav" style="font-size:11px ">
 		<li><a href="/<?=$locale?>/"><?=$t("Copyright ")?>&copy; IBWT JD LTD. <?=$t("All rights reserved.")?></a></li>
