@@ -164,24 +164,8 @@
 										</select>
 									</td>
 								</tr>
+
 								<tr>
-									<td colspan="2">Withdrawal Charges </td>
-									<td colspan="2">
-									<input type="radio" name="WithdrawalCharges" value="PriceFinder" id="WithdrawalCharges">
-								<strong>1st Class</strong> <a href="http://www.royalmail.com/price-finder" target="_blank">Price Finder</a><br>
-									&pound;50 = &pound;1.70<br>
-									&pound;500 = &pound;6.22<br>
-									&pound;1,000 = &pound;19.84<br>
-									&pound;2,500 = &pound;23.34<br>
-										<input type="radio" name="WithdrawalCharges" value="PostalOrder" id="WithdrawalCharges">
-									<a href="http://www.postoffice.co.uk/postal-orders" target="_blank">Postal Order</a><br>
-									&pound;0.50 - &pound;4.99 = 50p<br>
-									&pound;5 - &pound;9.99 = &pound;1.00<br>
-									&pound;10.00 - &pound;99.99 = 12.50%<br>
-									&pound;100 - &pound;250 = 12.50%<br>
-</td>
-								</tr>
-								
 								<td colspan="4">
 									<div id="WithdrawalBank" style="display:none">
 								<table class="table table-condensed table-bordered table-hover">								
@@ -237,8 +221,11 @@
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Amount should be between 6 and 10000">
 									<td colspan="2">Amount:</td>
 									<td colspan="2"><input type="text" value="" class="span2" placeholder="6.0" min="6" max="10000" name="WithdrawAmountFiat" id="WithdrawAmountFiat" maxlength="5"><br>
-				<small style="color:red ">&pound;1 withdrawal fee automatically added.<br>
-				Minimum withdrawal &pound;5.</small></td>
+				<small style="color:red ">&pound;1 withdrawal fee.
+(postage/packing, taken from your IBWT account). <br>
+Withdrawals must be in denominations of &pound;5.
+(must be paper money, no coins).<br>
+Unless postal order is required.</small></td>
 								</tr>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Select a currency">
 									<td colspan="2">Currency:</td>
@@ -247,6 +234,23 @@
 											<option value="USD">USD</option>							
 											<option value="EUR">EUR</option>							
 									</select></td>
+								</tr>
+								<tr>
+									<td colspan="2">Withdrawal Charges </td>
+									<td colspan="2">
+									<input type="radio" name="WithdrawalCharges" value="PriceFinder" id="WithdrawalCharges">
+								<strong>1st Class</strong> <a href="http://www.royalmail.com/price-finder" target="_blank">Price Finder</a><br>
+									&pound;50 = &pound;1.70<br>
+									&pound;500 = &pound;6.22<br>
+									&pound;1,000 = &pound;19.84<br>
+									&pound;2,500 = &pound;23.34<br>
+										<input type="radio" name="WithdrawalCharges" value="PostalOrder" id="WithdrawalCharges">
+									<a href="http://www.postoffice.co.uk/postal-orders" target="_blank">Postal Order</a><br>
+									&pound;0.50 - &pound;4.99 = 50p<br>
+									&pound;5 - &pound;9.99 = &pound;1.00<br>
+									&pound;10.00 - &pound;99.99 = 12.50%<br>
+									&pound;100 - &pound;250 = 12.50%<br>
+									</td>
 								</tr>
 								<tr>
 									<td colspan="4"><p><strong>Make SURE you choose the appropriate Royal Mail charge to cover the amount you are withdrawing and that your IBWT account contains enough to cover the charge. Otherwise your withdrawal will be declined by IBWT.</strong></p></td>

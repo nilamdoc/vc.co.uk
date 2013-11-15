@@ -25,6 +25,14 @@
 	if($data['WithdrawalMethod']=='post'){
 ?>
 		<tr>
+			<td>Withdrawal Method:</td>
+			<td><?=$data['WithdrawalMethod']?></td>
+		</tr>
+		<tr>
+			<td>Withdrawal Chrages:</td>
+			<td><?=$data['WithdrawalCharges']?></td>
+		</tr>
+		<tr>
 			<td>Name:</td>
 			<td><?=$data['Postal']['Name']?></td>
 		</tr>
@@ -41,7 +49,7 @@
 			<td><?=$data['Postal']['City']?></td>
 		</tr>
 		<tr>
-			<td>Zip:</td>
+			<td>Postal Code:</td>
 			<td><?=$data['Postal']['Zip']?></td>
 		</tr>
 		<tr>
@@ -99,19 +107,31 @@
 <blockquote>
 <u>GBP / USD / EUR</u>
 <ul >
-<li><?=$t("Transfers are only processed weekdays, barring bank holidays.")?></li>
-<li><?=$t("It can take us up to 24 hours to verify and confirm your deposit request. Customers then have 24 hours to make their deposit. If a deposit is not made in the 24 window then IBWT assumes you have cancelled your deposit request and you will need to make request if you wish to deposit.")?></li>
-<li><?=$t("If your bank does not subscribe to Faster Payments (most UK banks do) then please let us know.")?></li>
-<li><?=$t("It can take us up to 24 hours to verify, confirm and start the process transfer for your withdrawal requests.")?></li>
-<li><?=$t("If the Customer's bank subscribes to Faster Payments the money will reach their account usually within 24 hours but can sometimes take up to close of business the next working day. Otherwise payments take 4 working days to process.")?></li>
+<li><?=$t("    Transfers are only processed weekdays, barring bank holidays.")?></li>
+<li><?=$t("    It can take us up to 24 hours to verify and confirm your deposit request once received. Royal Mail takes 1-4 days to deliver, depending upon your choice of 1st or 2nd class.")?></li>
+<li><?=$t("    It can take us up to 24 hours to verify, confirm and start the process for your withdrawal requests.")?></li>
+<li><?=$t("    It can then take Royal Mail 1-3 days to deliver your withdrawal (we always use 1st Class).")?></li>
+<li><?=$t("    We are not liable for Royal Mail incidents.")?></li>
 </ul>
 <u><?=$t("Bitcoin")?></u>
 <ul ><li><?=$t("Bitcoin deposits and withdrawals are subject to the Bitcoin protocol.")?></li></ul>
 <u><?=$t("Litecoin")?></u>
 <ul ><li><?=$t("Litecoin deposits and withdrawals are subject to the Litecoin protocol.")?></li></ul>
 </blockquote>
-
-
+<p>
+<strong>1st Class</strong> <a href="http://www.royalmail.com/price-finder" target="_blank">Price Finder</a><br>
+									&pound;50 = &pound;1.70<br>
+									&pound;500 = &pound;6.22<br>
+									&pound;1,000 = &pound;19.84<br>
+									&pound;2,500 = &pound;23.34<br>
+<br>
+								<a href="http://www.postoffice.co.uk/postal-orders" target="_blank">Postal Order</a><br>
+									&pound;0.50 - &pound;4.99 = 50p<br>
+									&pound;5 - &pound;9.99 = &pound;1.00<br>
+									&pound;10.00 - &pound;99.99 = 12.50%<br>
+									&pound;100 - &pound;250 = 12.50%<br>
+									
+</p>						
 
 <a href="/users/funding_btc" class="btn btn-primary">Funding BTC</a>
 <a href="/users/funding_ltc" class="btn btn-primary">Funding LTC</a>

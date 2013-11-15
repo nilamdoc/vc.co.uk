@@ -613,8 +613,10 @@ $description = "Admin panel for transactions";
 			$Details[$i]['Amount'] = $ft['Amount'];									
 			$Details[$i]['Currency'] = $ft['Currency'];									
 			$Details[$i]['Added'] = (string)$ft['Added'];												
-			$Details[$i]['Approved'] = $ft['Approved'];															
-			$Details[$i]['_id'] = $ft['_id'];																		
+			$Details[$i]['Approved'] = $ft['Approved'];									
+			$Details[$i]['WithdrawalMethod'] = $ft['WithdrawalMethod'];
+			$Details[$i]['WithdrawalCharges'] = $ft['WithdrawalCharges'];
+			$Details[$i]['_id'] = $ft['_id'];							
 			$j = 0;
 			foreach($Previoustransactions as $pt){
 				$Details[$i]['Previous'][$j]['Approved']	=		$pt['Approved'];
@@ -865,11 +867,13 @@ $description = "Admin panel for withdrawal";
 		$this->redirect('Admin::transactions');	
 	}
 	
-	
 		public function approvewithdrawal(){
 	if($this->__init()==false){$this->redirect('ex::dashboard');	}
 	if($this->request->data){
 		$Amount = $this->request->data['Amount'];
+		$WithdrawalCharges = $this->request->data['WithdrawalCharges'];
+		$FinalWithdrawalCharges = $this->request->data['FinalWithdrawalCharges'];		
+		$WithdrawalMethod = $this->request->data['WithdrawalMethod'];
 		$id = $this->request->data['id'];	
 		$Currency = $this->request->data['Currency'];			
 
@@ -879,6 +883,9 @@ $description = "Admin panel for withdrawal";
 		$data = array(
 			'AmountApproved' => (float)$Amount,
 			'Approved' => 'Yes',
+			'WithdrawalCharges' => $WithdrawalCharges,
+			'WithdrawalChargesFinal' => $FinalWithdrawalCharges,			
+			'WithdrawalMethod' => $WithdrawalMethod,			
 			'ApprovedBy'=> $AuthBy,
 			
 		);

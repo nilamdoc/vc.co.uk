@@ -10,7 +10,7 @@
 			<td><strong><?=$Transactions['Reference']?></strong></td>
 		</tr>
 		<tr>
-			<td>Amount:</td>
+			<td>Amount Received:</td>
 			<td><?=$Transactions['AmountApproved']?></td>
 		</tr>
 		<tr>

@@ -6,31 +6,30 @@
 <p>Your withdrawal has been approved <?=COMPANY_URL?>.</p>
 <table>
 		<tr>
-			<td>Account name:</td>
-			<td><?=$Transactions['AccountName']?></td>
-		</tr>
-		<tr>
-			<td>Sort code: </td>
-			<td><?=$Transactions['SortCode']?></td>	
-		</tr>
-		<tr>
-			<td>Account number:</td>
-			<td><?=$Transactions['AccountNumber']?></td>
-		</tr>
-		<tr>
 			<td>Reference:</td>
 			<td><strong><?=$Transactions['Reference']?></strong></td>
 		</tr>
 		<tr>
-			<td>Amount:</td>
+			<td>Amount Received:</td>
 			<td><?=$Transactions['AmountApproved']?></td>
+		</tr>
+		<tr>
+			<td>Withdrawal Method:</td>
+			<td><?=$Transactions['WithdrawalMethod']?></td>
+		</tr>
+		<tr>
+			<td>Withdrawal Charges:</td>
+			<td><?=$Transactions['WithdrawalCharges']?></td>
+		</tr>
+		<tr>
+			<td>Charge:</td>
+			<td><?=$Transactions['WithdrawalChargesFinal']?></td>
 		</tr>
 		<tr>
 			<td>Currency:</td>
 			<td><?=$Transactions['Currency']?></td>
 		</tr>		
 </table>
-
 
 <p>Thanks,<br>
 <?=NOREPLY?></p>

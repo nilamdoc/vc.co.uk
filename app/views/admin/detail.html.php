@@ -67,7 +67,7 @@
 		<th style="text-align:center ">Address</th>
 		<th style="text-align:center ">Street</th>
 		<th style="text-align:center ">City</th>
-		<th style="text-align:center ">Zip</th>
+		<th style="text-align:center ">Postal Code</th>
 		<th style="text-align:center ">Country</th>
 	</tr>
 	<tr>
