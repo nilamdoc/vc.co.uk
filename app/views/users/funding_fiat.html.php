@@ -106,7 +106,7 @@
 									<p><strong><a href="/company/funding" target="_blank">Please make SURE you check with Royal Mail compensation cover and how to deposit BEFORE sending any funds!</a> </strong></p>
 									</td>
 								</tr>
-								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Once your email is approved, you will receive the funds in your account in ibwt.co.uk">
+								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Once verified and processed your funds will be mailed.">
 									<td colspan="2" style="text-align:center ">
 									<input type="hidden" name="Reference" id="Reference" value="<?=$Reference?>">
 										<input type="submit" value="Send email to admin for approval" class="btn btn-primary" onclick="return CheckDeposit();">
