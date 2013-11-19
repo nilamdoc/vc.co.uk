@@ -2,7 +2,7 @@
 .Address_success{background-color: #9FFF9F;font-weight:bold}
 </style>
 <h4>Funding - GBP / USD / EUR</h4>
-<h2 class="alert alert-error">Please do not send funds to Bank Account through wire transfer!</h2>
+<h2 class="alert alert-error">Please ensure you send funds securely with appropriate Royal Mail cover.</h2>
 <div class="accordion" id="accordion2">
 	<div class="accordion-group">
 		<div class="accordion-heading">
