@@ -6,18 +6,6 @@
 <p>Your withdrawal has been approved <?=COMPANY_URL?>.</p>
 <table>
 		<tr>
-			<td>Reference:</td>
-			<td><strong><?=$Transactions['Reference']?></strong></td>
-		</tr>
-		<tr>
-			<td>Amount Received:</td>
-			<td><?=$Transactions['AmountApproved']?></td>
-		</tr>
-		<tr>
-			<td>Withdrawal Method:</td>
-			<td><?=$Transactions['WithdrawalMethod']?></td>
-		</tr>
-		<tr>
 			<td>Withdrawal Charges:</td>
 			<td><?=$Transactions['WithdrawalCharges']?></td>
 		</tr>

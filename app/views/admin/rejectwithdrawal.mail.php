@@ -7,21 +7,16 @@
 <strong style="color:#FF0000 "><?=$Transactions['Reason']?></strong>
 <table>
 		<tr>
-			<td>Account name:</td>
-			<td><?=$Transactions['AccountName']?></td>
-		</tr>
-		<tr>
-			<td>Sort code: </td>
-			<td><?=$Transactions['SortCode']?></td>	
-		</tr>
-		<tr>
-			<td>Account number:</td>
-			<td><?=$Transactions['AccountNumber']?></td>
-		</tr>
-		<tr>
-		<tr>
 			<td>Reference:</td>
 			<td><strong><?=$Transactions['Reference']?></strong></td>
+		</tr>
+		<tr>
+			<td>Amount Withdrawn:</td>
+			<td><?=$Transactions['AmountApproved']?></td>
+		</tr>
+		<tr>
+			<td>Withdrawal Method:</td>
+			<td><?=$Transactions['WithdrawalMethod']?></td>
 		</tr>
 		<tr>
 			<td>Amount:</td>
