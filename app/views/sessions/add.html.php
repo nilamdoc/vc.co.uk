@@ -1,7 +1,7 @@
 <div style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 
 <p class="alert alert-error" style="font-size:16px;font-weight:bold;text-align:center ">
-Welcome to IBWT, alternative fundings methods now available, please see details in our recent <a href="/files/News Release 19-11-13.pdf" target="_blank">News Release</a>.</p>
+Welcome to IBWT, alternative funding methods now available, please see details in our recent <a href="/files/News Release 19-11-13.pdf" target="_blank">News Release</a>.</p>
 
 <div class="row">
 	<div class="span4 well" >
