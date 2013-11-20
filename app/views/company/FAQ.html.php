@@ -47,6 +47,7 @@ $Comm = Parameters::find('first');
 </ul>
 <p><strong><?=$t("Withdrawals")?></strong></p>
 <ul class="unstyled">
+<li><?=$t("Please see ")?><a href="/files/Withdrawal%20Verification.pdf" target="_blank">Withdrawal Verification</a> <?=$t("for instructions on how to input and verify your Proof of Address.")?></li>
 <li><?=$t("We charge customers the relevant fee that Royal Mail charges to cover the withdrawal amount respectively.")?></li>
 <li><?=$t("This charge is made to your IBWT account.")?></li>
 <li><?=$t("If you do not have enough to cover the Royal Mail fee in your IBWT account then your withdrawal will not be processed and you will be notified via email.")?></li>
