@@ -29,7 +29,7 @@
 			<td><?=$data['WithdrawalMethod']?></td>
 		</tr>
 		<tr>
-			<td>Withdrawal Chrages:</td>
+			<td>Withdrawal Charges:</td>
 			<td><?=$data['WithdrawalCharges']?></td>
 		</tr>
 		<tr>
