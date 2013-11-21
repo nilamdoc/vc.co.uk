@@ -179,7 +179,7 @@ function initCanvas(ww,hh)
 								</tr>
 								<tr>
 									<td style="height:280px ">
-										<form action="/users/payment/" method="post">
+										<form action="/users/paymentbtcverify/" method="post">
 										<div class="input-append">
 										<label for="bitcoinaddress">Bitcoin Address</label>
 				<input type="text" name="bitcoinaddress" id="bitcoinaddress" placeholder="15AXfnf7hshkwgzA8UKvSyjpQdtz34H9LE" class="span4" title="To Address" data-content="This is the Bitcoin Address of the recipient." value="" onblur="BitCoinAddress();"/>
