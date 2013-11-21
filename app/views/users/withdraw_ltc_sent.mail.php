@@ -2,7 +2,7 @@
 	<img src="https://<?=COMPANY_URL?>/img/<?=COMPANY_URL?>.gif" alt="<?=COMPANY_URL?>">
 </div>
 <h4>Hi <?=$transaction['username']?>,</h4>
-<p>Your <strong><?=abs($transaction['Amount'])?> BTC</strong> is sent to <?=$transaction['address']?> from <?=COMPANY_URL?>.</p>
+<p>Your <strong><?=abs($transaction['Amount'])?> LTC</strong> is sent to <?=$transaction['address']?> from <?=COMPANY_URL?>.</p>
 <p>Transaction Hash: <a href="http://blockchain.info/tx/<?=$txid?>"><?=$txid?></a></p>
 
 <p>Thanks,<br>
