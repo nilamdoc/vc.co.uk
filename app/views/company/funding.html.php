@@ -15,7 +15,7 @@ Or via Royal Mail Postal Orders.
 <li>SMALLEST DENOMINATION of &pound;5 (you cannot mail coins), the amount you deposit must end in 0 or 5.</li>
 <li>And then select the type of deposit from the drop down bar.</li>
 <li>Next click - Send email to admin</li>
-<li>Print this next page and include it in your mail.</li>
+<li>Check your email and make sure to include the deposit information.</li>
 </ol>
 <strong>OR</strong>
 <ul>

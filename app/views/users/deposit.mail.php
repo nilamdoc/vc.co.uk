@@ -5,8 +5,8 @@
 
 <p>You have requested to deposit money to <?=COMPANY_URL?>.</p>
 <p><strong>Make SURE you deposit to your verified account. Money attempted to be sent to any other account will result in the transaction being blocked and investigated.</strong></p>
-
-<table>
+<p style="color:red ">Please make SURE you copy/paste and print the boxed information, or write it clearly and INCLUDE either with your deposit.</p>
+<table style="border:2px solid black ">
 		<tr>
 			<td>Registered Address: </td>
 			<td>IBWT JD Ltd<br>
