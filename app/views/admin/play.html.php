@@ -1,4 +1,20 @@
+<script>
+function DisableUser(username){
+	$("#SecondUser option[value='"+username+"']").attr('disabled','disabled');
+}
+</script>
 <div class="row">
+<?php
+foreach($details as $detail){
+?>
+	<select name="FirstUser" id="FirstUser" onChange="DisableUser(this.value)">
+		<option value="<?=detail['username']?>"><?=detail['username']?></option>
+	</select>
+	<select name="SecondUser" id="SecondUser">
+		<option value="<?=detail['username']?>"><?=detail['username']?></option>
+	</select>
+<?php }?>
+
 <?php
 foreach($details as $detail){
 ?>
