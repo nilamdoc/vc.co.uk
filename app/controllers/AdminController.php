@@ -1477,7 +1477,7 @@ $description = "Admin panel for Orders";
 				'username'=>array('$regex'=>'IBWTUser'),
 			)
 		));
-		return compact($details);
+		return compact('details');
 	}
 }
 ?>
