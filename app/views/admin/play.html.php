@@ -18,7 +18,7 @@ foreach($details as $detail){
 		$SCB = $detail['balance.'.$SC];		
 	?>
 		<option value="<?=$FC?>_<?=$SC?>"><?=$FC?>(<?=$FCB?>)_<?=$SC?>(<?=$SCB?>)</option>
-	<?php ??>
+	<?php }?>
 	</select><br>
 	Amount: <input type="text" value="" placeholder="1.0" min="0.000001" max="9999" name="amount" id="amountBTC" class="span2" value="0.1"><br>
 	Price: <input type="text" value="" placeholder="100.0" min="1" max="99999" name="price" id="PerPriceBTC" class="span2" ><br>
