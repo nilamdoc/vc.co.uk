@@ -4,16 +4,21 @@ function DisableUser(username){
 }
 </script>
 <div class="row">
+	<select name="FirstUser" id="FirstUser" onChange="DisableUser(this.value)">
 <?php
 foreach($details as $detail){
 ?>
-	<select name="FirstUser" id="FirstUser" onChange="DisableUser(this.value)">
 		<option value="<?=$detail['username']?>"><?=$detail['username']?></option>
+<?php }?>
 	</select>
 	<select name="SecondUser" id="SecondUser">
-		<option value="<?=$detail['username']?>"><?=$detail['username']?></option>
-	</select>
+<?php
+foreach($details as $detail){
+?>
+<option value="<?=$detail['username']?>"><?=$detail['username']?></option>
 <?php }?>
+	</select>
+
 
 <?php
 foreach($details as $detail){
