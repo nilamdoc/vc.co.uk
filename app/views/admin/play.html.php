@@ -8,10 +8,10 @@ function DisableUser(username){
 foreach($details as $detail){
 ?>
 	<select name="FirstUser" id="FirstUser" onChange="DisableUser(this.value)">
-		<option value="<?=detail['username']?>"><?=detail['username']?></option>
+		<option value="<?=$detail['username']?>"><?=$detail['username']?></option>
 	</select>
 	<select name="SecondUser" id="SecondUser">
-		<option value="<?=detail['username']?>"><?=detail['username']?></option>
+		<option value="<?=$detail['username']?>"><?=$detail['username']?></option>
 	</select>
 <?php }?>
 
