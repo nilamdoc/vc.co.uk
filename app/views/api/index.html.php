@@ -767,7 +767,7 @@ Pair: <select name="pair" class="span2">
 			<tr>
 				<td>pair</td>
 				<td>yes</td>
-				<td>BTC_USD / BTC_GBP / BTC_EUR</td>
+				<td>BTC_USD / BTC_GBP / BTC_EUR / BTC_LTC / LTC_GBP / LTC_EUR / LTC_USD</td>
 				<td>BTC_GBP</td>
 			</tr>			
 			<tr>
@@ -802,6 +802,10 @@ Pair: <select name="pair" class="span2">
 				<option value="BTC_USD">BTC_USD</option>
 				<option value="BTC_GBP" selected="selected">BTC_GBP</option>
 				<option value="BTC_EUR">BTC_EUR</option>
+				<option value="BTC_LTC">BTC_LTC</option>				
+				<option value="LTC_USD">LTC_USD</option>				
+				<option value="LTC_EUR">LTC_EUR</option>				
+				<option value="LTC_GBP">LTC_GBP</option>				
 			</select></td>
 			</tr>
 			<tr>
@@ -829,6 +833,10 @@ Pair: <select name="pair" class="span2">
 <option value="BTC_USD">BTC_USD</option>
 <option value="BTC_GBP" selected="selected">BTC_GBP</option>
 <option value="BTC_EUR">BTC_EUR</option>
+<option value="BTC_LTC">BTC_LTC</option>				
+<option value="LTC_USD">LTC_USD</option>				
+<option value="LTC_EUR">LTC_EUR</option>				
+<option value="LTC_GBP">LTC_GBP</option>				
 </select>
 Amount: <input type="text" value="" placeholder="1.0" min="0.000001" max="9999" name="amount" id="amountBTC" class="span2">
 Price: <input type="text" value="" placeholder="100.0" min="1" max="99999" name="price" id="PerPriceBTC" class="span2">

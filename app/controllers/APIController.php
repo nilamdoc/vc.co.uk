@@ -646,10 +646,10 @@ class APIController extends \lithium\action\Controller {
 					'error'=>"Type is incorrect! Should be 'Buy' or 'Sell'."
 					)));
 				}
-				if(!($pair=='BTC_USD' || $pair=='BTC_GBP' || $pair=='BTC_EUR')){
+				if(!($pair=='BTC_USD' || $pair=='BTC_GBP' || $pair=='BTC_EUR' || $pair=='BTC_LTC' || $pair=='LTC_USD' || $pair=='LTC_GBP' || $pair=='LTC_EUR')){
 					return $this->render(array('json' => array('success'=>0,
 					'now'=>time(),
-					'error'=>"Pair is incorrect! Should be 'BTC_USD' or 'BTC_GBP' or 'BTC_EUR'."
+					'error'=>"Pair is incorrect! Should be 'BTC_USD','BTC_GBP','BTC_EUR','BTC_LTC','LTC_USD','LTC_GBP','LTC_EUR'."
 					)));
 				}
 				if((float)$amount<=0){

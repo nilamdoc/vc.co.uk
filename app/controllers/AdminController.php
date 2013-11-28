@@ -1471,5 +1471,11 @@ $description = "Admin panel for Orders";
 		}
 		return compact('new')		;		
 	}
+	public function play(){
+		$details = Details::find('all',array(
+			'conditions'=>array('username'=>'/IBWT-User/')
+		));
+		return compact($details);
+	}
 }
 ?>
