@@ -39,9 +39,9 @@ function ChangePrice(price){
  $("#SecondUserPerPriceBTC").val(price); 
 }
 function ChangeAmount(amount){
-	amount = Math.round((amount+Math.random())*100000)/100000;
-	$("#FirstUseramountBTC").val(amount);
-	$("#SecondUseramountBTC").val(amount);
+var	xamount = Math.round((amount+Math.random())*100000)/100000;
+	$("#FirstUseramountBTC").val(xamount);
+	$("#SecondUseramountBTC").val(xamount);
 }
 function SubmitTrade(){
 	document.FirstUserForm.submit();
