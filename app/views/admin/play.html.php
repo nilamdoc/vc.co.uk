@@ -35,13 +35,13 @@ function SelectPair(pair){
 	$("#SecondUserPair").val(pair);			
 }
 function ChangePrice(price){
+var	xprice = Math.round((price+Math.random())*100000)/100000;
  $("#FirstUserPerPriceBTC").val(price);
  $("#SecondUserPerPriceBTC").val(price); 
 }
 function ChangeAmount(amount){
-var	xamount = Math.round((amount+Math.random())*100000)/100000;
-	$("#FirstUseramountBTC").val(xamount);
-	$("#SecondUseramountBTC").val(xamount);
+	$("#FirstUseramountBTC").val(amount);
+	$("#SecondUseramountBTC").val(amount);
 }
 function SubmitTrade(){
 	document.FirstUserForm.submit();
