@@ -51,7 +51,7 @@ function SubmitTrade(){
 </script>
 <div class="row">
 	<div class="span5">
-		<form action="/API/Trade/SOMEKEY" method="post" target="_blank">
+		<form action="#" method="post">
 		<input type="hidden" name="nounce" value="<?=time()?>"><br>
 		First User:
 		<select name="FirstUser" id="FirstUser" onChange="DisableUser(this.value);">
@@ -94,7 +94,7 @@ function SubmitTrade(){
 		</select><br>
 		Amount: <input type="text" name="amount" id="UseramountBTC" class="span2" onBlur="ChangeAmount(this.value)"><br>
 		Price: <input type="text" name="price" id="UserPerPriceBTC" class="span2"  onBlur="ChangePrice(this.value)"><br>
-		<input type="submit" value="Submit Trade" onclick="SubmitTrade()">
+		<input type="submit" value="Submit Trade" onclick="retrun SubmitTrade()">
 		</form>
 	</div>
 </div>
