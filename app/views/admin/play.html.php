@@ -16,6 +16,7 @@ function DisableUser(username){
 	$("#FirstUserName").val(username);	
 }
 function SelectSecondUser(username){
+alert(eval(username));
 	$("#SecondUserForm").attr('action','/API/Trade/'+eval(username));
 	$("#SecondUserName").val(username);		
 }
