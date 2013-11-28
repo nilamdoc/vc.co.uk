@@ -77,7 +77,7 @@
 		You can find your API Key in Settings / Security tab.
 
 		<p>All request are sent to https://ibwt.co.uk/API/<strong>FunctionName</strong></p>
-		<pre>All requests must also include a special <strong>nonce</strong> POST parameter with increment integer. (>0)
+		<pre>All requests must also include a special <strong>nounce</strong> POST parameter with increment integer. (>0)
 The URL should include the key as a parameter.
 All other parameters should be submitted by POST method.
 All server answers are in JSON format.
