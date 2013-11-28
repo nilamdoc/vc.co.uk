@@ -35,7 +35,7 @@ function SelectPair(pair){
 	$("#SecondUserPair").val(pair);			
 }
 function ChangePrice(price){
-var	xprice = Math.round((price+Math.random())*100000)/100000;
+var	xprice = Math.round((price+Math.random())*100000)/1000000;
  $("#FirstUserPerPriceBTC").val(xprice);
  $("#SecondUserPerPriceBTC").val(xprice); 
 }
