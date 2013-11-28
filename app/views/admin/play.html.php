@@ -5,6 +5,7 @@ function DisableUser(username){
 	$("#SecondUser option[value='IBWTUserC']").attr('disabled',false);	
 	$("#SecondUser option[value='IBWTUserD']").attr('disabled',false);
 	$("#SecondUser option[value='"+username+"']").attr('disabled','disabled');
+	$("#SecondUser option[value='"+username+"']").attr('selected',false);	
 }
 function TypeSelect(type){
 	if(type=="Sell"){
@@ -26,6 +27,7 @@ foreach($details as $detail){
 <?php }?>
 	</select><br>
 	Type: <select name="typeFirst" id="typeFirst" class="span2" onChange="TypeSelect(this.value)">
+	<option value="">--Select--</option>
 	<option value="Buy">Buy</option>
 	<option value="Sell">Sell</option>								
 	</select><br>
@@ -42,6 +44,7 @@ foreach($details as $detail){
 <?php }?>
 	</select><br>
 	Type: <select name="typeSecond" id="typeSecond" class="span2">
+	<option value="">--Select--</option>	
 	<option value="Buy">Buy</option>
 	<option value="Sell">Sell</option>								
 	</select><br>
