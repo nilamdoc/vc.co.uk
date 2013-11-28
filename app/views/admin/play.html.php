@@ -1,6 +1,11 @@
 <script>
 function DisableUser(username){
+	$("#SecondUser option[value='IBWTUserA']").attr('disabled',false);
+	$("#SecondUser option[value='IBWTUserB']").attr('disabled',false);	
+	$("#SecondUser option[value='IBWTUserC']").attr('disabled',false);	
+	$("#SecondUser option[value='IBWTUserD']").attr('disabled',false);
 	$("#SecondUser option[value='"+username+"']").attr('disabled','disabled');
+
 }
 </script>
 <div class="row">
