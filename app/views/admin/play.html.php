@@ -1,4 +1,10 @@
 <script>
+<?php 
+foreach($details as $detail){
+?>
+var <?=$detail['username']?> = <?=$detail['key']?>;
+<?php }
+?>
 function DisableUser(username){
 	$("#SecondUser option[value='IBWTUserA']").attr('disabled',false);
 	$("#SecondUser option[value='IBWTUserB']").attr('disabled',false);	
@@ -6,6 +12,7 @@ function DisableUser(username){
 	$("#SecondUser option[value='IBWTUserD']").attr('disabled',false);
 	$("#SecondUser option[value='"+username+"']").attr('disabled','disabled');
 	$("#SecondUser option[value='"+username+"']").attr('selected',false);	
+	alert(eval(username));
 }
 function TypeSelect(type){
 	if(type=="Sell"){
