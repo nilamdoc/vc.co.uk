@@ -5,26 +5,49 @@ function DisableUser(username){
 	$("#SecondUser option[value='IBWTUserC']").attr('disabled',false);	
 	$("#SecondUser option[value='IBWTUserD']").attr('disabled',false);
 	$("#SecondUser option[value='"+username+"']").attr('disabled','disabled');
-
+}
+function TypeSelect(type){
+	if(type=="Sell"){
+		$("#typeSecond option[value='Buy']").attr("selected","selected");
+	}else{
+		$("#typeSecond option[value='Sell']").attr("selected","selected");
+	}
 }
 </script>
 <div class="row">
+<div class="span5">
+	<form action="/API/Trade/<?=$detail['key']?>" method="post" target="_blank">
+	<input type="hidden" name="nounce" value="<?=time()?>"><br>
 	<select name="FirstUser" id="FirstUser" onChange="DisableUser(this.value)">
 <?php
 foreach($details as $detail){
 ?>
 		<option value="<?=$detail['username']?>"><?=$detail['username']?></option>
 <?php }?>
-	</select>
+	</select><br>
+	Type: <select name="typeFirst" class="span2" onChange="TypeSelect(this.value)">
+	<option value="Buy">Buy</option>
+	<option value="Sell">Sell</option>								
+	</select><br>
+	</form>
+</div>
+<div class="span5">
+<form action="/API/Trade/<?=$detail['key']?>" method="post" target="_blank">
+	<input type="hidden" name="nounce" value="<?=time()?>"><br>
 	<select name="SecondUser" id="SecondUser">
 <?php
 foreach($details as $detail){
 ?>
 <option value="<?=$detail['username']?>"><?=$detail['username']?></option>
 <?php }?>
-	</select>
-
-
+	</select><br>
+	Type: <select name="typeSecond" class="span2">
+	<option value="Buy">Buy</option>
+	<option value="Sell">Sell</option>								
+	</select><br>
+	
+	</form>
+</div>
 <?php
 foreach($details as $detail){
 ?>
