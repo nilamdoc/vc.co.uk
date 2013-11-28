@@ -1477,7 +1477,8 @@ $description = "Admin panel for Orders";
 				'username'=>array('$regex'=>'IBWTUser'),
 			)
 		));
-		return compact('details');
+		$trades = Trades::find('all');
+		return compact('details','trades');
 	}
 }
 ?>
