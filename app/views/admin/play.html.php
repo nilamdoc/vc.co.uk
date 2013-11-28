@@ -16,7 +16,6 @@ function DisableUser(username){
 	$("#FirstUserName").val(username);	
 }
 function SelectSecondUser(username){
-alert(eval(username));
 	$("#SecondUserForm").attr('action','/API/Trade/'+eval(username));
 	$("#SecondUserName").val(username);		
 }
@@ -40,6 +39,7 @@ function ChangePrice(price){
  $("#SecondUserPerPriceBTC").val(price); 
 }
 function ChangeAmount(amount){
+	amount = Math.round((amount+Math.random()*100000)/100000;
 	$("#FirstUseramountBTC").val(amount);
 	$("#SecondUseramountBTC").val(amount);
 }
@@ -114,7 +114,7 @@ function SubmitTrade(){
 		</form>
 	</div>
 	<div class="span5" style="border:1px solid black;padding:5px ">
-		<form action="/API/Trade/SOMEKEY" method="post" target="_blank" id="FirstUserForm" name="SecondUserForm">
+		<form action="/API/Trade/SOMEKEY" method="post" target="_blank" id="SecondUserForm" name="SecondUserForm">
 		<input type="hidden" name="nounce" value="<?=time()?>"><br>
 		Username: <input type="text" name="SecondUserName" id="SecondUserName" disabled="disabled"><br>
 		Type: <select name="type" class="span2" id="SecondUserType"  disabled="disabled">
