@@ -2,7 +2,7 @@
 <?php
 foreach($details as $detail){
 ?>
-<div class="span5" style="border:1px solid black ">
+<div class="span5" style="border:1px solid black;padding:5px ">
 	Username: <?=$detail['username']?>
 	<form action="/API/Trade/<?=$detail['key']?>" method="post" target="_blank">
 	<input type="hidden" name="nounce" value="<?=time()?>"><br>
