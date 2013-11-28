@@ -2,7 +2,7 @@
 <?php 
 foreach($details as $detail){
 ?>
-var <?=$detail['username']?> = <?=$detail['key']?>;
+var <?=$detail['username']?> = "<?=$detail['key']?>";
 <?php }
 ?>
 function DisableUser(username){
