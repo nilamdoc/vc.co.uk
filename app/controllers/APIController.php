@@ -32,6 +32,7 @@ class APIController extends \lithium\action\Controller {
 		));
 		Requests::create()->save($data);
 		if($_SERVER['REMOTE_ADDR']=='198.50.222.223'){return true;}
+		
 		if(gmdate(time())-$requests['nounce']<=1000){
 			return false;
 		}
@@ -643,25 +644,25 @@ class APIController extends \lithium\action\Controller {
 				if(!($type=="Buy" || $type=="Sell")){
 					return $this->render(array('json' => array('success'=>0,
 					'now'=>time(),
-					'error'=>"Type is incorrect! Should be 'Buy' or 'Sell'."
+					'error'=>"Type is incorrect! Should be 'Buy' or 'Sell'.".$type
 					)));
 				}
 				if(!($pair=='BTC_USD' || $pair=='BTC_GBP' || $pair=='BTC_EUR' || $pair=='BTC_LTC' || $pair=='LTC_USD' || $pair=='LTC_GBP' || $pair=='LTC_EUR')){
 					return $this->render(array('json' => array('success'=>0,
 					'now'=>time(),
-					'error'=>"Pair is incorrect! Should be 'BTC_USD','BTC_GBP','BTC_EUR','BTC_LTC','LTC_USD','LTC_GBP','LTC_EUR'."
+					'error'=>"Pair is incorrect! Should be 'BTC_USD','BTC_GBP','BTC_EUR','BTC_LTC','LTC_USD','LTC_GBP','LTC_EUR'.".$pair
 					)));
 				}
 				if((float)$amount<=0){
 					return $this->render(array('json' => array('success'=>0,
 					'now'=>time(),
-					'error'=>"Amount less than or equal to ZERO! Should be greater than ZERO."
+					'error'=>"Amount less than or equal to ZERO! Should be greater than ZERO.".$amount
 					)));
 				}
 				if((float)$price<=0){
 					return $this->render(array('json' => array('success'=>0,
 					'now'=>time(),
-					'error'=>"Price less than or equal to ZERO! Should be greater than ZERO."
+					'error'=>"Price less than or equal to ZERO! Should be greater than ZERO.".$price
 					)));
 				}
 				$first_curr = strtoupper(substr($pair,0,3));
