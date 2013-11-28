@@ -103,7 +103,10 @@ function SubmitTrade(){
 		<form action="/API/Trade/SOMEKEY" method="post" target="_blank" id="FirstUserForm" name="FirstUserForm">
 		<input type="hidden" name="nounce" value="<?=time()?>"><br>
 		Username: <input type="text" name="FirstUserName" id="FirstUserName" disabled="disabled"><br>
-		Type: <input name="type" type="text" class="span2" id="FirstUserType" disabled="disabled"><br>
+		Type: <select name="type" class="span2" id="FirstUserType" disabled="disabled">
+		<option value="Buy">Buy</option>
+		<option value="Sell">Sell</option>								
+		</select><br>
 		Pair: <input type="text" name="pair" id="FirstUserPair" disabled="disabled"><br>
 		Amount: <input type="text" name="amount" id="FirstUseramountBTC" class="span2"  disabled="disabled"><br>
 		Price: <input type="text" name="price" id="FirstUserPerPriceBTC" class="span2"  disabled="disabled"><br>
@@ -113,7 +116,7 @@ function SubmitTrade(){
 		<form action="/API/Trade/SOMEKEY" method="post" target="_blank" id="FirstUserForm" name="SecondUserForm">
 		<input type="hidden" name="nounce" value="<?=time()?>"><br>
 		Username: <input type="text" name="SecondUserName" id="SecondUserName" disabled="disabled"><br>
-		Type: <select name="type" class="span2" id="SecondUserType">
+		Type: <select name="type" class="span2" id="SecondUserType"  disabled="disabled">
 		<option value="Buy">Buy</option>
 		<option value="Sell">Sell</option>								
 		</select><br>
