@@ -25,7 +25,7 @@ foreach($details as $detail){
 		<option value="<?=$detail['username']?>"><?=$detail['username']?></option>
 <?php }?>
 	</select><br>
-	Type: <select name="typeFirst" class="span2" onChange="TypeSelect(this.value)">
+	Type: <select name="typeFirst" id="typeFirst" class="span2" onChange="TypeSelect(this.value)">
 	<option value="Buy">Buy</option>
 	<option value="Sell">Sell</option>								
 	</select><br>
@@ -41,7 +41,7 @@ foreach($details as $detail){
 <option value="<?=$detail['username']?>"><?=$detail['username']?></option>
 <?php }?>
 	</select><br>
-	Type: <select name="typeSecond" class="span2">
+	Type: <select name="typeSecond" id="typeSecond" class="span2">
 	<option value="Buy">Buy</option>
 	<option value="Sell">Sell</option>								
 	</select><br>
