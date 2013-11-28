@@ -1473,7 +1473,9 @@ $description = "Admin panel for Orders";
 	}
 	public function play(){
 		$details = Details::find('all',array(
-			'conditions'=>array('username'=>'/IBWT-User/')
+			'conditions'=>array('username'=>
+			 array('like'=>'/IBWTUser/')
+			)
 		));
 		return compact($details);
 	}
