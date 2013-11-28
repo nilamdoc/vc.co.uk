@@ -12,13 +12,20 @@ function DisableUser(username){
 	$("#SecondUser option[value='IBWTUserD']").attr('disabled',false);
 	$("#SecondUser option[value='"+username+"']").attr('disabled','disabled');
 	$("#SecondUser option[value='"+username+"']").attr('selected',false);	
-	alert(eval(username));
+	$("#FirstUserForm").attr('action','/API/Trade/'+eval(username));
+}
+function SelectSecondUser(username){
+	$("#SecondUserForm").attr('action','/API/Trade/'+eval(username));
 }
 function TypeSelect(type){
 	if(type=="Sell"){
 		$("#typeSecond option[value='Buy']").attr("selected","selected");
+		$("#FirstUserType option[value='Sell']").attr("selected","selected");		
+		$("#SecondUserType option[value='Buy']").attr("selected","selected");				
 	}else{
 		$("#typeSecond option[value='Sell']").attr("selected","selected");
+		$("#FirstUserType option[value='Buy']").attr("selected","selected");		
+		$("#SecondUserType option[value='Sell']").attr("selected","selected");				
 	}
 }
 </script>
@@ -26,7 +33,8 @@ function TypeSelect(type){
 <div class="span5">
 	<form action="/API/Trade/<?=$detail['key']?>" method="post" target="_blank">
 	<input type="hidden" name="nounce" value="<?=time()?>"><br>
-	<select name="FirstUser" id="FirstUser" onChange="DisableUser(this.value)">
+	<select name="FirstUser" id="FirstUser" onChange="DisableUser(this.value);">
+	<option value="">--Select User --</option>
 <?php
 foreach($details as $detail){
 ?>
@@ -43,7 +51,8 @@ foreach($details as $detail){
 <div class="span5">
 <form action="/API/Trade/<?=$detail['key']?>" method="post" target="_blank">
 	<input type="hidden" name="nounce" value="<?=time()?>"><br>
-	<select name="SecondUser" id="SecondUser">
+	<select name="SecondUser" id="SecondUser" onChange="SelectSecondUser(this.value)">
+	<option value="">--Select User --</option>	
 <?php
 foreach($details as $detail){
 ?>
@@ -58,18 +67,14 @@ foreach($details as $detail){
 	
 	</form>
 </div>
-<?php
-foreach($details as $detail){
-?>
 <div class="span5" style="border:1px solid black;padding:5px ">
-	Username: <?=$detail['username']?>
-	<form action="/API/Trade/<?=$detail['key']?>" method="post" target="_blank">
+	<form action="/API/Trade/<?=$detail['key']?>" method="post" target="_blank" id="FirstUserForm" name="FirstUserForm">
 	<input type="hidden" name="nounce" value="<?=time()?>"><br>
-	Type: <select name="type" class="span2">
+	Type: <select name="type" class="span2" id="FirstUserType">
 	<option value="Buy">Buy</option>
 	<option value="Sell">Sell</option>								
 	</select><br>
-	Pair: <select name="pair" class="span2">
+	Pair: <select name="pair" class="span2" id="FirstUserPair">
 	<?php foreach($trades as $trade){
 		$FC = substr($trade['trade'],0,3);
 		$SC = substr($trade['trade'],4,3);
@@ -79,10 +84,30 @@ foreach($details as $detail){
 		<option value="<?=$FC?>_<?=$SC?>"><?=$FC?>(<?=$FCB?>)_<?=$SC?>(<?=$SCB?>)</option>
 	<?php }?>
 	</select><br>
-	Amount: <input type="text" value="" placeholder="1.0" min="0.000001" max="9999" name="amount" id="amountBTC" class="span2" value="0.1"><br>
-	Price: <input type="text" value="" placeholder="100.0" min="1" max="99999" name="price" id="PerPriceBTC" class="span2" ><br>
-	<input type="submit" value="Trade" class="btn btn-primary">
+	Amount: <input type="text" value="" placeholder="1.0" min="0.000001" max="9999" name="amount" id="FirstUseramountBTC" class="span2" value="0.1"><br>
+	Price: <input type="text" value="" placeholder="100.0" min="1" max="99999" name="price" id="FirstUserPerPriceBTC" class="span2" ><br>
 	</form>
 </div>
-<?php }?>
+<div class="span5" style="border:1px solid black;padding:5px ">
+	<form action="/API/Trade/<?=$detail['key']?>" method="post" target="_blank" id="FirstUserForm" name="SecondUserForm">
+	<input type="hidden" name="nounce" value="<?=time()?>"><br>
+	Type: <select name="type" class="span2" id="SecondUserType">
+	<option value="Buy">Buy</option>
+	<option value="Sell">Sell</option>								
+	</select><br>
+	Pair: <select name="pair" class="span2" id="SecondUserPair">
+	<?php foreach($trades as $trade){
+		$FC = substr($trade['trade'],0,3);
+		$SC = substr($trade['trade'],4,3);
+		$FCB = $detail['balance.'.$FC];
+		$SCB = $detail['balance.'.$SC];		
+	?>
+		<option value="<?=$FC?>_<?=$SC?>"><?=$FC?>(<?=$FCB?>)_<?=$SC?>(<?=$SCB?>)</option>
+	<?php }?>
+	</select><br>
+	Amount: <input type="text" value="" placeholder="1.0" min="0.000001" max="9999" name="amount" id="SecondUseramountBTC" class="span2" value="0.1"><br>
+	Price: <input type="text" value="" placeholder="100.0" min="1" max="99999" name="price" id="SecondUserPerPriceBTC" class="span2" ><br>
+	</form>
+</div>
+
 </div>
