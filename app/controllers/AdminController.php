@@ -1473,8 +1473,8 @@ $description = "Admin panel for Orders";
 	}
 	public function play(){
 		$details = Details::find('all',array(
-			'conditions'=>array('username'=>
-			 array('like'=>'/IBWTUser/')
+			'conditions'=>array(
+				'username'=>array('$regex'=>'IBWTUser'),
 			)
 		));
 		return compact($details);
