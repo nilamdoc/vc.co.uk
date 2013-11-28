@@ -94,7 +94,7 @@ function SubmitTrade(){
 		</select><br>
 		Amount: <input type="text" name="amount" id="UseramountBTC" class="span2" onBlur="ChangeAmount(this.value)"><br>
 		Price: <input type="text" name="price" id="UserPerPriceBTC" class="span2"  onBlur="ChangePrice(this.value)"><br>
-		<input type="submit" value="Submit Trade" onclick="retrun SubmitTrade()">
+		<input type="submit" value="Submit Trade" onclick="return SubmitTrade()">
 		</form>
 	</div>
 </div>
