@@ -495,11 +495,11 @@ class ExController extends \lithium\action\Controller {
 		$page = Pages::find('first',array(
 			'conditions'=>array('pagename'=>'ex/x/'.$currency)
 		));
-
+		$this->SetForecastGraph($SellOrders,$BuyOrders,$first_curr,$second_curr);
 		$title = $page['title'];
 		$keywords = $page['keywords'];
 		$description = $page['description'];
-
+		
 		return compact('title','details','SellOrders','BuyOrders','TotalSellOrders','TotalBuyOrders','YourOrders','YourCompleteOrders','keywords','description');
 	}
 	
@@ -1118,7 +1118,74 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 		$mailer->send($message);
 
 	}
+	public function SetForecastGraph($SellOrders,$BuyOrders,$first_curr,$second_curr){
+
+	$datay1 = array();$datay2 = array(); $labels = array();
+	$total = 0;
+	for($i=0;$i<count($SellOrders['result']);$i++){
+		$total = $total + $SellOrders['result'][$i]['Amount'];
+	}
+	$totalx = 0;
+	for($i=0;$i<count($SellOrders['result']);$i++){
+		$datay1[$i] = 0;
+		$totalx = $totalx + $SellOrders['result'][$i]['Amount'];		
+		$datay2[$i] = $total - $totalx;
+		$labels[$i] = $SellOrders['result'][$i]['_id']['PerPrice'];
+	}
+	$total = 0;
+	for($i=count($SellOrders['result']);$i<count($SellOrders['result'])+count($BuyOrders['result']);$i++){
+		$total = $total + $BuyOrders['result'][$i-count($SellOrders['result'])]['Amount'];
+		$datay1[$i] = $total;
+		$datay2[$i] = 0;
+		$labels[$i] = $BuyOrders['result'][$i-count($SellOrders['result'])]['_id']['PerPrice'];
+	}
 	
+//$datay1 = array(0,0,0,0,12,15,20);
+//$datay2 = array(15,12,11,0,0,0,0);
+//$labels = array(99,100,101,102,103,104,105);
+
+// Setup the graph
+$graph = new Graph(700,300);
+$graph->SetScale("textlin");
+
+
+$graph->img->SetAntiAliasing(false);
+$graph->title->Set('Orders');
+$graph->SetBox(false);
+
+$graph->img->SetAntiAliasing();
+
+$graph->yaxis->HideZeroLabel();
+$graph->yaxis->HideLine(false);
+$graph->yaxis->HideTicks(false,false);
+
+$graph->xgrid->Show();
+$graph->xgrid->SetLineStyle("solid");
+$graph->xaxis->SetTickLabels($labels);
+$graph->xgrid->SetColor('#E3E3E3');
+
+// Create the first line
+$p1 = new LinePlot($datay1);
+$graph->Add($p1);
+$p1->SetColor("#6495ED");
+$p1->SetLegend('Buy');
+
+// Create the second line
+$p2 = new LinePlot($datay2);
+$graph->Add($p2);
+$p2->SetColor("#B22222");
+$p2->SetLegend('Sell');
+
+$graph->legend->SetFrameWeight(1);
+
+// Output line
+	$image = $graph->Stroke(_IMG_HANDLER);
+	$fileName = LITHIUM_APP_PATH . '/webroot/documents/'. $first_curr."_".$second_curr."-T.png";
+	$graph->img->Stream($fileName);
+	
+	
+	
+	}
 	public function SetGraph($first_curr,$second_curr){
 		$updates = new UpdatesController();
 		$values = $updates->OHLC($first_curr,$second_curr);

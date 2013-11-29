@@ -64,7 +64,8 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 			</div>
 		</div>
 		<div style="padding-bottom:15px;padding-left:10px;margin-top:-20px">
-		<img src="/documents/<?=$first_curr?>_<?=$second_curr?>.png">
+		<img src="/documents/<?=$first_curr?>_<?=$second_curr?>.png"><br>
+		<img src="/documents/<?=$first_curr?>_<?=$second_curr?>-T.png">		
 		</div>
 </div>
 <?php 
