@@ -1126,19 +1126,22 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 		$total = $total + $SellOrders['result'][$i]['Amount'];
 	}
 	$totalx = 0;
-	for($i=0;$i<count($SellOrders['result']);$i++){
-		$datay1[$i] = 0;
+	rsort($SellOrders['result']);
+	for($i=0;$i<=count($SellOrders['result']);$i++){
+		$datay2[$i] = 0;
 		$totalx = $totalx + $SellOrders['result'][$i]['Amount'];		
-		$datay2[$i] = $total - $totalx;
+		$datay1[$i] = $total - $totalx;
 		$labels[$i+count($BuyOrders['result'])] = round($SellOrders['result'][$i]['_id']['PerPrice'],1);
 	}
 	$total = 0;
 	for($i=count($SellOrders['result']);$i<count($SellOrders['result'])+count($BuyOrders['result']);$i++){
 		$total = $total + $BuyOrders['result'][$i-count($SellOrders['result'])]['Amount'];
-		$datay1[$i] = $total;
-		$datay2[$i] = 0;
+		$datay2[$i] = $total;
+		$datay1[$i] = 0;
 		$labels[$i-count($SellOrders['result'])] = round($BuyOrders['result'][$i-count($SellOrders['result'])]['_id']['PerPrice'],1);
 	}
+sort($datay1);
+rsort($datay2);
 sort($labels);
 if(count($datay1)<=1){$datay1 = array(0,1);}
 if(count($datay2)<=1){$datay2 = array(1,0);}
@@ -1170,14 +1173,15 @@ $graph->xgrid->SetColor('#E3E3E3');
 // Create the first line
 $p1 = new LinePlot($datay1);
 $graph->Add($p1);
-$p1->SetColor("#6495ED");
+$p1->SetColor("#B22222");
 $p1->SetLegend('Sell');
 
 // Create the second line
 $p2 = new LinePlot($datay2);
 $graph->Add($p2);
-$p2->SetColor("#B22222");
+$p2->SetColor("#6495ED");
 $p2->SetLegend('Buy');
+
 
 $graph->legend->SetFrameWeight(1);
 
