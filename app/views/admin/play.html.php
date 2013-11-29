@@ -103,27 +103,29 @@ function SubmitTrade(){
 	<div class="span5" style="border:1px solid black;padding:5px ">
 		<form action="/API/Trade/SOMEKEY" method="post" target="_blank" id="FirstUserForm" name="FirstUserForm">
 		<input type="hidden" name="nounce" value="<?=time()?>"><br>
-		Username: <input type="text" name="FirstUserName" id="FirstUserName" disabled="disabled"><br>
-		Type: <select name="type" class="span2" id="FirstUserType" disabled="disabled">
+		Username: <input type="text" name="FirstUserName" id="FirstUserName" ><br>
+		Type: <select name="type" class="span2" id="FirstUserType">
 		<option value="Buy">Buy</option>
 		<option value="Sell">Sell</option>								
 		</select><br>
-		Pair: <input type="text" name="pair" id="FirstUserPair" disabled="disabled"><br>
-		Amount: <input type="text" name="amount" id="FirstUseramountBTC" class="span2"  disabled="disabled"><br>
-		Price: <input type="text" name="price" id="FirstUserPerPriceBTC" class="span2"  disabled="disabled"><br>
+		Pair: <input type="text" name="pair" id="FirstUserPair" ><br>
+		Amount: <input type="text" name="amount" id="FirstUseramountBTC" class="span2" ><br>
+		Price: <input type="text" name="price" id="FirstUserPerPriceBTC" class="span2" ><br>
+		<input type="submit" value="Submit Trade">		
 		</form>
 	</div>
 	<div class="span5" style="border:1px solid black;padding:5px ">
 		<form action="/API/Trade/SOMEKEY" method="post" target="_blank" id="SecondUserForm" name="SecondUserForm">
 		<input type="hidden" name="nounce" value="<?=time()?>"><br>
-		Username: <input type="text" name="SecondUserName" id="SecondUserName" disabled="disabled"><br>
-		Type: <select name="type" class="span2" id="SecondUserType"  disabled="disabled">
+		Username: <input type="text" name="SecondUserName" id="SecondUserName" ><br>
+		Type: <select name="type" class="span2" id="SecondUserType" >
 		<option value="Buy">Buy</option>
 		<option value="Sell">Sell</option>								
 		</select><br>
-		Pair: <input type="text" name="pair" id="SecondUserPair" disabled="disabled"><br>
-		Amount: <input type="text" name="amount" id="SecondUseramountBTC" class="span2"  disabled="disabled"><br>
-		Price: <input type="text" name="price" id="SecondUserPerPriceBTC" class="span2"  disabled="disabled"><br>
+		Pair: <input type="text" name="pair" id="SecondUserPair"><br>
+		Amount: <input type="text" name="amount" id="SecondUseramountBTC" class="span2" ><br>
+		Price: <input type="text" name="price" id="SecondUserPerPriceBTC" class="span2" ><br>
+				<input type="submit" value="Submit Trade">		
 		</form>
 	</div>
 
