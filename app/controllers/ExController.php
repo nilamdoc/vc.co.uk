@@ -1140,6 +1140,9 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 		$labels[$i-count($SellOrders['result'])] = round($BuyOrders['result'][$i-count($SellOrders['result'])]['_id']['PerPrice'],1);
 	}
 sort($labels);
+if(count($datay1)<=1){$datay1 = array(0,1);}
+if(count($datay2)<=1){$datay2 = array(1,0);}
+if(count($labels)<=1){$labels = array(0,1);}
 //$datay1 = array(0,0,0,0,12,15,20);
 //$datay2 = array(15,12,11,0,0,0,0);
 //$labels = array(99,100,101,102,103,104,105);
