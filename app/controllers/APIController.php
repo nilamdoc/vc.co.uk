@@ -644,6 +644,7 @@ class APIController extends \lithium\action\Controller {
 				$pair = $this->request->data['pair'];				
 				$amount = $this->request->data['amount'];				
 				$price = $this->request->data['price'];				
+				print_r($price);				
 				if(!($type=="Buy" || $type=="Sell")){
 					return $this->render(array('json' => array('success'=>0,
 					'now'=>time(),
@@ -695,8 +696,8 @@ class APIController extends \lithium\action\Controller {
 				$Commission = (float)$commissionRate;
 				$CommissionAmount = number_format((float)$commissionRate * (float)$amount/100,8);				
 				$CommissionCurrency = $first_curr;;								
-				$Amount = number_format((float)$amount,8);
-				$PerPrice = number_format((float)$price,8);
+				$Amount = (float)$amount;
+				$PerPrice = (float)$price;
 				$BalanceAmount = $details['balance'][$second_curr];
 				if(($amount * $price)>=$BalanceAmount){
 					return $this->render(array('json' => array('success'=>0,
@@ -722,8 +723,8 @@ class APIController extends \lithium\action\Controller {
 				$Commission = (float)$commissionRate;
 				$CommissionAmount = number_format((float)$commissionRate * (float)$amount * (float)$price/100,8);				
 				$CommissionCurrency = $second_curr;
-				$Amount = number_format((float)$amount,8);
-				$PerPrice = number_format((float)$price,8);
+				$Amount = (float)$amount;
+				$PerPrice = (float)$price;
 				$BalanceAmount = $details['balance'][$first_curr];
 				if(($amount)>=$BalanceAmount){
 					return $this->render(array('json' => array('success'=>0,

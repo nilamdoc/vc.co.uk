@@ -1182,7 +1182,7 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 		
 		$graph->xaxis->SetTickLabels($days);
 		$graph->SetY2Scale('lin');
-		$graph->y2scale->SetAutoMin(min($datav));
+		$graph->y2scale->SetAutoMin(min($datav)-.01);
 		$graph->y2scale->SetAutoMax(max($datav)+1);
 		$graph->y2axis->HideTicks(true);
 		$graph->Add($p1);

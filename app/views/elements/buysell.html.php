@@ -61,7 +61,6 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 			<a class="brand" href="#" onclick="document.getElementById('Graph').style.display='none';">Graph
 				<i class="icon-remove"></i>
 			</a>
-
 			</div>
 		</div>
 		<div style="padding-bottom:15px;padding-left:10px;margin-top:-20px">
