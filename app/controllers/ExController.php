@@ -1130,16 +1130,16 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 		$datay1[$i] = 0;
 		$totalx = $totalx + $SellOrders['result'][$i]['Amount'];		
 		$datay2[$i] = $total - $totalx;
-		$labels[$i] = $SellOrders['result'][$i]['_id']['PerPrice'];
+		$labels[$i+count($BuyOrders['result'])] = round($SellOrders['result'][$i]['_id']['PerPrice'],1);
 	}
 	$total = 0;
 	for($i=count($SellOrders['result']);$i<count($SellOrders['result'])+count($BuyOrders['result']);$i++){
 		$total = $total + $BuyOrders['result'][$i-count($SellOrders['result'])]['Amount'];
 		$datay1[$i] = $total;
 		$datay2[$i] = 0;
-		$labels[$i] = $BuyOrders['result'][$i-count($SellOrders['result'])]['_id']['PerPrice'];
+		$labels[$i-count($SellOrders['result'])] = round($BuyOrders['result'][$i-count($SellOrders['result'])]['_id']['PerPrice'],1);
 	}
-	
+sort($labels);
 //$datay1 = array(0,0,0,0,12,15,20);
 //$datay2 = array(15,12,11,0,0,0,0);
 //$labels = array(99,100,101,102,103,104,105);
@@ -1168,13 +1168,13 @@ $graph->xgrid->SetColor('#E3E3E3');
 $p1 = new LinePlot($datay1);
 $graph->Add($p1);
 $p1->SetColor("#6495ED");
-$p1->SetLegend('Buy');
+$p1->SetLegend('Sell');
 
 // Create the second line
 $p2 = new LinePlot($datay2);
 $graph->Add($p2);
 $p2->SetColor("#B22222");
-$p2->SetLegend('Sell');
+$p2->SetLegend('Buy');
 
 $graph->legend->SetFrameWeight(1);
 
