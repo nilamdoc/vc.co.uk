@@ -644,7 +644,7 @@ class APIController extends \lithium\action\Controller {
 				$pair = $this->request->data['pair'];				
 				$amount = $this->request->data['amount'];				
 				$price = $this->request->data['price'];				
-				print_r($price);				
+
 				if(!($type=="Buy" || $type=="Sell")){
 					return $this->render(array('json' => array('success'=>0,
 					'now'=>time(),
@@ -1051,7 +1051,7 @@ $SecondCurrency = $second_curr;
 				$Orders = Orders::find('first', array(
 					'conditions' => array('_id' => new MongoID($ID))
 				));
-//				print_r($Orders);
+
 				if($Orders['Completed']=='N')		{
 					$details = Details::find('first', array(
 						'conditions' => array('user_id'=>(string)$Orders['user_id'])
