@@ -1127,9 +1127,9 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 	}
 	$totalx = 0;
 	rsort($SellOrders['result']);
-	for($i=0;$i<=count($SellOrders['result']);$i++){
+	for($i=0;$i<count($SellOrders['result']);$i++){
 		$datay2[$i] = 0;
-		$totalx = $totalx + $SellOrders['result'][$i]['Amount'];		
+		$totalx = $totalx + (float)$SellOrders['result'][$i-1]['Amount'];		
 		$datay1[$i] = $total - $totalx;
 		$labels[$i+count($BuyOrders['result'])] = round($SellOrders['result'][$i]['_id']['PerPrice'],1);
 	}
