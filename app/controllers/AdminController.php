@@ -1296,7 +1296,7 @@ $description = "Admin Panel for user";
 				array( '$match' => array( 
 					'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ),
 					'Completed'=>'Y',
-					'username'=>array('$in'=>array('IBWTUserA','IBWTUserB','IBWTUserC','IBWTUserD'))
+					'username'=>array('$nin'=>array('IBWTUserA','IBWTUserB','IBWTUserC','IBWTUserD'))
 					 )),
 				array('$group' => array( '_id' => array(
 					'CommissionCurrency'=>'$CommissionCurrency',					
