@@ -5,15 +5,15 @@
 <p>You have requested to deposit money to <?=COMPANY_URL?>.</p>
 <p><strong>Make SURE you deposit to your verified account. Money attempted to be sent to any other account will result in the transaction being blocked and investigated.</strong></p>
 <p style="color:red ">Please make SURE you copy/paste and print the boxed information, or write it clearly and INCLUDE either with your deposit.</p>
+<blockquote>
+<strong>Registered Address:</strong>
+<p>IBWT JD Ltd<br>
+	 31 North Down Crescent<br>
+	 Keyham, Plymouth<br>
+	 Devon, PL2 2AR<br>
+   United Kingdom</p>
+</blockquote>
 <table style="border:2px solid black ">
-		<tr>
-			<td>Registered Address: </td>
-			<td>IBWT JD Ltd<br>
-				 31 North Down Crescent<br>
-				 Keyham, Plymouth<br>
-				 Devon, PL2 2AR<br>
-				United Kingdom</td>
-		</tr>
 		<tr>
 			<td>Reference:</td>
 			<td><strong><?=$data['Reference']?></strong></td>

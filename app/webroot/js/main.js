@@ -133,10 +133,14 @@ if(SellPriceper=="" || SellPriceper==0){return false;}
 function SellOrderFill(SellOrderPrice,SellOrderAmount){
 	$("#BuyAmount").val(SellOrderAmount)  ;
 	$("#BuyPriceper").val(SellOrderPrice)  ;
+	$("#BuySubmitButton").attr("disabled", "disabled");	
+	$("#BuySubmitButton").attr("class", "btn btn-warning");				
 }
 function BuyOrderFill(BuyOrderPrice,BuyOrderAmount){
 	$("#SellAmount").val(BuyOrderAmount)  ;
 	$("#SellPriceper").val(BuyOrderPrice)  ;
+	$("#SellSubmitButton").attr("disabled", "disabled");	
+	$("#SellSubmitButton").attr("class", "btn btn-warning");					
 }
 function ConvertBalance(){
 	BTCRate = $("#BTCRate").val();

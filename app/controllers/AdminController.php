@@ -202,168 +202,180 @@ class AdminController extends \lithium\action\Controller {
 	
 	public function Approval() {
 		if($this->__init()==false){			$this->redirect('ex::dashboard');	}
-		$UserApproval = $this->request->data['UserApproval']	;
-		$EmailSearch = $this->request->data['EmailSearch']	;	
-		$UserSearch = $this->request->data['UserSearch']	;							
-		$usernames = array();		
-		if($EmailSearch!="" || $UserSearch!="" ){
-			$user = Users::find('all',array(
-				'conditions'=>array(
-					'username'=>array('$regex'=>$UserSearch),
-					'email'=>array('$regex'=>$EmailSearch),					
-				)
-			));
-			foreach($user as $u){
-				array_push($usernames,$u['username']);
-			}
-		}else{
-				$user = Users::find('all',array('limit'=>100));
+		if($this->request->data){
+			$UserApproval = $this->request->data['UserApproval']	;
+			$EmailSearch = $this->request->data['EmailSearch']	;	
+			$UserSearch = $this->request->data['UserSearch']	;							
+			$usernames = array();		
+			if($EmailSearch!="" || $UserSearch!="" ){
+				$user = Users::find('all',array(
+					'conditions'=>array(
+						'username'=>array('$regex'=>$UserSearch),
+						'email'=>array('$regex'=>$EmailSearch),					
+					)
+				));
 				foreach($user as $u){
 					array_push($usernames,$u['username']);
 				}
-		}
-		switch ($UserApproval) {
-    	case "All":
-				$details = Details::find('all',array(
-					'conditions'=>array('username'=>array('$in'=>$usernames))
-				));
-//			print_r($usernames);				
-        break;
-    	case "VEmail":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'email.verified'=>'Yes',
-					'username'=>array('$in'=>$usernames)					
-					)
-				));
-
-        break;
-    	case "VPhone":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'phone.verified'=>'Yes',
-					'username'=>array('$in'=>$usernames)
-					)
-				));
-
-        break;
-			case "VBank":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'bank.verified'=>'Yes',
-					'username'=>array('$in'=>$usernames)
-					)
-				));
-			
-        break;
-    	case "VGovernment":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'government.verified'=>'Yes',
-					'username'=>array('$in'=>$usernames)
-					)
-				));
-			
-        break;
-    	case "VUtility":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'utility.verified'=>'Yes',
-					'username'=>array('$in'=>$usernames)
-					)
-				));			
-        break;
+			}else{
+					$user = Users::find('all',array('limit'=>100));
+					foreach($user as $u){
+						array_push($usernames,$u['username']);
+					}
+			}
+			switch ($UserApproval) {
+				case "All":
+					$details = Details::find('all',array(
+						'conditions'=>array('username'=>array('$in'=>$usernames))
+					));
+	//			print_r($usernames);				
+					break;
+				case "VEmail":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'email.verified'=>'Yes',
+						'username'=>array('$in'=>$usernames)					
+						)
+					));
+	
+					break;
+				case "VPhone":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'phone.verified'=>'Yes',
+						'username'=>array('$in'=>$usernames)
+						)
+					));
+	
+					break;
+				case "VBank":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'bank.verified'=>'Yes',
+						'username'=>array('$in'=>$usernames)
+						)
+					));
 				
-    	case "NVEmail":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'email.verify'=>'Yes',
-					'username'=>array('$in'=>$usernames))
-				));
-
-        break;
-    	case "NVPhone":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'phone.verified'=>array('$exists'=>false),
-					'username'=>array('$in'=>$usernames)
-					)
-				));
-
-        break;
-			case "NVBank":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'bank.verified'=>array('$exists'=>false),
-					'username'=>array('$in'=>$usernames)
-					)
-				));
-
-        break;
-    	case "NVGovernment":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'government.verified'=>array('$exists'=>false),
-					'username'=>array('$in'=>$usernames)
-					)
-				));
-
-        break;
-    	case "NVUtility":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'utility.verified'=>array('$exists'=>false),
-					'username'=>array('$in'=>$usernames)
-					)
-				));
-			
-        break;
+					break;
+				case "VGovernment":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'government.verified'=>'Yes',
+						'username'=>array('$in'=>$usernames)
+						)
+					));
 				
-    	case "WVEmail":
+					break;
+				case "VUtility":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'utility.verified'=>'Yes',
+						'username'=>array('$in'=>$usernames)
+						)
+					));			
+					break;
+					
+				case "NVEmail":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'email.verify'=>'Yes',
+						'username'=>array('$in'=>$usernames))
+					));
+	
+					break;
+				case "NVPhone":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'phone.verified'=>array('$exists'=>false),
+						'username'=>array('$in'=>$usernames)
+						)
+					));
+	
+					break;
+				case "NVBank":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'bank.verified'=>array('$exists'=>false),
+						'username'=>array('$in'=>$usernames)
+						)
+					));
+	
+					break;
+				case "NVGovernment":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'government.verified'=>array('$exists'=>false),
+						'username'=>array('$in'=>$usernames)
+						)
+					));
+	
+					break;
+				case "NVUtility":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'utility.verified'=>array('$exists'=>false),
+						'username'=>array('$in'=>$usernames)
+						)
+					));
+				
+					break;
+					
+				case "WVEmail":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'email.verified'=>array('$exists'=>false),
+						'username'=>array('$in'=>$usernames)
+						)
+					));
+				
+					break;
+				case "WVPhone":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'phone.verified'=>'No',
+						'username'=>array('$in'=>$usernames)
+						)
+					));
+	
+					break;
+				case "WVBank":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'bank.verified'=>'No',
+						'username'=>array('$in'=>$usernames)
+						)
+					));
+	
+					break;
+				case "WVGovernment":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'government.verified'=>'No',
+						'username'=>array('$in'=>$usernames)
+						)
+					));
+	
+					break;
+				case "WVUtility":
+					$details = Details::find('all',array(
+						'conditions'=>array(
+						'utility.verified'=>'No',
+						'username'=>array('$in'=>$usernames)
+						)
+					));
+					break;
+			}
+			}else{
 				$details = Details::find('all',array(
-					'conditions'=>array(
-					'email.verified'=>array('$exists'=>false),
-					'username'=>array('$in'=>$usernames)
+				'conditions'=>array(
+					'$or'=>array(
+						array('utility.verified'=>'No'),
+						array('government.verified'=>'No'),
+						array('bank.verified'=>'No')	
 					)
+				)
 				));
-			
-        break;
-    	case "WVPhone":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'phone.verified'=>'No',
-					'username'=>array('$in'=>$usernames)
-					)
-				));
-
-        break;
-			case "WVBank":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'bank.verified'=>'No',
-					'username'=>array('$in'=>$usernames)
-					)
-				));
-
-        break;
-    	case "WVGovernment":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'government.verified'=>'No',
-					'username'=>array('$in'=>$usernames)
-					)
-				));
-
-        break;
-    	case "WVUtility":
-				$details = Details::find('all',array(
-					'conditions'=>array(
-					'utility.verified'=>'No',
-					'username'=>array('$in'=>$usernames)
-					)
-				));
-        break;
-		}
+			}
 //		print_r(count($details));
 $title = "Admin Approval";
 $keywords = "Admin, Approval";
