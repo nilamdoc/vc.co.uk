@@ -4,6 +4,7 @@ use lithium\storage\Session;
 use app\models\Users;
 use app\models\Details;
 use app\models\Transactions;
+use app\models\Parameters;
 use app\models\Reasons;
 use app\models\File;
 use app\models\Trades;
