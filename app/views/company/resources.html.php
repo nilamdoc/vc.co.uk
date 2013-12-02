@@ -4,7 +4,6 @@
 <blockquote><strong>Archive</strong>
 <ul class="unstyled">
 	<li><a href="/files/Processes.pdf" target="_blank">IBWT Processes</a></li>
-	<li><a href="/files/Brito_BitcoinPrimer.pdf" target="_blank">Bitcoin - A Primer for Policy Makers</a></li>
 	<li><a href="/files/HMRC.pdf" target="_blank">Regulation as an MSB/HMRC</a></li>
 	<li><a href="/files/25-10-2013-FCA.pdf" target="_blank">Regulated Businesses under FCA & FSMA (2000/2001)</a></li>
 	<li><a href="/files/Withdrawal Verification.pdf" target="_blank">Withdrawal Verification</a></li>
@@ -19,6 +18,7 @@
 </blockquote>	
 <blockquote><strong>Education</strong>
 	<ul  class="unstyled">
+	<li><a href="/files/Brito_BitcoinPrimer.pdf" target="_blank">Bitcoin - A Primer for Policy Makers</a></li>
 	<li><a href="https://www.udemy.com/bitcoin-or-how-i-learned-to-stop-worrying-and-love-crypto/" target="_blank">Bitcoin Education Project</a></li>
 	<li><a href="https://www.khanacademy.org/economics-finance-domain/core-finance/money-and-banking/bitcoin/v/bitcoin-what-is-it" target="_blank">Khan Academy</a></li>
 </ul>

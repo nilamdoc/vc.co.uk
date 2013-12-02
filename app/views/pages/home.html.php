@@ -46,10 +46,13 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 				<li><a href="/<?=$locale?>/news">News</a></li>
 				<li><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank">Explanation: Bitcoin - The Future Currency</a></li>
 			</ul>
-		<a href="http://www.bitcointrezor.com/" target="_blank"><img src="/img/trezor.png" title="Trezor, the Bitcoin Safe"></a>
+		<div style="text-align:center ">
+		<a href="http://www.bitcointrezor.com/" target="_blank"><img src="/img/trezor.png" title="Trezor, the Bitcoin Safe"></a><br>
+		<a href="http://bitcoinmagazine.com/" target="_blank"><img src="/img/BMLogo.jpg" title="Bitcoin Magazine"></a>
+		</div>
 		</div>
 
-		<img src="/img/Stamp.png" class="pull-right" width="300" style="padding:1px;">
+		<img src="/img/Stamp.png" class="pull-right" width="250" style="padding:1px;">
 	</div>
 <!--
 <h3>News</h3>
