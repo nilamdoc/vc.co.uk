@@ -126,8 +126,8 @@ use li3_qrcode\extensions\action\QRcode;
 				</table>
 				</div>
 				<div class="span5">
-				<a href="/<?=$locale?>/users/addpostal">Add/Edit Postal address</a>
-				<table class="table">
+				<a href="/<?=$locale?>/users/addpostal"><strong>Add/Edit Postal address</strong></a>
+				<table class="table" style="background-color:#FFFF99 ">
 					<tr>
 						<td>Name:</td>
 						<td><?=$details['postal']['Name']?></td>

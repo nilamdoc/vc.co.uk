@@ -86,7 +86,7 @@ $Amount = 0;
 </table>
 <hr>
 <div class="row">
-	<div class="span3">
+	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner">
 			<a class="brand" href="#"><?=$t('Transactions in BTC')?> </a>
@@ -97,6 +97,7 @@ $Amount = 0;
 					<th>Date</th>
 					<th>Amount BTC</th>
 					<th>Status</th>
+					<th>Paid</th>					
 				</tr>
 			</thead>
 			<tbody>
@@ -105,6 +106,7 @@ $Amount = 0;
 				<td><?=gmdate('Y-M-d H:i:s',$tx['DateTime']->sec)?></td>
 				<td style="text-align:right "><?=number_format($tx['Amount'],8)?></td>
 				<td><?php if($tx['Added']==true){echo "Deposit";}else{echo "Withdraw";}?></td>
+				<td><?=$tx['Paid']?></td>
 			</tr>
 			<?php 
 			$Amount = $Amount + number_format($tx['Amount'],8);
@@ -119,7 +121,7 @@ $Amount = 0;
 		</div>
 	</div>
 
-	<div class="span3">
+	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner">
 			<a class="brand" href="#"><?=$t('Transactions in LTC')?> </a>
@@ -130,6 +132,7 @@ $Amount = 0;
 					<th>Date</th>
 					<th>Amount LTC</th>
 					<th>Status</th>
+					<th>Paid</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -139,6 +142,7 @@ $Amount = 0;
 				<td><?=gmdate('Y-M-d H:i:s',$tx['DateTime']->sec)?></td>
 				<td style="text-align:right "><?=number_format($tx['Amount'],8)?></td>
 				<td><?php if($tx['Added']==true){echo "Deposit";}else{echo "Withdraw";}?></td>
+				<td><?=$tx['Paid']?></td>
 			</tr>
 			<?php 
 			$Amount = $Amount + number_format($tx['Amount'],8);
@@ -152,7 +156,7 @@ $Amount = 0;
 			</table>
 		</div>
 	</div>	
-	<div class="span5">
+	<div class="span3">
 		<div class="navbar">
 			<div class="navbar-inner">
 			<a class="brand" href="#"><?=$t('Transaction in Fiat')?> </a>

@@ -65,8 +65,12 @@ If you have no printer (or ran out of ink) please make sure you copy the followi
 <li>We cannot be held liable for any losses if you did not use recorded delivery and claim you sent us funds.</li>
 <li>We video record all opening of deposits for security and liability purposes.</li>
 </ol>
-
-
+<blockquote><strong>Withdrawals</strong>
+<ul>
+<li>IBWT Processes withdrawals in the same method, customers choose their withdrawal method (Mail (hard currency) or postal orders) when making a withdrawal. Withdrawal fees are deducted from customers account.</li>
+<li>Please make sure you have enough funds in your IBWT account to cover your appropriate withdrawal fee, if you do not your withdrawal will be declined, and you will have to resubmit a withdrawal request of an appropriate value.</li>
+</ul>
+</blockquote>
 <br>
 <br>
 <br>
