@@ -367,12 +367,16 @@ class AdminController extends \lithium\action\Controller {
 			}
 			}else{
 				$details = Details::find('all',array(
-				'conditions'=>array(
+/*				'conditions'=>array(
 					'$or'=>array(
 						array('utility.verified'=>'No'),
 						array('government.verified'=>'No'),
 						array('bank.verified'=>'No')	
+						array('utility.verified'=>''),
+						array('government.verified'=>''),
+						array('bank.verified'=>'')	
 					)
+					*/
 				)
 				));
 			}
