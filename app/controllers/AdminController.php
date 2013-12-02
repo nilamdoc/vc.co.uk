@@ -1296,17 +1296,18 @@ $description = "Admin Panel for user";
 					'FirstCurrency'=>'$FirstCurrency',
 					'SecondCurrency'=>'$SecondCurrency',	
 					'DateTime' => '$DateTime',					
+					'username' => '$username',
 				)),
 				array( '$match' => array( 
 					'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ),
 					'Completed'=>'Y',
-					'username'=>array('$in'=>array('$regex'=>array('IBWTUser')))
+					'username'=>array('$nin'=>array('IBWTUserA','IBWTUserB','IBWTUserC','IBWTUserD'))
 					 )),
 				array('$group' => array( '_id' => array(
 					'CommissionCurrency'=>'$CommissionCurrency',					
 					'year'=>array('$year' => '$DateTime'),
 					'month'=>array('$month' => '$DateTime'),						
-					'day'=>array('$dayOfMonth' => '$DateTime'),											
+					'day'=>array('$dayOfMonth' => '$DateTime'),	
 					),
 					'CommissionAmount' => array('$sum' => '$CommissionAmount'), 
 					'Transactions' => array('$sum'=>1),
