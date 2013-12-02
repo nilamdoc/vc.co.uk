@@ -371,7 +371,7 @@ class AdminController extends \lithium\action\Controller {
 					'$or'=>array(
 						array('utility.verified'=>'No'),
 						array('government.verified'=>'No'),
-						array('bank.verified'=>'No')	
+						array('bank.verified'=>'No'),
 						array('utility.verified'=>''),
 						array('government.verified'=>''),
 						array('bank.verified'=>'')	
