@@ -1415,7 +1415,7 @@ $description = "Admin panel for Litecoin transactions";
 			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
 			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
 		}
-		
+		$Commission = Parameters::find('first');
 		$Orders = Orders::find('all',array(
 			'conditions'=>array(
 				'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ,			
@@ -1427,7 +1427,7 @@ $keywords = "Orders";
 $description = "Admin panel for Orders";
 		
 
-		return compact(	'Orders','StartDate','EndDate','title','keywords','description')	;
+		return compact(	'Orders','StartDate','EndDate','title','keywords','description','Commission')	;
 	
 	}
 	public function api(){

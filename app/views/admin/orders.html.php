@@ -33,7 +33,9 @@ $EndDate=gmdate('Y-m-d',$EndDate->sec);
 		<th style="text-align:center ">Completed</th>		
 		<th style="text-align:center ">Username</th>		
 	</tr>
-	<?php foreach($Orders as $od){?>
+	<?php 
+	$Commission = $Commission['value'];
+	foreach($Orders as $od){?>
 	<tr>
 		<td><?=gmdate('Y-M-d H:i:s',$od['DateTime']->sec)?></td>
 		<td><?=$od['Action']?> <?=$od['FirstCurrency']?>/<?=$od['SecondCurrency']?></td>
@@ -43,9 +45,9 @@ $EndDate=gmdate('Y-m-d',$EndDate->sec);
 		<td><?=number_format($od['Commission']['Amount'],8)?> <?=$od['Commission']['Currency']?></td>						
 		<td><?php
 			if($od['Action']=="Buy"){
-			echo number_format($od['Amount']*.8/100,8)." ".$od['Commission']['Currency'];
+			echo number_format($od['Amount']*$Commission/100,8)." ".$od['Commission']['Currency'];
 			}else{
-			echo number_format($od['Amount']*$od['PerPrice']*.8/100,8)." ".$od['Commission']['Currency'];
+			echo number_format($od['Amount']*$od['PerPrice']*$Commission/100,8)." ".$od['Commission']['Currency'];
 			}
 		?></td>
 		<td><?=$od['Completed']?></td>				
