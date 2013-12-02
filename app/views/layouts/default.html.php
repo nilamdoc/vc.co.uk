@@ -53,7 +53,7 @@
       /* Custom container */
       .container {
         margin: 0 auto;
-        max-width: 1100px;
+
       }
       .container > hr {
         margin: 20px 0;
