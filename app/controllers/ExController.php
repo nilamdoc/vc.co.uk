@@ -54,12 +54,18 @@ class ExController extends \lithium\action\Controller {
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=>$id))
 		);
-
+		// if trade order is submitted by post ----------------
 		if(($this->request->data)){
-				$data = array(
-				'page.refresh' => true
-				);
-				Details::find('all')->save($data);
+			$data = array(
+			'page.refresh' => true
+			);
+			Details::find('all')->save($data);
+			$data = array(
+				'refresh' => true
+			);
+			Trades::find('all',array(
+				'conditions' => array('trade'=>$title)
+			))->save($data);
 
 			$Action = $this->request->data['Action'];
 			if($Action == "Buy"){
@@ -81,8 +87,8 @@ class ExController extends \lithium\action\Controller {
 				$details = Details::find('first',
 					array('conditions'=>array('user_id'=>$id))
 				)->save($data);
-				
 			}
+			
 			if($Action == "Sell"){
 				$PendingAction = 'Buy';			
 				$FirstCurrency = $this->request->data['SellFirstCurrency'];
@@ -103,8 +109,6 @@ class ExController extends \lithium\action\Controller {
 					array('conditions'=>array('user_id'=>$id))
 				)->save($data);
 			}
-			
-
 			$data = array(
 				'Action' => $Action,
 				'FirstCurrency' => $FirstCurrency,
@@ -125,17 +129,12 @@ class ExController extends \lithium\action\Controller {
 			$orders->save($data);
 			$order_id = $orders->_id;
 
-			$data = array(
-				'refresh' => true
-			);
-			Trades::find('all',array(
-				'conditions' => array('trade'=>$title)
-			))->save($data);
 			
 			$this->SendEmails($order_id,$user['_id']);
 //			$this->SendFriendsEmails($order_id,$user['_id']);			
-
-			$PendingOrders = Orders::find('all',
+/*
+			if($PendingAction=="Buy"){
+				$PendingOrders = Orders::find('all',
 				array(
 					'conditions'=> array(
 						'Action' => $PendingAction,
@@ -143,11 +142,58 @@ class ExController extends \lithium\action\Controller {
 						'SecondCurrency' => $SecondCurrency,
 						'Completed' => 'N',
 						'user_id' => array('$ne' => $user['_id']),
-						'PerPrice' => (float)($PerPrice),
+						'PerPrice' => array('$gte'=>(float)($PerPrice)),
 					),
 					'order'=>array('DateTime'=>'ASC')
 				));
-				$i=0;
+			}
+			if($PendingAction=="Sell"){
+				$PendingOrders = Orders::find('all',
+				array(
+					'conditions'=> array(
+						'Action' => $PendingAction,
+						'FirstCurrency' => $FirstCurrency,
+						'SecondCurrency' => $SecondCurrency,
+						'Completed' => 'N',
+						'user_id' => array('$ne' => $user['_id']),
+						'PerPrice' => array('$lte'=>(float)($PerPrice)),
+					),
+					'order'=>array('DateTime'=>'ASC')
+				));
+			}
+			
+				foreach($PendingOrders as $PO){
+					$PreviousOrder = 	$this->ChangePreviousOrder($PO['_id'],$order_id,$PerPrice,$user);
+					$this->updateBalance($PO['_id']);
+					$this->SendOrderCompleteEmails($PO['_id'],$PO['user_id']);						
+					
+					$NewOrder = $this->ChangeCurrentOrder($order_id,$PO['_id'],$PO['Amount'],$user);					
+					$this->updateBalance($order_id);
+					$this->SendOrderCompleteEmails($order_id,$user['_id']);						
+					
+					if($NewOrder==false){
+						break;
+					}
+					$order_id = $NewOrder;
+				}
+//				 exit;
+			$this->redirect($this->request->params);			// get out of this page and load the page again without POST!			
+			*/
+			
+				//Start FOR loop-----------------------------------------------------
+				$PendingOrders = Orders::find('all',
+				array(
+					'conditions'=> array(
+						'Action' => $PendingAction,
+						'FirstCurrency' => $FirstCurrency,
+						'SecondCurrency' => $SecondCurrency,
+						'Completed' => 'N',
+						'user_id' => array('$ne' => $user['_id']),
+						'PerPrice' => (float)$PerPrice,
+					),
+					'order'=>array('DateTime'=>'ASC')
+				));
+
 				foreach ($PendingOrders as $PO){
 					if((float)$PO['Amount']==(float)($Amount)){
  						$data = array(
@@ -180,7 +226,7 @@ class ExController extends \lithium\action\Controller {
 						$this->updateBalance($PO['_id']);
 						$this->SendOrderCompleteEmails($order_id,$user['_id']);
 						$this->SendOrderCompleteEmails($PO['_id'],$PO['user_id']);						
-						break;
+						//break;
 					}
 					
 					if((float)$PO['Amount']>(float)($Amount)){
@@ -258,7 +304,7 @@ class ExController extends \lithium\action\Controller {
 						$this->updateBalance($PO['_id']);
 						$this->SendOrderCompleteEmails($order_id,$user['_id']);
 						$this->SendOrderCompleteEmails($PO['_id'],$PO['user_id']);						
-						break;
+//						break;
 					}
 					if((float)$PO['Amount']<(float)($Amount)){
 						// Update Previous Order with New Order Amount and New Commission and Transact User 
@@ -345,12 +391,16 @@ class ExController extends \lithium\action\Controller {
 						$this->updateBalance($PO['_id']);
 						$this->SendOrderCompleteEmails($order_id,$user['_id']);
 						$this->SendOrderCompleteEmails($PO['_id'],$PO['user_id']);						
-						break;
+		//				break;
 					}
 			}
-			$this->redirect($this->request->params);			
+			// End FOR Loop -----------------------------------
+//			exit; // Temporary EXIT 
+			$this->redirect($this->request->params);			// get out of this page and load the page again without POST!
 
-		}
+		} // submitted by post!
+		
+		// without POST... load the page!
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=>$id))
 		);
@@ -383,6 +433,7 @@ class ExController extends \lithium\action\Controller {
 				))
 			)
 		));
+
 		$TotalBuyOrders = Orders::connection()->connection->command(array(
 			'aggregate' => 'orders',
 			'pipeline' => array( 
@@ -945,7 +996,7 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 				}
 			}
 			$data = array('Friend'=>$addfriend);
-			print_r($data);
+//			print_r($data);
 			$details = Details::find('first',
 				array('conditions'=>array('user_id'=>$id))
 			)->save($data);
@@ -1119,7 +1170,6 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 
 	}
 	public function SetForecastGraph($SellOrders,$BuyOrders,$first_curr,$second_curr){
-
 	$datay1 = array();$datay2 = array(); $labels = array();
 	$total = 0;
 	for($i=0;$i<count($SellOrders['result']);$i++){
@@ -1134,7 +1184,9 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 		$labels[$i+count($BuyOrders['result'])] = round($SellOrders['result'][$i]['_id']['PerPrice'],1);
 	}
 	$total = 0;
+//	print_r("/");
 	for($i=count($SellOrders['result']);$i<count($SellOrders['result'])+count($BuyOrders['result']);$i++){
+//	print_r($i);
 		$total = $total + $BuyOrders['result'][$i-count($SellOrders['result'])]['Amount'];
 		$datay2[$i] = $total;
 		$datay1[$i] = 0;
@@ -1146,9 +1198,6 @@ sort($labels);
 if(count($datay1)<=1){$datay1 = array(0,1);}
 if(count($datay2)<=1){$datay2 = array(1,0);}
 if(count($labels)<=1){$labels = array(0,1);}
-//$datay1 = array(0,0,0,0,12,15,20);
-//$datay2 = array(15,12,11,0,0,0,0);
-//$labels = array(99,100,101,102,103,104,105);
 
 // Setup the graph
 $graph = new Graph(700,300);
@@ -1278,5 +1327,117 @@ $graph->legend->SetFrameWeight(1);
 		$fileName = LITHIUM_APP_PATH . '/webroot/documents/'. $first_curr."_".$second_curr.".png";
 		$graph->img->Stream($fileName);
 	}
+	
+	public function ChangePreviousOrder($PO_id,$order_id,$PerPrice,$user){
+		
+		$PO = Orders::find('first',array(
+			'conditions'=>array('_id'=>$PO_id)
+		));
+		if($PO['Action']=="Buy"){
+			$PrevCommAmount = round(((float)$PO['CommissionPercent'] * ((float)$PO['Amount']) )/100,8);
+		}else{
+			$PrevCommAmount = round((float)$PO['CommissionPercent'] * (float)($PO['Amount']) * (float)($PerPrice)/100,8);
+		}
+		
+		$POData = array(
+			'Action' => $PO['Action'],
+			'FirstCurrency' => $PO['FirstCurrency'],
+			'SecondCurrency' => $PO['SecondCurrency'],
+			'CommissionPercent' => (float)$PO['CommissionPercent'],
+			'Commission.Amount' => (float)$PrevCommAmount,
+			'Commission.Currency' => $PO['Commission']['Currency'],
+			'Amount' => (float)$PO['Amount'],
+			'PerPrice' => (float)$PerPrice,
+			'DateTime' => $PO['DateTime'],
+			'username' => $PO['username'],
+			'IP' => $PO['IP'],			
+			'user_id' => $PO['user_id'],
+			'Completed' => 'Y',
+			'Transact.id'=> $order_id,
+			'Transact.username' => $user['username'],
+			'Transact.user_id' => $user['_id'],
+			'Transact.DateTime' => new \MongoDate(),														
+			'Order'=>'P>C: Update Previous Commission and Amount and Complete Order'							
+		);
+//	print_r($POData)		;
+		$PO = Orders::find('all',array(
+			'conditions'=>array('_id'=>$PO_id)
+		))->save($POData);
+
+
+
+
+	}
+
+	public function ChangeCurrentOrder($order_id,$PO_id,$PO_Amount,$user){
+		$PO = Orders::find('first',array(
+			'conditions'=>array('_id'=>$PO_id)
+		));
+		$CO = Orders::find('first',array(
+			'conditions'=>array('_id'=>$order_id)
+		));
+
+		if($CO['Action']=="Buy"){
+			$CurrCommAmount = round(((float)$CO['CommissionPercent'] * ((float)$PO_Amount) )/100,8);														
+			$NewCommAmount = round(((float)$CO['CommissionPercent'] * ((float)$CO['Amount'] - (float)$PO_Amount) )/100,8);																	
+		}else{
+			$CurrCommAmount = round(((float)$CO['CommissionPercent'] * (float)($PO_Amount) * (float)$CO['PrePrice'])/100,8);							
+			$NewCommAmount = round(((float)$CO['CommissionPercent'] * ((float)$CO['Amount'] - (float)$PO_Amount) * (float)$CO['PrePrice'])/100,8);										
+		}
+
+		$COData = array(
+			'Action' => $CO['Action'],
+			'FirstCurrency' => $CO['FirstCurrency'],
+			'SecondCurrency' => $CO['SecondCurrency'],
+			'CommissionPercent' => (float)$CO['CommissionPercent'],
+			'Commission.Amount' => (float)$CurrCommAmount,
+			'Commission.Currency' => $CO['Commission']['Currency'],
+			'Amount' => (float)$PO_Amount,
+			'PerPrice' => (float)$CO['PerPrice'],
+			'DateTime' => $CO['DateTime'],
+			'username' => $CO['username'],
+			'IP' => $CO['IP'],			
+			'user_id' => $CO['user_id'],
+			'Completed' => 'Y',
+			'Transact.id'=> $PO_id,
+			'Transact.username' => $PO['username'],
+			'Transact.user_id' => $PO['_id'],
+			'Transact.DateTime' => new \MongoDate(),														
+			'Order'=>'P>C: Update Current Commission and Amount and Complete Order'							
+		);
+		
+//	print_r($COData)		;
+			$data = array(
+				'Action' => $CO['Action'],
+				'FirstCurrency' => $CO['FirstCurrency'],
+				'SecondCurrency' => $CO['SecondCurrency'],
+				'CommissionPercent' => (float)$CO['CommissionPercent'],
+				'Commission.Amount' => (float)$NewCommAmount,
+				'Commission.Currency' => $CO['Commission']['Currency'],				
+				'Amount' => (float)($CO['Amount'] - $PO_Amount),
+				'PerPrice' => (float)$CO['PerPrice'],
+				'DateTime' => new \MongoDate(),
+				'Completed' => 'N',
+				'IP' => $_SERVER['REMOTE_ADDR'],
+				'username' => $user['username'],
+				'user_id' => $user['_id'],
+			);
+	
+		$CO = Orders::find('all',array(
+			'conditions'=>array('_id'=>$order_id)
+		))->save($COData);
+		
+		// Create Order for the user
+		if((float)($CO['Amount'] - $PO_Amount)>0){
+			$orders = Orders::create();			
+			$orders->save($data);
+			$order_id = $orders->_id;
+			$this->SendEmails($order_id,$user['_id']);						
+			return $order_id;						
+		}
+		return false;
+	}
+
+	
 }
 ?>

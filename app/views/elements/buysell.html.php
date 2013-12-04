@@ -318,7 +318,7 @@ if($$second_curr!=0){ ?>
 					$SellOrderAmount = 0;
 					foreach($SellOrders['result'] as $SO){
 						$SellOrderPrice = number_format(round($SO['_id']['PerPrice'],8),8);
-						$SellOrderAmount = $SellOrderAmount + number_format(round($SO['Amount'],8),8);
+						$SellOrderAmount = number_format(round($SO['Amount'],8),8);
 					?>
 					<tr onClick="SellOrderFill(<?=$SellOrderPrice?>,<?=$SellOrderAmount?>);"  style="cursor:pointer" 
 					 class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Buy <?=$SellOrderAmount?> <?=$first_curr?> at <?=$SellOrderPrice?> <?=$second_curr?>">
@@ -363,7 +363,7 @@ if($$second_curr!=0){ ?>
 					$BuyOrderAmount = 0;
 					foreach($BuyOrders['result'] as $BO){
 						$BuyOrderPrice = number_format(round($BO['_id']['PerPrice'],8),8);
-						$BuyOrderAmount = $BuyOrderAmount + number_format(round($BO['Amount'],8),8);
+						$BuyOrderAmount = number_format(round($BO['Amount'],8),8);
 					
 					?>
 					<tr onClick="BuyOrderFill(<?=$BuyOrderPrice?>,<?=$BuyOrderAmount?>);" style="cursor:pointer" 
