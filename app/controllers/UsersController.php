@@ -683,7 +683,7 @@ class UsersController extends \lithium\action\Controller {
 			$message = Swift_Message::newInstance();
 			$message->setSubject("BTC Withdrawal Approval from ".COMPANY_URL);
 			$message->setFrom(array(NOREPLY => 'BTC Withdrawal Approval email '.COMPANY_URL));
-			$message->setTo($user->email);
+			$message->setTo($email);
 			$message->addBcc(MAIL_1);
 			$message->addBcc(MAIL_2);
 			$message->addBcc(MAIL_3);
@@ -748,7 +748,7 @@ class UsersController extends \lithium\action\Controller {
 			$message = Swift_Message::newInstance();
 			$message->setSubject("LTC Withdrawal Approval from ".COMPANY_URL);
 			$message->setFrom(array(NOREPLY => 'LTC Withdrawal Approval email '.COMPANY_URL));
-			$message->setTo($user->email);
+			$message->setTo($email);
 			$message->addBcc(MAIL_1);
 			$message->addBcc(MAIL_2);			
 			$message->addBcc(MAIL_3);		
