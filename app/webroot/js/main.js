@@ -27,9 +27,7 @@ function GetDetails(ex){
 							$('#YourCompleteOrders').html(Orders['YourCompleteOrdersHTML']);
 							$('#YourOrders').html(Orders['YourOrdersHTML']);							
 					});
-
-//				window.location.assign(ReturnValues['URL']);								
-				}
+			}
 			
 			$("#LowPrice").html(ReturnValues['Low']);
 			$("#HighPrice").html(ReturnValues['High']);					
@@ -45,8 +43,7 @@ function GetDetails(ex){
 			Volume = ReturnValues['VolumeFirst'] + " " + ReturnValues['VolumeFirstUnit'] +
 			" / " + ReturnValues['VolumeSecond'] + " " + ReturnValues['VolumeSecondUnit'];
 			$("#Volume").html(Volume);					
-		}
-	);
+		});
 }
 function BuyFormCalculate (){
 	BalanceSecond = $('#BalanceSecond').html();
