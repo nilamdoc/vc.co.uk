@@ -35,6 +35,9 @@ $EndDate=gmdate('Y-m-d',$EndDate->sec);
 	<?php foreach ($trades as $trade){?>
 		<th style="text-align:center ;background-color:#B8EEB0"><?=$trade['trade']?></th>
 	<?php }?>
+	<?php foreach ($trades as $trade){?>
+		<th style="text-align:center ;background-color:#B8EEB0"><?=$trade['trade']?></th>
+	<?php }?>
 	</tr>	
 	<?php 
 foreach($new as $key=>$value){
