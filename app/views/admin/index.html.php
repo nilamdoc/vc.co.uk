@@ -91,88 +91,78 @@ foreach($new as $key=>$value){
 	<?php }?>
 <!--Sell-Complete-->
 	</tr>
-
 <?php  
 $users = $users + $value['Register'];
-$BuyUSDNAmount = $BuyUSDNAmount + $value['Buy']['USD']['N']['Amount'];
-$BuyUSDNTotalAmount = $BuyUSDNTotalAmount + $value['Buy']['USD']['N']['TotalAmount'];
+?>
+<?php foreach ($trades as $trade){
+	$FC = strtoupper(substr($trade['trade'],0,3));
+	$SC = strtoupper(substr($trade['trade'],4,3));
 
-$BuyGBPNAmount = $BuyGBPNAmount + $value['Buy']['GBP']['N']['Amount'];
-$BuyGBPNTotalAmount = $BuyGBPNTotalAmount + $value['Buy']['GBP']['N']['TotalAmount'];
+	$BuyNAmount = 'Buy'.$SC.'NAmount';
+	$BuyNTotalAmount = 'Buy'.$SC.'NTotalAmount';
+	$BuyYAmount = 'Buy'.$SC.'YAmount';
+	$BuyYTotalAmount = 'Buy'.$SC.'YTotalAmount';
 
-$BuyEURNAmount = $BuyEURNAmount + $value['Buy']['EUR']['N']['Amount'];
-$BuyEURNTotalAmount = $BuyEURNTotalAmount + $value['Buy']['EUR']['N']['TotalAmount'];
+$$BuyNAmount = $$BuyNAmount + $value['Buy'][$SC]['N']['Amount'];
+$$BuyNTotalAmount = $$BuyNTotalAmount + $value['Buy'][$SC]['N']['TotalAmount'];
+$$BuyYAmount = $$BuyYAmount + $value['Buy'][$SC]['Y']['Amount'];
+$$BuyYTotalAmount = $$BuyYTotalAmount + $value['Buy'][$SC]['Y']['TotalAmount'];
 
-$BuyUSDYAmount = $BuyUSDYAmount + $value['Buy']['USD']['Y']['Amount'];
-$BuyUSDYTotalAmount = $BuyUSDYTotalAmount + $value['Buy']['USD']['Y']['TotalAmount'];
+	$SellNAmount = 'Sell'.$SC.'NAmount';
+	$SellNTotalAmount = 'Sell'.$SC.'NTotalAmount';
+	$SellYAmount = 'Sell'.$SC.'YAmount';
+	$SellYTotalAmount = 'Sell'.$SC.'YTotalAmount';
 
-$BuyGBPYAmount = $BuyGBPYAmount + $value['Buy']['GBP']['Y']['Amount'];
-$BuyGBPYTotalAmount = $BuyGBPYTotalAmount + $value['Buy']['GBP']['Y']['TotalAmount'];
-
-$BuyEURYAmount = $BuyEURYAmount + $value['Buy']['EUR']['Y']['Amount'];
-$BuyEURYTotalAmount = $BuyEURYTotalAmount + $value['Buy']['EUR']['Y']['TotalAmount'];
-
-
-
-$SellUSDNAmount = $SellUSDNAmount + $value['Sell']['USD']['N']['Amount'];
-$SellUSDNTotalAmount = $SellUSDNTotalAmount + $value['Sell']['USD']['N']['TotalAmount'];
-
-$SellGBPNAmount = $SellGBPNAmount + $value['Sell']['GBP']['N']['Amount'];
-$SellGBPNTotalAmount = $SellGBPNTotalAmount + $value['Sell']['GBP']['N']['TotalAmount'];
-
-$SellEURNAmount = $SellEURNAmount + $value['Sell']['EUR']['N']['Amount'];
-$SellEURNTotalAmount = $SellEURNTotalAmount + $value['Sell']['EUR']['N']['TotalAmount'];
-
-$SellUSDYAmount = $SellUSDYAmount + $value['Sell']['USD']['Y']['Amount'];
-$SellUSDYTotalAmount = $SellUSDYTotalAmount + $value['Sell']['USD']['Y']['TotalAmount'];
-
-$SellGBPYAmount = $SellGBPYAmount + $value['Sell']['GBP']['Y']['Amount'];
-$SellGBPYTotalAmount = $SellGBPYTotalAmount + $value['Sell']['GBP']['Y']['TotalAmount'];
-
-$SellEURYAmount = $SellEURYAmount + $value['Sell']['EUR']['Y']['Amount'];
-$SellEURYTotalAmount = $SellEURYTotalAmount + $value['Sell']['EUR']['Y']['TotalAmount'];
+$$SellNAmount = $$SellNAmount + $value['Sell'][$SC]['N']['Amount'];
+$$SellNTotalAmount = $$SellNTotalAmount + $value['Sell'][$SC]['N']['TotalAmount'];
+$$SellYAmount = $$SellYAmount + $value['Sell'][$SC]['Y']['Amount'];
+$$SellYTotalAmount = $$SellYTotalAmount + $value['Sell'][$SC]['Y']['TotalAmount'];
 
 }?>
 	<tr>
-		<th>Total</th>
-		<th style="text-align:center "><?=$users?></th>		
-		<th style="background-color:#B8EEB0"><?=$BuyUSDNAmount."/".$BuyUSDNTotalAmount?><br>
-		<?php if($BuyUSDNAmount!=0){echo number_format($BuyUSDNTotalAmount/$BuyUSDNAmount,4);}?>
+		<th rowspan="2">Total</th>
+		<th style="text-align:center " rowspan="2"><?=$users?></th>		
+<?php foreach ($trades as $trade){
+	$FC = strtoupper(substr($trade['trade'],0,3));
+	$SC = strtoupper(substr($trade['trade'],4,3));
+	$BuyNAmount = 'Buy'.$SC.'NAmount';
+	$BuyNTotalAmount = 'Buy'.$SC.'NTotalAmount';
+?>
+		<th style="background-color:#B8EEB0"><?=$$BuyNAmount."/".$$BuyNTotalAmount?><br>
+		<?php if($$BuyUSDNAmount!=0){echo number_format($$BuyNTotalAmount/$$BuyNAmount,4);}?>
 		</th>				
-		<th style="background-color:#B8EEB0"><?=$BuyGBPNAmount."/".$BuyGBPNTotalAmount?><br>
-		<?php if($BuyUSDNAmount!=0){echo number_format($BuyUSDNTotalAmount/$BuyUSDNAmount,4);}?>
+<?php }?>
+<?php foreach ($trades as $trade){
+	$FC = strtoupper(substr($trade['trade'],0,3));
+	$SC = strtoupper(substr($trade['trade'],4,3));
+	$BuyYAmount = 'Buy'.$SC.'YAmount';
+	$BuyYTotalAmount = 'Buy'.$SC.'YTotalAmount';
+?>
+		<th style="background-color:#D1F4CC"><?=$$BuyYAmount."/".$$BuyYTotalAmount?><br>
+		<?php if($$BuyUSDYAmount!=0){echo number_format($$BuyYTotalAmount/$$BuyYAmount,4);}?>
+		</th>
+<?php }?>						
+</tr><tr>
+<?php foreach ($trades as $trade){
+	$FC = strtoupper(substr($trade['trade'],0,3));
+	$SC = strtoupper(substr($trade['trade'],4,3));
+	$SellNAmount = 'Sell'.$SC.'NAmount';
+	$SellNTotalAmount = 'Sell'.$SC.'NTotalAmount';
+?>	
+		<th style="background-color:#FEE1AF"><?=$$SellNAmount."/".$$SellNTotalAmount?><br>
+		<?php if($$SellNAmount!=0){echo number_format($$SellNTotalAmount/$$SellNAmount,4);}?>
 		</th>				
-		<th style="background-color:#B8EEB0"><?=$BuyEURNAmount."/".$BuyEURNTotalAmount?><br>
-		<?php if($BuyEURNAmount!=0){echo number_format($BuyEURNTotalAmount/$BuyEURNAmount,4);}?>
+<? }?>		
+<?php foreach ($trades as $trade){
+	$FC = strtoupper(substr($trade['trade'],0,3));
+	$SC = strtoupper(substr($trade['trade'],4,3));
+	$SellYAmount = 'Sell'.$SC.'YAmount';
+	$SellYTotalAmount = 'Sell'.$SC.'YTotalAmount';
+?>	
+		<th style="background-color:#FEEABA"><?=$$SellYAmount."/".$$SellYTotalAmount?><br>
+		<?php if($$SellYAmount!=0){echo number_format($$SellYTotalAmount/$$SellYAmount,4);}?>
 		</th>				
-		<th style="background-color:#D1F4CC"><?=$BuyUSDYAmount."/".$BuyUSDYTotalAmount?><br>
-		<?php if($BuyUSDYAmount!=0){echo number_format($BuyUSDYTotalAmount/$BuyUSDYAmount,4);}?>
-		</th>				
-		<th style="background-color:#D1F4CC"><?=$BuyGBPYAmount."/".$BuyGBPYTotalAmount?><br>
-		<?php if($BuyGBPYAmount!=0){echo number_format($BuyGBPYTotalAmount/$BuyGBPYAmount,4);}?>
-		</th>				
-		<th style="background-color:#D1F4CC"><?=$BuyEURYAmount."/".$BuyEURYTotalAmount?><br>
-		<?php if($BuyEURYAmount!=0){echo number_format($BuyEURYTotalAmount/$BuyEURYAmount,4);}?>
-		</th>						
-
-		<th style="background-color:#FEE1AF"><?=$SellUSDNAmount."/".$SellUSDNTotalAmount?><br>
-		<?php if($SellUSDNAmount!=0){echo number_format($SellUSDNTotalAmount/$SellUSDNAmount,4);}?>
-		</th>				
-		<th style="background-color:#FEE1AF"><?=$SellGBPNAmount."/".$SellGBPNTotalAmount?><br>
-		<?php if($SellUSDNAmount!=0){echo number_format($SellUSDNTotalAmount/$SellUSDNAmount,4);}?>
-		</th>				
-		<th style="background-color:#FEE1AF"><?=$SellEURNAmount."/".$SellEURNTotalAmount?><br>
-		<?php if($SellEURNAmount!=0){echo number_format($SellEURNTotalAmount/$SellEURNAmount,4);}?>
-		</th>				
-		<th style="background-color:#FEEABA"><?=$SellUSDYAmount."/".$SellUSDYTotalAmount?><br>
-		<?php if($SellUSDYAmount!=0){echo number_format($SellUSDYTotalAmount/$SellUSDYAmount,4);}?>
-		</th>				
-		<th style="background-color:#FEEABA"><?=$SellGBPYAmount."/".$SellGBPYTotalAmount?><br>
-		<?php if($SellGBPYAmount!=0){echo number_format($SellGBPYTotalAmount/$SellGBPYAmount,4);}?>
-		</th>				
-		<th style="background-color:#FEEABA"><?=$SellEURYAmount."/".$SellEURYTotalAmount?><br>
-		<?php if($SellEURYAmount!=0){echo number_format($SellEURYTotalAmount/$SellEURYAmount,4);}?>
-		</th>						
+<? }?>		
 	</tr>
 	<tr>
 		<th rowspan="3" style="text-align:center;">Date/Year</th>
