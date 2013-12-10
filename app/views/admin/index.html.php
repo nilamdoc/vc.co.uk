@@ -2,11 +2,11 @@
 <h3>Users and Order status - last 30 days</h3>
 <?php 
 if($StartDate==""){
-$StartDate = gmdate('Y-m-d',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30);
-$EndDate = gmdate('Y-m-d',time()+1*60*60*24);
+	$StartDate = gmdate('Y-m-d',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30);
+	$EndDate = gmdate('Y-m-d',time()+1*60*60*24);
 }else{
-$StartDate=gmdate('Y-m-d',$StartDate->sec);
-$EndDate=gmdate('Y-m-d',$EndDate->sec);
+	$StartDate=gmdate('Y-m-d',$StartDate->sec);
+	$EndDate=gmdate('Y-m-d',$EndDate->sec);
 }
 ?>
 <form action="/Admin/index" method="post">
@@ -91,78 +91,8 @@ foreach($new as $key=>$value){
 				<?php }?>
 			<!--Sell-Complete-->
 	</tr>
-<?php  
-		$users = $users + $value['Register'];
-?>
-		<?php foreach ($trades as $trade){
-						$FC = strtoupper(substr($trade['trade'],0,3));
-						$SC = strtoupper(substr($trade['trade'],4,3));
-					
-						$BuyNAmount = 'Buy'.$SC.'NAmount';
-						$BuyNTotalAmount = 'Buy'.$SC.'NTotalAmount';
-						$BuyYAmount = 'Buy'.$SC.'YAmount';
-						$BuyYTotalAmount = 'Buy'.$SC.'YTotalAmount';
-					
-					$$BuyNAmount = $$BuyNAmount + $value['Buy'][$SC]['N']['Amount'];
-					$$BuyNTotalAmount = $$BuyNTotalAmount + $value['Buy'][$SC]['N']['TotalAmount'];
-					$$BuyYAmount = $$BuyYAmount + $value['Buy'][$SC]['Y']['Amount'];
-					$$BuyYTotalAmount = $$BuyYTotalAmount + $value['Buy'][$SC]['Y']['TotalAmount'];
-					
-						$SellNAmount = 'Sell'.$SC.'NAmount';
-						$SellNTotalAmount = 'Sell'.$SC.'NTotalAmount';
-						$SellYAmount = 'Sell'.$SC.'YAmount';
-						$SellYTotalAmount = 'Sell'.$SC.'YTotalAmount';
-					
-					$$SellNAmount = $$SellNAmount + $value['Sell'][$SC]['N']['Amount'];
-					$$SellNTotalAmount = $$SellNTotalAmount + $value['Sell'][$SC]['N']['TotalAmount'];
-					$$SellYAmount = $$SellYAmount + $value['Sell'][$SC]['Y']['Amount'];
-					$$SellYTotalAmount = $$SellYTotalAmount + $value['Sell'][$SC]['Y']['TotalAmount'];
-				}
-			}
-?>
-	<tr>
-		<th rowspan="2">Total</th>
-		<th style="text-align:center " rowspan="2"><?=$users?></th>		
-			<?php foreach ($trades as $trade){
-				$FC = strtoupper(substr($trade['trade'],0,3));
-				$SC = strtoupper(substr($trade['trade'],4,3));
-				$BuyNAmount = 'Buy'.$SC.'NAmount';
-				$BuyNTotalAmount = 'Buy'.$SC.'NTotalAmount';
-			?>
-					<th style="background-color:#B8EEB0"><?=$$BuyNAmount."/".$$BuyNTotalAmount?><br>
-					<?php if($$BuyUSDNAmount!=0){echo number_format($$BuyNTotalAmount/$$BuyNAmount,4);}?>
-					</th>				
-			<?php }?>
-			<?php foreach ($trades as $trade){
-				$FC = strtoupper(substr($trade['trade'],0,3));
-				$SC = strtoupper(substr($trade['trade'],4,3));
-				$BuyYAmount = 'Buy'.$SC.'YAmount';
-				$BuyYTotalAmount = 'Buy'.$SC.'YTotalAmount';
-			?>
-					<th style="background-color:#D1F4CC"><?=$$BuyYAmount."/".$$BuyYTotalAmount?><br>
-					<?php if($$BuyUSDYAmount!=0){echo number_format($$BuyYTotalAmount/$$BuyYAmount,4);}?>
-					</th>
-			<?php }?>						
-		</tr><tr>
-			<?php foreach ($trades as $trade){
-				$FC = strtoupper(substr($trade['trade'],0,3));
-				$SC = strtoupper(substr($trade['trade'],4,3));
-				$SellNAmount = 'Sell'.$SC.'NAmount';
-				$SellNTotalAmount = 'Sell'.$SC.'NTotalAmount';
-			?>	
-					<th style="background-color:#FEE1AF"><?=$$SellNAmount."/".$$SellNTotalAmount?><br>
-					<?php if($$SellNAmount!=0){echo number_format($$SellNTotalAmount/$$SellNAmount,4);}?>
-					</th>				
-			<? }?>		
-			<?php foreach ($trades as $trade){
-				$FC = strtoupper(substr($trade['trade'],0,3));
-				$SC = strtoupper(substr($trade['trade'],4,3));
-				$SellYAmount = 'Sell'.$SC.'YAmount';
-				$SellYTotalAmount = 'Sell'.$SC.'YTotalAmount';
-			?>	
-					<th style="background-color:#FEEABA"><?=$$SellYAmount."/".$$SellYTotalAmount?><br>
-					<?php if($$SellYAmount!=0){echo number_format($$SellYTotalAmount/$$SellYAmount,4);}?>
-					</th>				
-			<? }?>		
+<?php }?>
+</table>
+				
 </div>
 <script src="/js/admin.js"></script>
