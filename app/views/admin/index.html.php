@@ -91,6 +91,34 @@ foreach($new as $key=>$value){
 				<?php }?>
 			<!--Sell-Complete-->
 	</tr>
+		<?php  
+				$users = $users + $value['Register'];
+		?>
+		<?php foreach ($trades as $trade){
+			$FC = strtoupper(substr($trade['trade'],0,3));
+			$SC = strtoupper(substr($trade['trade'],4,3));
+		
+			$BuyNAmount = 'Buy'.$SC.'NAmount';
+			$BuyNTotalAmount = 'Buy'.$SC.'NTotalAmount';
+			$BuyYAmount = 'Buy'.$SC.'YAmount';
+			$BuyYTotalAmount = 'Buy'.$SC.'YTotalAmount';
+				
+			$$BuyNAmount = $$BuyNAmount + $value['Buy'][$SC]['N']['Amount'];
+			$$BuyNTotalAmount = $$BuyNTotalAmount + $value['Buy'][$SC]['N']['TotalAmount'];
+			$$BuyYAmount = $$BuyYAmount + $value['Buy'][$SC]['Y']['Amount'];
+			$$BuyYTotalAmount = $$BuyYTotalAmount + $value['Buy'][$SC]['Y']['TotalAmount'];
+				
+			$SellNAmount = 'Sell'.$SC.'NAmount';
+			$SellNTotalAmount = 'Sell'.$SC.'NTotalAmount';
+			$SellYAmount = 'Sell'.$SC.'YAmount';
+			$SellYTotalAmount = 'Sell'.$SC.'YTotalAmount';
+				
+			$$SellNAmount = $$SellNAmount + $value['Sell'][$SC]['N']['Amount'];
+			$$SellNTotalAmount = $$SellNTotalAmount + $value['Sell'][$SC]['N']['TotalAmount'];
+			$$SellYAmount = $$SellYAmount + $value['Sell'][$SC]['Y']['Amount'];
+			$$SellYTotalAmount = $$SellYTotalAmount + $value['Sell'][$SC]['Y']['TotalAmount'];
+		}
+		?>
 <?php }?>
 </table>
 				
