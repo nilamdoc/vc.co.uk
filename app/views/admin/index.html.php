@@ -150,12 +150,28 @@ foreach($new as $key=>$value){
 		$SellNAmount = 'Sell'.$SC.'NAmount';
 		$SellNTotalAmount = 'Sell'.$SC.'NTotalAmount';
 	?>	
-			<th style="background-color:#FEE1AF"><?=$$SellNAmount."/".$$SellNTotalAmount?><br>
+			<th style="background-color:#FEE1AF"><?=($$SellNAmount)."/".($$SellNTotalAmount);?><br>
 			<?php if($$SellNAmount!=0){echo number_format($$SellNTotalAmount/$$SellNAmount,4);}?>
 			</th>				
 	<? }?>		
 	</tr>
 </table>
-				
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 </div>
 <script src="/js/admin.js"></script>
