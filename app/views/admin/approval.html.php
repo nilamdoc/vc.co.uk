@@ -40,10 +40,11 @@
 	</tr>
 <?php 
 if(count($details)!=0){
+$i = 1;
 	foreach($details as $detail){
 ?>
 	<tr>
-		<td><a href="/Admin/detail/<?=$detail['username']?>" target="_blank"><?=$detail['username']?></a></td>
+		<td><?=$i?> <a href="/Admin/detail/<?=$detail['username']?>" target="_blank"><?=$detail['username']?></a></td>
 		<td style="text-align:center "><?=$detail['email.verified']?></td>		
 		<td style="text-align:center "><?=$detail['phone.verified']?></td>				
 		<td style="text-align:center "><a href="/Admin/detail/<?=$detail['username']?>"><?=$detail['bank.verified']?></a></td>						
@@ -51,6 +52,7 @@ if(count($details)!=0){
 		<td style="text-align:center "><a href="/Admin/approve/utility/<?=$detail['_id']?>" target="_blank"><?=$detail['utility.verified']?></a></td>								
 	</tr>
 <?php 	}
+$i++;
 } ?>
 </table>
 
