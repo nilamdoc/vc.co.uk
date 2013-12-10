@@ -67,6 +67,7 @@ foreach($new as $key=>$value){
 &nbsp;<?php }?></td>				
 	<?php }?>
 <!--Buy-Complete-->
+	</tr><tr>
 <!--Sell-Pending--->
 	<?php foreach ($trades as $trade){
 		$FC = strtoupper(substr($trade['trade'],0,3));
