@@ -19,6 +19,8 @@ function GetDetails(ex){
 			if(ReturnValues['Refresh']=="Yes"){
 					$.getJSON('/Updates/Orders/'+ex,
 						function(Orders){
+							$('#BuyOrders').fadeIn('slow');
+							$('#SellOrders').fadeIn('slow');
 							$('#BuyOrders').html(Orders['BuyOrdersHTML']);
 							$('#SellOrders').html(Orders['SellOrdersHTML']);							
 					});
