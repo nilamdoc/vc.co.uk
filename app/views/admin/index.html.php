@@ -50,7 +50,7 @@ foreach($new as $key=>$value){
 					$FC = strtoupper(substr($trade['trade'],0,3));
 					$SC = strtoupper(substr($trade['trade'],4,3));
 				?>
-						<td style=" background-color:#B8EEB0 "><?php if(count($value['Buy'][$SC]['N'])>0){?><?php echo $value['Buy'][$SC]['N']['Amount']."/".$value['Buy'][$SC]['N']['TotalAmount'];?><br><small>
+						<td style=" background-color:#B8EEB0 "><?php if(count($value['Buy'][$SC]['N'])>0){?><?php echo number_format($value['Buy'][$SC]['N']['Amount'],4)."/".number_format($value['Buy'][$SC]['N']['TotalAmount'],4);?><br><small>
 						<?php echo number_format($value['Buy'][$SC]['N']['TotalAmount']/$value['Buy'][$SC]['N']['Amount'],4);?>
 						</small>
 				&nbsp;<?php }?></td>				
@@ -61,7 +61,7 @@ foreach($new as $key=>$value){
 					$FC = strtoupper(substr($trade['trade'],0,3));
 					$SC = strtoupper(substr($trade['trade'],4,3));
 				?>
-					<td style=";background-color:#D1F4CC "><?php if(count($value['Buy'][$SC]['Y'])>0){?><?php echo $value['Buy'][$SC]['Y']['Amount']."/".$value['Buy'][$SC]['Y']['TotalAmount'];?><br><small>
+					<td style=";background-color:#D1F4CC "><?php if(count($value['Buy'][$SC]['Y'])>0){?><?php echo number_format($value['Buy'][$SC]['Y']['Amount'],4)."/".number_format($value['Buy'][$SC]['Y']['TotalAmount'],4);?><br><small>
 					<?php echo number_format($value['Buy'][$SC]['Y']['TotalAmount']/$value['Buy'][$SC]['Y']['Amount'],4);?>
 					</small>
 			&nbsp;<?php }?></td>				
@@ -73,7 +73,7 @@ foreach($new as $key=>$value){
 					$FC = strtoupper(substr($trade['trade'],0,3));
 					$SC = strtoupper(substr($trade['trade'],4,3));
 				?>
-					<td style="background-color:#FEE1AF "><?php if(count($value['Sell'][$SC]['N'])>0){?><?php echo $value['Sell'][$SC]['N']['Amount']."/".$value['Sell'][$SC]['N']['TotalAmount'];?><br><small>
+					<td style="background-color:#FEE1AF "><?php if(count($value['Sell'][$SC]['N'])>0){?><?php echo  number_format($value['Sell'][$SC]['N']['Amount'],4)."/". number_format($value['Sell'][$SC]['N']['TotalAmount'],4);?><br><small>
 					<?php echo number_format($value['Sell'][$SC]['N']['TotalAmount']/$value['Sell'][$SC]['N']['Amount'],4);?>
 					</small>
 			&nbsp;<?php }?></td>				
@@ -84,7 +84,7 @@ foreach($new as $key=>$value){
 					$FC = strtoupper(substr($trade['trade'],0,3));
 					$SC = strtoupper(substr($trade['trade'],4,3));
 				?>
-					<td style="background-color:#FEEABA "><?php if(count($value['Sell'][$SC]['Y'])>0){?><?php echo $value['Sell'][$SC]['Y']['Amount']."/".$value['Sell'][$SC]['Y']['TotalAmount'];?><br><small>
+					<td style="background-color:#FEEABA "><?php if(count($value['Sell'][$SC]['Y'])>0){?><?php  number_format(echo $value['Sell'][$SC]['Y']['Amount'],4)."/". number_format($value['Sell'][$SC]['Y']['TotalAmount'],4);?><br><small>
 					<?php echo number_format($value[$SC]['USD']['Y']['TotalAmount']/$value[$SC]['USD']['Y']['Amount'],4);?>
 					</small>
 			&nbsp;<?php }?></td>				
@@ -129,7 +129,7 @@ foreach($new as $key=>$value){
 		$BuyNAmount = 'Buy'.$SC.'NAmount';
 		$BuyNTotalAmount = 'Buy'.$SC.'NTotalAmount';
 	?>
-			<th style="background-color:#B8EEB0"><?=$$BuyNAmount."/".$$BuyNTotalAmount?><br>
+			<th style="background-color:#B8EEB0"><?= number_format($$BuyNAmount,4)."/". number_format($$BuyNTotalAmount,4)?><br>
 			<?php if($$BuyUSDNAmount!=0){echo number_format($$BuyNTotalAmount/$$BuyNAmount,4);}?>
 			</th>				
 	<?php }?>
@@ -139,11 +139,10 @@ foreach($new as $key=>$value){
 		$BuyYAmount = 'Buy'.$SC.'YAmount';
 		$BuyYTotalAmount = 'Buy'.$SC.'YTotalAmount';
 	?>
-			<th style="background-color:#D1F4CC"><?=$$BuyYAmount."/".$$BuyYTotalAmount?><br>
+			<th style="background-color:#D1F4CC"><?= number_format($$BuyYAmount,4)."/". number_format($$BuyYTotalAmount,4)?><br>
 			<?php if($$BuyUSDYAmount!=0){echo number_format($$BuyYTotalAmount/$$BuyYAmount,4);}?>
 			</th>
 	<?php }?>						
-</tr><tr>
 </tr><tr>
 	<?php foreach ($trades as $trade){
 		$FC = strtoupper(substr($trade['trade'],0,3));
@@ -151,7 +150,7 @@ foreach($new as $key=>$value){
 		$SellNAmount = 'Sell'.$SC.'NAmount';
 		$SellNTotalAmount = 'Sell'.$SC.'NTotalAmount';
 	?>	
-			<th style="background-color:#FEE1AF"><?=$$SellNAmount."/".$$SellNTotalAmount?><br>
+			<th style="background-color:#FEE1AF"><?= number_format($$SellNAmount,4)."/". number_format($$SellNTotalAmount,4)?><br>
 			<?php if($$SellNAmount!=0){echo number_format($$SellNTotalAmount/$$SellNAmount,4);}?>
 			</th>				
 	<?php }?>		
@@ -161,7 +160,7 @@ foreach($new as $key=>$value){
 		$SellYAmount = 'Sell'.$SC.'YAmount';
 		$SellYTotalAmount = 'Sell'.$SC.'YTotalAmount';
 	?>	
-			<th style="background-color:#FEEABA"><?=$$SellYAmount."/".$$SellYTotalAmount?><br>
+			<th style="background-color:#FEEABA"><?= number_format($$SellYAmount,4)."/". number_format($$SellYTotalAmount,4)?><br>
 			<?php if($$SellYAmount!=0){echo number_format($$SellYTotalAmount/$$SellYAmount,4);}?>
 			</th>				
 	<?php }?>		
