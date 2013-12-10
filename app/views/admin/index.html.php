@@ -119,6 +119,7 @@ foreach($new as $key=>$value){
 					$$SellYTotalAmount = $$SellYTotalAmount + $value['Sell'][$SC]['Y']['TotalAmount'];
 				}
 			}
+		}
 ?>
 	<tr>
 		<th rowspan="2">Total</th>
