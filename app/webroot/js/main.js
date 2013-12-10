@@ -25,6 +25,7 @@ function GetDetails(ex){
 					$.getJSON('/Updates/YourOrders/'+ex+'/'+user_id,
 						function(Orders){
 							$('#YourCompleteOrders').html(Orders['YourCompleteOrdersHTML']);
+							$('#YourOrders').html(Orders['YourOrdersHTML']);							
 					});
 
 //				window.location.assign(ReturnValues['URL']);								

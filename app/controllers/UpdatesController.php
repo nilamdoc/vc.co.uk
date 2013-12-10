@@ -16,6 +16,7 @@ use lithium\data\Connections;
 use lithium\storage\Session;
 use app\extensions\action\Bitcoin;
 use app\extensions\action\Litecoin;
+use lithium\util\String;
 
 class UpdatesController extends \lithium\action\Controller {
 
@@ -456,6 +457,16 @@ $SellOrdersHTML = $SellOrdersHTML .	'			</tbody>
 
 	public function YourOrders($FirstCurrency="BTC",$SecondCurrency="USD",$user_id = null){
 
+		$YourOrders = Orders::find('all',array(
+			'conditions'=>array(
+				'user_id'=>$user_id,
+				'Completed'=>'N',
+				'FirstCurrency' => $FirstCurrency,
+				'SecondCurrency' => $SecondCurrency,					
+
+				),
+			'order' => array('DateTime'=>-1)
+		));
 
 			$YourCompleteOrders = Orders::find('all',array(
 			'conditions'=>array(
@@ -466,6 +477,28 @@ $SellOrdersHTML = $SellOrdersHTML .	'			</tbody>
 				),
 			'order' => array('DateTime'=>-1)
 		));
+
+$YourOrdersHTML = '<table class="table table-condensed table-bordered table-hover" style="font-size:11px">
+				<thead>
+					<tr>
+						<th style="text-align:center ">Exchange</th>
+						<th style="text-align:center ">Price</th>
+						<th style="text-align:center ">Amount</th>
+					</tr>
+				</thead>
+				<tbody>';
+				foreach($YourOrders as $YO){ 
+$YourOrdersHTML = $YourOrdersHTML .'<tr>
+							<td style="text-align:left ">
+							<a href="/ex/RemoveOrder/'.String::hash($YO['_id']).'/'.$YO['_id'].'/'.$FirstCurrency.'_'.$SecondCurrency.'" title="Remove this order">
+								<i class="icon-remove"></i></a> &nbsp; 
+							'.$YO['Action'].' '.$YO['FirstCurrency'].'/'.$YO['SecondCurrency'].'</td>
+						<td style="text-align:right ">'.number_format($YO['PerPrice'],3).'...</td>
+						<td style="text-align:right ">'.number_format($YO['Amount'],3).'...</td>
+					</tr>';
+				 }					
+$YourOrdersHTML = $YourOrdersHTML .'				</tbody>
+			</table>';
 
 		$YourCompleteOrdersHTML = '<table class="table table-condensed table-bordered table-hover" style="font-size:11px">
 				<thead>
@@ -490,6 +523,7 @@ $SellOrdersHTML = $SellOrdersHTML .	'			</tbody>
 
 		return $this->render(array('json' => array(
 			'YourCompleteOrdersHTML'=> $YourCompleteOrdersHTML,
+			'YourOrdersHTML'=> $YourOrdersHTML,			
 		)));
 	}
 
