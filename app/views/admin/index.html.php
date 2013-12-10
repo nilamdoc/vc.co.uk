@@ -43,64 +43,54 @@ $EndDate=gmdate('Y-m-d',$EndDate->sec);
 foreach($new as $key=>$value){
 	?>
 	<tr>
-		<td><?=$key;?></td>
-		<td style="text-align:center "><?=$value['Register']?>&nbsp;</td>
-		<td style=" background-color:#B8EEB0 "><?php if(count($value['Buy']['USD']['N'])>0){?><?php echo $value['Buy']['USD']['N']['Amount']."/".$value['Buy']['USD']['N']['TotalAmount'];?><br><small>
-		<?php echo number_format($value['Buy']['USD']['N']['TotalAmount']/$value['Buy']['USD']['N']['Amount'],4);?>
+		<td rowspan="2"><?=$key;?></td>
+		<td style="text-align:center " rowspan="2"><?=$value['Register']?>&nbsp;</td>
+<!--Buy-Pending--->
+	<?php foreach ($trades as $trade){
+		$FC = strtoupper(substr($trade['trade'],0,3));
+		$SC = strtoupper(substr($trade['trade'],4,3));
+	?>
+			<td style=" background-color:#B8EEB0 "><?php if(count($value['Buy'][$SC]['N'])>0){?><?php echo $value['Buy'][$SC]['N']['Amount']."/".$value['Buy'][$SC]['N']['TotalAmount'];?><br><small>
+			<?php echo number_format($value['Buy'][$SC]['N']['TotalAmount']/$value['Buy'][$SC]['N']['Amount'],4);?>
+			</small>
+	&nbsp;<?php }?></td>				
+	<?php }?>
+<!--Buy-Pending-->
+<!--Buy-Complete-->
+	<?php foreach ($trades as $trade){
+		$FC = strtoupper(substr($trade['trade'],0,3));
+		$SC = strtoupper(substr($trade['trade'],4,3));
+	?>
+		<td style=";background-color:#D1F4CC "><?php if(count($value['Buy'][$SC]['Y'])>0){?><?php echo $value['Buy'][$SC]['Y']['Amount']."/".$value['Buy'][$SC]['Y']['TotalAmount'];?><br><small>
+		<?php echo number_format($value['Buy'][$SC]['Y']['TotalAmount']/$value['Buy'][$SC]['Y']['Amount'],4);?>
 		</small>
 &nbsp;<?php }?></td>				
-		<td style=" background-color:#B8EEB0 "><?php if(count($value['Buy']['GBP']['N'])>0){?><?php echo $value['Buy']['GBP']['N']['Amount']."/".$value['Buy']['GBP']['N']['TotalAmount'];?><br><small>
-		<?php echo number_format($value['Buy']['GBP']['N']['TotalAmount']/$value['Buy']['GBP']['N']['Amount'],4);?>
+	<?php }?>
+<!--Buy-Complete-->
+<!--Sell-Pending--->
+	<?php foreach ($trades as $trade){
+		$FC = strtoupper(substr($trade['trade'],0,3));
+		$SC = strtoupper(substr($trade['trade'],4,3));
+	?>
+		<td style="background-color:#FEE1AF "><?php if(count($value['Sell'][$SC]['N'])>0){?><?php echo $value['Sell'][$SC]['N']['Amount']."/".$value['Sell'][$SC]['N']['TotalAmount'];?><br><small>
+		<?php echo number_format($value['Sell'][$SC]['N']['TotalAmount']/$value['Sell'][$SC]['N']['Amount'],4);?>
 		</small>
 &nbsp;<?php }?></td>				
-		<td style=" background-color:#B8EEB0 "><?php if(count($value['Buy']['EUR']['N'])>0){?><?php echo $value['Buy']['EUR']['N']['Amount']."/".$value['Buy']['EUR']['N']['TotalAmount'];?><br><small>
-		<?php echo number_format($value['Buy']['EUR']['N']['TotalAmount']/$value['Buy']['EUR']['N']['Amount'],4);?>
+	<?php }?>
+<!--Sell-Pending-->
+<!--Sell-Complete-->
+	<?php foreach ($trades as $trade){
+		$FC = strtoupper(substr($trade['trade'],0,3));
+		$SC = strtoupper(substr($trade['trade'],4,3));
+	?>
+		<td style="background-color:#FEEABA "><?php if(count($value['Sell'][$SC]['Y'])>0){?><?php echo $value['Sell'][$SC]['Y']['Amount']."/".$value['Sell'][$SC]['Y']['TotalAmount'];?><br><small>
+		<?php echo number_format($value[$SC]['USD']['Y']['TotalAmount']/$value[$SC]['USD']['Y']['Amount'],4);?>
 		</small>
 &nbsp;<?php }?></td>				
-
-
-		<td style=";background-color:#D1F4CC "><?php if(count($value['Buy']['USD']['Y'])>0){?><?php echo $value['Buy']['USD']['Y']['Amount']."/".$value['Buy']['USD']['Y']['TotalAmount'];?><br><small>
-		<?php echo number_format($value['Buy']['USD']['Y']['TotalAmount']/$value['Buy']['USD']['Y']['Amount'],4);?>
-		</small>
-&nbsp;<?php }?></td>				
-		<td style=";background-color:#D1F4CC "><?php if(count($value['Buy']['GBP']['Y'])>0){?><?php echo $value['Buy']['GBP']['Y']['Amount']."/".$value['Buy']['GBP']['Y']['TotalAmount'];?><br><small>
-		<?php echo number_format($value['Buy']['GBP']['Y']['TotalAmount']/$value['Buy']['GBP']['Y']['Amount'],4);?>
-		</small>
-&nbsp;<?php }?></td>				
-		<td style=";background-color:#D1F4CC "><?php if(count($value['Buy']['EUR']['Y'])>0){?><?php echo $value['Buy']['EUR']['Y']['Amount']."/".$value['Buy']['EUR']['Y']['TotalAmount'];?><br><small>
-		<?php echo number_format($value['Buy']['EUR']['Y']['TotalAmount']/$value['Buy']['EUR']['Y']['Amount'],4);?>
-		</small>
-&nbsp;<?php }?></td>				
-
-
-
-		<td style="background-color:#FEE1AF "><?php if(count($value['Sell']['USD']['N'])>0){?><?php echo $value['Sell']['USD']['N']['Amount']."/".$value['Sell']['USD']['N']['TotalAmount'];?><br><small>
-		<?php echo number_format($value['Sell']['USD']['N']['TotalAmount']/$value['Sell']['USD']['N']['Amount'],4);?>
-		</small>
-&nbsp;<?php }?></td>				
-		<td style="background-color:#FEE1AF "><?php if(count($value['Sell']['GBP']['N'])>0){?><?php echo $value['Sell']['GBP']['N']['Amount']."/".$value['Sell']['GBP']['N']['TotalAmount'];?><br><small>
-		<?php echo number_format($value['Sell']['GBP']['N']['TotalAmount']/$value['Sell']['GBP']['N']['Amount'],4);?>
-		</small>
-&nbsp;<?php }?></td>				
-		<td style="background-color:#FEE1AF "><?php if(count($value['Sell']['EUR']['N'])>0){?><?php echo $value['Sell']['EUR']['N']['Amount']."/".$value['Sell']['EUR']['N']['TotalAmount'];?><br><small>
-		<?php echo number_format($value['Sell']['EUR']['N']['TotalAmount']/$value['Sell']['EUR']['N']['Amount'],4);?>
-		</small>
-&nbsp;<?php }?></td>				
-
-
-		<td style="background-color:#FEEABA "><?php if(count($value['Sell']['USD']['Y'])>0){?><?php echo $value['Sell']['USD']['Y']['Amount']."/".$value['Sell']['USD']['Y']['TotalAmount'];?><br><small>
-		<?php echo number_format($value['Sell']['USD']['Y']['TotalAmount']/$value['Sell']['USD']['Y']['Amount'],4);?>
-		</small>
-&nbsp;<?php }?></td>				
-		<td style="background-color:#FEEABA "><?php if(count($value['Sell']['GBP']['Y'])>0){?><?php echo $value['Sell']['GBP']['Y']['Amount']."/".$value['Sell']['GBP']['Y']['TotalAmount'];?><br><small>
-		<?php echo number_format($value['Sell']['GBP']['Y']['TotalAmount']/$value['Sell']['GBP']['Y']['Amount'],4);?>
-		</small>
-&nbsp;<?php }?></td>				
-		<td style="background-color:#FEEABA "><?php if(count($value['Sell']['EUR']['Y'])>0){?><?php echo $value['Sell']['EUR']['Y']['Amount']."/".$value['Sell']['EUR']['Y']['TotalAmount'];?><br><small>
-		<?php echo number_format($value['Sell']['EUR']['Y']['TotalAmount']/$value['Sell']['EUR']['Y']['Amount'],4);?>
-		</small>
-&nbsp;<?php }?></td>				
+	<?php }?>
+<!--Sell-Complete-->
 	</tr>
+
 <?php  
 $users = $users + $value['Register'];
 $BuyUSDNAmount = $BuyUSDNAmount + $value['Buy']['USD']['N']['Amount'];
