@@ -120,6 +120,51 @@ foreach($new as $key=>$value){
 		}
 		?>
 <?php }?>
+<tr>
+<th rowspan="2">Total</th>
+<th style="text-align:center " rowspan="2"><?=$users?></th>		
+	<?php foreach ($trades as $trade){
+		$FC = strtoupper(substr($trade['trade'],0,3));
+		$SC = strtoupper(substr($trade['trade'],4,3));
+		$BuyNAmount = 'Buy'.$SC.'NAmount';
+		$BuyNTotalAmount = 'Buy'.$SC.'NTotalAmount';
+	?>
+			<th style="background-color:#B8EEB0"><?=$$BuyNAmount."/".$$BuyNTotalAmount?><br>
+			<?php if($$BuyUSDNAmount!=0){echo number_format($$BuyNTotalAmount/$$BuyNAmount,4);}?>
+			</th>				
+	<?php }?>
+	<?php foreach ($trades as $trade){
+		$FC = strtoupper(substr($trade['trade'],0,3));
+		$SC = strtoupper(substr($trade['trade'],4,3));
+		$BuyYAmount = 'Buy'.$SC.'YAmount';
+		$BuyYTotalAmount = 'Buy'.$SC.'YTotalAmount';
+	?>
+			<th style="background-color:#D1F4CC"><?=$$BuyYAmount."/".$$BuyYTotalAmount?><br>
+			<?php if($$BuyUSDYAmount!=0){echo number_format($$BuyYTotalAmount/$$BuyYAmount,4);}?>
+			</th>
+	<?php }?>						
+</tr><tr>
+	<?php foreach ($trades as $trade){
+		$FC = strtoupper(substr($trade['trade'],0,3));
+		$SC = strtoupper(substr($trade['trade'],4,3));
+		$SellNAmount = 'Sell'.$SC.'NAmount';
+		$SellNTotalAmount = 'Sell'.$SC.'NTotalAmount';
+	?>	
+			<th style="background-color:#FEE1AF"><?=$$SellNAmount."/".$$SellNTotalAmount?><br>
+			<?php if($$SellNAmount!=0){echo number_format($$SellNTotalAmount/$$SellNAmount,4);}?>
+			</th>				
+	<? }?>		
+	<?php foreach ($trades as $trade){
+		$FC = strtoupper(substr($trade['trade'],0,3));
+		$SC = strtoupper(substr($trade['trade'],4,3));
+		$SellYAmount = 'Sell'.$SC.'YAmount';
+		$SellYTotalAmount = 'Sell'.$SC.'YTotalAmount';
+	?>	
+			<th style="background-color:#FEEABA"><?=$$SellYAmount."/".$$SellYTotalAmount?><br>
+			<?php if($$SellYAmount!=0){echo number_format($$SellYTotalAmount/$$SellYAmount,4);}?>
+			</th>				
+	<? }?>		
+	</tr>
 </table>
 				
 </div>
