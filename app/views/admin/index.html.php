@@ -117,7 +117,7 @@ $$SellNAmount = $$SellNAmount + $value['Sell'][$SC]['N']['Amount'];
 $$SellNTotalAmount = $$SellNTotalAmount + $value['Sell'][$SC]['N']['TotalAmount'];
 $$SellYAmount = $$SellYAmount + $value['Sell'][$SC]['Y']['Amount'];
 $$SellYTotalAmount = $$SellYTotalAmount + $value['Sell'][$SC]['Y']['TotalAmount'];
-
+}
 }?>
 	<tr>
 		<th rowspan="2">Total</th>
