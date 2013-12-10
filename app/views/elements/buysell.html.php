@@ -53,6 +53,7 @@ if (is_null($BalanceSecond)){$BalanceSecond = 0;}
 if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environment::get('locale');}
 ?>
 <div style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
+<div id="User_ID" style="display:none "><?=$details['user_id']?></div>
 <div class="row" >
 
 <div class="span8" id="Graph" style="text-aligh:center;display:none" >

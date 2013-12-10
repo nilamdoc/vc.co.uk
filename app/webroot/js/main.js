@@ -12,10 +12,22 @@ function UpdateDetails(ex){
 	
 }
 function GetDetails(ex){
+	user_id = $("#User_ID").html();
+	if(ex=="/EX/DASHBOARD"){ex = "BTC/GBP";}
 	$.getJSON('/Updates/Rates/'+ex,
 		function(ReturnValues){
 			if(ReturnValues['Refresh']=="Yes"){
-				window.location.assign(ReturnValues['URL']);								
+					$.getJSON('/Updates/Orders/'+ex,
+						function(Orders){
+							$('#BuyOrders').html(Orders['BuyOrdersHTML']);
+							$('#SellOrders').html(Orders['SellOrdersHTML']);							
+					});
+					$.getJSON('/Updates/YourOrders/'+ex+'/'+user_id,
+						function(Orders){
+							$('#YourCompleteOrders').html(Orders['YourCompleteOrdersHTML']);
+					});
+
+//				window.location.assign(ReturnValues['URL']);								
 				}
 			
 			$("#LowPrice").html(ReturnValues['Low']);

@@ -256,7 +256,244 @@ class UpdatesController extends \lithium\action\Controller {
 			return $Rates;
 	
 	}
+	public function Orders($FirstCurrency="BTC",$SecondCurrency="USD"){
+		$mongodb = Connections::get('default')->connection;
+		$TotalSellOrders = Orders::connection()->connection->command(array(
+		'aggregate' => 'orders',
+		'pipeline' => array( 
+			array( '$project' => array(
+				'_id'=>0,
+				'Action' => '$Action',
+				'Amount'=>'$Amount',
+				'Completed'=>'$Completed',					
+				'FirstCurrency'=>'$FirstCurrency',
+				'SecondCurrency'=>'$SecondCurrency',	
+				'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),
+			)),
+			array('$match'=>array(
+				'Action'=>'Sell',
+				'Completed'=>'N',					
+				'FirstCurrency' => $FirstCurrency,
+				'SecondCurrency' => $SecondCurrency,					
+				)),
+			array('$group' => array( '_id' => array(),
+				'Amount' => array('$sum' => '$Amount'), 
+				'TotalAmount' => array('$sum' => '$TotalAmount'), 
+			)),
+			array('$sort'=>array(
+				'PerPrice'=>1,
+			))
+		)
+	));
+	$TotalBuyOrders = Orders::connection()->connection->command(array(
+		'aggregate' => 'orders',
+		'pipeline' => array( 
+			array( '$project' => array(
+				'_id'=>0,
+				'Action' => '$Action',
+				'Amount'=>'$Amount',
+				'Completed'=>'$Completed',
+				'FirstCurrency'=>'$FirstCurrency',
+				'SecondCurrency'=>'$SecondCurrency',					
+				'TotalAmount' => array('$multiply' => array('$Amount','$PerPrice')),					
+			)),
+			array('$match'=>array(
+				'Action'=>'Buy',
+				'Completed'=>'N',										
+				'FirstCurrency' => $FirstCurrency,
+				'SecondCurrency' => $SecondCurrency,					
+				)),
+			array('$group' => array( '_id' => array(),
+				'Amount' => array('$sum' => '$Amount'),  
+				'TotalAmount' => array('$sum' => '$TotalAmount'), 					
+			)),
+			array('$sort'=>array(
+				'PerPrice'=>1,
+			))
+		)
+	));
+			$SellOrders = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Action' => '$Action',
+					'Amount'=>'$Amount',
+					'user_id' => '$user_id',
+					'PerPrice'=>'$PerPrice',
+					'Completed'=>'$Completed',
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+				)),
+				array('$match'=>array(
+					'Action'=>'Sell',
+					'Completed'=>'N',										
+					'FirstCurrency' => $FirstCurrency,
+					'SecondCurrency' => $SecondCurrency,					
+					)),
+				array('$group' => array( '_id' => array(
+						'PerPrice'=>'$PerPrice',
+						),
+					'Amount' => array('$sum' => '$Amount'),  
+					'No' => array('$sum'=>1),
+				)),
+				array('$sort'=>array(
+					'_id.PerPrice'=>1,
+				))
+			)
+		));
+		
+		$BuyOrders = Orders::connection()->connection->command(array(
+			'aggregate' => 'orders',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'Action' => '$Action',
+					'user_id' => '$user_id',					
+					'Amount'=>'$Amount',
+					'PerPrice'=>'$PerPrice',
+					'Completed'=>'$Completed',
+					'FirstCurrency'=>'$FirstCurrency',
+					'SecondCurrency'=>'$SecondCurrency',					
+				)),
+				array('$match'=>array(
+					'Action'=>'Buy',
+					'Completed'=>'N',
+					'FirstCurrency' => $FirstCurrency,
+					'SecondCurrency' => $SecondCurrency,					
+					)),
+				array('$group' => array( '_id' => array(
+						'PerPrice'=>'$PerPrice',
+						),
+					'Amount' => array('$sum' => '$Amount'),  
+					'No' => array('$sum'=>1),
 
+				)),
+				array('$sort'=>array(
+					'_id.PerPrice'=>-1,
+				))
+			)
+		));
+
+	
+	foreach($TotalBuyOrders['result'] as $TBO){
+		$BuyAmount = $TBO['Amount'];
+		$BuyTotalAmount = $TBO['TotalAmount'];
+	}
+$BuyOrdersHTML = '<table class="table table-condensed table-bordered table-hover"  style="font-size:12px ">
+				<thead>
+					<tr>
+					<th style="text-align:center " rowspan="2">#</th>										
+					<th style="text-align:center ">Price</th>
+					<th style="text-align:center ">'.$FirstCurrency.'</th>
+					<th style="text-align:center ">'.$SecondCurrency.'</th>					
+					</tr>
+					<tr>
+					<th style="text-align:center " >Total &raquo;</th>
+					<th style="text-align:right " >'.number_format($BuyAmount,8).'</th>
+					<th style="text-align:right " >'.number_format($BuyTotalAmount,8).'</th>
+					</tr>
+				</thead>
+				<tbody>';
+
+					$BuyOrderAmount = 0;
+					foreach($BuyOrders['result'] as $BO){
+						$BuyOrderPrice = number_format(round($BO['_id']['PerPrice'],8),8);
+						$BuyOrderAmount = number_format(round($BO['Amount'],8),8);
+
+$BuyOrdersHTML = $BuyOrdersHTML .
+					'<tr onClick="BuyOrderFill('.$BuyOrderPrice.','.$BuyOrderAmount.');" style="cursor:pointer" 
+					 class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Sell '.$BuyOrderAmount.' '.$FirstCurrency.' at '.$BuyOrderPrice.' '.$SecondCurrency.'">
+						<td style="text-align:right">'.$BO['No'].$BO['_id']['username'].'</td>											
+						<td style="text-align:right">'.number_format(round($BO['_id']['PerPrice'],8),8).'</td>
+						<td style="text-align:right">'.number_format(round($BO['Amount'],8),8).'</td>
+						<td style="text-align:right">'.number_format(round($BO['_id']['PerPrice']*$BO['Amount'],8),8).'</td>																	
+					</tr>';
+						}
+$BuyOrdersHTML = $BuyOrdersHTML .				'</tbody>
+			</table>';
+foreach($TotalSellOrders['result'] as $TSO){
+	$SellAmount = $TSO['Amount'];
+	$SellTotalAmount = $TSO['TotalAmount'];
+}
+$SellOrdersHTML = '<table class="table table-condensed table-bordered table-hover" style="font-size:12px ">
+				<thead>
+					<tr>
+					<th style="text-align:center " rowspan="2">#</th>					
+					<th style="text-align:center " >Price</th>
+					<th style="text-align:center " >'.$FirstCurrency.'</th>
+					<th style="text-align:center " >'.$SEcondCurrency.'</th>					
+					</tr>
+					<tr>
+					<th style="text-align:center " >Total &raquo;</th>
+					<th style="text-align:right " >'.number_format($SellAmount,8).'</th>
+					<th style="text-align:right " >'.number_format($SellTotalAmount,8).'</th>
+					</tr>
+				</thead>
+				<tbody>';
+
+					$SellOrderAmount = 0;
+					foreach($SellOrders['result'] as $SO){
+						$SellOrderPrice = number_format(round($SO['_id']['PerPrice'],8),8);
+						$SellOrderAmount = number_format(round($SO['Amount'],8),8);
+
+$SellOrdersHTML = $SellOrdersHTML .
+					'<tr onClick="SellOrderFill('.$SellOrderPrice.','.$SellOrderAmount.');"  style="cursor:pointer" 
+					 class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Buy '.$SellOrderAmount.' '.$FirstCurrency.' at '.$SellOrderPrice.' '.$SecondCurrency.'">
+						<td style="text-align:right">'.$SO['No'].$SO['_id']['user_id'].'</td>											
+						<td style="text-align:right">'.number_format(round($SO['_id']['PerPrice'],8),8).'</td>						
+						<td style="text-align:right">'.number_format(round($SO['Amount'],8),8).'</td>
+						<td style="text-align:right">'.number_format(round($SO['Amount']*$SO['_id']['PerPrice'],8),8).'</td>
+					</tr>';
+					 }
+$SellOrdersHTML = $SellOrdersHTML .	'			</tbody>
+			</table>'			;
+		return $this->render(array('json' => array(
+			'BuyOrdersHTML'=> $BuyOrdersHTML,
+			'SellOrdersHTML'=> $SellOrdersHTML,
+		)));
+	}
+
+	public function YourOrders($FirstCurrency="BTC",$SecondCurrency="USD",$user_id = null){
+
+
+			$YourCompleteOrders = Orders::find('all',array(
+			'conditions'=>array(
+				'user_id'=>$user_id,
+				'Completed'=>'Y',
+				'FirstCurrency' => $FirstCurrency,
+				'SecondCurrency' => $SecondCurrency,					
+				),
+			'order' => array('DateTime'=>-1)
+		));
+
+		$YourCompleteOrdersHTML = '<table class="table table-condensed table-bordered table-hover" style="font-size:11px">
+				<thead>
+					<tr>
+						<th style="text-align:center ">Exchange</th>
+						<th style="text-align:center ">Price</th>
+						<th style="text-align:center ">Amount</th>
+					</tr>
+				</thead>
+				<tbody>';
+				foreach($YourCompleteOrders as $YO){ 
+		$YourCompleteOrdersHTML = 		$YourCompleteOrdersHTML .'<tr style="cursor:pointer"
+					class=" tooltip-x" rel="tooltip-x" data-placement="top" title="'.$YO['Action'].' '.number_format($YO['Amount'],3).' at 
+					'.number_format($YO['PerPrice'],8).' on '.gmdate('Y-m-d H:i:s',$YO['DateTime']->sec).'">
+						<td style="text-align:left ">
+						'.$YO['Action'].' '.$YO['FirstCurrency'].'/'.$YO['SecondCurrency'].'</td>
+						<td style="text-align:right ">'.number_format($YO['PerPrice'],3).'...</td>
+						<td style="text-align:right ">'.number_format($YO['Amount'],3).'...</td>
+					</tr>';
+			 }
+		$YourCompleteOrdersHTML = 		$YourCompleteOrdersHTML .'				</tbody>
+			</table>';
+
+
+		return $this->render(array('json' => array(
+			'YourCompleteOrdersHTML'=> $YourCompleteOrdersHTML,
+		)));
+	}
 
 }
 
