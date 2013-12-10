@@ -170,7 +170,6 @@ class AdminController extends \lithium\action\Controller {
 						'Register'=> $UR['count']
 					);
 			}
-print_r($YearTotalOrders['result']);
 			foreach ($YearTotalOrders['result'] as $TO){
 				$TOdate = date_create($TO['_id']['year']."-01-01");			
 				$toDate = date_format($TOdate,"Y");				
@@ -194,11 +193,13 @@ print_r($YearTotalOrders['result']);
 						);
 
 			}
+			$trades = Trades::find('all');
+
 			$title = "Admin";
 			$keywords = "Admin, Index";
 			$description = "Administer the site";
 
-	return compact('new','newYear','StartDate','EndDate','title','keywords','description');
+	return compact('new','newYear','StartDate','EndDate','title','keywords','description','trades');
 	}
 	
 	public function Approval() {

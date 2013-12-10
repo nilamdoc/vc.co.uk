@@ -25,28 +25,16 @@ $EndDate=gmdate('Y-m-d',$EndDate->sec);
 	<tr>
 		<th rowspan="3" style="text-align:center;">Date</th>
 		<th rowspan="3" style="text-align:center ">Users</th>
-		<th colspan="6" style="text-align:center ;background-color:#D1F4CC">Buy</th>
-		<th colspan="6" style="text-align:center ;background-color:#FEEABA">Sell</th>		
+		<th colspan="6" style="text-align:center ;background-color:#D1F4CC">Buy / Sell</th>
 	</tr>
 	<tr>
 		<th colspan="3" style="text-align:center ;background-color:#B8EEB0">Pending</th>
 		<th colspan="3" style="text-align:center ;background-color:#D1F4CC">Complete</th>		
-		<th colspan="3" style="text-align:center ;background-color:#FEE1AF">Pending</th>
-		<th colspan="3" style="text-align:center ;background-color:#FEEABA">Complete</th>		
 	</tr>
 	<tr>
-		<th style="text-align:center ;background-color:#B8EEB0">BTC/USD</th>
-		<th style="text-align:center ;background-color:#B8EEB0">BTC/GBP</th>		
-		<th style="text-align:center ;background-color:#B8EEB0">BTC/EUR</th>		
-		<th style="text-align:center ;background-color:#D1F4CC">BTC/USD</th>
-		<th style="text-align:center ;background-color:#D1F4CC">BTC/GBP</th>		
-		<th style="text-align:center ;background-color:#D1F4CC">BTC/EUR</th>		
-		<th style="text-align:center ;background-color:#FEE1AF">BTC/USD</th>
-		<th style="text-align:center ;background-color:#FEE1AF">BTC/GBP</th>		
-		<th style="text-align:center ;background-color:#FEE1AF">BTC/EUR</th>		
-		<th style="text-align:center ;background-color:#FEEABA">BTC/USD</th>
-		<th style="text-align:center ;background-color:#FEEABA">BTC/GBP</th>		
-		<th style="text-align:center ;background-color:#FEEABA">BTC/EUR</th>		
+	<?php foreach ($trades as $trade){?>
+		<th style="text-align:center ;background-color:#B8EEB0"><?=$trade['trade']?></th>
+	<?php }?>
 	</tr>	
 	<?php 
 foreach($new as $key=>$value){
