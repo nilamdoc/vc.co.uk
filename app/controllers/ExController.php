@@ -801,6 +801,11 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 		$Orders = Orders::find('first', array(
 			'conditions' => array('_id' => new MongoID($ID))
 		));
+		$data = array(
+			'page.refresh' => true
+		);
+		Details::find('all')->save($data);
+
 		if($Orders['Completed']=='N')		{
 			$details = Details::find('first', array(
 				'conditions' => array('user_id'=>(string)$Orders['user_id'])
