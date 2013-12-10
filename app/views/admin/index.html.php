@@ -84,7 +84,7 @@ foreach($new as $key=>$value){
 					$FC = strtoupper(substr($trade['trade'],0,3));
 					$SC = strtoupper(substr($trade['trade'],4,3));
 				?>
-					<td style="background-color:#FEEABA "><?php if(count($value['Sell'][$SC]['Y'])>0){?><?php  number_format(echo $value['Sell'][$SC]['Y']['Amount'],4)."/". number_format($value['Sell'][$SC]['Y']['TotalAmount'],4);?><br><small>
+					<td style="background-color:#FEEABA "><?php if(count($value['Sell'][$SC]['Y'])>0){?><?php  echo number_format($value['Sell'][$SC]['Y']['Amount'],4)."/". number_format($value['Sell'][$SC]['Y']['TotalAmount'],4);?><br><small>
 					<?php echo number_format($value[$SC]['USD']['Y']['TotalAmount']/$value[$SC]['USD']['Y']['Amount'],4);?>
 					</small>
 			&nbsp;<?php }?></td>				
