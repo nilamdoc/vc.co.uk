@@ -219,7 +219,7 @@ class AdminController extends \lithium\action\Controller {
 					array_push($usernames,$u['username']);
 				}
 			}else{
-					$user = Users::find('all',array('limit'=>100));
+					$user = Users::find('all',array('limit'=>1000));
 					foreach($user as $u){
 						array_push($usernames,$u['username']);
 					}
