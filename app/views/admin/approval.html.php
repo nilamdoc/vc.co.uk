@@ -51,8 +51,9 @@ $i = 1;
 		<td style="text-align:center "><a href="/Admin/approve/government/<?=$detail['_id']?>" target="_blank"><?=$detail['government.verified']?></a></td>						
 		<td style="text-align:center "><a href="/Admin/approve/utility/<?=$detail['_id']?>" target="_blank"><?=$detail['utility.verified']?></a></td>								
 	</tr>
-<?php 	}
-$i++;
+
+<?php $i++;	}
+
 } ?>
 </table>
 
