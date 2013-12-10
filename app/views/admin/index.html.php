@@ -143,6 +143,17 @@ foreach($new as $key=>$value){
 			<?php if($$BuyUSDYAmount!=0){echo number_format($$BuyYTotalAmount/$$BuyYAmount,4);}?>
 			</th>
 	<?php }?>						
+</tr><tr>
+	<?php foreach ($trades as $trade){
+		$FC = strtoupper(substr($trade['trade'],0,3));
+		$SC = strtoupper(substr($trade['trade'],4,3));
+		$SellNAmount = 'Sell'.$SC.'NAmount';
+		$SellNTotalAmount = 'Sell'.$SC.'NTotalAmount';
+	?>	
+			<th style="background-color:#FEE1AF"><?=$$SellNAmount."/".$$SellNTotalAmount?><br>
+			<?php if($$SellNAmount!=0){echo number_format($$SellNTotalAmount/$$SellNAmount,4);}?>
+			</th>				
+	<? }?>		
 	</tr>
 </table>
 				
