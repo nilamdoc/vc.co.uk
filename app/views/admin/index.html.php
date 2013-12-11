@@ -182,7 +182,59 @@ foreach($new as $key=>$value){
 	<?php foreach ($trades as $trade){?>
 		<th style="text-align:center ;background-color:#B8EEB0"><?=$trade['trade']?></th>
 	<?php }?>
-	</tr>	
+	</tr>		<?php 
+foreach($newYear as $key=>$value){
+	?>
+	<tr>
+		<td rowspan="2"><?=$key;?></td>
+		<td style="text-align:center " rowspan="2"><?=$value['Register']?>&nbsp;</td>
+			<!--Buy-Pending--->
+				<?php foreach ($trades as $trade){
+					$FC = strtoupper(substr($trade['trade'],0,3));
+					$SC = strtoupper(substr($trade['trade'],4,3));
+				?>
+						<td style=" background-color:#B8EEB0 "><?php if(count($value['Buy'][$trade['trade']]['N'])>0){?><?php echo number_format($value['Buy'][$trade['trade']]['N']['Amount'],4)."/".number_format($value['Buy'][$trade['trade']]['N']['TotalAmount'],2);?><br><small>
+						<?php echo number_format($value['Buy'][$trade['trade']]['N']['TotalAmount']/$value['Buy'][$trade['trade']]['N']['Amount'],2);?>
+						</small>
+				&nbsp;<?php }?></td>				
+				<?php }?>
+			<!--Buy-Pending-->
+			<!--Buy-Complete-->
+				<?php foreach ($trades as $trade){
+					$FC = strtoupper(substr($trade['trade'],0,3));
+					$SC = strtoupper(substr($trade['trade'],4,3));
+				?>
+					<td style=";background-color:#D1F4CC "><?php if(count($value['Buy'][$trade['trade']]['Y'])>0){?><?php echo number_format($value['Buy'][$trade['trade']]['Y']['Amount'],4)."/".number_format($value['Buy'][$trade['trade']]['Y']['TotalAmount'],2);?><br><small>
+					<?php echo number_format($value['Buy'][$trade['trade']]['Y']['TotalAmount']/$value['Buy'][$trade['trade']]['Y']['Amount'],2);?>
+					</small>
+			&nbsp;<?php }?></td>				
+				<?php }?>
+			<!--Buy-Complete-->
+			</tr><tr>
+			<!--Sell-Pending--->
+				<?php foreach ($trades as $trade){
+					$FC = strtoupper(substr($trade['trade'],0,3));
+					$SC = strtoupper(substr($trade['trade'],4,3));
+				?>
+					<td style="background-color:#FEE1AF "><?php if(count($value['Sell'][$trade['trade']]['N'])>0){?><?php echo  number_format($value['Sell'][$trade['trade']]['N']['Amount'],4)."/". number_format($value['Sell'][$trade['trade']]['N']['TotalAmount'],2);?><br><small>
+					<?php echo number_format($value['Sell'][$trade['trade']]['N']['TotalAmount']/$value['Sell'][$trade['trade']]['N']['Amount'],2);?>
+					</small>
+			&nbsp;<?php }?></td>				
+				<?php }?>
+			<!--Sell-Pending-->
+			<!--Sell-Complete-->
+				<?php foreach ($trades as $trade){
+					$FC = strtoupper(substr($trade['trade'],0,3));
+					$SC = strtoupper(substr($trade['trade'],4,3));
+				?>
+					<td style="background-color:#FEEABA "><?php if(count($value['Sell'][$trade['trade']]['Y'])>0){?><?php  echo number_format($value['Sell'][$trade['trade']]['Y']['Amount'],4)."/". number_format($value['Sell'][$trade['trade']]['Y']['TotalAmount'],2);?><br><small>
+					<?php echo number_format($value[$trade['trade']]['USD']['Y']['TotalAmount']/$value[$trade['trade']]['USD']['Y']['Amount'],2);?>
+					</small>
+			&nbsp;<?php }?></td>				
+				<?php }?>
+			<!--Sell-Complete-->
+	</tr>
+
 </table>
 <br>
 <br>
