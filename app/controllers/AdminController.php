@@ -174,7 +174,7 @@ class AdminController extends \lithium\action\Controller {
 				$TOdate = date_create($TO['_id']['year']."-01-01");			
 				$toDate = date_format($TOdate,"Y");				
 
-						$newYear[$toDate][$TO['_id']['Action']][$TO['_id']['SecondCurrency']][$TO['_id']['Completed']] = array(
+						$newYear[$toDate][$TO['_id']['Action']][$TO['_id']['FirstCurrency'].'/'.$TO['_id']['SecondCurrency']][$TO['_id']['Completed']] = array(
 										'FirstCurrency' => $TO['_id']['FirstCurrency'],										
 										'Amount' => $TO['Amount'],
 										'TotalAmount' => $TO['TotalAmount'],										
@@ -186,7 +186,7 @@ class AdminController extends \lithium\action\Controller {
 				$TOdate = date_create($TO['_id']['year']."-".$TO['_id']['month']."-".$TO['_id']['day']);			
 				$toDate = date_format($TOdate,"Y-m-d");				
 
-						$new[$toDate][$TO['_id']['Action']][$TO['_id']['SecondCurrency']][$TO['_id']['Completed']] = array(
+						$new[$toDate][$TO['_id']['Action']][$TO['_id']['FirstCurrency'].'/'.$TO['_id']['SecondCurrency']][$TO['_id']['Completed']] = array(
 										'FirstCurrency' => $TO['_id']['FirstCurrency'],										
 										'Amount' => $TO['Amount'],
 										'TotalAmount' => $TO['TotalAmount'],										

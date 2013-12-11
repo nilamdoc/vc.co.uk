@@ -8,6 +8,7 @@ if($StartDate==""){
 	$StartDate=gmdate('Y-m-d',$StartDate->sec);
 	$EndDate=gmdate('Y-m-d',$EndDate->sec);
 }
+print_r($new);
 ?>
 <form action="/Admin/index" method="post">
 <div class="input-append date" id="StartDate" data-date="<?=$StartDate?>" data-date-format="yyyy-mm-dd">
@@ -50,8 +51,8 @@ foreach($new as $key=>$value){
 					$FC = strtoupper(substr($trade['trade'],0,3));
 					$SC = strtoupper(substr($trade['trade'],4,3));
 				?>
-						<td style=" background-color:#B8EEB0 "><?php if(count($value['Buy'][$SC]['N'])>0){?><?php echo number_format($value['Buy'][$SC]['N']['Amount'],4)."/".number_format($value['Buy'][$SC]['N']['TotalAmount'],2);?><br><small>
-						<?php echo number_format($value['Buy'][$SC]['N']['TotalAmount']/$value['Buy'][$SC]['N']['Amount'],2);?>
+						<td style=" background-color:#B8EEB0 "><?php if(count($value['Buy'][$trade['trade']]['N'])>0){?><?php echo number_format($value['Buy'][$trade['trade']]['N']['Amount'],4)."/".number_format($value['Buy'][$trade['trade']]['N']['TotalAmount'],2);?><br><small>
+						<?php echo number_format($value['Buy'][$trade['trade']]['N']['TotalAmount']/$value['Buy'][$trade['trade']]['N']['Amount'],2);?>
 						</small>
 				&nbsp;<?php }?></td>				
 				<?php }?>
@@ -61,8 +62,8 @@ foreach($new as $key=>$value){
 					$FC = strtoupper(substr($trade['trade'],0,3));
 					$SC = strtoupper(substr($trade['trade'],4,3));
 				?>
-					<td style=";background-color:#D1F4CC "><?php if(count($value['Buy'][$SC]['Y'])>0){?><?php echo number_format($value['Buy'][$SC]['Y']['Amount'],4)."/".number_format($value['Buy'][$SC]['Y']['TotalAmount'],2);?><br><small>
-					<?php echo number_format($value['Buy'][$SC]['Y']['TotalAmount']/$value['Buy'][$SC]['Y']['Amount'],2);?>
+					<td style=";background-color:#D1F4CC "><?php if(count($value['Buy'][$trade['trade']]['Y'])>0){?><?php echo number_format($value['Buy'][$trade['trade']]['Y']['Amount'],4)."/".number_format($value['Buy'][$trade['trade']]['Y']['TotalAmount'],2);?><br><small>
+					<?php echo number_format($value['Buy'][$trade['trade']]['Y']['TotalAmount']/$value['Buy'][$trade['trade']]['Y']['Amount'],2);?>
 					</small>
 			&nbsp;<?php }?></td>				
 				<?php }?>
@@ -73,8 +74,8 @@ foreach($new as $key=>$value){
 					$FC = strtoupper(substr($trade['trade'],0,3));
 					$SC = strtoupper(substr($trade['trade'],4,3));
 				?>
-					<td style="background-color:#FEE1AF "><?php if(count($value['Sell'][$SC]['N'])>0){?><?php echo  number_format($value['Sell'][$SC]['N']['Amount'],4)."/". number_format($value['Sell'][$SC]['N']['TotalAmount'],2);?><br><small>
-					<?php echo number_format($value['Sell'][$SC]['N']['TotalAmount']/$value['Sell'][$SC]['N']['Amount'],2);?>
+					<td style="background-color:#FEE1AF "><?php if(count($value['Sell'][$trade['trade']]['N'])>0){?><?php echo  number_format($value['Sell'][$trade['trade']]['N']['Amount'],4)."/". number_format($value['Sell'][$trade['trade']]['N']['TotalAmount'],2);?><br><small>
+					<?php echo number_format($value['Sell'][$trade['trade']]['N']['TotalAmount']/$value['Sell'][$trade['trade']]['N']['Amount'],2);?>
 					</small>
 			&nbsp;<?php }?></td>				
 				<?php }?>
@@ -84,8 +85,8 @@ foreach($new as $key=>$value){
 					$FC = strtoupper(substr($trade['trade'],0,3));
 					$SC = strtoupper(substr($trade['trade'],4,3));
 				?>
-					<td style="background-color:#FEEABA "><?php if(count($value['Sell'][$SC]['Y'])>0){?><?php  echo number_format($value['Sell'][$SC]['Y']['Amount'],4)."/". number_format($value['Sell'][$SC]['Y']['TotalAmount'],2);?><br><small>
-					<?php echo number_format($value[$SC]['USD']['Y']['TotalAmount']/$value[$SC]['USD']['Y']['Amount'],2);?>
+					<td style="background-color:#FEEABA "><?php if(count($value['Sell'][$trade['trade']]['Y'])>0){?><?php  echo number_format($value['Sell'][$trade['trade']]['Y']['Amount'],4)."/". number_format($value['Sell'][$trade['trade']]['Y']['TotalAmount'],2);?><br><small>
+					<?php echo number_format($value[$trade['trade']]['USD']['Y']['TotalAmount']/$value[$trade['trade']]['USD']['Y']['Amount'],2);?>
 					</small>
 			&nbsp;<?php }?></td>				
 				<?php }?>
@@ -103,20 +104,20 @@ foreach($new as $key=>$value){
 			$BuyYAmount = 'Buy'.$SC.'YAmount';
 			$BuyYTotalAmount = 'Buy'.$SC.'YTotalAmount';
 				
-			$$BuyNAmount = $$BuyNAmount + $value['Buy'][$SC]['N']['Amount'];
-			$$BuyNTotalAmount = $$BuyNTotalAmount + $value['Buy'][$SC]['N']['TotalAmount'];
-			$$BuyYAmount = $$BuyYAmount + $value['Buy'][$SC]['Y']['Amount'];
-			$$BuyYTotalAmount = $$BuyYTotalAmount + $value['Buy'][$SC]['Y']['TotalAmount'];
+			$$BuyNAmount = $$BuyNAmount + $value['Buy'][$trade['trade']]['N']['Amount'];
+			$$BuyNTotalAmount = $$BuyNTotalAmount + $value['Buy'][$trade['trade']]['N']['TotalAmount'];
+			$$BuyYAmount = $$BuyYAmount + $value['Buy'][$trade['trade']]['Y']['Amount'];
+			$$BuyYTotalAmount = $$BuyYTotalAmount + $value['Buy'][$trade['trade']]['Y']['TotalAmount'];
 				
 			$SellNAmount = 'Sell'.$SC.'NAmount';
 			$SellNTotalAmount = 'Sell'.$SC.'NTotalAmount';
 			$SellYAmount = 'Sell'.$SC.'YAmount';
 			$SellYTotalAmount = 'Sell'.$SC.'YTotalAmount';
 				
-			$$SellNAmount = $$SellNAmount + $value['Sell'][$SC]['N']['Amount'];
-			$$SellNTotalAmount = $$SellNTotalAmount + $value['Sell'][$SC]['N']['TotalAmount'];
-			$$SellYAmount = $$SellYAmount + $value['Sell'][$SC]['Y']['Amount'];
-			$$SellYTotalAmount = $$SellYTotalAmount + $value['Sell'][$SC]['Y']['TotalAmount'];
+			$$SellNAmount = $$SellNAmount + $value['Sell'][$trade['trade']]['N']['Amount'];
+			$$SellNTotalAmount = $$SellNTotalAmount + $value['Sell'][$trade['trade']]['N']['TotalAmount'];
+			$$SellYAmount = $$SellYAmount + $value['Sell'][$trade['trade']]['Y']['Amount'];
+			$$SellYTotalAmount = $$SellYTotalAmount + $value['Sell'][$trade['trade']]['Y']['TotalAmount'];
 		}
 		?>
 <?php }?>
