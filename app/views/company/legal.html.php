@@ -26,7 +26,7 @@ Company No: 8554667<br>
 </address>
 </blockquote>
 
-<small class="pull-right">Last updated on 27th August, 2013</small><br>
+<small class="pull-right">Last updated on 20th November, 2013</small><br>
 <br>
 <br>
 <br>

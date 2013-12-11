@@ -27,6 +27,7 @@
 <p><?=$t("Your information is subject to our")?> <a href="/company/privacy"><?=$t("Privacy Policy")?>.</a></p>
 <p><?=$t("To register an account and submit your verification information please")?> <a href="/users/signup"><?=$t("click here")?>.</a></p>
 <br>
+<small class="pull-right">Last updated on 20th November, 2013</small><br><br>
 <br>
 <br>
 <br>

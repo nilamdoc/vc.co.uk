@@ -21,7 +21,7 @@
 <hr>
 <p><sup>1</sup> <small><?=$t("Suspicious meaning but not limited to, activity out of the ordinary, large movements of value, suspected identity fraud, attempts to bypass account limits or conduct international money transfers.")?></small></p>
 
-<small class="pull-right">Last updated on 27th August, 2013</small><br><br>
+<small class="pull-right">Last updated on 20th November, 2013</small><br><br>
 <br>
 <br>
 <br>
