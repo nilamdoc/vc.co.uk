@@ -86,7 +86,7 @@ foreach($new as $key=>$value){
 					$SC = strtoupper(substr($trade['trade'],4,3));
 				?>
 					<td style="background-color:#FEEABA "><?php if(count($value['Sell'][$trade['trade']]['Y'])>0){?><?php  echo number_format($value['Sell'][$trade['trade']]['Y']['Amount'],4)."/". number_format($value['Sell'][$trade['trade']]['Y']['TotalAmount'],2);?><br><small>
-					<?php echo number_format($value[$trade['trade']]['USD']['Y']['TotalAmount']/$value[$trade['trade']]['USD']['Y']['Amount'],2);?>
+					<?php echo number_format($value[$trade['trade']]['Y']['TotalAmount']/$value[$trade['trade']]['Y']['Amount'],2);?>
 					</small>
 			&nbsp;<?php }?></td>				
 				<?php }?>
@@ -228,7 +228,7 @@ foreach($newYear as $key=>$value){
 					$SC = strtoupper(substr($trade['trade'],4,3));
 				?>
 					<td style="background-color:#FEEABA "><?php if(count($value['Sell'][$trade['trade']]['Y'])>0){?><?php  echo number_format($value['Sell'][$trade['trade']]['Y']['Amount'],4)."/". number_format($value['Sell'][$trade['trade']]['Y']['TotalAmount'],2);?><br><small>
-					<?php echo number_format($value[$trade['trade']]['USD']['Y']['TotalAmount']/$value[$trade['trade']]['USD']['Y']['Amount'],2);?>
+					<?php echo number_format($value[$trade['trade']]['Y']['TotalAmount']/$value[$trade['trade']]['Y']['Amount'],2);?>
 					</small>
 			&nbsp;<?php }?></td>				
 				<?php }?>
