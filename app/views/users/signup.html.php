@@ -41,18 +41,25 @@ $Comm = Parameters::find('first');
 			<li>Services only available to UK residents.</li>
 			<li>Based and registered within the UK to help build your trust.</li>
 		</ul>
-	<p>To become IBWT customer and use our platform and services, you must submit the following information:
-		<ul>
-			<li>Full name.</li>
-			<li>Government issued photo identification.</li>
-			<li>Proof of address (utility bill, credit statement, or official recognised letter, NOT mobile phone bill).</li>
-			For business customers wishing to link a business account, please contact <a href="mailto:support@ibwt.co.uk">support@ibwt.co.uk</a>.
-			<li>Bank details for linked bank account, must be in customers own name (account number, sort code, account name).</li>
-			<li>Address proof for sending withdrawals.</li>
-			<li>Contact telephone number.</li>
-			<li>Contact email.</li>
-		</ul>
-	</p>	
+
+<p>To become an IBWT customer and use our platform and services, you only need the following;
+<ul>
+    <li>Full name.</li>
+    <li>To trade Btc/Ltc - registered email.</li>
+    <li>To deposit fiat - registered email.</li>
+    <li>To withdraw fiat - verified proof of address.</li>
+    <li>To deposit/withdraw fiat over &pound;10,000 a day - valid government photo ID.</li>
+</ul>
+</p>
+<p>Please make sure you check - <a href="/files/Withdrawal%20Verification.pdf" target="_blank">7 Easy Verifcation Steps</a> 
+<p>For further details on verification, deposits and withdrawals, please check.
+<ul>
+    <li><a href="/company/verification">Verification</a></li>
+    <li><a href="/company/funding">Funding</a></li>
+</ul>		
+</p>
+Any issues please contact us at <a href="mailto:support@ibwt.co.uk">support@ibwt.co.uk</a>
+</p>
 		</div>
 	</div>
 </div>

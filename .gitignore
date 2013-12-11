@@ -1,3 +1,4 @@
 app/resources/tmp/*
 app/webroot/documents/*
 app/webroot/qrcode/*
+app/views/layouts/*
