@@ -234,7 +234,7 @@ foreach($newYear as $key=>$value){
 				<?php }?>
 			<!--Sell-Complete-->
 	</tr>
-
+<?php }?>
 </table>
 <br>
 <br>
