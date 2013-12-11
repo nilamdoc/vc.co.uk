@@ -8,7 +8,7 @@ if($StartDate==""){
 	$StartDate=gmdate('Y-m-d',$StartDate->sec);
 	$EndDate=gmdate('Y-m-d',$EndDate->sec);
 }
-print_r($new);
+
 ?>
 <form action="/Admin/index" method="post">
 <div class="input-append date" id="StartDate" data-date="<?=$StartDate?>" data-date-format="yyyy-mm-dd">
