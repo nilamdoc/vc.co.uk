@@ -166,6 +166,23 @@ foreach($new as $key=>$value){
 			</th>				
 	<?php }?>		
 	</tr>
+	<tr>
+		<th rowspan="3" style="text-align:center;">Date</th>
+		<th rowspan="3" style="text-align:center ">Users</th>
+		<th colspan="<?=count($trades)*2?>" style="text-align:center ;background-color:#D1F4CC">Buy / Sell</th>
+	</tr>
+	<tr>
+		<th colspan="<?=count($trades)?>" style="text-align:center ;background-color:#B8EEB0">Pending</th>
+		<th colspan="<?=count($trades)?>" style="text-align:center ;background-color:#D1F4CC">Complete</th>		
+	</tr>
+	<tr>
+	<?php foreach ($trades as $trade){?>
+		<th style="text-align:center ;background-color:#B8EEB0"><?=$trade['trade']?></th>
+	<?php }?>
+	<?php foreach ($trades as $trade){?>
+		<th style="text-align:center ;background-color:#B8EEB0"><?=$trade['trade']?></th>
+	<?php }?>
+	</tr>	
 </table>
 <br>
 <br>
