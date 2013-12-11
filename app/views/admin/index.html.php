@@ -131,7 +131,7 @@ foreach($new as $key=>$value){
 		$BuyNTotalAmount = 'Buy'.$FC.'_'.$SC.'NTotalAmount';
 	?>
 			<th style="background-color:#B8EEB0"><?= number_format($$BuyNAmount,2)."/". number_format($$BuyNTotalAmount,2)?><br>
-			<?php if($$BuyUSDNAmount!=0){echo number_format($$BuyNTotalAmount/$$BuyNAmount,2);}?>
+			<?php if($$BuyNAmount!=0){echo number_format($$BuyNTotalAmount/$$BuyNAmount,2);}?>
 			</th>				
 	<?php }?>
 	<?php foreach ($trades as $trade){
@@ -141,7 +141,7 @@ foreach($new as $key=>$value){
 		$BuyYTotalAmount = 'Buy'.$FC.'_'.$SC.'YTotalAmount';
 	?>
 			<th style="background-color:#D1F4CC"><?= number_format($$BuyYAmount,2)."/". number_format($$BuyYTotalAmount,2)?><br>
-			<?php if($$BuyUSDYAmount!=0){echo number_format($$BuyYTotalAmount/$$BuyYAmount,2);}?>
+			<?php if($$BuyYAmount!=0){echo number_format($$BuyYTotalAmount/$$BuyYAmount,2);}?>
 			</th>
 	<?php }?>						
 </tr><tr>
