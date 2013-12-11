@@ -226,7 +226,7 @@ class ExController extends \lithium\action\Controller {
 						$this->updateBalance($PO['_id']);
 						$this->SendOrderCompleteEmails($order_id,$user['_id']);
 						$this->SendOrderCompleteEmails($PO['_id'],$PO['user_id']);						
-						//break;
+						break;
 					}
 					
 					if((float)$PO['Amount']>(float)($Amount)){
@@ -304,7 +304,7 @@ class ExController extends \lithium\action\Controller {
 						$this->updateBalance($PO['_id']);
 						$this->SendOrderCompleteEmails($order_id,$user['_id']);
 						$this->SendOrderCompleteEmails($PO['_id'],$PO['user_id']);						
-//						break;
+						break;
 					}
 					if((float)$PO['Amount']<(float)($Amount)){
 						// Update Previous Order with New Order Amount and New Commission and Transact User 
@@ -391,7 +391,7 @@ class ExController extends \lithium\action\Controller {
 						$this->updateBalance($PO['_id']);
 						$this->SendOrderCompleteEmails($order_id,$user['_id']);
 						$this->SendOrderCompleteEmails($PO['_id'],$PO['user_id']);						
-		//				break;
+						break;
 					}
 			}
 			// End FOR Loop -----------------------------------

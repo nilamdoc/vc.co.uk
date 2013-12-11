@@ -1500,5 +1500,51 @@ $description = "Admin panel for Orders";
 		$trades = Trades::find('all');
 		return compact('details','trades');
 	}
+	
+	public function complete(){
+		if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		if($this->request->data){
+			$StartDate = new MongoDate(strtotime($this->request->data['StartDate']));
+			$EndDate = new MongoDate(strtotime($this->request->data['EndDate']));			
+		}else{
+			$StartDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))-60*60*24*30)));
+			$EndDate = new MongoDate(strtotime(gmdate('Y-m-d H:i:s',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+60*60*24*1)));
+		}
+		$Orders = Orders::find('all',array(
+			'conditions'=>array(
+				'DateTime'=> array( '$gte' => $StartDate, '$lte' => $EndDate ) ,			
+				'Completed'=>'Y',
+				'Action'=>'Buy'
+				),
+			'order'=>array('Transact.DateTime'=>-1)
+		));
+	$i = 0;
+	$FinalOrders = array();
+		foreach($Orders as $Order){
+			$UserOrder = Orders::find('first',array(
+				'conditions'=>array(
+					'_id' => $Order['Transact']['id']
+					),
+				'order'=>array('DateTime'=>-1)
+			));
+			$FinalOrders[$i]['Buy']['_id'] = $Order['_id'];
+			$FinalOrders[$i]['Buy']['username'] = $Order['username'];
+			$FinalOrders[$i]['DateTime'] = $Order['Transact']['DateTime'];
+			$FinalOrders[$i]['Buy']['Amount'] = number_format($Order['Amount'],6);			
+			$FinalOrders[$i]['Buy']['PerPrice'] = $Order['PerPrice'];						
+			$FinalOrders[$i]['Buy']['pair'] = $Order['FirstCurrency'].'/'.$Order['SecondCurrency'];									
+			$FinalOrders[$i]['Buy']['Commission'] = number_format($Order['Commission']['Amount'],6).':'.$Order['Commission']['Currency'];												
+
+			$FinalOrders[$i]['Sell']['_id'] = $UserOrder['_id'];
+			$FinalOrders[$i]['Sell']['username'] = $UserOrder['username'];
+			$FinalOrders[$i]['Sell']['Amount'] = number_format($UserOrder['Amount'],6);			
+			$FinalOrders[$i]['Sell']['PerPrice'] = $UserOrder['PerPrice'];									
+			$FinalOrders[$i]['Sell']['pair'] = $UserOrder['FirstCurrency'].'/'.$UserOrder['SecondCurrency'];												
+			$FinalOrders[$i]['Sell']['Commission'] = number_format($UserOrder['Commission']['Amount'],6).':'.$UserOrder['Commission']['Currency'];															
+			$i++;
+		}
+	
+	return compact('FinalOrders');
+	}
 }
 ?>
