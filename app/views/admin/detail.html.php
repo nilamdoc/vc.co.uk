@@ -44,7 +44,7 @@
 		<th style="text-align:center ">Account number</th>
 		<th style="text-align:center ">Bank name</th>
 		<th style="text-align:center ">Bank address</th>
-		<td></td>
+		<th style="text-align:center">Mobile</td>
 	</tr>
 <?php foreach($details as $dt){?>
 	<tr>
