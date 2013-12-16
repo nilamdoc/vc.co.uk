@@ -60,7 +60,7 @@
 		<span class="label label-success">Verified</span>
 		<?php }?>
 		</td>				
-		<td></td>
+		<td><?=$dt['mobile.number']?> <?=$dt['mobile.verified']?></td>
 	</tr>
 	<tr>
 		<th style="text-align:center ">Name</th>
