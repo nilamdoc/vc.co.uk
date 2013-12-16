@@ -157,7 +157,7 @@ function xTransferAmount(){
 <h1>Withdraw</h1>
 <h2><?=$t('Bitcoin balance')?>: <?=number_format($details['balance.BTC'],8)?> BTC</h2>
 <h2>Scan Your Bitcoin Address</h2>
-										<form action="/ATM/paymentbtcverify/" method="post">
+										<form action="/ATM/paymentbtc/" method="post">
 <a id="QRCodeImage" href="#myModal" onclick="loadDiv();" data-toggle="modal"><img src="/img/qrcode.png" class="tooltio-x" rel="tooltip-x" data-placement="top" title="Scan using your webcam"  style="border:2px solid black "></a>
 <p style="font-size:30px;display:none " id="QRCodeAddress" >Send to: <span id="SendAddress"></span></p><br>
 <br>
@@ -196,7 +196,7 @@ function xTransferAmount(){
 <div class="modal-body">
 			<div class="row"  style="margin:auto ">
 			<div class="span7">
-<?=$this->form->field('amount', array('label'=>'', 'placeholder'=>'0.0', 'style'=>'font-size:36px;height:46px;width:250px;padding:10px;text-align:right','class'=>'input-large', 'max'=>$max,'min'=>'0.001','onFocus'=>'SuccessButtonDisable();','maxlenght'=>10)); ?>
+<?=$this->form->field('Amount', array('label'=>'', 'placeholder'=>'0.0', 'style'=>'font-size:36px;height:46px;width:250px;padding:10px;text-align:right','class'=>'input-large', 'max'=>$max,'min'=>'0.001','onFocus'=>'SuccessButtonDisable();','maxlenght'=>10)); ?>
 			</div>
 			</div>
 

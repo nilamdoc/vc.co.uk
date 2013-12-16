@@ -179,5 +179,99 @@ class ATMController extends \lithium\action\Controller {
 		$txfee = $paytxfee['paytxfee'];
 			return compact('details','txfee')	;
 	}
+
+	public function paymentbtc(){
+			$title = "Payment";
+		$this->_render['layout'] = 'atm';
+		$user = Session::read('default');
+		$id = $user['user_id'];
+
+		if($id==""){return $this->redirect('/ATM/index');}
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+
+		
+		if ($this->request->data) {
+			$guid=BITCOIN_GUID;
+			$firstpassword=BITCOIN_FIRST;
+			$secondpassword=BITCOIN_SECOND;
+			$amount = abs($this->request->data['Amount']);
+			if($details['balance.BTC']<=$amount){return false;}			
+			$fee = $$this->request->data['txFee'];
+			$address = $$this->request->data['bitcoinaddress'];
+			$satoshi = (float)$amount * 100000000;
+			$fee_satoshi = (float)$fee * 100000000;
+			$json_url = "http://blockchain.info/merchant/$guid/payment?password=$firstpassword&second_password=$secondpassword&to=$address&amount=$satoshi&fee=$fee_satoshi";
+			$json_data = file_get_contents($json_url);
+			$json_feed = json_decode($json_data);
+			$txmessage = $json_feed->message;
+			$txid = $json_feed->tx_hash;
+			if($txid!=null){
+				$data = array(
+					'DateTime' => new \MongoDate(),
+					'TransactionHash' => $txid,
+					'Paid'=>'Yes',
+					'Transfer'=>$message,
+				);							
+			$transaction = Transactions::find('first',array(
+				'conditions'=>array(
+					'verify.payment'=>$verify,
+					'username'=>$username,
+					'Paid'=>'No'
+					)
+			))->save($data);
+			$transaction = Transactions::find('first',array(
+				'conditions'=>array(
+					'verify.payment'=>$verify,
+					'username'=>$username,
+					'Paid'=>'Yes'
+					)
+			));			
+				$dataDetails = array(
+						'balance.BTC' => (float)number_format($details['balance.BTC'] - (float)$amount - (float)$fee,8),
+					);
+				$details = Details::find('all',
+					array(
+							'conditions'=>array(
+								'user_id'=> (string) $id
+							)
+						))->save($dataDetails);
+			$view  = new View(array(
+				'loader' => 'File',
+				'renderer' => 'File',
+				'paths' => array(
+					'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+				)
+			));
+			$body = $view->render(
+				'template',
+				compact('transaction','details','txid'),
+				array(
+					'controller' => 'users',
+					'template'=>'withdraw_btc_sent',
+					'type' => 'mail',
+					'layout' => false
+				)
+			);
+
+			$transport = Swift_MailTransport::newInstance();
+			$mailer = Swift_Mailer::newInstance($transport);
+	
+			$message = Swift_Message::newInstance();
+			$message->setSubject("BTC sent from ".COMPANY_URL);
+			$message->setFrom(array(NOREPLY => 'BTC sent from '.COMPANY_URL));
+			$message->setTo($email);
+			$message->addBcc(MAIL_1);
+			$message->addBcc(MAIL_2);			
+			$message->addBcc(MAIL_3);		
+
+			$message->setBody($body,'text/html');
+			
+			$mailer->send($message);
+			}
+			return compact('txmessage','txid','json_url','json_feed','title');
+		}
+	}
 }
 ?>
