@@ -1200,6 +1200,11 @@ $description = "Dashboard for trading platform for bitcoin exchange in United Ki
 sort($datay1);
 rsort($datay2);
 sort($labels);
+for($i=0;$i<count($labels);$i++){
+	if($i%2){
+	$labels[$i] = ".";
+	}
+}
 if(count($datay1)<=1){$datay1 = array(0,1);}
 if(count($datay2)<=1){$datay2 = array(1,0);}
 if(count($labels)<=1){$labels = array(0,1);}
@@ -1260,6 +1265,7 @@ $graph->legend->SetFrameWeight(1);
 				$datav = array(0,0);
 				$days = array('N','N');
 			}
+			$i = 0;
 			foreach($values['result'] as $result){
 				array_push($datay, $result['Open']);
 				array_push($datay, $result['High']);	
@@ -1268,7 +1274,12 @@ $graph->legend->SetFrameWeight(1);
 				array_push($datav, $result['Volume']);		
 				array_push($alts, $result['Volume']);
 				array_push($targ,"#");
+				if($i%2){
 				array_push($days,$result['_id']['day']."/".$result['_id']['month']."\n ".$result['_id']['hour']."h");
+				}else{
+				array_push($days,"");
+				}
+				$i++;
 			}
 		$graph = new Graph(750,300);
 
