@@ -21,7 +21,7 @@ Welcome to IBWT, alternative funding methods now available, please see details i
 		<small><strong>Time based One Time Password (TOTP) from your smartphone</strong></small>	
 		<?=$this->form->field('totp', array('type' => 'password', 'label'=>'','class'=>'span1','maxlength'=>'6', 'placeholder'=>'123456')); ?>	
 		</div>	
-		<?=$this->form->submit('Login' ,array('class'=>'btn btn-primary')); ?>
+		<?=$this->form->submit('Login' ,array('class'=>'btn btn-primary','id'=>'LoginButton','disabled'=>'disabled')); ?>
 		
 		
 		<?=$this->form->end(); ?>

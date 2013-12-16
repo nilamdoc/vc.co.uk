@@ -7,6 +7,8 @@
 	<li><a href="/files/HMRC.pdf" target="_blank">Regulation as an MSB/HMRC</a></li>
 	<li><a href="/files/25-10-2013-FCA.pdf" target="_blank">Regulated Businesses under FCA & FSMA (2000/2001)</a></li>
 	<li><a href="/files/Withdrawal Verification.pdf" target="_blank">Withdrawal Verification</a></li>
+	<li><a href="/files/Buy-Sell.pdf" target="_blank">Buy & Sell</a></li>
+	<li><a href="/files/Creating Secure Wallet Backups.pdf" target="_blank">Creating Secure Wallet Backups</a></li>
 </ul>
 </blockquote>
 <blockquote><strong>Alternative Coins</strong>

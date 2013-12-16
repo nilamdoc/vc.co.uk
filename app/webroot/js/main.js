@@ -174,9 +174,10 @@ function ConvertBalance(){
 	
 }
 function SendPassword(){
-	$.getJSON('/Users/SendPassword/'+$("#Username").val(),
+		$("#LoginEmailPassword").show();
+		$.getJSON('/Users/SendPassword/'+$("#Username").val(),
 		function(ReturnValues){
-			$("#LoginEmailPassword").show();
+			$("#LoginButton").removeAttr('disabled');
 			if(ReturnValues['TOTP']=="Yes"){
 				$("#TOTPPassword").show();
 				}
