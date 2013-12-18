@@ -185,7 +185,7 @@ class ATMController extends \lithium\action\Controller {
 		$this->_render['layout'] = 'atm';
 		$user = Session::read('default');
 		$id = $user['user_id'];
-
+		$username = $user['username'];
 		if($id==""){return $this->redirect('/ATM/index');}
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=> (string) $id))
@@ -208,26 +208,20 @@ class ATMController extends \lithium\action\Controller {
 			$txmessage = $json_feed->message;
 			$txid = $json_feed->tx_hash;
 			if($txid!=null){
+
+			$tx = Transactions::create();
 				$data = array(
 					'DateTime' => new \MongoDate(),
-					'TransactionHash' => $txid,
-					'Paid'=>'Yes',
-					'Transfer'=>$message,
+					'username' => $details['username'],
+					'address'=>$address,							
+					'verify.payment' => sha1(openssl_random_pseudo_bytes(4,$cstrong)),
+					'Paid' => 'Yes',
+					'Amount'=> (float) -$amount,
+					'Currency'=> 'BTC',					
+					'txFee' => (float) -$fee,
+					'Added'=>false,
 				);							
-			$transaction = Transactions::find('first',array(
-				'conditions'=>array(
-					'verify.payment'=>$verify,
-					'username'=>$username,
-					'Paid'=>'No'
-					)
-			))->save($data);
-			$transaction = Transactions::find('first',array(
-				'conditions'=>array(
-					'verify.payment'=>$verify,
-					'username'=>$username,
-					'Paid'=>'Yes'
-					)
-			));			
+				$tx->save($data);	
 				$dataDetails = array(
 						'balance.BTC' => (float)number_format($details['balance.BTC'] - (float)$amount - (float)$fee,8),
 					);

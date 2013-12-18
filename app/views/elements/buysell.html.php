@@ -118,7 +118,7 @@ if($$second_curr!=0){ ?>
 			</tr>
 			<tr>
 				<td><input type="button" onClick="BuyFormCalculate()" class="btn" value="Calculate"></td>
-				<td><input type="submit" id="BuySubmitButton" class="btn btn-primary" disabled="disabled" value="Submit"></td>
+				<td><input type="submit" id="BuySubmitButton" class="btn btn-primary" disabled="disabled" value="Submit" onclick="$('#BuySubmitButton').attr('disabled', 'disabled');"></td>
 			</tr>
 		</table>
 		<?=$this->form->end(); ?>
@@ -231,7 +231,7 @@ if($$second_curr!=0){ ?>
 			</tr>
 			<tr>
 				<td><input type="button" onClick="SellFormCalculate()" class="btn" value="Calculate"></td>
-				<td><input type="submit" id="SellSubmitButton" class="btn btn-primary" disabled="disabled" value="Submit"></td>
+				<td><input type="submit" id="SellSubmitButton" class="btn btn-primary" disabled="disabled" value="Submit" onClick="$('#SellSubmitButton').attr('disabled', 'disabled');"></td>
 			</tr>
 		</table>
 		<?=$this->form->end(); ?>		
