@@ -31,7 +31,7 @@ class SessionsController extends \lithium\action\Controller {
 				));
 				if($details['oneCode']===$this->request->data['loginpassword']){
 					$data = array(
-						'oneCode.used'=>'Yes'
+						'oneCodeused'=>'Yes'
 					);
 					$details = Details::find('first',array(
 						'conditions' => array(

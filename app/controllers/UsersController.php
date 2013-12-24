@@ -272,11 +272,11 @@ class UsersController extends \lithium\action\Controller {
 		$details = Details::find('first',array(
 					'conditions'=>array('username'=>$username,'user_id'=>(string)$id)
 		));
-		if($details['oneCode']['used']=='Yes'){
+		if($details['oneCodeused']=='Yes'){
 			$oneCode = $ga->getCode($secret);	
 			$data = array(
 				'oneCode' => $oneCode,
-				'oneCode.used' => 'No'
+				'oneCodeused' => 'No'
 			);
 			$details = Details::find('first',array(
 						'conditions'=>array('username'=>$username,'user_id'=>(string)$id)
