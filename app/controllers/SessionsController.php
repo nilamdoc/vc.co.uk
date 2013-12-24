@@ -30,6 +30,21 @@ class SessionsController extends \lithium\action\Controller {
 						)
 				));
 				if($details['oneCode']===$this->request->data['loginpassword']){
+					$data = array(
+						'oneCode.used'=>'Yes'
+					);
+					$details = Details::find('first',array(
+						'conditions' => array(
+							'username'=>$default['username'],
+							'user_id'=>(string)$default['_id']
+							)
+					))->save($data);
+					$details = Details::find('first',array(
+						'conditions' => array(
+							'username'=>$default['username'],
+							'user_id'=>(string)$default['_id']
+							)
+					));
 					if($details["TOTP.Validate"]==1 && $details["TOTP.Login"]==true){
 						$totp = $this->request->data['totp'];
 						$ga = new GoogleAuthenticator();

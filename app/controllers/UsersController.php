@@ -269,16 +269,23 @@ class UsersController extends \lithium\action\Controller {
 		$id = (string)$users['_id'];
 		$ga = new GoogleAuthenticator();
 		$secret = $ga->createSecret(64);
-		$oneCode = $ga->getCode($secret);	
-		$data = array(
-			'oneCode' => $oneCode
-		);
-		$details = Details::find('first',array(
-					'conditions'=>array('username'=>$username,'user_id'=>(string)$id)
-		))->save($data);
 		$details = Details::find('first',array(
 					'conditions'=>array('username'=>$username,'user_id'=>(string)$id)
 		));
+		if($details['oneCode']['used']=='Yes'){
+			$oneCode = $ga->getCode($secret);	
+			$data = array(
+				'oneCode' => $oneCode,
+				'oneCode.used' => 'No'
+			);
+			$details = Details::find('first',array(
+						'conditions'=>array('username'=>$username,'user_id'=>(string)$id)
+			))->save($data);
+		}
+		$details = Details::find('first',array(
+					'conditions'=>array('username'=>$username,'user_id'=>(string)$id)
+		));
+		$oneCode = $details['oneCode'];
 		$totp = "No";
 
 		if($details['TOTP.Validate']==true && $details['TOTP.Login']==true){
