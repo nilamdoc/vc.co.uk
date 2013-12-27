@@ -463,7 +463,7 @@ $description = "Admin Approve documents ";
 
 		$Fiattransactions = Transactions::find('all',array(
 			'conditions'=>array(
-				'Currency'=>array('$ne'=>'BTC'),
+				'Currency'=>array('$nin'=>array('BTC','LTC')),
 				'Approved'=>'No',
 				'Added'=>true
 			),
@@ -497,7 +497,7 @@ $description = "Admin Approve documents ";
 				)),
 				array('$match'=>array(
 					'username'=>$ft['username'],					
-					'Currency'=>array('$ne'=>'BTC'),
+					'Currency'=>array('$nin'=>array('BTC','LTC')),
 					'Approved'=>'Yes',
 					'Added'=>(boolean)true
 					)),
@@ -522,7 +522,7 @@ $description = "Admin Approve documents ";
 				)),
 				array('$match'=>array(
 					'username'=>$ft['username'],					
-					'Currency'=>array('$ne'=>'BTC'),
+					'Currency'=>array('$nin'=>array('BTC','LTC')),
 					'Approved'=>'Yes',
 					'Added'=>(boolean)false
 					)),
@@ -580,6 +580,7 @@ $description = "Admin Approve documents ";
 			$j = 0;
 			foreach($Previoustransactions as $pt){
 				$Details[$i]['Previous'][$j]['Approved']	=		$pt['Approved'];
+				$Details[$i]['Previous'][$j]['Added']	=		$pt['Added'];				
 				$Details[$i]['Previous'][$j]['Amount']	=		$pt['Amount'];				
 				$Details[$i]['Previous'][$j]['Currency']	=		$pt['Currency'];				
 				$Details[$i]['Previous'][$j]['DateTime']	=		$pt['DateTime'];				

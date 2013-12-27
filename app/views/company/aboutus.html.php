@@ -18,10 +18,6 @@
 	</tr>
 	<tr>
 		<td>
-		<img src="/img/raj.jpg" width="200" style="padding:1px;border:1px solid black " alt="Raj Doctor"><br>
-			<strong>Raj Doctor</strong><br>
-			<small><strong><?=$t("Assistant Developer")?></strong>&nbsp;B.ARCH; M.ARCH; LLB (1ST); MBA; PH.D (cont..) CAI; ITPI; GIAE; AIMA; IFMC.</small>		
-<p><?=$t("Raj Doctor is a management expert in the development sector holding Management (IIM), Urban Planning (CEPT), Law (GU) and Architecture (MSU) qualifications and with nearly 20 years experience in social sector with international, bi-lateral, multi-lateral and government organisations. He has led international programs, heading teams of more than 2500 staffs. His expertise is in: program planning, implementation, monitoring & evaluation and research brings a unique dimension in engaging with policy related advocacy and liaison work with stakeholders - government and international organisations. His aim is to achieve high quality international standard impacts through appropriate processes and systems lead by well-defined indicators to influence Global Policy in eradicating poverty.")?></p>			
 
 		</td>
 		<td>
