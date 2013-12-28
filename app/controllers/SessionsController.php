@@ -5,6 +5,7 @@ use lithium\security\Auth;
 use lithium\util\String;
 use app\models\Users;
 use app\models\Pages;
+use app\models\Logins;
 use app\models\Details;
 use lithium\storage\Session;
 use app\extensions\action\Functions;
@@ -56,6 +57,18 @@ class SessionsController extends \lithium\action\Controller {
 							if ($checkResult==1) {
 								Session::write('default',$default);
 								$user = Session::read('default');
+
+/////////////////////////////////////////////////////////////////////////////////
+								$function = new Functions();
+								$IP = $function->get_ip_address();
+
+								$data = array(
+									'username' = $user['username'],
+									'IP' = $IP,
+									'DateTime' => new \MongoDate();
+								);
+								Logins::create()->save($data);
+/////////////////////////////////////////////////////////////////////////////////								
 								return $this->redirect('ex::dashboard');
 								exit;
 							}else{
@@ -66,6 +79,17 @@ class SessionsController extends \lithium\action\Controller {
 					}else{
 						Session::write('default',$default);
 						$user = Session::read('default');
+/////////////////////////////////////////////////////////////////////////////////
+								$function = new Functions();
+								$IP = $function->get_ip_address();
+
+								$data = array(
+									'username' = $user['username'],
+									'IP' = $IP,
+									'DateTime' => new \MongoDate();
+								);
+								Logins::create()->save($data);
+/////////////////////////////////////////////////////////////////////////////////						
 						return $this->redirect('ex::dashboard');
 						exit;
 					}
