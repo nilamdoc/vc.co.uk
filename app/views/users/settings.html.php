@@ -124,6 +124,10 @@ use li3_qrcode\extensions\action\QRcode;
 						</td>
 					</tr>
 				</table>
+				<p style="color:black;font-weight:bold;font-size:14px"><u>Optional</u><br>
+Bank account is currency not used.
+				</p>
+				
 				</div>
 				<div class="span5">
 				<a href="/<?=$locale?>/users/addpostal"><strong>Add/Edit Postal address</strong></a>
@@ -153,6 +157,9 @@ use li3_qrcode\extensions\action\QRcode;
 						<td><?=$details['postal']['Country']?></td>
 					</tr>
 				</table>
+				<p style="color:red;font-weight:bold;font-size:14px"><u>Important</u><br>
+Please make sure you enter your postal address.
+				</p>
 				</div>
 			</div>
 		</div>
