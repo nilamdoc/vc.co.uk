@@ -63,8 +63,8 @@ class SessionsController extends \lithium\action\Controller {
 								$IP = $function->get_ip_address();
 
 								$data = array(
-									'username' = $user['username'],
-									'IP' = $IP,
+									'username' => $user['username'],
+									'IP' => $IP,
 									'DateTime' => new \MongoDate();
 								);
 								Logins::create()->save($data);
@@ -84,8 +84,8 @@ class SessionsController extends \lithium\action\Controller {
 								$IP = $function->get_ip_address();
 
 								$data = array(
-									'username' = $user['username'],
-									'IP' = $IP,
+									'username' => $user['username'],
+									'IP' => $IP,
 									'DateTime' => new \MongoDate();
 								);
 								Logins::create()->save($data);
