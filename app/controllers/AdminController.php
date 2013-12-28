@@ -1246,6 +1246,11 @@ $description = "Admin panel for bitcoin transaction";
 			),
 			'order' => array('DateTime'=>-1)		
 		));
+		$loginCount = Logins::find('count',array(
+			'conditions'=>array(
+			'username'=>$username
+			)
+		));
 		$UserOrders = Orders::find('all',array(
 			'conditions'=>array(
 				'username'=>$username,
@@ -1265,7 +1270,7 @@ $keywords = "Admin, Detail user";
 $description = "Admin Panel for user";
 
 		
-			return compact('title','transactions','transactionsLTC','details','user','UserOrders','Fiattransactions','UserCompleteOrders','title','keywords','description','logins');
+			return compact('title','transactions','transactionsLTC','details','user','UserOrders','Fiattransactions','UserCompleteOrders','title','keywords','description','logins','loginCount');
 	}
 	public function bankapprove($username = null){
 	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
