@@ -7,6 +7,7 @@
 			<th>Email</th>						
 			<th>Sign in</th>
 			<th>IP</th>
+			<th>Last Login</th>
 	</tr>			
 	</thead>
 	<tbody>
