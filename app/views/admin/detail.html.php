@@ -17,9 +17,9 @@
 		<td><?=$ur['firstname']?> <?=$ur['lastname']?></td>		
 		<td><?=$ur['email']?></td>				
 		<td><?=gmdate('Y-M-d H:i:s',$ur['created']->sec)?></td>
-		<td><?=$ur['ip']?></td>
-		<td><?=$logins['IP']?><br><?=gmdate('Y-M-d H:i:s',$logins['DateTime']->sec)?>
-</td>
+		<td><a href="http://whatismyipaddress.com/ip/<?=$ur['ip']?>" target="_blank"><?=$ur['ip']?></a></td>
+		<td><a href="http://whatismyipaddress.com/ip/<?=$logins['IP']?>" target="_blank"><?=$logins['IP']?></a>
+			<br><?=gmdate('Y-M-d H:i:s',$logins['DateTime']->sec)?></td>
 	</tr>
 <?php  }?>
 	<tr>
