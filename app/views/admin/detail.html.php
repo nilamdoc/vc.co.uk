@@ -17,7 +17,8 @@
 		<td><?=$ur['email']?></td>				
 		<td><?=gmdate('Y-M-d H:i:s',$ur['created']->sec)?></td>
 		<td><?=$ur['ip']?></td>
-		<td></td>
+		<td><?=$logins['IP']?><br><?=gmdate('Y-M-d H:i:s',$logins['DateTime']->sec)?>
+</td>
 	</tr>
 <?php  }?>
 	<tr>

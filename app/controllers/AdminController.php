@@ -10,6 +10,7 @@ use app\models\File;
 use app\models\Trades;
 use app\models\Orders;
 use app\models\Requests;
+use app\models\Logins;
 use lithium\data\Connections;
 use app\extensions\action\Pagination;
 use lithium\util\String;
@@ -1239,7 +1240,12 @@ $description = "Admin panel for bitcoin transaction";
 			'username'=>$username
 			)
 		));
-
+		$logins = Logins::find('first',array(
+			'conditions'=>array(
+			'username'=>$username
+			);
+			'order' => array('DateTime'=>-1)		
+		));
 		$UserOrders = Orders::find('all',array(
 			'conditions'=>array(
 				'username'=>$username,
@@ -1259,7 +1265,7 @@ $keywords = "Admin, Detail user";
 $description = "Admin Panel for user";
 
 		
-			return compact('title','transactions','transactionsLTC','details','user','UserOrders','Fiattransactions','UserCompleteOrders','title','keywords','description');
+			return compact('title','transactions','transactionsLTC','details','user','UserOrders','Fiattransactions','UserCompleteOrders','title','keywords','description','logins');
 	}
 	public function bankapprove($username = null){
 	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
