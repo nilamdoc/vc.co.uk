@@ -1243,7 +1243,7 @@ $description = "Admin panel for bitcoin transaction";
 		$logins = Logins::find('first',array(
 			'conditions'=>array(
 			'username'=>$username
-			);
+			),
 			'order' => array('DateTime'=>-1)		
 		));
 		$UserOrders = Orders::find('all',array(
