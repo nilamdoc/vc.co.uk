@@ -65,7 +65,7 @@ class SessionsController extends \lithium\action\Controller {
 								$data = array(
 									'username' => $user['username'],
 									'IP' => $IP,
-									'DateTime' => new \MongoDate();
+									'DateTime' => new \MongoDate(),
 								);
 								Logins::create()->save($data);
 /////////////////////////////////////////////////////////////////////////////////								
@@ -86,7 +86,7 @@ class SessionsController extends \lithium\action\Controller {
 								$data = array(
 									'username' => $user['username'],
 									'IP' => $IP,
-									'DateTime' => new \MongoDate();
+									'DateTime' => new \MongoDate(),
 								);
 								Logins::create()->save($data);
 /////////////////////////////////////////////////////////////////////////////////						
