@@ -8,7 +8,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 ?>
 <div class="row">
 	<div class="well span8" >
-	<h3>In Bitcoin We Trust (IBWT)</h3>
+	<img src="/img/IBWTLogo.png" width="240" alt="In Bitcoin We Trust">
 	<blockquote>"The day science begins to study non-physical phenomena, it will make more progress in one decade than in all the previous 
 	centuries of its existence." <small>Nikola Tesla</small></blockquote>
 	<p class="alert alert-error" style="font-size:16px;font-weight:bold ">One wonders how applicable Bitcoin is to Nikola Tesla's statement. Here at IBWT we plan to help put it to the test, by enabling you, our customers, to trade your Bitcoin for sterling with each other in a secure and trusted environment.</p>
