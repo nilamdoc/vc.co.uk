@@ -36,8 +36,8 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 	</ul>
 <h3>Find us</h3>
 <ul class="unstyled">
-	<li><a  target="_blank" href="https://www.facebook.com/pages/IBWT/425446187570505"><img src="/img/Facebook-logo.png" alt="Facebook" width="30px"></a></li>
-	<li><a target="_blank" href="https://twitter.com/InBtcWeTrust"><img src="/img/twitter.jpg" alt="Twitter" width="30px"></a></li>
+	<li><a  target="_blank" href="https://www.facebook.com/pages/IBWT/425446187570505"><img src="/img/Facebook-logo.png" alt="Facebook" width="30px"></a>&nbsp;&nbsp;<a target="_blank" href="https://twitter.com/InBtcWeTrust"><img src="/img/twitter.jpg" alt="Twitter" width="30px"></a></li>
+	
 </ul>
 
 	</div>
