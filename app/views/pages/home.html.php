@@ -36,20 +36,28 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 	</ul>
 <h3>Find us</h3>
 <ul class="unstyled">
-	<li><a  target="_blank" href="https://www.facebook.com/pages/IBWT/425446187570505"><img src="/img/Facebook-logo.png" alt="Facebook" width="30px"></a>&nbsp;&nbsp;<a target="_blank" href="https://twitter.com/InBtcWeTrust"><img src="/img/twitter.jpg" alt="Twitter" width="30px"></a></li>
+	<li>
+		<a  target="_blank" href="https://www.facebook.com/pages/IBWT/425446187570505"><img src="/img/Facebook-logo.png" alt="Facebook" width="30px"></a>
+		&nbsp;&nbsp;
+		<a target="_blank" href="https://twitter.com/IBWTofficial"><img src="/img/twitter.jpg" alt="Twitter" width="30px"></a>
+		&nbsp;&nbsp;
+		<a target="_blank" href="http://www.reddit.com/r/IBWTofficial/"><img src="/img/reddit.jpg" alt="Reddit" width="30px"></a>
+	</li>
 	
 </ul>
 
 	</div>
 	<div class="span3 bs-docs-site" style="min-height:732px; ">
-		<div style="overflow:auto;height:425px">
+		<div style="overflow:auto;height:605px">
 			<ul class="unstyled">
 				<li><a href="/<?=$locale?>/news">News</a></li>
 				<li><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank">Explanation: Bitcoin - The Future Currency</a></li>
 			</ul>
 		<div style="text-align:center ">
 		<a href="http://www.bitcointrezor.com/" target="_blank"><img src="/img/trezor.png" title="Trezor, the Bitcoin Safe"></a><br>
-		<a href="http://bitcoinmagazine.com/" target="_blank"><img src="/img/BMlogo.jpg" title="Bitcoin Magazine"></a>
+		<a href="http://bitcoinmagazine.com/" target="_blank"><img src="/img/BMlogo.jpg" title="Bitcoin Magazine"></a><br><br>
+
+		<a href="https://bitcoinfoundation.org/" target="_blank"><img src="/img/bitcoin-foundation.jpg" alt="Bitcoin Foundation" width="200px"></a>
 		</div>
 		</div>
 

@@ -11,7 +11,7 @@ if($this->_request->params['controller']!='api'){
 <ul class="nav nav-tabs push-right">
 	<?php if(!stristr($_SERVER['REQUEST_URI'],"Admin")){	?>
 	<li <?php if($sel_curr==""){echo "class='active'";}?>>
-		<a href="/<?=$locale?>/ex/dashboard/" style="cursor:pointer "><?=$t('Dashboard')?></a>
+		<a href="/<?=$locale?>/ex/dashboard/" style="cursor:pointer "><img src="/img/dashboard.png" alt="Dashboard"></a>
 	</li>
 		<?php foreach($trades as $tr){?>
 			<li <?php if($sel_curr==strtolower(str_replace("/","_",$tr['trade']))){echo "class='active'";}?>>
