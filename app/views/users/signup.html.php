@@ -34,18 +34,16 @@ $Comm = Parameters::find('first');
 		<h3>In Bitcoin We Trust: ibwt.co.uk</h3>
 		<ul>
 			<li>Fees are <strong><?=$Comm['value']?></strong>% per transaction.</li>
-			<li>Simple verification means you could be a full customer in a matter of days.</li>
-			<li>Security ensured with Cold Storage, SSL 256bit encryption & 2FA.</li>
-			<li>Dedicated Server for an enhanced customer experience.</li>
-			<li>Deposits & Withdrawals immune to banking interference.</li>
-			<li>Exchange available to all internationally and nationally.</li>
-			<li>Fiat Deposits/Withdrawals currently only for UK residents.</li>
+    	<li>Cold Storage, SSL and 256bit encryption.</li>
+    <li>2FA login and coin withdrawal, with optional 3FA login.</li>
+    <li>Deposits & Withdrawals immune to banking interference.</li>
+    <li>Exchange available to all internationally and nationally.</li>
+    <li>Fiat Deposits/Withdrawals currently only for UK residents.</li>
 		</ul>
 
 <p>To become an IBWT customer and use our platform and services, you only need the following;
 <ul>
-    <li>Full name.</li>
-    <li>To trade Btc/Ltc - registered email.</li>
+    <li>To trade BTC/LTC - registered email.</li>
     <li>To deposit fiat - registered email.</li>
     <li>To withdraw fiat - verified proof of address.</li>
     <li>To deposit/withdraw fiat over &pound;10,000 a day - valid government photo ID.</li>
