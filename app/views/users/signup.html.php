@@ -37,9 +37,9 @@ $Comm = Parameters::find('first');
 			<li>Simple verification means you could be a full customer in a matter of days.</li>
 			<li>Security ensured with Cold Storage, SSL 256bit encryption & 2FA.</li>
 			<li>Dedicated Server for an enhanced customer experience.</li>
-			<li>Deposits & Withdrawals via wire transfers.</li>
-			<li>Services only available to UK residents.</li>
-			<li>Based and registered within the UK to help build your trust.</li>
+			<li>Deposits & Withdrawals immune to banking interference.</li>
+			<li>Exchange available to all internationally and nationally.</li>
+			<li>Fiat Deposits/Withdrawals currently only for UK residents.</li>
 		</ul>
 
 <p>To become an IBWT customer and use our platform and services, you only need the following;
