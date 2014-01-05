@@ -32,6 +32,19 @@ class UpdatesController extends \lithium\action\Controller {
 		return $this->render(array('json' => 'Hello World'));
 	}
 
+	public function CheckServer(){
+	$parameters = Parameters::find('first');
+		if($parameters['server']==true){
+			return $this->render(array('json' => array(
+				'Refresh'=> 'Yes',
+			)));
+		}else{
+			return $this->render(array('json' => array(
+				'Refresh'=> 'No',
+			)));
+		}
+	}
+
 	public function Rates($FirstCurrency="BTC",$SecondCurrency="USD") {
 
 		$title = $FirstCurrency . "/" . $SecondCurrency;

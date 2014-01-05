@@ -80,12 +80,18 @@ if(Session::read('ex')==""){
 		}
 }
 $ex = Session::read('ex');
+
 ?>
 
 <body 
-<?php if($this->_request->controller=='ex'){ ?>
+<?php 
+
+if($this->_request->controller=='ex'){ ?>
 onLoad="UpdateDetails('<?=$ex?>');"
-<?php }?>
+<?php }elseif($this->_request->controller!='Sessions'){?>
+onLoad="CheckServer();"
+<?php
+}?>
  style="background-image:url(/img/worldmap.png);background-position:top;background-repeat:no-repeat ">
 	<div id="container" class="container-fluid">
 		<?php 

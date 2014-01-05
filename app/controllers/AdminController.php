@@ -1558,5 +1558,14 @@ $description = "Admin panel for Orders";
 	
 	return compact('FinalOrders');
 	}
+	
+	public function down(){
+		if($this->__init()==false){			$this->redirect('ex::dashboard');	}
+		$data = array(
+		'server' => (boolean)false
+		);
+		Parameters::find('all')->save($data);
+		return compact('$data');
+	}
 }
 ?>

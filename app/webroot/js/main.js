@@ -14,6 +14,7 @@ function UpdateDetails(ex){
 function GetDetails(ex){
 	user_id = $("#User_ID").html();
 	if(ex=="/EX/DASHBOARD"){ex = "BTC/GBP";}
+	CheckServer();
 	$.getJSON('/Updates/Rates/'+ex,
 		function(ReturnValues){
 			if(ReturnValues['Refresh']=="Yes"){
@@ -45,6 +46,15 @@ function GetDetails(ex){
 			$("#Volume").html(Volume);					
 		});
 }
+function CheckServer(){
+		$.getJSON('/Updates/CheckServer/',
+		function(ReturnValues){
+			if(ReturnValues['Refresh']=="No"){
+				window.location.assign("/login");								
+			}
+		});
+}
+
 function BuyFormCalculate (){
 	BalanceSecond = $('#BalanceSecond').html();
 	FirstCurrency = $('#BuyFirstCurrency').val();
