@@ -10,6 +10,6 @@
 Login: <?=$username?><br>
 Login Email Password: <strong style="font-size:24px;font-weight:bold "><?=$oneCode?></strong><br>
 IP: <?=$_SERVER['REMOTE_ADDR'];?><br>
-<?=$tor?>
+<?=$tor?><br>
 Date and time: <?=gmdate('Y-m-d H:i:s',time())?>
 </p>
