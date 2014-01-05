@@ -224,6 +224,7 @@ function CheckPayment(){
 	if(address==""){return false;}
 	amount = $("#Amount").val();
 	if(amount==""){return false;}
+	if(parseFloat(amount)==0){return false;}
 	maxValue = $("#maxValue").val();
 	if(parseFloat(amount)>parseFloat(maxValue)){return false;}
 	
