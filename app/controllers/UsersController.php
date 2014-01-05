@@ -798,7 +798,7 @@ class UsersController extends \lithium\action\Controller {
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=> (string) $id))
 		);
-
+		if($details['balance.BTC']<=$amount){return false;}			
 		
 		if ($this->request->data) {
 			$guid=BITCOIN_GUID;
@@ -915,7 +915,7 @@ class UsersController extends \lithium\action\Controller {
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=> (string) $id))
 		);
-
+		if($details['balance.LTC']<=$amount){return false;}			
 		if($id==""){return $this->redirect('/login');}
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=> (string) $id))
