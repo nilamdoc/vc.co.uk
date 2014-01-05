@@ -305,6 +305,7 @@ function CheckLTCPayment(){
 	amount = $("#Amount").val();
 	if(amount==""){return false;}
 	maxValue = $("#maxValue").val();
+	if(parseFloat(amount)==0){return false;}
 	if(parseFloat(amount)>parseFloat(maxValue)){return false;}
 	
 	$("#SendLTCFees").html($("#txFee").val());
