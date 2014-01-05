@@ -170,6 +170,9 @@ function initCanvas(ww,hh)
 							<div class="navbar-inner">
 							<a class="brand" href="#"><?=$t('Withdraw bitcoins')?> </a>
 							</div>
+					<?php 
+					if(count($transactions)==0){
+					?>
 							<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
 								<tr style="background-color:#CFFDB9">
 									<td><?=$t('Bitcoin balance')?></td>
@@ -197,7 +200,7 @@ function initCanvas(ww,hh)
 									<a onclick="captureToCanvas();" class="btn btn-primary">Capture</a>
 									<canvas id="qr-canvas" width="300" height="200" style="display:none"></canvas>
 									</div>
-				
+					
 									<?php
 									$max = (float)$details['balance.BTC'];
 									?>
@@ -230,9 +233,22 @@ function initCanvas(ww,hh)
 											<input type="submit" value="Send" class="btn btn-success" onclick="return CheckPayment();" disabled="disabled" id="SendSuccessButton"> 
 											
 										</form>
+										
 									</td>
 								</tr>
 							</table>
+							<?php }else{?>
+							<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
+								<tr style="background-color:#CFFDB9">
+									<td><?=$t('Withdrawal request')?></td>
+								</tr>
+								<tr>
+									<td style="height:325px ">
+									You have already made a withdrawal request for <strong><?=number_format($transactions['Amount'],8)?></strong> BTC. Please check your email and complete the request. If you want to cancel the request, please send an email to <a href="mailto:support@ibwt.co.uk" >support@ibwt.co.uk</a>
+									</td>
+								</tr>
+							</table>
+							<?php }?>
 						</div>
 					</div>	
 				</div>

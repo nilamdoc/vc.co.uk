@@ -170,6 +170,9 @@ function initCanvas(ww,hh)
 							<div class="navbar-inner">
 							<a class="brand" href="#"><?=$t('Withdraw litecoins')?> </a>
 							</div>
+					<?php 
+					if(count($transactions)==0){
+					?>
 							<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
 								<tr style="background-color:#CFFDB9">
 									<td><?=$t('Litecoin balance')?></td>
@@ -233,6 +236,18 @@ function initCanvas(ww,hh)
 									</td>
 								</tr>
 							</table>
+							<?php }else{?>
+							<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
+								<tr style="background-color:#CFFDB9">
+									<td><?=$t('Withdrawal request')?></td>
+								</tr>
+								<tr>
+									<td style="height:325px ">
+									You have already made a withdrawal request for <strong><?=number_format($transactions['Amount'],8)?></strong> LTC. Please check your email and complete the request. If you want to cancel the request, please send an email to <a href="mailto:support@ibwt.co.uk" >support@ibwt.co.uk</a>
+									</td>
+								</tr>
+							</table>
+							<?php }?>
 						</div>
 					</div>	
 				</div>

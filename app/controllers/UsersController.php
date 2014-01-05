@@ -519,11 +519,12 @@ class UsersController extends \lithium\action\Controller {
 		$laddress = 'LADDRESS';				
 		$paytxfee = Parameters::find('first');
 		$txfee = $paytxfee['paytxfee'];
-		$transactions = Transactions::find('all',array(
+		$transactions = Transactions::find('first',array(
 				'conditions'=>array(
 				'username'=>$user['username'],
 				'Added'=>false,
-				'Approved'=>'No'
+				'Currency'=>'BTC',
+				'Paid'=>'No'
 				)
 		));
 			return compact('details','address','txfee','title','transactions','laddress')	;
@@ -567,7 +568,8 @@ class UsersController extends \lithium\action\Controller {
 				'conditions'=>array(
 				'username'=>$user['username'],
 				'Added'=>false,
-				'Approved'=>'No'
+				'Paid'=>'No',
+				'Currency'=>'LTC'
 				)
 		));
 			return compact('details','address','txfee','title','transactions')	;
@@ -623,7 +625,10 @@ class UsersController extends \lithium\action\Controller {
 				'Paid'=>'No'
 				)
 		));
-		return compact('transaction');
+		$username = $transaction['username'];
+
+		
+		return compact('transaction','username');
 
 	}
 	public function paymentltcconfirm($id = null){
@@ -776,6 +781,7 @@ class UsersController extends \lithium\action\Controller {
 			$verify = $this->request->data['verify'];
 			$username = $this->request->data['username'];
 			$password = $this->request->data['password'];
+			$loginpassword = $this->request->data['loginpassword'];
 
 			$transaction = Transactions::find('first',array(
 				'conditions'=>array(
@@ -798,7 +804,16 @@ class UsersController extends \lithium\action\Controller {
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=> (string) $id))
 		);
-		if($details['balance.BTC']<=$amount){return false;}			
+			$amount = abs($transaction['Amount']);
+
+		if($details['oneCode']!=$loginpassword){
+			$txmessage = "Not Sent! Passwords do not match!";
+			return compact('txmessage');
+		}
+		if($details['balance.BTC']<=$amount){
+			$txmessage = "Not Sent! Amount does not match!";
+			return compact('txmessage');
+		}			
 		
 		if ($this->request->data) {
 			$guid=BITCOIN_GUID;
@@ -915,7 +930,16 @@ class UsersController extends \lithium\action\Controller {
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=> (string) $id))
 		);
-		if($details['balance.LTC']<=$amount){return false;}			
+		$amount =  abs($transaction['Amount']);
+		if($details['oneCode']!=$loginpassword){
+			$txmessage = "Not Sent! Passwords do not match!";
+			return compact('txmessage');
+		}
+		if($details['balance.LTC']<=$amount){
+			$txmessage = "Not Sent! Amount does not match!";
+			return compact('txmessage');
+		}			
+
 		if($id==""){return $this->redirect('/login');}
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=> (string) $id))
