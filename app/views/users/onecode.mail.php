@@ -2,7 +2,7 @@
 			$response = file_get_contents("http://ipinfo.io/{$_SERVER['REMOTE_ADDR']}");
 			$details = json_decode($response);
 			if($details->tor) {
-				$tor = "Login is disabled from TOR!"
+				$tor = "Login is disabled from TOR!";
 			}
 ?>
 <p>Use this "<strong>Login Email Password</strong>" to sign in to <?=$COMPANY_URL?></p>
