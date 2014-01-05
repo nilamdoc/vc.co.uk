@@ -19,7 +19,14 @@ class SessionsController extends \lithium\action\Controller {
 			//perform the authentication check and redirect on success
 			
 			Session::delete('default');				
-
+			$response = file_get_contents("http://ipinfo.io/{$_SERVER['REMOTE_ADDR']}");
+			$details = json_decode($response);
+			if($details->tor) {
+		    // Display error message or something
+					Auth::clear('member');
+					Session::delete('default');
+					return false;
+			}
 			if (Auth::check('member', $this->request)){
 				//Redirect on successful login
 				$loginpassword = $this->request->data['loginpassword'];
