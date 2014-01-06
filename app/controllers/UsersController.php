@@ -564,7 +564,7 @@ class UsersController extends \lithium\action\Controller {
 		$userid = $details['user_id'];		
 		$paytxfee = Parameters::find('first');
 		$txfee = $paytxfee['payltctxfee'];
-		$transactions = Transactions::find('all',array(
+		$transactions = Transactions::find('first',array(
 				'conditions'=>array(
 				'username'=>$user['username'],
 				'Added'=>false,
