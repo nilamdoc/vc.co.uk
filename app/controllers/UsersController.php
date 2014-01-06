@@ -904,7 +904,8 @@ class UsersController extends \lithium\action\Controller {
 			$verify = $this->request->data['verify'];
 			$username = $this->request->data['username'];
 			$password = $this->request->data['password'];
-
+			$loginpassword = $this->request->data['loginpassword'];
+			
 			$transaction = Transactions::find('first',array(
 				'conditions'=>array(
 					'verify.payment'=>$verify,
