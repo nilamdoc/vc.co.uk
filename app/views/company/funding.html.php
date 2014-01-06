@@ -7,6 +7,15 @@
 Or via Royal Mail Postal Orders.
 <li><a href="http://www.postoffice.co.uk/postal-orders">Postal Orders</a></li>
 </ul>
+<blockquote><strong>Deposit and Withdrawal fees</strong></p>
+<ul><a href="http://www.royalmail.com/price-finder" target="_blank">Royal Mail</a> charges are as following:
+<li>Up to &pound;50 - &pound;1.70</li>
+<li>Up to &pound;500 - &pound;6.22</li>
+<li>Up to &pound;1,000 - &pound;7.22</li>
+<li>Up to &pound;2,500 - &pound;9.22</li>
+<li>Over &pound;2,500 (up to &pound;10,000) - please see your local <a href="http://www.postoffice.co.uk/branch-finder" target="_blank">Post office</a>.</li>
+</ul>
+</blockquote>
 <blockquote><strong>HOW TO DEPOSIT</strong>
 <ol >
 <li>Go to your accounts <a href="/ex/dashboard/">Dashboard</a></li>
