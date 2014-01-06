@@ -12,5 +12,5 @@
 		<?=$this->form->field('loginpassword', array('type' => 'password', 'label'=>'','class'=>'span1','maxlength'=>'6', 'placeholder'=>'123456')); ?>
 		</div>		
 
-<input type="submit" value="Confirm LTC Withdrawal" class="btn btn-success"  onClick="$('#PaymentBTCConfirm').attr('disabled', 'disabled');return true;"> 
+<input type="submit" value="Confirm LTC Withdrawal" class="btn btn-success" id="PaymentLTCConfirm" onClick="$('#PaymentLTCConfirm').attr('disabled', 'disabled');return true;"> 
 </form>
