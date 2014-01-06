@@ -1261,5 +1261,16 @@ class UsersController extends \lithium\action\Controller {
 		return $this->redirect('Users::settings');
 	
 	}
+	
+	public function removetransaction($TransactionID,$ID,$url){
+		$Transaction = Transactions::find('first', array(
+			'conditions' => array('_id' => new MongoID($ID))
+		));
+
+			if(String::hash($Transaction['_id'])==$TransactionID){
+				$Remove = Transactions::remove(array('_id'=>$ID));
+			}
+		return $this->redirect('/Users/'.$url);
+	}
 }
 ?>

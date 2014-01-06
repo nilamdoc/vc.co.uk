@@ -1,4 +1,5 @@
 <?php
+use lithium\util\String;
 use li3_qrcode\extensions\action\QRcode;
 	$qrcode = new QRcode();
 ?>
@@ -245,6 +246,12 @@ function initCanvas(ww,hh)
 								<tr>
 									<td style="height:325px ">
 									You have already made a withdrawal request for <strong><?=number_format($transactions['Amount'],8)?></strong> BTC. Please check your email and complete the request. If you want to cancel the request, please send an email to <a href="mailto:support@ibwt.co.uk" >support@ibwt.co.uk</a>
+									If your want to delete this request please yourself, you can click on the link below:
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="/Users/removetransaction/<?=String::hash($transactions['_id'])?>/<?=$transactions['_id']?>/funding_btc"><i class="icon-remove"></i> <?=number_format($transactions['Amount'],8)?> LTC</a>
 									</td>
 								</tr>
 							</table>
