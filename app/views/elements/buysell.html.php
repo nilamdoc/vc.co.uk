@@ -73,7 +73,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 if($$second_curr!=0){ ?>
 	<div class="span4">
 		<div class="navbar">
-			<div class="navbar-inner">
+			<div class="navbar-inner1" >
 			<a class="brand" href="#"  onclick="document.getElementById('Graph').style.display='block';"><?=$t('Buy')?> <?=$first_curr?> <?=$t("with")?> <?=$second_curr?> <i class="icon-indent-left"></i></a>
 			</div>
 		</div>
@@ -126,7 +126,7 @@ if($$second_curr!=0){ ?>
 <?php }else{?>
 	<div class="span4">
 		<div class="navbar">
-			<div class="navbar-inner">
+			<div class="navbar-inner1">
 			<a class="brand" href="#"  onclick="document.getElementById('Graph').style.display='block';">No funds in <?=$second_curr?>  <i class="icon-indent-left"></i></a>
 			</div>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px;height:288px">
@@ -186,7 +186,7 @@ if($$second_curr!=0){ ?>
 <?php if($$first_curr!=0){ ?>
 	<div class="span4">
 		<div class="navbar">
-			<div class="navbar-inner">
+			<div class="navbar-inner1">
 			<a class="brand" href="#"  onclick="document.getElementById('Graph').style.display='block';"><?=$t('Sell')?> <?=$first_curr?> <?=$t("get")?> <?=$second_curr?> <i class="icon-indent-left"></i></a>
 			</div>
 		</div>
@@ -239,7 +239,7 @@ if($$second_curr!=0){ ?>
 	<?php }else{?>
 	<div class="span4">
 		<div class="navbar">
-			<div class="navbar-inner">
+			<div class="navbar-inner1">
 			<a class="brand" href="#"  onclick="document.getElementById('Graph').style.display='block';">No funds in <?=$first_curr?> <i class="icon-indent-left"></i></a>
 			</div>
 		</div>
@@ -257,7 +257,7 @@ if($$second_curr!=0){ ?>
 	<?php }?>
 	<div class="span3"  style="height:314px;">
 		<div class="navbar">
-			<div class="navbar-inner">
+			<div class="navbar-inner3">
 			<a class="brand" href="#"  onclick="document.getElementById('Graph').style.display='block';"><?=$t('Pending orders')?> <i class="icon-indent-left"></i></a>
 			</div>
 			<div id="YourOrders" style="height:280px;overflow:auto;">			
@@ -289,7 +289,7 @@ if($$second_curr!=0){ ?>
 <div class="row">
 	<div class="span4" style="border:1px solid gray;">
 		<div class="navbar">
-			<div class="navbar-inner">
+			<div class="navbar-inner2">
 			<a class="brand" href="#"><?=$t('Orders:')?>
 			<small><?=$t('Sell')?> <?=$first_curr?> &gt; <?=$second_curr?></small></a>
 <?php 
@@ -335,7 +335,7 @@ if($$second_curr!=0){ ?>
 	</div>
 	<div class="span4"  style="border:1px solid gray;">
 		<div class="navbar">
-			<div class="navbar-inner">
+			<div class="navbar-inner2">
 			<a class="brand" href="#"><?=$t('Orders:')?>
 			 <small><?=$t('Buy')?> <?=$first_curr?> &lt; <?=$second_curr?></small></a>
 <?php  foreach($TotalBuyOrders['result'] as $TBO){
@@ -381,7 +381,7 @@ if($$second_curr!=0){ ?>
 	</div>
 		<div class="span3"  style="height:334px;">
 			<div class="navbar">
-				<div class="navbar-inner">
+				<div class="navbar-inner3">
 				<a class="brand" href="#"><?=$t('Completed orders')?></a>
 				</div>
 				<div id="YourCompleteOrders" style="height:300px;overflow:auto;">			

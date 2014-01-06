@@ -83,16 +83,13 @@ $ex = Session::read('ex');
 
 ?>
 
-<body 
-<?php 
-
+<body <?php 
 if($this->_request->controller=='ex'){ ?>
 onLoad="UpdateDetails('<?=$ex?>');"
-<?php }elseif($this->_request->controller!='Sessions'){?>
+<?php }elseif($this->_request->controller!='Sessions' && $this->_request->controller!='Admin'){?>
 onLoad="CheckServer();"
 <?php
-}?>
- style="background-image:url(/img/worldmap.png);background-position:top;background-repeat:no-repeat ">
+}?> style="background-image:url(/img/worldmap.png);background-position:top;background-repeat:no-repeat ">
 	<div id="container" class="container-fluid">
 		<?php 
 		echo $this->_render('element', 'header');?>
