@@ -147,7 +147,7 @@ function initCanvas(ww,hh)
 				<div class="row">
 					<div class="span5">
 						<div class="navbar">
-							<div class="navbar-inner">
+							<div class="navbar-inner1">
 							<a class="brand" href="#"><?=$t('Deposit litecoins')?> </a>
 							</div>
 							<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
@@ -168,7 +168,7 @@ function initCanvas(ww,hh)
 					</div>
 					<div class="span5">
 						<div class="navbar">
-							<div class="navbar-inner">
+							<div class="navbar-inner2">
 							<a class="brand" href="#"><?=$t('Withdraw litecoins')?> </a>
 							</div>
 					<?php 

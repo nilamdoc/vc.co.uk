@@ -125,7 +125,7 @@ use li3_qrcode\extensions\action\QRcode;
 					</tr>
 				</table>
 				<p style="color:black;font-weight:bold;font-size:14px"><u>Optional</u><br>
-Bank account is currency not used.
+Bank account is used only for withdrawal fiat.
 				</p>
 				
 				</div>

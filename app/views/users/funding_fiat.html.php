@@ -20,7 +20,7 @@
 		<div id="collapseVerify" class="accordion-body ">
 			<div class="accordion-inner">
 				<div class="navbar">
-					<div class="navbar-inner">
+					<div class="navbar-inner3">
 						<a class="brand" href="#"><?=$t('Complete Verification')?> </a>
 					</div>				
 				<div class="well">
@@ -69,7 +69,7 @@
 					<div class="span5">
 						<div class="navbar">
 							<form action="/users/deposit/" method="post" class="form">
-							<div class="navbar-inner">
+							<div class="navbar-inner1">
 							<a class="brand" href="#"><?=$t('Deposit USD / GBP / EUR')?> </a>
 							</div>
 							<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
@@ -119,7 +119,7 @@
 					<div class="span6">
 						<div class="navbar">
 							<form action="/users/withdraw/" method="post" class="form">		
-							<div class="navbar-inner">
+							<div class="navbar-inner2">
 							<a class="brand" href="#"><?=$t('Withdraw USD / GBP / EUR')?> </a>
 							</div>
 							<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
@@ -156,11 +156,11 @@
 									<td style="text-align:right "><?=$details['balance.EUR']-$AmountEUR?> EUR</td>					
 								</tr>							
 								<tr>
-									<td colspan="2">Withdrawal Method:</td>
+									<td colspan="2">Withdrawal Methods:</td>
 									<td colspan="2">
 										<select name="WithdrawalMethod" id="WithdrawalMethod" onChange="PaymentMethod(this.value);">
 											<option value="post">Postal Address - Royal Mail</option>
-											<option value="bank" disabled="disabled">Bank - Disabled</option>
+											<option value="bank">Bank</option>
 										</select>
 									</td>
 								</tr>
@@ -221,11 +221,10 @@
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Amount should be between 6 and 10000">
 									<td colspan="2">Amount:</td>
 									<td colspan="2"><input type="text" value="" class="span2" placeholder="6.0" min="6" max="10000" name="WithdrawAmountFiat" id="WithdrawAmountFiat" maxlength="5"><br>
-				<small style="color:red ">&pound;1 withdrawal fee.
-(postage/packing, taken from your IBWT account). <br>
-Withdrawals must be in denominations of &pound;5.
-(must be paper money, no coins).<br>
-Unless postal order is required.</small></td>
+				<small style="color:red ">
+				&pound;1 mail withdrawal fee + royal mail fee (see below).<br>
+&pound;2 bank withdrawal fee.<br>
+Withdrawals must be in denominations of &pound;5.</small></td>
 								</tr>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Select a currency">
 									<td colspan="2">Currency:</td>

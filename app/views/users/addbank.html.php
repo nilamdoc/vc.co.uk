@@ -18,5 +18,20 @@ foreach($details as  $d){
 	<div class="span8">
 		<p><?=$t("Sample bank cheque for adding bank details.")?></p>
 		<img src="/img/Cheque.png" alt="sample bank cheque">	
+		<p>At present we only support the following banks: 
+<ul>
+<li>Natwest</li>
+<li>Lloyds</li>
+<li>Barclays</li>
+<li>TSB</li>
+<li>HSBC</li>
+<li>Royal Bank of Scotland</li>
+<li>Co-Operative Bank</li>
+<li>Sandander</li>
+<li>Halifax</li>
+<li>Handelsbanken</li>
+</ul>
+</p>
+<p>If your bank is not listed, do not worry, please contact us via support@ibwt.co.uk and we will confirm whether or not your bank falls within our locality.</p>
 	</div>
 </div>
