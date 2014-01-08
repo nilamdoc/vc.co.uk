@@ -220,7 +220,7 @@
 								</tr>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Amount should be between 6 and 10000">
 									<td colspan="2">Amount:</td>
-									<td colspan="2"><input type="text" value="" class="span2" placeholder="6.0" min="6" max="10000" name="WithdrawAmountFiat" id="WithdrawAmountFiat" maxlength="5"><br>
+									<td colspan="2"><input type="text" value="" class="span2" placeholder="5.0" min="5" max="10000" name="WithdrawAmountFiat" id="WithdrawAmountFiat" maxlength="5"><br>
 				<small style="color:red ">
 				&pound;1 mail withdrawal fee + royal mail fee (see below).<br>
 &pound;2 bank withdrawal fee.<br>

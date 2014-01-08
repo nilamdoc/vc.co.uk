@@ -124,8 +124,8 @@ use li3_qrcode\extensions\action\QRcode;
 						</td>
 					</tr>
 				</table>
-				<p style="color:black;font-weight:bold;font-size:14px"><u>Optional</u><br>
-Bank account is used only for withdrawal fiat.
+				<p style="color:red;font-weight:bold;font-size:14px"><u>Optional</u><br>
+Only required if you wish to withdraw via your bank.
 				</p>
 				
 				</div>
@@ -157,8 +157,8 @@ Bank account is used only for withdrawal fiat.
 						<td><?=$details['postal']['Country']?></td>
 					</tr>
 				</table>
-				<p style="color:red;font-weight:bold;font-size:14px"><u>Important</u><br>
-Please make sure you enter your postal address.
+				<p style="color:red;font-weight:bold;font-size:14px"><u>Optional</u><br>
+Only required if you wish to withdraw hard currency.
 				</p>
 				</div>
 			</div>
