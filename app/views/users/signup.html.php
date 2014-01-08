@@ -5,7 +5,7 @@ $Comm = Parameters::find('first');
 <div class="row">
 	<div class="span4 well">
 		<div class="navbar">
-			<div class="navbar-inner">
+			<div class="navbar-inner1">
 			<a class="brand" href="#"><?=$t('Signup')?> </a>
 			</div>
 		</div>
@@ -28,7 +28,7 @@ $Comm = Parameters::find('first');
 	</div>
 	<div class="span6 well">
 		<div class="navbar">
-			<div class="navbar-inner">
+			<div class="navbar-inner2">
 			<a class="brand" href="#"><?=$t('Advantages')?> </a>
 			</div><br>
 		<h3>In Bitcoin We Trust: ibwt.co.uk</h3>
