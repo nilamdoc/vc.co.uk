@@ -89,8 +89,8 @@ use li3_qrcode\extensions\action\QRcode;
 	<div id="collapseBank" class="accordion-body <?php if($option=="bank"){?><?php }else{?>collapse<?php }?>">
 		<div class="accordion-inner">
 			<div class="row">
-				<div class="span5">
-				<a href="/<?=$locale?>/users/addbank">Add/Edit bank details</a>
+				<div class="span4">
+				<a href="/<?=$locale?>/users/addbank">Add/Edit bank details (Personal)</a>
 				<table class="table">
 					<tr>
 						<td>Account name:</td>
@@ -129,7 +129,47 @@ Only required if you wish to withdraw via your bank.
 				</p>
 				
 				</div>
-				<div class="span5">
+				<div class="span3">
+				<a href="/<?=$locale?>/users/addbankBuss">Add/Edit bank details (Business)</a>
+				<table class="table">
+					<tr>
+						<td>Account name:</td>
+						<td><?=$details['bankBuss']['accountname']?></td>
+					</tr>
+					<tr>
+						<td>Sort Code:</td>
+						<td><?=$details['bankBuss']['sortcode']?></td>
+					</tr>
+					<tr>
+						<td>Account number:</td>
+						<td><?=$details['bankBuss']['accountnumber']?></td>
+					</tr>
+					<tr>
+						<td>Bank name:</td>
+						<td><?=$details['bankBuss']['bankname']?></td>
+					</tr>
+					<tr>
+						<td>Branch address:</td>
+						<td><?=$details['bankBuss']['branchaddress']?></td>
+					</tr>
+					<tr>
+						<td>Verified:</td>
+						<td><?=$details['bankBuss']['verified']?>
+						<?php 
+							if($details['bankBuss']['verified']=='Yes'){
+								echo '<a href="#" class="label label-success">Verified</a>';
+								}else{
+								echo '<a href="/users/funding_fiat"  class="label label-important">Funding Fiat</a>';
+								}?>
+						</td>
+					</tr>
+				</table>
+				<p style="color:red;font-weight:bold;font-size:14px"><u>Optional</u><br>
+Only required if you wish to withdraw via your bank.
+				</p>
+				
+				</div>
+				<div class="span4">
 				<a href="/<?=$locale?>/users/addpostal"><strong>Add/Edit Postal address</strong></a>
 				<table class="table" style="background-color:#FFFF99 ">
 					<tr>

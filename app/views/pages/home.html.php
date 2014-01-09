@@ -18,7 +18,8 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 			<li>Simple verification means you could be a full customer in a matter of days</li>
 			<li>Security ensured with Cold Storage, SSL 256bit encryption & 2FA</li>
 			<li>Dedicated Server for an enhanced customer experience</li>
-			<li>Deposits & Withdrawals via secure mail services.</li>
+			<li>Deposits via secure mail services.</li>
+			<li>Withdrawal via secure mail services or via banks.</li>
 			<li>Services only available to UK residents</li>
 	</ul>
 	<h3>About Bitcoin</h3>

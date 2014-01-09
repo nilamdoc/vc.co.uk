@@ -1285,6 +1285,19 @@ $description = "Admin Panel for user";
 		
 		$this->redirect('Admin::user');	
 	}
+	public function bankBussapprove($username = null){
+	if($this->__init()==false){$this->redirect('ex::dashboard');	}	
+		$data = array(
+			'bankBuss.verified' => 'Yes'
+		);
+		$details = Details::find('all',array(
+			'conditions'=>array(
+				'username'=>$username
+			)
+		))->save($data);
+		
+		$this->redirect('Admin::user');	
+	}
 	
 	public function commission(){
 	if($this->__init()==false){$this->redirect('ex::dashboard');	}	

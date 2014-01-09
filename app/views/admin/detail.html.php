@@ -50,7 +50,7 @@
 	</tr>
 <?php foreach($details as $dt){?>
 	<tr>
-		<td style="text-align:center "><?=$dt['bank.accountname']?></td>
+		<td style="text-align:center ">Personal:<br><?=$dt['bank.accountname']?></td>
 		<td style="text-align:center "><?=$dt['bank.sortcode']?></td>
 		<td style="text-align:center "><?=$dt['bank.accountnumber']?></td>
 		<td style="text-align:center "><?=$dt['bank.bankname']?><br>
@@ -58,6 +58,21 @@
 		<td style="text-align:center ">
 		<?php if($dt['bank.verified']!="Yes"){?>
 		<a class="btn btn-primary" href="/Admin/bankapprove/<?=$dt['username']?>">Verify</a>		
+		<?php }else{?>
+		<span class="label label-success">Verified</span>
+		<?php }?>
+		</td>				
+		<td><?=$dt['mobile.number']?> <?=$dt['mobile.verified']?></td>
+	</tr>
+	<tr>
+		<td style="text-align:center ">Business:<br><?=$dt['bankBuss.accountname']?></td>
+		<td style="text-align:center "><?=$dt['bankBuss.sortcode']?></td>
+		<td style="text-align:center "><?=$dt['bankBuss.accountnumber']?></td>
+		<td style="text-align:center "><?=$dt['bankBuss.bankname']?><br>
+			<?=$dt['bankBuss.branchaddress']?></td>
+		<td style="text-align:center ">
+		<?php if($dt['bankBuss.verified']!="Yes"){?>
+		<a class="btn btn-primary" href="/Admin/bankBussapprove/<?=$dt['username']?>">Verify</a>		
 		<?php }else{?>
 		<span class="label label-success">Verified</span>
 		<?php }?>

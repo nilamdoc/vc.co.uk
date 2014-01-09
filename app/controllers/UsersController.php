@@ -448,6 +448,17 @@ class UsersController extends \lithium\action\Controller {
 			
 		return compact('details','title');
 	}
+	public function addbankBuss(){
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('Users::index');}		
+		$user_id = $user['_id'];
+		$details = Details::find('all',array(
+				'conditions'=>array('user_id'=>$user_id)
+			));		
+		$title = "Add bank";
+			
+		return compact('details','title');
+	}
 	public function changepassword($key=null){
 		if($key==null){	return $this->redirect('login');}
 		return compact('key');
@@ -1226,6 +1237,20 @@ class UsersController extends \lithium\action\Controller {
 			$data['bank'] = $this->request->data;
 			$data['bank']['id'] = new MongoID;
 			$data['bank']['verified'] = 'No';
+			Details::find('all',array(
+				'conditions'=>array('user_id'=>$user_id)
+			))->save($data);
+		}
+		return $this->redirect('Users::settings');
+	}
+		public function addbankBussdetails(){
+		$user = Session::read('default');
+		$user_id = $user['_id'];
+		$data = array();
+		if($this->request->data) {	
+			$data['bankBuss'] = $this->request->data;
+			$data['bankBuss']['id'] = new MongoID;
+			$data['bankBuss']['verified'] = 'No';
 			Details::find('all',array(
 				'conditions'=>array('user_id'=>$user_id)
 			))->save($data);
