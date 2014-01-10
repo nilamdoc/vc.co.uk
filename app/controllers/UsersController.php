@@ -859,7 +859,7 @@ class UsersController extends \lithium\action\Controller {
 					)
 			));			
 			$balance = (float)$details['balance.BTC'] - (float)$amount;
-			$balance = (float)(balance) - (float)$fee;
+			$balance = (float)($balance) - (float)$fee;
 				$dataDetails = array(
 						'balance.BTC' => (float)number_format($balance,8),
 					);
@@ -991,8 +991,11 @@ class UsersController extends \lithium\action\Controller {
 						
 						$txmessage = number_format($amount,8) . " LTC transfered to ".$address;
 
+			$balance = (float)$details['balance.LTC'] - (float)$amount;
+			$balance = (float)($balance) - (float)$fee;
+
 						$dataDetails = array(
-								'balance.LTC' => (float)number_format($details['balance.LTC'] - (float)$amount - (float)$fee,8),
+								'balance.LTC' => (float)number_format($balance,8),
 							);
 						$details = Details::find('all',
 							array(
