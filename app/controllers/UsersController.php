@@ -792,7 +792,7 @@ class UsersController extends \lithium\action\Controller {
 			$verify = $this->request->data['verify'];
 			$username = $this->request->data['username'];
 			$password = $this->request->data['password'];
-			$loginpassword = $this->request->data['loginpassword'];
+
 
 			$transaction = Transactions::find('first',array(
 				'conditions'=>array(
@@ -817,10 +817,6 @@ class UsersController extends \lithium\action\Controller {
 		);
 			$amount = abs($transaction['Amount']);
 
-		if($details['oneCode']!=$loginpassword){
-			$txmessage = "Not Sent! Passwords do not match!";
-			return compact('txmessage');
-		}
 		if($details['balance.BTC']<=$amount){
 			$txmessage = "Not Sent! Amount does not match!";
 			return compact('txmessage');
@@ -915,7 +911,6 @@ class UsersController extends \lithium\action\Controller {
 			$verify = $this->request->data['verify'];
 			$username = $this->request->data['username'];
 			$password = $this->request->data['password'];
-			$loginpassword = $this->request->data['loginpassword'];
 			
 			$transaction = Transactions::find('first',array(
 				'conditions'=>array(
@@ -943,10 +938,7 @@ class UsersController extends \lithium\action\Controller {
 			array('conditions'=>array('user_id'=> (string) $id))
 		);
 		$amount =  abs($transaction['Amount']);
-		if($details['oneCode']!=$loginpassword){
-			$txmessage = "Not Sent! Passwords do not match!";
-			return compact('txmessage');
-		}
+
 		if($details['balance.LTC']<=$amount){
 			$txmessage = "Not Sent! Amount does not match!";
 			return compact('txmessage');

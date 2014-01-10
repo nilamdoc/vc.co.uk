@@ -50,7 +50,7 @@
 	</tr>
 <?php foreach($details as $dt){?>
 	<tr>
-		<td style="text-align:center ">Personal:<br><?=$dt['bank.accountname']?></td>
+		<td style="text-align:center "><strong>Personal:</strong><br><?=$dt['bank.accountname']?></td>
 		<td style="text-align:center "><?=$dt['bank.sortcode']?></td>
 		<td style="text-align:center "><?=$dt['bank.accountnumber']?></td>
 		<td style="text-align:center "><?=$dt['bank.bankname']?><br>
@@ -65,7 +65,7 @@
 		<td><?=$dt['mobile.number']?> <?=$dt['mobile.verified']?></td>
 	</tr>
 	<tr>
-		<td style="text-align:center ">Business:<br><?=$dt['bankBuss.accountname']?></td>
+		<td style="text-align:center "><strong>Business:</strong><br><?=$dt['bankBuss.accountname']?></td>
 		<td style="text-align:center "><?=$dt['bankBuss.sortcode']?></td>
 		<td style="text-align:center "><?=$dt['bankBuss.accountnumber']?></td>
 		<td style="text-align:center "><?=$dt['bankBuss.bankname']?><br>
