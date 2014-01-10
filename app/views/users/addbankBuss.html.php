@@ -7,6 +7,8 @@ foreach($details as  $d){
 ?>
 <?=$this->form->create('',array('url'=>'/users/addbankBussdetails')); ?>
 <?=$this->form->field('accountname', array('label'=>'1. Account name','placeholder'=>'Account name','value'=>$d['bankBuss']['accountname'])); ?>
+<?=$this->form->field('companyname', array('label'=>'1a. Company name','placeholder'=>'Company name','value'=>$d['bankBuss']['companyname'])); ?>
+<?=$this->form->field('companynumber', array('label'=>'1b. Company number','placeholder'=>'Company number','value'=>$d['bankBuss']['companynumber'])); ?>
 <?=$this->form->field('sortcode', array('label'=>'2. Sort code','placeholder'=>'Sort code','value'=>$d['bankBuss']['sortcode'] )); ?>
 <?=$this->form->field('accountnumber', array('label'=>'3. Account number','placeholder'=>'Account number','value'=>$d['bankBuss']['accountnumber'] )); ?>
 <?=$this->form->field('bankname', array('label'=>'4. Bank name','placeholder'=>'Bank name','value'=>$d['bankBuss']['bankname'] )); ?>

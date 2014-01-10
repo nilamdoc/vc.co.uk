@@ -160,7 +160,8 @@
 									<td colspan="2">
 										<select name="WithdrawalMethod" id="WithdrawalMethod" onChange="PaymentMethod(this.value);">
 											<option value="post">Postal Address - Royal Mail</option>
-											<option value="bank">Bank</option>
+											<option value="bank">Bank - Personal</option>
+											<option value="bankBuss">Bank - Business</option>											
 										</select>
 									</td>
 								</tr>
@@ -183,6 +184,31 @@
 									</tr>
 									</table>
 									</div>
+
+									<div id="WithdrawalBankBuss" style="display:none">
+								<table class="table table-condensed table-bordered table-hover">								
+									<tr>
+										<td>Account name:</td>
+										<td><input type="text" name="AccountName" id="AccountName" placeholder="Verified bank account name" value="<?=$details['bankBuss.bankname']?>"></td>
+									</tr>
+									<tr>
+										<td>Sort code: </td>
+										<td><input type="text" name="SortCode" id="SortCode" placeholder="01-01-10" value="<?=$details['bankBuss.sortcode']?>"></td>
+									</tr>
+									<tr>
+										<td>Company name:</td>
+										<td><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bankBuss.companyname']?>"></td>
+									</tr>
+									<tr>
+										<td>Company number:</td>
+										<td><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bankBuss.companynumber']?>"></td>
+									</tr>
+									<tr>
+										<td>Account number:</td>
+										<td><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bankBuss.accountnumber']?>"></td>
+									</tr>
+									</table>
+									</div>									
 									<div id="WithdrawalPost"  style="display:block">
 									<table class="table table-condensed table-bordered table-hover">
 									<tr>

@@ -137,6 +137,14 @@ Only required if you wish to withdraw via your bank.
 						<td><?=$details['bankBuss']['accountname']?></td>
 					</tr>
 					<tr>
+						<td>Company name:</td>
+						<td><?=$details['bankBuss']['companyname']?></td>
+					</tr>
+					<tr>
+						<td>Company name:</td>
+						<td><?=$details['bankBuss']['companynumber']?></td>
+					</tr>
+					<tr>
 						<td>Sort Code:</td>
 						<td><?=$details['bankBuss']['sortcode']?></td>
 					</tr>

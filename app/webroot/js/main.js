@@ -337,11 +337,18 @@ function CheckLTCPayment(){
 function PaymentMethod(value){
 	if(value=="bank"){
 		$("#WithdrawalBank").show();
+		$("#WithdrawalBankBuss").hide();		
 		$("#WithdrawalPost").hide();
 	}
 	if(value=="post"){
 		$("#WithdrawalBank").hide();
+		$("#WithdrawalBankBuss").hide();				
 		$("#WithdrawalPost").show();
+	}
+	if(value=="bankBuss"){
+		$("#WithdrawalBank").hide();
+		$("#WithdrawalBankBuss").show();				
+		$("#WithdrawalPost").hide();
 	}
 	
 	}
