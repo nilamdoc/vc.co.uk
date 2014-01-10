@@ -858,8 +858,10 @@ class UsersController extends \lithium\action\Controller {
 					'Paid'=>'Yes'
 					)
 			));			
+			$balance = (float)$details['balance.BTC'] - (float)$amount;
+			$balance = (float)(balance) - (float)$fee;
 				$dataDetails = array(
-						'balance.BTC' => (float)number_format($details['balance.BTC'] - (float)$amount - (float)$fee,8),
+						'balance.BTC' => (float)number_format($balance,8),
 					);
 				$details = Details::find('all',
 					array(
