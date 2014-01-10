@@ -42,8 +42,8 @@
 <?php  }?>
 	<tr>
 		<th style="text-align:center ">Account name</th>
-		<th style="text-align:center ">Sort code</th>
-		<th style="text-align:center ">Account number</th>
+		<th style="text-align:center ">Sort code<br>Company name</th>
+		<th style="text-align:center ">Account number<br>Company number</th>
 		<th style="text-align:center ">Bank name</th>
 		<th style="text-align:center ">Bank address</th>
 		<th style="text-align:center">Mobile</td>
@@ -66,8 +66,9 @@
 	</tr>
 	<tr>
 		<td style="text-align:center "><strong>Business:</strong><br><?=$dt['bankBuss.accountname']?></td>
-		<td style="text-align:center "><?=$dt['bankBuss.sortcode']?></td>
-		<td style="text-align:center "><?=$dt['bankBuss.accountnumber']?></td>
+		<td style="text-align:center "><?=$dt['bankBuss.sortcode']?><br><?=$dt['bankBuss.companyname']?>
+</td>
+		<td style="text-align:center "><?=$dt['bankBuss.accountnumber']?><br><?=$dt['bankBuss.companynumber']?></td>
 		<td style="text-align:center "><?=$dt['bankBuss.bankname']?><br>
 			<?=$dt['bankBuss.branchaddress']?></td>
 		<td style="text-align:center ">
