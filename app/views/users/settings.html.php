@@ -141,7 +141,7 @@ Only required if you wish to withdraw via your bank.
 						<td><?=$details['bankBuss']['companyname']?></td>
 					</tr>
 					<tr>
-						<td>Company name:</td>
+						<td>Company number:</td>
 						<td><?=$details['bankBuss']['companynumber']?></td>
 					</tr>
 					<tr>
