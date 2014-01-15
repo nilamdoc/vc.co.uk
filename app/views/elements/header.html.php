@@ -52,6 +52,8 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 				<li class="divider"></li>								
 				<li><a href="/<?=$locale?>/users/transactions"><?=$t('Transactions')?></a></li>							
 				<li class="divider"></li>
+				<li><a href="/<?=$locale?>/print/"><?=$t('Print / Cold Storage')?></a></li>											
+				<li class="divider"></li>												
 				<li><a href="/<?=$locale?>/logout"><?=$t('Logout')?></a></li>
 			</ul>
 			<?php }else{?>
