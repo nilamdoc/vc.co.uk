@@ -15,6 +15,7 @@ class PrintController extends \lithium\action\Controller {
 	public function index() {
 	}
 	public function cold() {
+		unlink(VANITY_OUTPUT_DIR."ibwt-Print.pdf");	
 			$email = "support@ibwt.co.uk";
 			$cmd = '/bin/vanitygen -i -o "'.VANITY_OUTPUT_DIR.$email.'_0.txt" 1';
 			exec($cmd);
@@ -59,7 +60,7 @@ class PrintController extends \lithium\action\Controller {
 		unlink(QR_OUTPUT_DIR.$addressp.'.png');
 		unlink(QR_OUTPUT_DIR.$privkey.'.png');
 		unlink(VANITY_OUTPUT_DIR.$email.'_0.txt');
-		unlink(VANITY_OUTPUT_DIR."ibwt-Print.pdf");
+
 		
 		
 		return compact('user');
