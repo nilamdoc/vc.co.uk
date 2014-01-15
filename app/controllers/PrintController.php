@@ -15,9 +15,25 @@ class PrintController extends \lithium\action\Controller {
 	public function index() {
 	}
 	public function cold() {
-		unlink(VANITY_OUTPUT_DIR."ibwt-Print.pdf");	
+
 			$email = "support@ibwt.co.uk";
-		unlink(VANITY_OUTPUT_DIR.$email.'_0.txt');
+
+
+
+if ($handle = opendir(VANITY_OUTPUT_DIR)) {
+    while (false !== ($entry = readdir($handle))) {
+		 if ($entry != "." && $entry != "..") {
+				unlink(VANITY_OUTPUT_DIR.$entry);
+			}
+    }
+    closedir($handle);
+}
+
+
+
+
+
+
 
 			$cmd = '/bin/vanitygen -i -o "'.VANITY_OUTPUT_DIR.$email.'_0.txt" 1';
 			exec($cmd);
@@ -62,9 +78,9 @@ class PrintController extends \lithium\action\Controller {
 
 		unlink(QR_OUTPUT_DIR.$addressp.'.png');
 		unlink(QR_OUTPUT_DIR.$privkey.'.png');
-		
-		
-		return compact('user');
+		unlink(VANITY_OUTPUT_DIR.$email.'_0.txt');
+						
+		return compact('user','data');
 	}
 
 }
