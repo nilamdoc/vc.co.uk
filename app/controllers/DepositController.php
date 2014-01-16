@@ -34,6 +34,7 @@ class DepositController extends \lithium\action\Controller {
 		$user = Users::find('first',array(
 			'conditions'=>array('email'=>$email)
 		));
+	if(count($user)==0){return $this->redirect('/login');}
 		$id = $user['_id'];
 
 		$details = Details::find('first',
@@ -70,6 +71,7 @@ class DepositController extends \lithium\action\Controller {
 		$user = Users::find('first',array(
 			'conditions'=>array('email'=>$email)
 		));
+		if(count($user)==0){return $this->redirect('/login');}
 		$id = $user['_id'];
 		$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
 		$address = $litecoin->getnewaddress($user['username']);
