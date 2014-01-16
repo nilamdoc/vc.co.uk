@@ -538,7 +538,7 @@ class UsersController extends \lithium\action\Controller {
 				'Paid'=>'No'
 				)
 		));
-			return compact('details','address','txfee','title','transactions','laddress')	;
+			return compact('details','address','txfee','title','transactions','laddress','user')	;
 	}
 	public function funding_fiat(){
 				$title = "Funding Fiat";
@@ -583,7 +583,7 @@ class UsersController extends \lithium\action\Controller {
 				'Currency'=>'LTC'
 				)
 		));
-			return compact('details','address','txfee','title','transactions')	;
+			return compact('details','address','txfee','title','transactions','user')	;
 	}
 	public function receipt(){
 		$secret = $_GET['secret'];;

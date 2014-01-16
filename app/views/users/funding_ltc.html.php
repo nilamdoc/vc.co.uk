@@ -164,6 +164,9 @@ function initCanvas(ww,hh)
 									</td>
 								</tr>
 							</table>
+							<p>You can also deposit LTC without login to the site, bookmark this URL<br>
+							<a href="https://ibwt.co.uk/deposit/ltc/<?=$user['email']?>" target="_blank">https://ibwt.co.uk/deposit/ltc/<?=$user['email']?></a>
+							</p>
 						</div>
 					</div>
 					<div class="span5">
