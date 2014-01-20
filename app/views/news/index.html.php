@@ -1,6 +1,7 @@
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("News")?></h3>
 <ul>
+	<li><a href="/files/News Release 07-01-14.pdf">IBWT adds bank withdrawals.</a></li>
 	<li><a href="/files/News Release 19-11-13.pdf">Re-Launch &amp; Alternative Funding.</a></li>
 	<li><a href="/files/News Release 17-10-13.pdf">Change of Bank notice.</a></li>
 	<li><a href="/files/News Release 14-10-13.pdf">API released, Resources Added and Media Recruitment.</a></li>

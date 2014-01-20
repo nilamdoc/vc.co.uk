@@ -13,8 +13,8 @@
 				<ol>
 					<li><strong>Security</strong>: As this is an offline virtual currency, it is very safe from the hackers of the internet world.</li>
 					<li><strong>Gift</strong>: You can gift these bitcoins to friends, children, grandchildren and make them aware of this new phenomena. Also make their world secure!</li>
-					<li><strong>Collectibles</strong>: Use them as collectibles as you collect stamps...</li>
-					<li><strong>Transact</strong>: Many newbies want bitcoins, but they do not trust it unless they see it and feel it. This is one of the best options for traders who sell BTC off cafes, meeting points. They can show them and give them to the buyer for cash!</li>
+					<li><strong>Collectibles</strong>: Use them as collectibles as you collect stamps.</li>
+					<li><strong>Transact</strong>: Many non-bitcoiners want bitcoins, but they do not trust it unless they see it and feel it. This is one of the best options for traders who sell BTC off cafes, meeting points. They can show them and give them to the buyer for cash!</li>
 					<li><strong>Denominations</strong>: You wallet can be broken to different denominations of safe currency. If you have 100BTC, you can divide them into:
 					<ul>
 						<li>1 x 50 BTC</li>

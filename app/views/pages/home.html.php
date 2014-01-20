@@ -53,8 +53,8 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 	<div class="span3 bs-docs-site" style="min-height:732px; ">
 		<div style="overflow:auto;height:605px">
 			<ul class="unstyled">
-				<li><a href="/<?=$locale?>/news">News</a></li>
-				<li><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank">Explanation: Bitcoin - The Future Currency</a></li>
+				<li class="alert alert-success"><a href="/<?=$locale?>/news">News</a></li>
+				<li class="alert alert-success"><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank"><strong>Explanation: Bitcoin - The Future Currency</strong></a></li>
 			</ul>
 		<div style="text-align:center ">
 		<a href="http://www.bitcointrezor.com/" target="_blank"><img src="/img/trezor.png" title="Trezor, the Bitcoin Safe"></a><br>
