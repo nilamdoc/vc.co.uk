@@ -52,8 +52,7 @@
       }
       /* Custom container */
       .container {
-        margin: 0 auto;
-
+        margin: 0 auto; 
       }
       .container > hr {
         margin: 20px 0;
@@ -82,14 +81,7 @@ if(Session::read('ex')==""){
 $ex = Session::read('ex');
 
 ?>
-
-<body <?php 
-if($this->_request->controller=='ex'){ ?>
-onLoad="UpdateDetails('<?=$ex?>');"
-<?php }elseif($this->_request->controller!='Sessions' && $this->_request->controller!='Admin'){?>
-onLoad="CheckServer();"
-<?php
-}?> style="background-image:url(/img/worldmap.png);background-position:top;background-repeat:no-repeat ">
+<body <?php if($this->_request->controller=='ex'){ ?> onLoad="UpdateDetails('<?=$ex?>');" <?php }elseif($this->_request->controller!='Sessions' && $this->_request->controller!='Admin'){?> onLoad="CheckServer();" <?php }?> style="background-image:url(/img/worldmap.png);background-position:top;background-repeat:no-repeat ">
 	<div id="container" class="container-fluid">
 		<?php 
 		echo $this->_render('element', 'header');?>

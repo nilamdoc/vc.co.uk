@@ -6,7 +6,7 @@ $Comm = Parameters::find('first');
 <?php 
 if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = Environment::get('locale');}
 ?>
-<div class="row">
+<div class="row container">
 	<div class="well span8" >
 	<img src="/img/IBWTLogo.png" width="240" alt="In Bitcoin We Trust">
 	<blockquote>"The day science begins to study non-physical phenomena, it will make more progress in one decade than in all the previous 
@@ -53,8 +53,8 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 	<div class="span3 bs-docs-site" style="min-height:732px; ">
 		<div style="overflow:auto;height:605px">
 			<ul class="unstyled">
-				<li class="alert alert-success"><a href="/<?=$locale?>/news">News</a></li>
-				<li class="alert alert-success"><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank"><strong>Explanation: Bitcoin - The Future Currency</strong></a></li>
+				<li class="alert alert-danger"><a href="/<?=$locale?>/news"><strong>News</strong></a></li>
+				<li class="alert alert-danger"><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank"><strong>Explanation: Bitcoin - The Future Currency</strong></a></li>
 			</ul>
 		<div style="text-align:center ">
 		<a href="http://www.bitcointrezor.com/" target="_blank"><img src="/img/trezor.png" title="Trezor, the Bitcoin Safe"></a><br>
