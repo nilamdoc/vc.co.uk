@@ -5,7 +5,7 @@ use lithium\util\String;
 if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environment::get('locale');}
 ?>
 <div style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
-<div class="row" >
+<div class="row container" >
 	<div class="span11">
 		<div class="navbar">
 			<div class="navbar-inner">
