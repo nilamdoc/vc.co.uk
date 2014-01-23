@@ -13,6 +13,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 		<li><a href="/<?=$locale?>/company/legal"><?=$t("Legal")?></a></li>		
 		<li><a href="/<?=$locale?>/company/FAQ"><?=$t("FAQ")?></a></li>				
 		<li><a href="/<?=$locale?>/company/funding"><?=$t("Funding")?></a></li>						
+		<li><a href="/<?=$locale?>/okpay"><?=$t("OKPAY")?></a></li>								
 		<li><a href="/<?=$locale?>/news"><?=$t("News")?></a></li>						
 		<li><a href="/<?=$locale?>/API"><?=$t("API")?></a></li>								
 <!--		<li><a href="/<?=$locale?>/MAPI"><?=$t("Merchant API")?></a></li>										-->
