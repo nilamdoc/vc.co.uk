@@ -1,5 +1,6 @@
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("Verification Page")?></h3>
+<h4>If you wish to deposit via bank wire transfer, then please see our <a href="/okpay">OKPAY</a> information page.</h4>
 <h4>Please check our <a href="/company/resources">Resources</a> page, specifically please make sure you check the <a href="/files/Withdrawal%20Verification.pdf">7 Easy Verification Steps</a> of IBWT. </h4>
 <p><?=$t("Though IBWT is not regulated by HMRC, FCA and KYC/AML/MSB standards, we still require a certain level of verification and identity checks. This helps us prevent fraud, keep customers accounts secure and ensure best business practices.")?></p>
 <p><?=$t("Our aim is to inspire trust with customers and establishments to build long lasting relationships.")?></p>

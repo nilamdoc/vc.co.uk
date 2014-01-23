@@ -1,5 +1,8 @@
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("Funding Fiat")?></h3>
+<div class="row">
+	<div class="span6">
+	<a href="http://www.royalmail.com/personal/uk-delivery/special-delivery" target="_blank"><img src="/img/RoyalMail.png" alt="RoyalMail"></a>
 <p>We accept funding via Royal Mail, recorded delivery (with Royal Mail compensation cover).</p>
 <ul class="unstyled">
 <li><a href="http://www.royalmail.com/price-finder">Price finder</a></li>
@@ -80,6 +83,15 @@ If you have no printer (or ran out of ink) please make sure you copy the followi
 <li>Please make sure you have enough funds in your IBWT account to cover your appropriate withdrawal fee, if you do not your withdrawal will be declined, and you will have to resubmit a withdrawal request of an appropriate value.</li>
 </ul>
 </blockquote>
+</div>
+	<div class="span5">
+	<!-- Begin OKPAY Logo --><a HREF="https://www.okpay.com/?rbp=IBWT" target="_blank"><IMG SRC="https://www.okpay.com/img/partners/rbp_banner.gif" BORDER="0" ALT="Sign up for OKPAY and start accepting payments instantly."></a><!-- End OKPAY Logo --><br>
+<br>
+<p>	You can fund your IBWT account with bank wire transfers via OKPAY. Please refer to the link above if you do not already have an OKPAY account.</p>
+<p>OKPAY transfer takes the standard 5-7 days (due to the traditional fiat banking system), yet once your OKPAY account is credited, you can instantly credit your IBWT account.</p>
+<p>All deposits via OKPAY can be conducted via sending funds to <strong>deposit@ibwt.co.uk</strong> when you are logged into your OKPAY account.</p>
+	</div>
+</div>
 <br>
 <br>
 <br>

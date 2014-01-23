@@ -54,7 +54,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 ?>
 <div style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <div id="User_ID" style="display:none "><?=$details['user_id']?></div>
-<div class="row" >
+<div class="row container">
 
 <div class="span8" id="Graph" style="text-aligh:center;display:none" >
 		<div class="navbar">

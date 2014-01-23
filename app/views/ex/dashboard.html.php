@@ -13,6 +13,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 			<a href="/<?=$locale?>/users/funding_btc" class="btn btn-primary"><?=$t("Funding BTC")?></a>
 			<a href="/<?=$locale?>/users/funding_ltc" class="btn btn-primary"><?=$t("Funding LTC")?></a>			
 			<a href="/<?=$locale?>/users/funding_fiat" class="btn btn-primary"><?=$t("Funding Fiat")?></a>						
+			<a href="/<?=$locale?>/okpay"><img src="/img/DepositOkPay.png" width="110px" style="margin-top:4px "></a>
 			<a href="/<?=$locale?>/users/transactions" class="btn btn-primary"><?=$t("Transactions")?></a>			
 			<a href="/<?=$locale?>/users/settings" class="btn btn-primary"><?=$t("Settings")?></a>									
 			</div>

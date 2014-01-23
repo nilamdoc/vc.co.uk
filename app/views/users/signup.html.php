@@ -2,7 +2,7 @@
 use app\models\Parameters;
 $Comm = Parameters::find('first');
 ?>
-<div class="row">
+<div class="row container">
 	<div class="span4 well">
 		<div class="navbar">
 			<div class="navbar-inner1">

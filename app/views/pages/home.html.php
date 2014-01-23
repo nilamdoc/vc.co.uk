@@ -8,7 +8,12 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 ?>
 <div class="row container">
 	<div class="well span8" >
-	<img src="/img/IBWTLogo.png" width="240" alt="In Bitcoin We Trust">
+	<table>
+		<tr>
+			<td><img src="/img/IBWTLogo.png" width="240" alt="In Bitcoin We Trust"></td>
+			<td><!-- Begin OKPAY Logo --><A HREF="https://www.okpay.com/?rbp=IBWT" target="_blank"><IMG SRC="https://www.okpay.com/img/partners/rbp_banner.gif" BORDER="0" ALT="Sign up for OKPAY and start accepting payments instantly."></A><!-- End OKPAY Logo --></td>
+		</tr>
+	</table>
 	<blockquote>"The day science begins to study non-physical phenomena, it will make more progress in one decade than in all the previous 
 	centuries of its existence." <small>Nikola Tesla</small></blockquote>
 	<p class="alert alert-error" style="font-size:16px;font-weight:bold ">One wonders how applicable Bitcoin is to Nikola Tesla's statement. Here at IBWT we plan to help put it to the test, by enabling you, our customers, to trade your Bitcoin for sterling with each other in a secure and trusted environment.</p>
@@ -18,8 +23,8 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 			<li>Simple verification means you could be a full customer in a matter of days</li>
 			<li>Security ensured with Cold Storage, SSL 256bit encryption & 2FA</li>
 			<li>Dedicated Server for an enhanced customer experience</li>
-			<li>Deposits via secure mail services.</li>
-			<li>Withdrawal via secure mail services or via banks.</li>
+			<li>Deposits via <A HREF="https://www.okpay.com/?rbp=IBWT" target="_blank">OKPAY</A> or secure mail services.</li>
+			<li>Withdrawal via <A HREF="https://www.okpay.com/?rbp=IBWT" target="_blank">OKPAY</A>, secure mail services or via banks.</li>
 			<li>Services only available to UK residents</li>
 	</ul>
 	<h3>About Bitcoin</h3>

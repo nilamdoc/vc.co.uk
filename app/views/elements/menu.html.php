@@ -19,6 +19,9 @@ if($this->_request->params['controller']!='api'){
 			<img src="/img/<?=$tr['First']?>.png">&raquo;<img src="/img/<?=$tr['Second']?>.png">
 			</a></li>
 		<?php }	?>
+<li><a href="https://www.okpay.com/?rbp=IBWT" target="_blank" class="tooltip-x" rel="tooltip-x" data-placement="top" title="Sign up for OKPAY and start accepting payments instantly.">
+<img src="/img/OkPay-Banner-small.png">
+</a></li>
 	<?php }else{?>
 		<li><a href="/Admin/index" ><?=$t("Summary")?></a></li>
 		<li><a href="/Admin/commission" ><?=$t("Comm")?></a></li>		
