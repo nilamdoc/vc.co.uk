@@ -3,7 +3,7 @@
 <p class="alert alert-error" style="font-size:16px;font-weight:bold;text-align:center ">
 Welcome to IBWT, we have added withdrawals via UK banks, please see details in our recent <a href="/files/News Release 07-01-14.pdf" target="_blank">News Release</a>.</p>
 
-<div class="row">
+<div class="row container">
 	<div class="span4 well" >
 		<div class="navbar">
 			<div class="navbar-inner1">
