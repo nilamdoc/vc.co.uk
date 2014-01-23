@@ -286,7 +286,7 @@ if($$second_curr!=0){ ?>
 		</div>
 	</div>
 </div>
-<div class="row">
+<div class="row container">
 	<div class="span4" style="border:1px solid gray;">
 		<div class="navbar">
 			<div class="navbar-inner2">
