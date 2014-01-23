@@ -25,7 +25,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 			<li>Dedicated Server for an enhanced customer experience</li>
 			<li>Deposits via <A HREF="https://www.okpay.com/?rbp=IBWT" target="_blank">OKPAY</A> or secure mail services.</li>
 			<li>Withdrawal via <A HREF="https://www.okpay.com/?rbp=IBWT" target="_blank">OKPAY</A>, secure mail services or via banks.</li>
-			<li>Services only available to UK residents</li>
+
 	</ul>
 	<h3>About Bitcoin</h3>
 	<ul>
