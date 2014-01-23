@@ -62,7 +62,9 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 				<li class="alert alert-danger"><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank"><strong>Explanation: Bitcoin - The Future Currency</strong></a></li>
 			</ul>
 		<div style="text-align:center ">
-		<a href="http://www.bitcointrezor.com/" target="_blank"><img src="/img/trezor.png" title="Trezor, the Bitcoin Safe"></a><br>
+
+<!-- Begin OKPAY Seal Logo --><a href="https://www.okpay.com/account/user/456908980" target="_blank"><img src="https://www.okpay.com/img/seals/seal01.png" width="120"  height="120" border="0" alt="Verify OKPAY user information."></A><!-- End OKPAY Seal Logo --><br><br>
+<!--		<a href="http://www.bitcointrezor.com/" target="_blank"><img src="/img/trezor.png" title="Trezor, the Bitcoin Safe"></a><br> -->
 		<a href="http://bitcoinmagazine.com/" target="_blank"><img src="/img/BMlogo.jpg" title="Bitcoin Magazine"></a><br><br>
 
 		<a href="https://bitcoinfoundation.org/" target="_blank"><img src="/img/bitcoin-foundation.jpg" alt="Bitcoin Foundation" width="200px"></a><br>

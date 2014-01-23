@@ -1087,6 +1087,7 @@ class UsersController extends \lithium\action\Controller {
 		$amountFiat = $this->request->data['AmountFiat'];
 		$Currency = $this->request->data['Currency']; 
 		$Reference = $this->request->data['Reference']; 		
+		$DepositMethod = $this->request->data['DepositMethod'];
 		$data = array(
 				'DateTime' => new \MongoDate(),
 				'username' => $details['username'],
@@ -1094,6 +1095,7 @@ class UsersController extends \lithium\action\Controller {
 				'Currency'=> $Currency,					
 				'Added'=>true,
 				'Reference'=>$Reference,
+				'DepositMethod'=>$DepositMethod,				
 				'Approved'=>'No'
 		);
 		$tx = Transactions::create();
@@ -1151,7 +1153,8 @@ class UsersController extends \lithium\action\Controller {
 		$AccountName = $this->request->data['AccountName'];
 		$SortCode = $this->request->data['SortCode'];
 		$AccountNumber = $this->request->data['AccountNumber'];		
-
+		$CompanyName = $this->request->data['CompanyName'];		
+		$CompanyNumber = $this->request->data['CompanyNumber'];				
 		$PostalName = $this->request->data['PostalName'];		
 		$PostalStreet = $this->request->data['PostalStreet'];		
 		$PostalCity = $this->request->data['PostalCity'];		
@@ -1174,6 +1177,8 @@ class UsersController extends \lithium\action\Controller {
 				'AccountName'=>$AccountName,
 				'SortCode'=>$SortCode,
 				'AccountNumber'=>$AccountNumber,
+				'CompanyNumber'=>$CompanyNumber,				
+				'CompanyName'=>$CompanyName,								
 				'WithdrawalMethod' => $WithdrawalMethod,
 				'WithdrawalCharges' => $WithdrawalCharges,
 				'Postal'=>array(

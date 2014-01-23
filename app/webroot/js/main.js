@@ -268,7 +268,6 @@ function CheckDeposit(){
 	if(AmountFiat==""){return false;}
 	}
 function CheckWithdrawal(){
-	
 	if($("#WithdrawalMethod").val()=="bank"){
 		AccountName = $("#AccountName").val();		
 		if(AccountName==""){return false;}
@@ -277,6 +276,18 @@ function CheckWithdrawal(){
 		AccountNumber = $("#AccountNumber").val();
 		if(AccountNumber==""){return false;}
 	}
+	if($("#WithdrawalMethod").val()=="bankBuss"){
+		AccountName = $("#AccountName").val();		
+		if(AccountName==""){return false;}
+		SortCode = $("#SortCode").val();
+		if(SortCode==""){return false;}
+		AccountNumber = $("#AccountNumber").val();
+		if(AccountNumber==""){return false;}
+		CompanyName = $("#CompanyName").val();
+		if(CompanyName==""){return false;}
+		CompanyNumber = $("#CompanyNumber").val();
+		if(CompanyNumber==""){return false;}
+}	
 	if($("#WithdrawalMethod").val()=="post"){
 		PostalName = $("#PostalName").val();
 		if(PostalName==""){return false;}		
@@ -295,6 +306,7 @@ function CheckWithdrawal(){
 	if(WithdrawAmountFiat==""){return false;}
 	if(parseInt(WithdrawAmountFiat)<=5){return false;}
 	}
+
 function RejectReason(value){
 	url = $("#RejectURL").attr('href');
 	len = url.length-2;
@@ -339,16 +351,34 @@ function PaymentMethod(value){
 		$("#WithdrawalBank").show();
 		$("#WithdrawalBankBuss").hide();		
 		$("#WithdrawalPost").hide();
+		$("#WithdrawalOkPay").hide();		
 	}
 	if(value=="post"){
 		$("#WithdrawalBank").hide();
 		$("#WithdrawalBankBuss").hide();				
 		$("#WithdrawalPost").show();
+		$("#WithdrawalOkPay").hide();				
 	}
 	if(value=="bankBuss"){
 		$("#WithdrawalBank").hide();
 		$("#WithdrawalBankBuss").show();				
 		$("#WithdrawalPost").hide();
+		$("#WithdrawalOkPay").hide();				
 	}
-	
+	if(value=="okpay"){
+		$("#WithdrawalBank").hide();
+		$("#WithdrawalBankBuss").hide();				
+		$("#WithdrawalPost").hide();
+		$("#WithdrawalOkPay").show();				
 	}
+}
+function DepositByMethod(value){
+	if(value=="okpay"){
+		$("#DepositPost").hide();
+		$("#DepositOkPay").show();		
+	}
+	if(value=="post"){
+		$("#DepositPost").show();
+		$("#DepositOkPay").hide();		
+	}
+}

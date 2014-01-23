@@ -2,7 +2,7 @@
 .Address_success{background-color: #9FFF9F;font-weight:bold}
 </style>
 <h4>Funding - GBP / USD / EUR</h4>
-<h2 class="alert alert-error">Please ensure you send funds securely with appropriate Royal Mail cover.</h2>
+<h3 class="alert alert-error">Please ensure that your Royal Mail deposits are sent with appropriate cover.</h3>
 <div class="accordion" id="accordion2">
 	<div class="accordion-group">
 		<div class="accordion-heading">
@@ -23,7 +23,7 @@
 					<div class="navbar-inner3">
 						<a class="brand" href="#"><?=$t('Complete Verification')?> </a>
 					</div>				
-				<div class="well">
+				<div class="well" style="min-height:80px">
 <!-----Bank Details start----->					
 					<?php 
 					if(strlen($details['bank.verified'])==0){
@@ -57,7 +57,10 @@
 						<a href="#" class="label label-success tooltip-x" rel="tooltip-x" data-placement="top" title="Completed!"><i class="icon-ok icon-black"></i> <?=$t("Utility Bill")?></a>					
 					<?php }	?>
 <!-----Utility Details end----->					
-
+<span class="pull-right" style="margin-top:-10px ">
+<!-- Begin OKPAY Logo --><A HREF="https://www.okpay.com/?rbp=IBWT" target="_blank"><IMG SRC="https://www.okpay.com/img/partners/rbp_banner.gif" BORDER="0" ALT="Sign up for OKPAY and start accepting payments instantly."></A><!-- End OKPAY Logo -->
+<p style="width:460px;text-align:center">For deposits and withdrawals via bank wire transfers please see our <a href="/okpay">OKPAY</a> information page, or visit <a href="/okpay">OKPAY</a> to create and account today!</p>
+</span>
 					</div>
 				</div>
 			</div>
@@ -73,17 +76,36 @@
 							<a class="brand" href="#"><?=$t('Deposit USD / GBP / EUR')?> </a>
 							</div>
 							<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
+								<tr>
+									<td>Deposit Methods:</td>
+									<td>
+										<select name="DepositMethod" id="DepositMethod" onChange="DepositByMethod(this.value);">
+											<option value="okpay">OKPAY</option>
+											<option value="post">Postal Address - Royal Mail</option>
+										</select>
+									</td>
+								</tr>
 								<tr style="background-color:#CFFDB9">
 									<td colspan="2"><?=$t("Send payment to")?></td>
 								</tr>
 								<tr>
-									<td>Registered Address: </td>
-									<td>IBWT JD Ltd<br>
-										 31 North Down Crescent<br>
-										 Keyham, Plymouth<br>
-										 Devon, PL2 2AR<br>
-										United Kingdom</td>
-								</tr>
+									<td colspan="2">
+										<div id="DepositPost" style="display:none">
+											<table>
+												<tr>
+													<td>Registered Address: </td>
+													<td>IBWT JD Ltd<br>
+														 31 North Down Crescent<br>
+														 Keyham, Plymouth<br>
+														 Devon, PL2 2AR<br>
+														United Kingdom</td>
+												</tr>
+											</table>
+										</div>
+										<div id="DepositOkPay" style="display:block">
+											<p>Send payment to: deposit@ibwt.co.uk through <a href="http://okpay.com" target="_blank"><strong>OKPAY</strong></a></p>
+										</div>
+									</td>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Quote this reference number in your deposit">
 									<td>Reference:</td>
 									<?php $Reference = substr($details['username'],0,10).rand(10000,99999);?>
@@ -159,13 +181,13 @@
 									<td colspan="2">Withdrawal Methods:</td>
 									<td colspan="2">
 										<select name="WithdrawalMethod" id="WithdrawalMethod" onChange="PaymentMethod(this.value);">
+											<option value="okpay">OKPAY</option>
 											<option value="post">Postal Address - Royal Mail</option>
 											<option value="bank">Bank - Personal</option>
 											<option value="bankBuss">Bank - Business</option>											
 										</select>
 									</td>
 								</tr>
-
 								<tr>
 								<td colspan="4">
 									<div id="WithdrawalBank" style="display:none">
@@ -184,7 +206,6 @@
 									</tr>
 									</table>
 									</div>
-
 									<div id="WithdrawalBankBuss" style="display:none">
 								<table class="table table-condensed table-bordered table-hover">								
 									<tr>
@@ -197,11 +218,11 @@
 									</tr>
 									<tr>
 										<td>Company name:</td>
-										<td><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bankBuss.companyname']?>"></td>
+										<td><input type="text" name="CompanyName" id="CompanyName" placeholder="12345678" value="<?=$details['bankBuss.companyname']?>"></td>
 									</tr>
 									<tr>
 										<td>Company number:</td>
-										<td><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bankBuss.companynumber']?>"></td>
+										<td><input type="text" name="CompanyNumber" id="CompanyNumber" placeholder="12345678" value="<?=$details['bankBuss.companynumber']?>"></td>
 									</tr>
 									<tr>
 										<td>Account number:</td>
@@ -209,7 +230,7 @@
 									</tr>
 									</table>
 									</div>									
-									<div id="WithdrawalPost"  style="display:block">
+									<div id="WithdrawalPost"  style="display:none">
 									<table class="table table-condensed table-bordered table-hover">
 									<tr>
 										<td>Name:</td>
@@ -235,34 +256,9 @@
 										<td>Country:</td>
 										<td><input type="text" name="PostalCountry" id="PostalCountry" placeholder="Country" value="<?=$details['postal.Country']?>"></td>
 									</tr>
-									
-									</table>
-									</div>
-							</td>
-								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Quote this reference number in your withdrawal">
-									<td colspan="2">Reference:</td>
-									<?php $Reference = substr($details['username'],0,10).rand(10000,99999);?>
-									<td colspan="2"><?=$Reference?></td>
-								</tr>
-								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Amount should be between 6 and 10000">
-									<td colspan="2">Amount:</td>
-									<td colspan="2"><input type="text" value="" class="span2" placeholder="5.0" min="5" max="10000" name="WithdrawAmountFiat" id="WithdrawAmountFiat" maxlength="5"><br>
-				<small style="color:red ">
-				&pound;1 mail withdrawal fee + royal mail fee (see below).<br>
-&pound;2 bank withdrawal fee.<br>
-Withdrawals must be in denominations of &pound;5.</small></td>
-								</tr>
-								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Select a currency">
-									<td colspan="2">Currency:</td>
-									<td colspan="2"><select name="WithdrawCurrency" id="WithdrawCurrency" class="span2">
-											<option value="GBP">GBP</option>
-											<option value="USD">USD</option>							
-											<option value="EUR">EUR</option>							
-									</select></td>
-								</tr>
 								<tr>
-									<td colspan="2">Withdrawal Charges </td>
-									<td colspan="2">
+									<td>Withdrawal Charges </td>
+									<td>
 									<input type="radio" name="WithdrawalCharges" value="PriceFinder" id="WithdrawalCharges">
 								<strong>1st Class</strong> <a href="http://www.royalmail.com/price-finder" target="_blank">Price Finder</a><br>
 									&pound;50 = &pound;1.70<br>
@@ -279,6 +275,32 @@ Withdrawals must be in denominations of &pound;5.</small></td>
 								</tr>
 								<tr>
 									<td colspan="4"><p><strong>Make SURE you choose the appropriate Royal Mail charge to cover the amount you are withdrawing and that your IBWT account contains enough to cover the charge. Otherwise your withdrawal will be declined by IBWT.</strong></p></td>
+								</tr>
+									
+									</table>
+									</div>
+							</td>
+								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Quote this reference number in your withdrawal">
+									<td colspan="2">Reference:</td>
+									<?php $Reference = substr($details['username'],0,10).rand(10000,99999);?>
+									<td colspan="2"><?=$Reference?></td>
+								</tr>
+								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Amount should be between 6 and 10000">
+									<td colspan="2">Amount:</td>
+									<td colspan="2"><input type="text" value="" class="span2" placeholder="5.0" min="5" max="10000" name="WithdrawAmountFiat" id="WithdrawAmountFiat" maxlength="5"><br>
+				<small style="color:red ">
+				&pound;1 mail withdrawal fee + royal mail fee (see below).<br>
+&pound;2 bank withdrawal fee.<br>
+Withdrawals must be in denominations of &pound;5.<br>
+&pound;0 OKPAY withdrawal fee.</small></td>
+								</tr>
+								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Select a currency">
+									<td colspan="2">Currency:</td>
+									<td colspan="2"><select name="WithdrawCurrency" id="WithdrawCurrency" class="span2">
+											<option value="GBP">GBP</option>
+											<option value="USD">USD</option>							
+											<option value="EUR">EUR</option>							
+									</select></td>
 								</tr>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Once your email is approved, you will receive the funds in your bank account">
 									<td colspan="4" style="text-align:center ">

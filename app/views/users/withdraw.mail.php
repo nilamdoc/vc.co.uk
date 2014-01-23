@@ -22,6 +22,38 @@
 		</tr>
 <?php }?>
 <?php 
+	if($data['WithdrawalMethod']=='okpay'){
+?>
+		<tr>
+			<td>Email:</td>
+			<td><?=$user['email']?></td>
+		</tr>
+<?php }?>
+<?php 
+	if($data['WithdrawalMethod']=='bankBuss'){
+?>
+		<tr>
+			<td>Account name:</td>
+			<td><?=$data['AccountName']?></td>
+		</tr>
+		<tr>
+			<td>Sort code: </td>
+			<td><?=$data['SortCode']?></td>	
+		</tr>
+		<tr>
+			<td>Account number:</td>
+			<td><?=$data['AccountNumber']?></td>
+		</tr>
+		<tr>
+			<td>Account number:</td>
+			<td><?=$data['CompanyNumber']?></td>
+		</tr>
+		<tr>
+			<td>Account number:</td>
+			<td><?=$data['CompanyName']?></td>
+		</tr>
+<?php }?>
+<?php 
 	if($data['WithdrawalMethod']=='post'){
 ?>
 		<tr>
