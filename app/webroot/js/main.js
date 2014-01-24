@@ -287,7 +287,7 @@ function CheckWithdrawal(){
 		if(CompanyName==""){return false;}
 		CompanyNumber = $("#CompanyNumber").val();
 		if(CompanyNumber==""){return false;}
-}	
+	}	
 	if($("#WithdrawalMethod").val()=="post"){
 		PostalName = $("#PostalName").val();
 		if(PostalName==""){return false;}		
@@ -305,7 +305,7 @@ function CheckWithdrawal(){
 	WithdrawAmountFiat = $("#WithdrawAmountFiat").val();
 	if(WithdrawAmountFiat==""){return false;}
 	if(parseInt(WithdrawAmountFiat)<=5){return false;}
-	}
+}
 
 function RejectReason(value){
 	url = $("#RejectURL").attr('href');

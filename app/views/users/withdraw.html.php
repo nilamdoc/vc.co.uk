@@ -4,7 +4,11 @@
 
 <p>You have requested to withdraw money from <?=COMPANY_URL?>.</p>
 <p><strong>Thank you, your request has been sent for clearance.</strong></p>
-<table>
+<?php 
+	if($data['WithdrawalMethod']=='okpay'){
+?>
+<strong>Withdrawal Methos: OKPAY send to <?=$user['email']?>.</strong>
+<?php }?><table>
 <?php 
 	if($data['WithdrawalMethod']=='bank'){
 ?>

@@ -4,6 +4,11 @@
 <h4>Hi <?=$user['firstname']?>,</h4>
 
 <p>You have requested to withdraw money from <?=COMPANY_URL?> through <strong><?=$data['WithdrawalCharges']?></strong>.</p>
+<?php 
+	if($data['WithdrawalMethod']=='okpay'){
+?>
+<strong>Withdrawal Methos: OKPAY send to <?=$user['email']?>.</strong>
+<?php }?>
 <table>
 <?php 
 	if($data['WithdrawalMethod']=='bank'){

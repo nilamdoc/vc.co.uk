@@ -133,6 +133,7 @@ function initCanvas(ww,hh)
  }
 
 </script>
+<div class="container">
 <h4>Funding - LTC </h4>
 
 <div class="accordion" id="accordion2">
@@ -264,4 +265,4 @@ function initCanvas(ww,hh)
 			</div>
 		</div>
 	</div>
-</div>
+</div></div>

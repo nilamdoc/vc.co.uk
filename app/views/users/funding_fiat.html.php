@@ -1,6 +1,7 @@
 <style>
 .Address_success{background-color: #9FFF9F;font-weight:bold}
 </style>
+<div class="container">
 <h4>Funding - GBP / USD / EUR</h4>
 <h3 class="alert alert-error">Please ensure that your Royal Mail deposits are sent with appropriate cover.</h3>
 <div class="accordion" id="accordion2">
@@ -103,7 +104,7 @@
 											</table>
 										</div>
 										<div id="DepositOkPay" style="display:block">
-											<p>Send payment to: deposit@ibwt.co.uk through <a href="http://okpay.com" target="_blank"><strong>OKPAY</strong></a></p>
+											<p>Please make SURE to include your IBWT reference in the COMMENT of your OKPAY transaction to: deposit@ibwt.co.uk through <a href="/okpay" target="_blank"><strong>OKPAY</strong></a></p>
 										</div>
 									</td>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Quote this reference number in your deposit">
@@ -316,4 +317,4 @@ Withdrawals must be in denominations of &pound;5.<br>
 		</div>
 	</div>
 </div>
-</div>
+</div></div>

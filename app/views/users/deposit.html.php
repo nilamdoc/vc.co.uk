@@ -4,6 +4,9 @@
 
 <p>You have requested to deposit money to <?=COMPANY_URL?>.</p>
 <p><strong>Make SURE you deposit to your verified account. Money attempted to be sent to any other account will result in the transaction being blocked and investigated.</strong></p>
+<?php
+if($data['DepositMethod']=='post'){
+?>
 <p style="color:red ">Please make SURE you copy/paste and print the boxed information, or write it clearly and INCLUDE either with your deposit.</p>
 <blockquote>
 <strong>Registered Address:</strong>
@@ -13,6 +16,14 @@
 	 Devon, PL2 2AR<br>
    United Kingdom</p>
 </blockquote>
+<?php }?>
+<?php
+if($data['DepositMethod']=='okpay'){
+?>
+<blockquote>
+<p>Send payment to: deposit@ibwt.co.uk through <a href="http://okpay.com" target="_blank"><strong>OKPAY</strong></a></p>
+</blockquote>
+<?php }?>
 <table style="border:2px solid black ">
 		<tr>
 			<td>Reference:</td>
