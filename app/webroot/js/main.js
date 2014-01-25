@@ -303,8 +303,8 @@ function CheckWithdrawal(){
 		if(PostalCountry==""){return false;}		
 	}
 	WithdrawAmountFiat = $("#WithdrawAmountFiat").val();
-	if(WithdrawAmountFiat==""){return false;}
-	if(parseInt(WithdrawAmountFiat)<=5){return false;}
+	if(WithdrawAmountFiat==""){alert("Amount not entered");return false;}
+	if(parseInt(WithdrawAmountFiat)<=5){alert("Amount less than 5");return false;}
 }
 
 function RejectReason(value){
@@ -376,9 +376,13 @@ function DepositByMethod(value){
 	if(value=="okpay"){
 		$("#DepositPost").hide();
 		$("#DepositOkPay").show();		
+		$("#MailSelect").hide();
+		$("#OkPaySelect").show();		
 	}
 	if(value=="post"){
 		$("#DepositPost").show();
 		$("#DepositOkPay").hide();		
+		$("#MailSelect").show();
+		$("#OkPaySelect").hide();		
 	}
 }

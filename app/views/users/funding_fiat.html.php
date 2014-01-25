@@ -126,7 +126,12 @@
 								</tr>
 								<tr>
 									<td colspan="2">
+									<div id="MailSelect" style="display:none ">
 									<p><strong><a href="/company/funding" target="_blank">Please make SURE you check with Royal Mail compensation cover and how to deposit BEFORE sending any funds!</a> </strong></p>
+									</div>
+									<div id="OkPaySelect" style="display:block ">									
+									<p><strong><a href="/okpay" target="_blank">You will need a verified OKPAY account to deposit via bank wire transfers</a></strong></p>
+									</div>
 									</td>
 								</tr>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Once verified and processed your funds will be mailed.">

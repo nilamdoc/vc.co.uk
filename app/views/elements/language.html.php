@@ -5,7 +5,6 @@
 	<?php if($locale==Environment::get('locale')){print_r($name);break;}else{}?> 
 	<?php if(substr(Environment::get('locale'),0,2)=="en"){echo "English";break;}?>	
 	<?php endforeach; ?>
-
 	<b class="caret"></b>
 </a>
     <ul class="dropdown-menu">

@@ -8,7 +8,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 <div class="row container" >
 	<div class="span11">
 		<div class="navbar">
-			<div class="navbar-inner">
+			<div class="navbar-inner1">
 			<a class="brand" href="#"><?=$t('Accounts')?> </a>
 			<a href="/<?=$locale?>/users/funding_btc" class="btn btn-primary"><?=$t("Funding BTC")?></a>
 			<a href="/<?=$locale?>/users/funding_ltc" class="btn btn-primary"><?=$t("Funding LTC")?></a>			
@@ -183,21 +183,44 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="text-align:right ">+<?=number_format($SellWith['GBP'],4)?></td>										
 				</tr>
 				<tr>
-					<td><strong><?=$t('After Execution')?></strong></td>
-					<td style="text-align:right "><?=number_format($details['balance.BTC']+$Buy['BTC']-$BTCComm,8)?></td>
-					<td style="text-align:right "><?=number_format($details['balance.LTC']+$Buy['LTC']-$LTCComm,8)?></td> 
-					<td style="text-align:right "><?=number_format($details['balance.USD']+$SellWith['USD']-$USDComm,4)?></td>					
-					<td style="text-align:right "><?=number_format($details['balance.EUR']+$SellWith['EUR']-$EURComm,4)?></td>										
-					<td style="text-align:right "><?=number_format($details['balance.GBP']+$SellWith['GBP']-$GBPComm,4)?></td>										
+					<td  style="border-top:1px solid black"><strong><?=$t('After Execution')?></strong></td>
+					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.BTC']+$Buy['BTC']-$BTCComm,8)?></td>
+					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.LTC']+$Buy['LTC']-$LTCComm,8)?></td> 
+					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.USD']+$SellWith['USD']-$USDComm,4)?></td>					
+					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.EUR']+$SellWith['EUR']-$EURComm,4)?></td>										
+					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.GBP']+$SellWith['GBP']-$GBPComm,4)?></td>										
 				</tr>
 				<tr>
-					<td><strong><?=$t('Commissions')?></strong></td>
-					<td style="text-align:right "><?=number_format($BTCComm,8)?></td>
- 					<td style="text-align:right "><?=number_format($LTCComm,8)?></td> 
-					<td style="text-align:right "><?=number_format($USDComm,4)?></td>
-					<td style="text-align:right "><?=number_format($EURComm,4)?></td>
-					<td style="text-align:right "><?=number_format($GBPComm,4)?></td>
+					<td style="border-bottom:double black;"><strong><?=$t('Commissions')?></strong></td>
+					<td style="text-align:right;border-bottom:double black;"><?=number_format($BTCComm,8)?></td>
+ 					<td style="text-align:right;border-bottom:double black; "><?=number_format($LTCComm,8)?></td> 
+					<td style="text-align:right;border-bottom:double black; "><?=number_format($USDComm,4)?></td>
+					<td style="text-align:right;border-bottom:double black; "><?=number_format($EURComm,4)?></td>
+					<td style="text-align:right;border-bottom:double black; "><?=number_format($GBPComm,4)?></td>
 				</tr>
+		</table>
+		</div>
+	</div>
+	<div class="row container" >
+	<div class="span11">
+		<div class="navbar">
+			<div class="navbar-inner3">
+			<a class="brand" href="#"><?=$t('Summary')?> </a>			
+			</div>
+		</div>
+		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
+			<thead>
+				<tr>
+					<th><?=$t("Currency")?></th>
+					<th style="text-align:center">BTC</th>
+					<th style="text-align:center">LTC</th> 
+					<th style="text-align:center">USD</th>
+					<th style="text-align:center">EUR</th>
+					<th style="text-align:center">GBP</th>
+				</tr>
+			</thead>
+			<tbody>
+
 				<tr>
 					<td><strong><?=$t('Complete Buy Orders')?></strong></td>
 					<td style="text-align:right "><?=number_format($ComBuy['BTC'],8)?></td>
@@ -294,10 +317,10 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 		</table>
 	</div>
 -->	
-	<div class="span6">
+	<div class="span5">
 		<div class="navbar">
-			<div class="navbar-inner">
-			<a class="brand" href="#"><?=$t('Users')?>: <?=$UsersRegistered?> / <?=$t('Online')?>: <?=$OnlineUsers?></a>
+			<div class="navbar-inner2">
+			<a class="brand" href="#">Pending Orders</a>
 			</div>
 		</div>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
@@ -326,7 +349,22 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 						<td style="text-align:right "><?=number_format($r['TotalAmount']/$r['Amount'],8)?></td>																		
 					</tr>
 				<?php }?>
+		</table>
+	</div>
+
+	<div class="span5">
+		<div class="navbar">
+			<div class="navbar-inner1">
+			<a class="brand" href="#">Completed Orders</a>
+			</div>
+		</div>
+		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
 				<tr>
+					<th><?=$t("Status")?></th>
+					<th><?=$t("BTC")?></th>
+					<th><?=$t("Amount")?></th>					
+					<th><?=$t("Avg Price")?></th>										
+				</tr>
 					<th colspan="4"><?=$t("Completed orders")?></th>
 				</tr>
 				<?php foreach ($TotalCompleteOrders['Buy']['result'] as $r){ ?>
@@ -346,8 +384,8 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					</tr>
 				<?php }?>
 		</table>
+		</div>
 	</div>
-</div><br>
 <br>
 <br>
 <br>
@@ -360,7 +398,6 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
+	<small><?=$t('Users')?>: <?=$UsersRegistered?> / <?=$t('Online')?>: <?=$OnlineUsers?></small>
+</div>	
 </div>

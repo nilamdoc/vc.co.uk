@@ -2,8 +2,10 @@
 if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = Environment::get('locale');}
 ?>
 <?php
+$howmany = 5;
 use app\models\Trades;
-$trades = Trades::find('all');
+$trades = Trades::find('all',array('limit'=>$howmany));
+$tradesall = Trades::find('all');
 $sel_curr = $this->_request->params['args'][0];
 if($this->_request->params['controller']!='api'){
 ?>
@@ -19,6 +21,19 @@ if($this->_request->params['controller']!='api'){
 			<img src="/img/<?=$tr['First']?>.png">&raquo;<img src="/img/<?=$tr['Second']?>.png">
 			</a></li>
 		<?php }	?>
+		<li  class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">More... <b class="caret"></b></a>
+		    <ul class="dropdown-menu">
+		<?php $i=0;foreach($tradesall as $tr){?>
+			<?php if($i>=$howmany){ ?>
+			<li <?php if($sel_curr==strtolower(str_replace("/","_",$tr['trade']))){echo "class='active'";}?>>
+			<a href="/<?=$locale?>/ex/x/<?=strtolower(str_replace("/","_",$tr['trade']))?>" class="tooltip-x" rel="tooltip-x" data-placement="top" title="<?=$tr['trade']?>">
+			<img src="/img/<?=$tr['First']?>.png">&raquo;<img src="/img/<?=$tr['Second']?>.png">
+			</a></li>
+			<?php }	$i++;?>
+		<?php }	?>
+				
+				</ul>
+		</li>
 	<?php }else{?>
 		<li><a href="/Admin/index" ><?=$t("Summary")?></a></li>
 		<li><a href="/Admin/commission" ><?=$t("Comm")?></a></li>		
