@@ -11,7 +11,7 @@
         <area shape="rect" coords="503,59,575,150" href="/files/Certificate of Incorporation on Change of Name.pdf" alt="Certificate of Incorporation on Change of Name" title="Certificate of Incorporation on Change of Name" target="_blank"  class="tooltip-x" rel="tooltip-x" data-placement="top">
         <area shape="rect" coords="909,71,975,165" href="/files/Certificate of Registration (ICO).pdf" alt="Certificate of Registration (ICO)" title="Certificate of Registration (ICO)" target="_blank"  class="tooltip-x" rel="tooltip-x" data-placement="top">
         <area shape="rect" coords="399,285,503,375" href="/print" alt="Print Paper Wallet"  title="Print Paper Wallet" class="tooltip-x" rel="tooltip-x" data-placement="top">
-        <area shape="rect" coords="661,277,748,355" href="/dashboard" alt="Dashboard" title="Dashboard" class="tooltip-x" rel="tooltip-x" data-placement="top">
+        <area shape="rect" coords="661,277,748,355" href="/ex/dashboard" alt="Dashboard" title="Dashboard" class="tooltip-x" rel="tooltip-x" data-placement="top">
       </map>
 			</div>			
 		</div>
