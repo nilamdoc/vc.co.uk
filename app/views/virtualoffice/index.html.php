@@ -4,7 +4,6 @@
 			<div class="navbar-inner1">
 				<a class="brand" href="#">Virtual Office</a>
 			</div>
-			<div style="min-height:825px;width:1100px">
 				<table border="0" cellpadding="0" cellspacing="0" width="1100">
 					<tr>
 					 <td><img src="/img/VO/spacer.gif" width="405" height="1" border="0" alt="" /></td>
@@ -63,8 +62,6 @@
 					 <td><img src="/img/VO/spacer.gif" width="1" height="454" border="0" alt="" /></td>
 					</tr>
 				</table>
-			
-			</div>			
 		</div>
 	</div>
 </div>
