@@ -16,7 +16,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 	</table>
 	<blockquote>"The day science begins to study non-physical phenomena, it will make more progress in one decade than in all the previous 
 	centuries of its existence." <small>Nikola Tesla</small></blockquote>
-	<p class="alert alert-error" style="font-size:16px;font-weight:bold ">One wonders how applicable Bitcoin is to Nikola Tesla's statement. Here at IBWT we plan to help put it to the test, by enabling you, our customers, to trade your Bitcoin for sterling with each other in a secure and trusted environment.</p>
+	<p class="alert" style="color:#111111;background-color:#FCC952 ;font-size:16px;font-weight:bold ">One wonders how applicable Bitcoin is to Nikola Tesla's statement. Here at IBWT we plan to help put it to the test, by enabling you, our customers, to trade your Bitcoin for sterling with each other in a secure and trusted environment.</p>
 	<h5>IBWT is a UK Bitcoin/Virtual Currency exchange, offering a fully regulated, secure method, for individuals and businesses to buy or sell bitcoins.</h5>
 	<ul>
 			<li>Fees are <strong><?=$Comm['value']?></strong>% per transaction</li>
@@ -62,7 +62,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 			<div style="text-align:center ">
 					<a href="/<?=$locale?>/virtualoffice"><img src="/img/VO-Office.jpg" width="225px"  style="margin-bottom:10px;margin-top:-10px"></a>
 			</div>				
-				<li class="alert alert-danger"><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank"><strong>Bitcoin - The Future Currency</strong></a></li>
+				<li class="alert" style="background-color:#FCC952"><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank"><strong>Bitcoin - The Future Currency</strong></a></li>
 			</ul>
 		<div style="text-align:center ">
 <!-- Begin OKPAY Seal Logo --><a href="https://www.okpay.com/account/user/456908980" target="_blank"><img src="https://www.okpay.com/img/seals/seal01.png" width="100"  height="100" border="0" style="margin-bottom:10px" alt="Verify OKPAY user information."></A><!-- End OKPAY Seal Logo --><br>
