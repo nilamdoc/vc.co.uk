@@ -304,7 +304,8 @@ function CheckWithdrawal(){
 	}
 	WithdrawAmountFiat = $("#WithdrawAmountFiat").val();
 	if(WithdrawAmountFiat==""){alert("Amount not entered");return false;}
-	if(parseInt(WithdrawAmountFiat)<=5){alert("Amount less than 5");return false;}
+	if(parseInt(WithdrawAmountFiat)<=5 && $("#WithdrawalMethod").val()!='okpay'){alert("Amount less than 5");return false;}
+	if(parseInt(WithdrawAmountFiat)<1 && $("#WithdrawalMethod").val()=='okpay'){alert("Amount less than 1");return false;}	
 }
 
 function RejectReason(value){

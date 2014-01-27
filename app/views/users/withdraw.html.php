@@ -7,7 +7,7 @@
 <?php 
 	if($data['WithdrawalMethod']=='okpay'){
 ?>
-<strong>Withdrawal Methos: OKPAY send to <?=$user['email']?>.</strong>
+<strong>Withdrawal Method: OKPAY send to <?=$data['okpayEmail']?>.</strong>
 <?php }?><table>
 <?php 
 	if($data['WithdrawalMethod']=='bank'){

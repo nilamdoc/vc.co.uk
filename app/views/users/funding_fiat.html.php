@@ -196,6 +196,15 @@
 								</tr>
 								<tr>
 								<td colspan="4">
+									<div id="WithdrawalOKPAY" style="display:block">
+									<?php if($details['okpay']['verified']=='Yes'){?>
+									<p>Your okpay withdrawal email: <strong><?=$details['okpay']['email']?></strong></p>
+									<input type="hidden" name="okpay_email" value="<?=$details['okpay']['email']?>">
+									<?php }else{?>
+									<p>Please enter your OKPAY email address at <a href="/users/settings">OKPAY email</a> and verify it. If not entered / not verified we will send the funds to your primary email address: <strong><?=$user['email']?></strong></p>
+									<input type="hidden" name="okpay_email" value="<?=$user['email']?>">
+									<?php }?>
+									</div>
 									<div id="WithdrawalBank" style="display:none">
 								<table class="table table-condensed table-bordered table-hover">								
 									<tr>

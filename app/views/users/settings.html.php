@@ -89,7 +89,7 @@ use li3_qrcode\extensions\action\QRcode;
 	<div id="collapseBank" class="accordion-body <?php if($option=="bank"){?><?php }else{?>collapse<?php }?>">
 		<div class="accordion-inner">
 			<div class="row">
-				<div class="span4">
+				<div class="span5">
 				<a href="/<?=$locale?>/users/addbank">Add/Edit bank details (Personal)</a>
 				<table class="table">
 					<tr>
@@ -129,7 +129,7 @@ Only required if you wish to withdraw via your bank.
 				</p>
 				
 				</div>
-				<div class="span3">
+				<div class="span5">
 				<a href="/<?=$locale?>/users/addbankBuss">Add/Edit bank details (Business)</a>
 				<table class="table">
 					<tr>
@@ -175,11 +175,12 @@ Only required if you wish to withdraw via your bank.
 				<p style="color:red;font-weight:bold;font-size:14px"><u>Optional</u><br>
 Only required if you wish to withdraw via your bank.
 				</p>
-				
 				</div>
-				<div class="span4">
-				<a href="/<?=$locale?>/users/addpostal"><strong>Add/Edit Postal address</strong></a>
-				<table class="table" style="background-color:#FFFF99 ">
+				</div>				
+				<div class="row">
+				<div class="span5" style="background-color:#FFFF99 ">
+				<a href="/<?=$locale?>/users/addpostal">Add/Edit Postal address</a>
+				<table class="table" >
 					<tr>
 						<td>Name:</td>
 						<td><?=$details['postal']['Name']?></td>
@@ -208,6 +209,31 @@ Only required if you wish to withdraw via your bank.
 				<p style="color:red;font-weight:bold;font-size:14px"><u>Optional</u><br>
 Only required if you wish to withdraw hard currency.
 				</p>
+				</div>
+				<div class="span5">
+				<a href="#">Withdrawal OKPAY email</a>
+				<table class="table" >
+					<tr>
+						<td>Email</td>
+						<td>
+						<form action="/users/okpaysave" method="post">
+						<input type="text" class="span4" name="email" id="email" value="<?=$details['okpay']['email']?>" placeholder="yourOKPay@email.com">
+						<input type="submit" value="Save" class="btn btn-primary">
+						</form>
+					<?php 
+					if($details['okpay']['verified']=="No"){
+					?>						
+						<form action="/users/okpayverify" method="post">
+						<input type="text" class="span4" name="verify" id="verify" value="<?=$details['okpay']['verified']?>" placeholder="5da89606601e5779565281db11a608ee54f18c2f">
+						<input type="submit" value="Verify" class="btn btn-primary">
+						<p  class="label label-important">Not Verified</p>						
+						</form>
+					<?php }else{?>
+					<p class="label label-success">Verified</p>					
+					<?php }?>
+						</td>
+					</tr>
+				</table>
 				</div>
 			</div>
 		</div>

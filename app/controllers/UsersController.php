@@ -166,6 +166,80 @@ class UsersController extends \lithium\action\Controller {
 		}
 	return $this->redirect('Users::settings');
 	}
+	public function okpayverify(){
+		$title = "OkPay";
+		$user = Session::read('default');		
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+		if ($this->request->data) {
+			$details = Details::find('first',	array(
+				'conditions'=>array(
+					'user_id'=> (string) $id,
+					'okpay.verify'=>$this->request->data['verify'])
+				));
+			if(count($details)>0){
+				$data = array(
+					"okpay.verified" =>	 "Yes",				
+				);
+			$details = Details::find('first',	array(
+				'conditions'=>array(
+					'user_id'=> (string) $id,
+					'okpay.verify'=>$this->request->data['verify'])
+				))->save($data);
+			}
+		}
+	return $this->redirect('Users::settings');		
+	}
+	public function okpaysave(){
+		$title = "OkPay";
+		$verification = sha1($this->request->data['email']);
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+		if ($this->request->data) {
+			$data = array(
+				"okpay.email" => $this->request->data['email'],
+				"okpay.verified" =>	 "No",				
+				"okpay.verify"=>$verification,
+			);
+			
+			
+			$details = Details::find('all',
+				array('conditions'=>array('user_id'=> (string) $id))
+			)->save($data);
+
+		$view  = new View(array(
+			'loader' => 'File',
+			'renderer' => 'File',
+			'paths' => array(
+				'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+			)
+		));
+		$email = $user['email'];
+			$body = $view->render(
+				'template',
+				compact('data'),
+				array(
+					'controller' => 'users',
+					'template'=>'okpay',
+					'type' => 'mail',
+					'layout' => false
+				)
+			);
+
+			$transport = Swift_MailTransport::newInstance();
+			$mailer = Swift_Mailer::newInstance($transport);
+	
+			$message = Swift_Message::newInstance();
+			$message->setSubject("Verify OKPAY email ".COMPANY_URL);
+			$message->setFrom(array(NOREPLY => 'Verify OKPAY email '.COMPANY_URL));
+			$message->setTo($email);
+			$message->setBody($body,'text/html');
+			$mailer->send($message);
+
+		}
+	return $this->redirect('Users::settings');
+	}
 
 
 	public function settings($option=null){
@@ -557,7 +631,7 @@ class UsersController extends \lithium\action\Controller {
 				'Approved'=>'No'
 				)
 		));
-			return compact('details','title','transactions')	;
+			return compact('details','title','transactions','user')	;
 	}
 	public function funding_ltc(){
 				$title = "Funding LTC";
@@ -1166,7 +1240,7 @@ class UsersController extends \lithium\action\Controller {
 		$amountFiat = $this->request->data['WithdrawAmountFiat'];
 		$Currency = $this->request->data['WithdrawCurrency']; 
 		$Reference = $this->request->data['WithdrawReference']; 		
-		
+		$okpayEmail = $this->request->data['okpay_email']; 				
 		$data = array(
 				'DateTime' => new \MongoDate(),
 				'username' => $details['username'],
@@ -1181,6 +1255,7 @@ class UsersController extends \lithium\action\Controller {
 				'CompanyName'=>$CompanyName,								
 				'WithdrawalMethod' => $WithdrawalMethod,
 				'WithdrawalCharges' => $WithdrawalCharges,
+				'okpayEmail' => $okpayEmail,				
 				'Postal'=>array(
 					'Name' => $PostalName,
 					'Address' => $PostalAddress,					
