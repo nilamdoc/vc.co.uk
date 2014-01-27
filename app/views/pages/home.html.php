@@ -55,7 +55,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 </ul>
 
 	</div>
-	<div class="span3 bs-docs-site" style="min-height:732px; ">
+	<div class="span3" style="min-height:732px;border:1px solid gold;padding:4px ">
 		<div style="overflow:auto;height:605px">
 			<ul class="unstyled">
 				<li class="alert alert-danger"><strong>Visit our <a href="/<?=$locale?>/virtualoffice">Virtual Office</a> for the latest IBWT <a href="/<?=$locale?>/news">News</a> and Info.</strong></li>
