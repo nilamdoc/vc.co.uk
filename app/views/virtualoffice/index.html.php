@@ -4,7 +4,7 @@
 			<div class="navbar-inner1">
 				<a class="brand" href="#">Virtual Office</a>
 			</div>
-			<iframe frameborder="1" src="/VCOffice.html" height="855px" width="1130px"></iframe>
+			<iframe frameborder="0" src="/VCOffice.html" height="845px" width="1120px"></iframe>
 		</div>
 	</div>
 </div>
