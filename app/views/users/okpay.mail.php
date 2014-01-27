@@ -7,7 +7,7 @@
 
 <p>Open the page https://<?=$_SERVER['HTTP_HOST'];?>/users/settings/<br>
 Under Financial Details:<br>
-Enter this verification number: <?=$data['okpay']['verify']?>
+Enter this verification number: <?=$data['okpay.verify']?>
 </p>
 
 <p>Thanks,<br>
