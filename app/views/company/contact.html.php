@@ -1,3 +1,4 @@
+<div class="container">
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat;min-height:700px">
 <h3><?=$t("CONTACT US")?></h3>
 
@@ -24,4 +25,5 @@ PL2 2AR, United Kingdom.<br>
 <address><abbr title="Phone">P:</abbr> +44 7914 446125</address>
 </blockquote>
 <p><?=$t("Please be aware that depending upon your issue you may be redirected to our email service, and that our phone service is only available between 10:00am and 16:00pm, weekdays.")?></p>
+</div>
 </div>
