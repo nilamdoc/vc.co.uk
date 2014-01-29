@@ -22,7 +22,7 @@ class Walletltcnotify extends \lithium\console\Command {
 				
 					$username = $litecoin->getaccount($address);
 				
-					$Amount = (float)number_format($out['value'],8);
+					$Amount = (float)$out['value'];
 					if($litecoin->getaccount($address)!=""){
 						$Transactions = Transactions::find('first',array(
 							'conditions'=>array('TransactionHash' => $s)
@@ -56,7 +56,7 @@ class Walletltcnotify extends \lithium\console\Command {
 
 									
 						$dataDetails = array(
-								'balance.LTC' => (float)number_format((float)$details['balance.LTC'] + (float)$Amount,8),
+								'balance.LTC' => (float)((float)$details['balance.LTC'] + (float)$Amount),
 							);
 						
 							$details = Details::find('all',

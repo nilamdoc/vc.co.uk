@@ -1,3 +1,4 @@
+<div class="container">
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("Verification Page")?></h3>
 <h4>If you wish to deposit via bank wire transfer, then please see our <a href="/okpay">OKPAY</a> information page.</h4>
@@ -38,4 +39,5 @@
 <br>
 
 <p><sup>1</sup> <?=$t("As recognised by IBWT.")?></p>
+</div>
 </div>

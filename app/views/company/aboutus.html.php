@@ -1,4 +1,6 @@
+<div class="container">
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
+
 <h3><?=$t("About us")?></h3>
 		<table class="table table-condensed" >
 	<tr>
@@ -34,5 +36,5 @@
 <br>
 <br>
 <br>
-
+</div>
 </div>

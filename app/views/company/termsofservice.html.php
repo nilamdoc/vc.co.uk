@@ -2,6 +2,7 @@
 use app\models\Parameters;
 $Comm = Parameters::find('first');
 ?>
+<div class="container">
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("Terms of Service")?></h3>
 
@@ -203,4 +204,5 @@ PL2 2AR, UK<br>
 <br>
 <br>
 
+</div>
 </div>

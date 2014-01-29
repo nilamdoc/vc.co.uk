@@ -1,4 +1,4 @@
-<div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
+<div class="container"><div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("Resources")?></h3>
 
 <blockquote><strong>Archive</strong>
@@ -74,4 +74,5 @@
 <br>
 <br>
 
+</div>
 </div>

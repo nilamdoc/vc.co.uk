@@ -1,3 +1,4 @@
+<div class="container">
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("Legal")?></h3>
 
@@ -39,4 +40,5 @@ Company No: 8554667<br>
 <br>
 <br>
 
+</div>
 </div>

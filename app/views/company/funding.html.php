@@ -1,3 +1,4 @@
+<div class="container">
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("Funding Fiat")?></h3>
 <div class="row">
@@ -103,4 +104,5 @@ If you have no printer (or ran out of ink) please make sure you copy the followi
 <br>
 <br>
 <br>
+</div>
 </div>

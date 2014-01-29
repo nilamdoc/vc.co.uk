@@ -1,3 +1,4 @@
+<div class="container">
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("Privacy Policy")?></h3>
 <p><?=$t("This Privacy Policy governs the manner in which IBWT JD Ltd (operating as IBWT) collects, uses, 
@@ -84,4 +85,5 @@ PL2 2AR, UK<br>
 <br>
 <br>
 
+</div>
 </div>
