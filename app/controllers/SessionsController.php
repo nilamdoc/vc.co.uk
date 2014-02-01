@@ -37,6 +37,12 @@ class SessionsController extends \lithium\action\Controller {
 						'user_id'=>(string)$default['_id']
 						)
 				));
+				if($details['active']=="No"){
+					Auth::clear('member');
+					Session::delete('default');
+					return $this->redirect('/');
+					exit;
+				}
 				if($details['oneCode']===$this->request->data['loginpassword']){
 					$data = array(
 						'oneCodeused'=>'Yes'
@@ -126,10 +132,10 @@ class SessionsController extends \lithium\action\Controller {
         // Handle failed authentication attempts
     }
 	 public function delete() {
-        Auth::clear('member');
+		Auth::clear('member');
 		Session::delete('default');
-        return $this->redirect('/');
-				exit;
+		return $this->redirect('/');
+		exit;
     }
 }
 ?>

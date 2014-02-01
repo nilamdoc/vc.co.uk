@@ -1580,5 +1580,23 @@ $description = "Admin panel for Orders";
 		Parameters::find('all')->save($data);
 		return compact('$data');
 	}
+	public function activate($id=null){
+		$data = array(
+			'active' => 'Yes'
+		);
+		Details::find('all',array('conditions'=>array(
+			'_id'=>$id
+		)))->save($data);
+		$this->redirect('Admin::approval');	
+	}
+	public function deactivate($id=null){
+		$data = array(
+			'active' => 'No'
+		);
+		Details::find('all',array('conditions'=>array(
+			'_id'=>$id
+		)))->save($data);
+		$this->redirect('Admin::approval');	
+	}
 }
 ?>

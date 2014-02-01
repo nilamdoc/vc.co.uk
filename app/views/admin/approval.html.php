@@ -44,7 +44,18 @@ $i = 1;
 	foreach($details as $detail){
 ?>
 	<tr>
-		<td><?=$i?> <a href="/Admin/detail/<?=$detail['username']?>" target="_blank"><?=$detail['username']?></a></td>
+		<td><?=$i?> 
+		<?php 
+		if($detail['active']=='Yes' || $detail['active']==''){
+		?>
+		<a href="/Admin/deactivate/<?=$detail['_id']?>" class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Deactivate user account"><i class="icon-remove"></i></a>
+		<?php }?>
+		<?php 
+		if($detail['active']=='No'){
+		?>
+		<a href="/Admin/activate/<?=$detail['_id']?>" class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Activate user account"><i class="icon-ok"></i></a>
+		<?php }?>		
+		<a href="/Admin/detail/<?=$detail['username']?>" target="_blank"><?=$detail['username']?></a></td>
 		<td style="text-align:center "><?=$detail['email.verified']?></td>		
 		<td style="text-align:center "><?=$detail['phone.verified']?></td>				
 		<td style="text-align:center "><a href="/Admin/detail/<?=$detail['username']?>"><?=$detail['bank.verified']?></a></td>						
