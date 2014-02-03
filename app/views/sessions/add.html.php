@@ -1,7 +1,7 @@
 <div style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 
 <p class="alert alert-error" style="font-size:16px;font-weight:bold;text-align:center ">
-Welcome to IBWT, we have added withdrawals via UK banks, please see details in our recent <a href="/files/News Release 07-01-14.pdf" target="_blank">News Release</a>.</p>
+IBWT has teamed up with <a href="https://okpay.com/" target="_blank">OKPAY</a> to allow international access to its platform, please see our latest <a href="/files/News Release 30-01-14.pdf" title="News Release">News Release</a> for more details...</p>
 
 <div class="row container">
 	<div class="span4 well" >
