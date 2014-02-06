@@ -10,6 +10,7 @@ $LTC = $details['balance']['LTC'];
 $USD = $details['balance']['USD'];
 $GBP = $details['balance']['GBP'];
 $EUR = $details['balance']['EUR'];
+$CAD = $details['balance']['CAD'];
 $BalanceFirst = 0;
 $BalanceSecond = 0;
 switch ($first_curr) {
@@ -21,6 +22,9 @@ switch ($first_curr) {
         break;
     case "USD":
 		$BalanceFirst = $USD;
+        break;
+    case "CAD":
+		$BalanceFirst = $CAD;
         break;
     case "GBP":
 		$BalanceFirst = $GBP;
@@ -39,6 +43,9 @@ switch ($second_curr) {
         break;
     case "USD":
 		$BalanceSecond = $USD;
+        break;
+    case "CAD":
+		$BalanceSecond = $CAD;
         break;
     case "GBP":
 		$BalanceSecond = $GBP;
