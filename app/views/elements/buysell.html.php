@@ -107,7 +107,7 @@ if($$second_curr!=0){ ?>
 				<td>
 				<div class="input-append">
 					<label for="BuyPriceper"><?=$t("Price per ")?><?=$first_curr?></label>
-					<input class="span1" id="BuyPriceper" name="BuyPriceper" type="text" onBlur='$("#BuySubmitButton").attr("disabled", "disabled");' min="0" max="99999999" maxlength="10">
+					<input class="span1" id="BuyPriceper" name="BuyPriceper" type="text" onBlur='$("#BuySubmitButton").attr("disabled", "disabled");' min="0" max="99999999" maxlength="10" placeholder="0">
 					<span class="add-on"> <strong><?=$second_curr?></strong></span>
 				</div>				
 				</td>				
@@ -221,7 +221,7 @@ if($$second_curr!=0){ ?>
 				<td>
 				<div class="input-append">
 					<label for="SellPriceper"><?=$t("Price per ")?><?=$first_curr?></label>
-					<input class="span1" id="SellPriceper" name="SellPriceper" type="text"  onBlur='$("#SellSubmitButton").attr("disabled", "disabled");' min="0" max="99999999" maxlength="10">
+					<input class="span1" id="SellPriceper" name="SellPriceper" type="text"  onBlur='$("#SellSubmitButton").attr("disabled", "disabled");' min="0" max="99999999" maxlength="10" placeholder="0">
 					<span class="add-on"> <strong><?=$second_curr?></strong></span>
 				</div>				
 				</td>				
