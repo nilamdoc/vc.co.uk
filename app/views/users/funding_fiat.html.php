@@ -192,7 +192,7 @@
 								</tr>							
 								<tr>
 									<td colspan="2">Withdrawal Methods:</td>
-									<td colspan="2">
+									<td colspan="3">
 										<select name="WithdrawalMethod" id="WithdrawalMethod" onChange="PaymentMethod(this.value);">
 											<option value="okpay">OKPAY</option>
 											<option value="post">Postal Address - Royal Mail</option>
@@ -202,7 +202,7 @@
 									</td>
 								</tr>
 								<tr>
-								<td colspan="4">
+								<td colspan="5">
 									<div id="WithdrawalOKPAY" style="display:block">
 									<?php if($details['okpay']['verified']=='Yes'){?>
 									<p>Your okpay withdrawal email: <strong><?=$details['okpay']['email']?></strong></p>
@@ -296,7 +296,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td colspan="4"><p><strong>Make SURE you choose the appropriate Royal Mail charge to cover the amount you are withdrawing and that your IBWT account contains enough to cover the charge. Otherwise your withdrawal will be declined by IBWT.</strong></p></td>
+									<td colspan="5"><p><strong>Make SURE you choose the appropriate Royal Mail charge to cover the amount you are withdrawing and that your IBWT account contains enough to cover the charge. Otherwise your withdrawal will be declined by IBWT.</strong></p></td>
 								</tr>
 									
 									</table>
@@ -305,11 +305,11 @@
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Quote this reference number in your withdrawal">
 									<td colspan="2">Reference:</td>
 									<?php $Reference = substr($details['username'],0,10).rand(10000,99999);?>
-									<td colspan="2"><?=$Reference?></td>
+									<td colspan="3"><?=$Reference?></td>
 								</tr>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Amount should be between 6 and 10000">
 									<td colspan="2">Amount:</td>
-									<td colspan="2"><input type="text" value="" class="span2" placeholder="5.0" min="5" max="10000" name="WithdrawAmountFiat" id="WithdrawAmountFiat" maxlength="5"><br>
+									<td colspan="3"><input type="text" value="" class="span2" placeholder="5.0" min="5" max="10000" name="WithdrawAmountFiat" id="WithdrawAmountFiat" maxlength="5"><br>
 				<small style="color:red ">
 				&pound;1 mail withdrawal fee + royal mail fee (see below).<br>
 &pound;2 bank withdrawal fee.<br>
@@ -318,7 +318,7 @@ Withdrawals must be in denominations of &pound;5.<br>
 								</tr>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Select a currency">
 									<td colspan="2">Currency:</td>
-									<td colspan="2"><select name="WithdrawCurrency" id="WithdrawCurrency" class="span2">
+									<td colspan="3"><select name="WithdrawCurrency" id="WithdrawCurrency" class="span2">
 											<option value="GBP">GBP</option>
 											<option value="USD">USD</option>							
 											<option value="EUR">EUR</option>							
@@ -326,7 +326,7 @@ Withdrawals must be in denominations of &pound;5.<br>
 									</select></td>
 								</tr>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Once your email is approved, you will receive the funds in your bank account">
-									<td colspan="4" style="text-align:center ">
+									<td colspan="5" style="text-align:center ">
 									<input type="hidden" name="WithdrawReference" id="WithdrawReference" value="<?=$Reference?>">
 										<input type="submit" value="Send email to admin for approval" class="btn btn-primary" onclick="return CheckWithdrawal();">
 									</td>
