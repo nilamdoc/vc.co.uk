@@ -89,6 +89,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<th style="text-align:center">USD</th>
 					<th style="text-align:center">EUR</th>
 					<th style="text-align:center">GBP</th>
+					<th style="text-align:center">CAD</th>					
 				</tr>
 			</thead>
 			<tbody>
@@ -124,6 +125,10 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					    case "USD":
 					        $USDComm = $C['Commission'];
 				    	    break;
+					    case "CAD":
+					        $CADComm = $C['Commission'];
+				    	    break;
+
 					    case "EUR":
 					        $EURComm = $C['Commission'];
 				    	    break;
@@ -143,6 +148,9 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					    case "USD":
 					        $CompletedUSDComm = $C['Commission'];
 				    	    break;
+					    case "CAD":
+					        $CompletedCADComm = $C['Commission'];
+				    	    break;
 					    case "EUR":
 					        $CompletedEURComm = $C['Commission'];
 				    	    break;
@@ -156,6 +164,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="text-align:right "><?=number_format($details['balance.USD']+$BuyWith['USD'],4)?></td>					
 					<td style="text-align:right "><?=number_format($details['balance.EUR']-$BuyWith['EUR'],4)?></td>										
 					<td style="text-align:right "><?=number_format($details['balance.GBP']-$BuyWith['GBP'],4)?></td>										
+					<td style="text-align:right "><?=number_format($details['balance.CAD']-$BuyWith['CAD'],4)?></td>															
 				</tr>
 				<tr>
 					<td><strong><?=$t('Current Balance')?></strong><br>
@@ -165,6 +174,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="text-align:right "><?=number_format($details['balance.USD'],4)?></td>
 					<td style="text-align:right "><?=number_format($details['balance.EUR'],4)?></td>
 					<td style="text-align:right "><?=number_format($details['balance.GBP'],4)?></td>
+					<td style="text-align:right "><?=number_format($details['balance.CAD'],4)?></td>					
 				</tr>
 				<tr>
 					<td><strong><?=$t('Pending Buy Orders')?></strong></td>
@@ -173,6 +183,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="text-align:right ">-<?=number_format($BuyWith['USD'],4)?></td>										
 					<td style="text-align:right ">-<?=number_format($BuyWith['EUR'],4)?></td>										
 					<td style="text-align:right ">-<?=number_format($BuyWith['GBP'],4)?></td>										
+					<td style="text-align:right ">-<?=number_format($BuyWith['CAD'],4)?></td>															
 				</tr>
 				<tr>
 					<td><strong><?=$t('Pending Sell Orders')?></strong></td>
@@ -181,6 +192,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="text-align:right ">+<?=number_format($SellWith['USD'],4)?></td>										
 					<td style="text-align:right ">+<?=number_format($SellWith['EUR'],4)?></td>										
 					<td style="text-align:right ">+<?=number_format($SellWith['GBP'],4)?></td>										
+					<td style="text-align:right ">+<?=number_format($SellWith['CAD'],4)?></td>															
 				</tr>
 				<tr>
 					<td  style="border-top:1px solid black"><strong><?=$t('After Execution')?></strong></td>
@@ -189,6 +201,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.USD']+$SellWith['USD']-$USDComm,4)?></td>					
 					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.EUR']+$SellWith['EUR']-$EURComm,4)?></td>										
 					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.GBP']+$SellWith['GBP']-$GBPComm,4)?></td>										
+					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.CAD']+$SellWith['CAD']-$CADComm,4)?></td>															
 				</tr>
 				<tr>
 					<td style="border-bottom:double black;"><strong><?=$t('Commissions')?></strong></td>
@@ -197,6 +210,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="text-align:right;border-bottom:double black; "><?=number_format($USDComm,4)?></td>
 					<td style="text-align:right;border-bottom:double black; "><?=number_format($EURComm,4)?></td>
 					<td style="text-align:right;border-bottom:double black; "><?=number_format($GBPComm,4)?></td>
+					<td style="text-align:right;border-bottom:double black; "><?=number_format($CADComm,4)?></td>					
 				</tr>
 		</table>
 		</div>
@@ -217,6 +231,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<th style="text-align:center">USD</th>
 					<th style="text-align:center">EUR</th>
 					<th style="text-align:center">GBP</th>
+					<th style="text-align:center">CAD</th>					
 				</tr>
 			</thead>
 			<tbody>
@@ -228,6 +243,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="text-align:right "><?=number_format($ComBuyWith['USD'],4)?></td>										
 					<td style="text-align:right "><?=number_format($ComBuyWith['EUR'],4)?></td>										
 					<td style="text-align:right "><?=number_format($ComBuyWith['GBP'],4)?></td>										
+					<td style="text-align:right "><?=number_format($ComBuyWith['CAD'],4)?></td>															
 				</tr>
 				<tr>
 					<td><strong><?=$t('Complete Sell Orders')?></strong></td>
@@ -236,6 +252,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="text-align:right "><?=number_format($ComSellWith['USD'],4)?></td>										
 					<td style="text-align:right "><?=number_format($ComSellWith['EUR'],4)?></td>										
 					<td style="text-align:right "><?=number_format($ComSellWith['GBP'],4)?></td>										
+					<td style="text-align:right "><?=number_format($ComSellWith['CAD'],4)?></td>															
 				</tr>
 				<tr>
 					<td><strong><?=$t('Completed Order Commissions')?></strong></td>
@@ -244,6 +261,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="text-align:right "><?=number_format($CompletedUSDComm,4)?></td>
 					<td style="text-align:right "><?=number_format($CompletedEURComm,4)?></td>
 					<td style="text-align:right "><?=number_format($CompletedGBPComm,4)?></td>
+					<td style="text-align:right "><?=number_format($CompletedCADComm,4)?></td>					
 				</tr>
 
 
