@@ -542,6 +542,9 @@ $description = "Admin Approve documents ";
 			if($uf['_id']['Currency']=='USD'){
 				$Details[$i]['Funds']['USD'] = $uf['TotalDeposit'];										
 			}
+			if($uf['_id']['Currency']=='CAD'){
+				$Details[$i]['Funds']['CAD'] = $uf['TotalDeposit'];										
+			}
 			if($uf['_id']['Currency']=='EUR'){
 				$Details[$i]['Funds']['EUR'] = $uf['TotalDeposit'];					
 			}
@@ -552,6 +555,9 @@ $description = "Admin Approve documents ";
 		foreach($UserFundsWithdrawals['result'] as $uf){
 			if($uf['_id']['Currency']=='USD'){
 				$Details[$i]['FundsOut']['USD'] = $uf['TotalDeposit'];										
+			}
+			if($uf['_id']['Currency']=='CAD'){
+				$Details[$i]['FundsOut']['CAD'] = $uf['TotalDeposit'];										
 			}
 			if($uf['_id']['Currency']=='EUR'){
 				$Details[$i]['FundsOut']['EUR'] = $uf['TotalDeposit'];					
@@ -627,6 +633,7 @@ $description = "Admin panel for transactions";
 			$Details[$i]['GBP'] = $details['balance.GBP'];
 			$Details[$i]['EUR'] = $details['balance.EUR'];			
 			$Details[$i]['USD'] = $details['balance.USD'];			
+			$Details[$i]['CAD'] = $details['balance.CAD'];						
 			$Details[$i]['username'] = $details['username'];						
 			$Details[$i]['TranDate'] = $ft['DateTime'];						
 			$Details[$i]['Reference'] = $ft['Reference'];									
@@ -1372,6 +1379,9 @@ $description = "Admin Panel for user";
 				}
 				if($UR['_id']['CommissionCurrency']=='USD'){
 					$new[$urDate]['USD'] = $UR['CommissionAmount'];				
+				}
+				if($UR['_id']['CommissionCurrency']=='CAD'){
+					$new[$urDate]['CAD'] = $UR['CommissionAmount'];				
 				}
 		}
 		
