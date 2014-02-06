@@ -36,6 +36,7 @@ foreach ($Details	as $tx){?>
 			<td style="text-align:right "><?=number_format($tx['Amount'],2)?><br>
 						<span class="label label-success">Deposits:<br>
 						<?=number_format($tx['Funds']['USD'],2)?> USD<br>
+						<?=number_format($tx['Funds']['CAD'],2)?> CAD<br>						
 						<?=number_format($tx['Funds']['EUR'],2)?> EUR<br>
 						<?=number_format($tx['Funds']['GBP'],2)?> GBP
 						</span>
@@ -43,6 +44,7 @@ foreach ($Details	as $tx){?>
 			<td style="text-align:right "><?=$tx['Currency']?><br>
 						<span class="label label-important">Withdrawals:<br>
 						<?=number_format($tx['FundsOut']['USD'],2)?> USD<br>
+						<?=number_format($tx['FundsOut']['CAD'],2)?> CAD<br>						
 						<?=number_format($tx['FundsOut']['EUR'],2)?> EUR<br>
 						<?=number_format($tx['FundsOut']['GBP'],2)?> GBP
 						</span>
