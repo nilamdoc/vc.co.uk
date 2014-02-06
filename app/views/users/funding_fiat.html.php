@@ -2,7 +2,7 @@
 .Address_success{background-color: #9FFF9F;font-weight:bold}
 </style>
 <div class="container">
-<h4>Funding - GBP / USD / EUR</h4>
+<h4>Funding - GBP / USD / EUR / CAD</h4>
 <h3 class="alert alert-error">Please ensure that your Royal Mail deposits are sent with appropriate cover.</h3>
 <div class="accordion" id="accordion2">
 	<div class="accordion-group">
@@ -10,7 +10,7 @@
 			<?php 
 				if($details['bank']['verified']=="Yes" && $details['utility']['verified']=="Yes" && $details['government']['verified']=="Yes" ){?>
 			<span class="accordion-toggle btn" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">				
-				<strong><?=$t('USD / GBP / EUR Deposits / Withdrawals')?></strong> 
+				<strong><?=$t('USD / GBP / EUR / CAD Deposits / Withdrawals')?></strong> 
 			</span>
 			<?php }else{?>
 			<span class="accordion-toggle btn" data-toggle="collapse" data-parent="#accordion2" href="#collapseVerify">							
@@ -74,7 +74,7 @@
 						<div class="navbar">
 							<form action="/users/deposit/" method="post" class="form">
 							<div class="navbar-inner1">
-							<a class="brand" href="#"><?=$t('Deposit USD / GBP / EUR')?> </a>
+							<a class="brand" href="#"><?=$t('Deposit USD / GBP / EUR / CAD')?> </a>
 							</div>
 							<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
 								<tr>
@@ -122,6 +122,7 @@
 											<option value="GBP">GBP</option>
 											<option value="USD">USD</option>							
 											<option value="EUR">EUR</option>							
+											<option value="CAD">CAD</option>																		
 									</select></td>
 								</tr>
 								<tr>
@@ -148,7 +149,7 @@
 						<div class="navbar">
 							<form action="/users/withdraw/" method="post" class="form">		
 							<div class="navbar-inner2">
-							<a class="brand" href="#"><?=$t('Withdraw USD / GBP / EUR')?> </a>
+							<a class="brand" href="#"><?=$t('Withdraw USD / GBP / EUR / CAD')?> </a>
 							</div>
 							<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
 								<tr style="background-color:#CFFDB9">
@@ -156,10 +157,11 @@
 									<td style="text-align:right "><?=$details['balance.USD']?> USD</td>					
 									<td style="text-align:right "><?=$details['balance.GBP']?> GBP</td>
 									<td style="text-align:right "><?=$details['balance.EUR']?> EUR</td>					
+									<td style="text-align:right "><?=$details['balance.CAD']?> CAD</td>														
 								</tr>			
 								<tr style="background-color: #FDDBAC">
 								<?php 
-								$AmountGBP = 0;$AmountUSD = 0;$AmountEUR = 0;
+								$AmountGBP = 0;$AmountUSD = 0;$AmountEUR = 0; $AmountCAD = 0;
 								foreach($transactions as $transaction){
 									if($transaction['Currency']=='GBP'){
 										$AmountGBP = $AmountGBP + $transaction['Amount'];
@@ -170,18 +172,23 @@
 									if($transaction['Currency']=='USD'){
 										$AmountUSD = $AmountUSD + $transaction['Amount'];
 									}					
+									if($transaction['Currency']=='CAD'){
+										$AmountCAD = $AmountCAD + $transaction['Amount'];
+									}					
 								}
 								?>
 									<td><?=$t("Withdrawal")?></td>
 									<td style="text-align:right "><?=$AmountUSD?> USD</td>					
 									<td style="text-align:right "><?=$AmountGBP?> GBP</td>
 									<td style="text-align:right "><?=$AmountEUR?> EUR</td>					
+									<td style="text-align:right "><?=$AmountCAD?> CAD</td>														
 								</tr>			
 								<tr style="background-color:#CFFDB9">
 									<td><?=$t("Net Balance")?></td>
 									<td style="text-align:right "><?=$details['balance.USD']-$AmountUSD?> USD</td>					
 									<td style="text-align:right "><?=$details['balance.GBP']-$AmountGBP?> GBP</td>
 									<td style="text-align:right "><?=$details['balance.EUR']-$AmountEUR?> EUR</td>					
+									<td style="text-align:right "><?=$details['balance.CAD']-$AmountCAD?> CAD</td>														
 								</tr>							
 								<tr>
 									<td colspan="2">Withdrawal Methods:</td>
@@ -315,6 +322,7 @@ Withdrawals must be in denominations of &pound;5.<br>
 											<option value="GBP">GBP</option>
 											<option value="USD">USD</option>							
 											<option value="EUR">EUR</option>							
+											<option value="CAD">CAD</option>																		
 									</select></td>
 								</tr>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Once your email is approved, you will receive the funds in your bank account">
