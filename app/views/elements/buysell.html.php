@@ -102,7 +102,7 @@ if($$second_curr!=0){ ?>
 			</tr>
 			<tr>
 				<td>
-				<?=$this->form->field('BuyAmount', array('label'=>'Amount '.$first_curr,'class'=>'span1', 'value'=>0, 'onBlur'=>'$("#BuySubmitButton").attr("disabled", "disabled");','min'=>'0','max'=>'99999999','maxlength'=>'10')); ?>				
+				<?=$this->form->field('BuyAmount', array('label'=>'Amount '.$first_curr,'class'=>'span1', 'value'=>'','placeholder'=>'0' ,'onBlur'=>'$("#BuySubmitButton").attr("disabled", "disabled");','min'=>'0','max'=>'99999999','maxlength'=>'10')); ?>				
 				</td>
 				<td>
 				<div class="input-append">
@@ -216,7 +216,7 @@ if($$second_curr!=0){ ?>
 			</tr>
 			<tr>
 				<td>
-				<?=$this->form->field('SellAmount', array('label'=>'Amount '.$first_curr,'class'=>'span1', 'value'=>0, 'onBlur'=>'$("#SellSubmitButton").attr("disabled", "disabled");','min'=>'0','max'=>'99999999','maxlength'=>'10')); ?>				
+				<?=$this->form->field('SellAmount', array('label'=>'Amount '.$first_curr,'class'=>'span1', 'value'=>'','placeholder'=>'0', 'onBlur'=>'$("#SellSubmitButton").attr("disabled", "disabled");','min'=>'0','max'=>'99999999','maxlength'=>'10')); ?>				
 				</td>
 				<td>
 				<div class="input-append">
