@@ -15,6 +15,6 @@ IBWT operates this service 7 days a week.</p>
 	<p><strong>Once verified and cleared your funds will appear in your IBWT account.</strong></p>
 
 <!-- Begin OKPAY Seal Logo --><a href="https://www.okpay.com/account/user/456908980" target="_blank"><img src="https://www.okpay.com/img/seals/seal01.png" width="120"  height="120" border="0" alt="Verify OKPAY user information."> 
-	<img src="/img/okpay-excp-b.png" width="120"  height="120" border="0" style="margin-bottom:10px" alt="Verify OKPAY user information."></a><!-- End OKPAY Seal Logo --><br>
+</a><a href="https://www.okpay.com/en/partners/exchangers/index.html" target="_blank">	<img src="/img/okpay-excp-b.png" width="120"  height="120" border="0" style="margin-bottom:10px" alt="Verify OKPAY user information."></a><!-- End OKPAY Seal Logo --><br>
 <br>
 </div>

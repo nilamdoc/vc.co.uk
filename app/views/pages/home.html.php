@@ -65,9 +65,9 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 				<li class="alert" style="background-color:#FCC952"><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank"><strong>Bitcoin - The Future Currency</strong></a></li>
 			</ul>
 		<div style="text-align:center ">
-<!-- Begin OKPAY Seal Logo --><a href="https://www.okpay.com/account/user/456908980" target="_blank"><img src="https://www.okpay.com/img/seals/seal01.png" width="100"  height="100" border="0" style="margin-bottom:10px" alt="Verify OKPAY user information.">
-	<img src="/img/okpay-excp-b.png" width="100"  height="100" border="0" style="margin-bottom:10px" alt="Verify OKPAY user information.">
-</A><!-- End OKPAY Seal Logo --><br>
+<!-- Begin OKPAY Seal Logo --><a href="https://www.okpay.com/account/user/456908980" target="_blank"><img src="https://www.okpay.com/img/seals/seal01.png" width="100"  height="100" border="0" style="margin-bottom:10px" alt="Verify OKPAY user information."></a>
+	<a href="/okpay"><img src="/img/okpay-excp-b.png" width="100"  height="100" border="0" style="margin-bottom:10px" alt="Verify OKPAY user information.">
+</a><!-- End OKPAY Seal Logo --><br>
 <!--		<a href="http://www.bitcointrezor.com/" target="_blank"><img src="/img/trezor.png" title="Trezor, the Bitcoin Safe"></a><br> -->
 		<a href="http://bitcoinmagazine.com/" target="_blank"><img src="/img/BMlogo.jpg" title="Bitcoin Magazine"  style="margin-bottom:10px" width="150"></a><br>
 
