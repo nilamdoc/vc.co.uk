@@ -43,13 +43,15 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 <h3>Find us</h3>
 <ul class="unstyled">
 	<li>
-		<a  target="_blank" href="https://www.facebook.com/pages/IBWT/425446187570505"><img src="/img/Facebook-logo.png" alt="Facebook" width="30px"></a>
+		<a  target="_blank" href="https://www.facebook.com/pages/IBWT/425446187570505"><img src="/img/Facebook-logo.png" alt="Facebook" width="30px" title="Facebook"></a>
 		&nbsp;&nbsp;
-		<a target="_blank" href="https://twitter.com/IBWTofficial"><img src="/img/twitter.jpg" alt="Twitter" width="30px"></a>
+		<a target="_blank" href="https://twitter.com/IBWTofficial"><img src="/img/twitter.jpg" alt="Twitter" width="30px" title="Twitter"></a>
 		&nbsp;&nbsp;
-		<a target="_blank" href="http://www.reddit.com/r/IBWTofficial/"><img src="/img/reddit.jpg" alt="Reddit" width="30px"></a>
+		<a target="_blank" href="http://www.reddit.com/r/IBWTofficial/"><img src="/img/reddit.jpg" alt="Reddit" width="30px" title="Reddit"></a>
 		&nbsp;&nbsp;
-<a href="https://bitcointalk.org/index.php?topic=397625.0" target="_blank"><img src="/img/bitcointalk_logo.jpg.png" alt="Bitcoin Foundation" width="30px"></a>
+<a href="https://bitcointalk.org/index.php?topic=397625.0" target="_blank"><img src="/img/bitcointalk_logo.jpg.png" alt="Bitcoin talk" width="30px" title="bitcoin talk"></a>
+		&nbsp;&nbsp;
+		<a href="https://plus.google.com/b/100582829535245250566/100582829535245250566/about?hl=en" target="_blank"><img src="/img/google.png" width="30px" alt="Google+" title="Google+"></a>
 	</li>
 	
 </ul>
