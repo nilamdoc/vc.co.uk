@@ -5,6 +5,7 @@
 
 <p>You have requested to withdraw money from <?=COMPANY_URL?> through <strong><?=$data['WithdrawalMethod']?></strong>.</p>
 <?php 
+print_r($data);
 	if($data['WithdrawalMethod']=='okpay'){
 ?>
 <strong>Withdrawal Method: OKPAY send to <?=$data['okpayEmail']?>.</strong>
@@ -19,7 +20,7 @@
 		</tr>
 		<tr>
 			<td>Full Name:</td>
-			<td><?=$data['AccountName']?></td>
+			<td><?=$user['firstname']?> <?=$user['lastname']?></td>
 		</tr>
 		<tr>
 			<td>Sort code: </td>
