@@ -6,12 +6,16 @@
 <p>Your withdrawal has been approved <?=COMPANY_URL?>.</p>
 <table>
 		<tr>
-			<td>Withdrawal Charges:</td>
-			<td><?=$Transactions['WithdrawalCharges']?></td>
+			<td>Amount:</td>
+			<td><?=$Transactions['Amount']?></td>
 		</tr>
 		<tr>
-			<td>Charge:</td>
-			<td><?=$Transactions['WithdrawalChargesFinal']?></td>
+			<td>Withdrawal Charges:</td>
+			<td><?=$Transactions['AmountApproved']-$Transactions['Amount']?></td>
+		</tr>
+		<tr>
+			<td>Total:</td>
+			<td><?=$Transactions['AmountApproved']?></td>
 		</tr>
 		<tr>
 			<td>Currency:</td>
