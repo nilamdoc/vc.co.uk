@@ -3,7 +3,7 @@
 </div>
 <h4>Hi <?=$user['firstname']?>,</h4>
 
-<p>You have requested to withdraw money from <?=COMPANY_URL?> through <strong><?=$data['WithdrawalCharges']?></strong>.</p>
+<p>You have requested to withdraw money from <?=COMPANY_URL?> through <strong><?=$data['WithdrawalMethod']?></strong>.</p>
 <?php 
 	if($data['WithdrawalMethod']=='okpay'){
 ?>
@@ -18,12 +18,20 @@
 			<td><?=$data['AccountName']?></td>
 		</tr>
 		<tr>
+			<td>Full Name:</td>
+			<td><?=$data['AccountName']?></td>
+		</tr>
+		<tr>
 			<td>Sort code: </td>
 			<td><?=$data['SortCode']?></td>	
 		</tr>
 		<tr>
 			<td>Account number:</td>
 			<td><?=$data['AccountNumber']?></td>
+		</tr>
+		<tr>
+			<td>Withdrawal Charges:</td>
+			<td>&pound; 2</td>
 		</tr>
 <?php }?>
 <?php 

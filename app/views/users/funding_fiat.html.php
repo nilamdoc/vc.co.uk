@@ -27,7 +27,7 @@
 				<div class="well" style="min-height:80px">
 <!-----Bank Details start----->					
 					<?php 
-					if(strlen($details['bank.verified'])==0){
+					if(strlen($details['bank']['verified'])==0){
 					?>
 						<a href="/users/settings/bank" class="label label-warning tooltip-x" rel="tooltip-x" data-placement="top" title="Compulsary to transact!"><i class="icon-remove icon-black"></i> <?=$t("Withdrawal Address & Bank")?></a>
 					<?php }elseif($details['bank.verified']=='No'){?>
@@ -216,15 +216,15 @@
 								<table class="table table-condensed table-bordered table-hover">								
 									<tr>
 										<td>Account name:</td>
-										<td><input type="text" name="AccountName" id="AccountName" placeholder="Verified bank account name" value="<?=$details['bank.bankname']?>"></td>
+										<td><input type="text" name="AccountName" id="AccountName" placeholder="Verified bank account name" value="<?=$details['bank']['bankname']?>"></td>
 									</tr>
 									<tr>
 										<td>Sort code: </td>
-										<td><input type="text" name="SortCode" id="SortCode" placeholder="01-01-10" value="<?=$details['bank.sortcode']?>"></td>
+										<td><input type="text" name="SortCode" id="SortCode" placeholder="01-01-10" value="<?=$details['bank']['sortcode']?>"></td>
 									</tr>
 									<tr>
 										<td>Account number:</td>
-										<td><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bank.accountnumber']?>"></td>
+										<td><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bank']['accountnumber']?>"></td>
 									</tr>
 									</table>
 									</div>
@@ -232,23 +232,23 @@
 								<table class="table table-condensed table-bordered table-hover">								
 									<tr>
 										<td>Account name:</td>
-										<td><input type="text" name="AccountName" id="AccountName" placeholder="Verified bank account name" value="<?=$details['bankBuss.bankname']?>"></td>
+										<td><input type="text" name="AccountName" id="AccountName" placeholder="Verified bank account name" value="<?=$details['bankBuss']['bankname']?>"></td>
 									</tr>
 									<tr>
 										<td>Sort code: </td>
-										<td><input type="text" name="SortCode" id="SortCode" placeholder="01-01-10" value="<?=$details['bankBuss.sortcode']?>"></td>
+										<td><input type="text" name="SortCode" id="SortCode" placeholder="01-01-10" value="<?=$details['bankBuss']['sortcode']?>"></td>
 									</tr>
 									<tr>
 										<td>Company name:</td>
-										<td><input type="text" name="CompanyName" id="CompanyName" placeholder="12345678" value="<?=$details['bankBuss.companyname']?>"></td>
+										<td><input type="text" name="CompanyName" id="CompanyName" placeholder="12345678" value="<?=$details['bankBuss']['companyname']?>"></td>
 									</tr>
 									<tr>
 										<td>Company number:</td>
-										<td><input type="text" name="CompanyNumber" id="CompanyNumber" placeholder="12345678" value="<?=$details['bankBuss.companynumber']?>"></td>
+										<td><input type="text" name="CompanyNumber" id="CompanyNumber" placeholder="12345678" value="<?=$details['bankBuss']['companynumber']?>"></td>
 									</tr>
 									<tr>
 										<td>Account number:</td>
-										<td><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bankBuss.accountnumber']?>"></td>
+										<td><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bankBuss']['accountnumber']?>"></td>
 									</tr>
 									</table>
 									</div>									
@@ -256,27 +256,27 @@
 									<table class="table table-condensed table-bordered table-hover">
 									<tr>
 										<td>Name:</td>
-										<td><input type="text" name="PostalName" id="PostalName" placeholder="Name" value="<?=$details['postal.Name']?>"></td>
+										<td><input type="text" name="PostalName" id="PostalName" placeholder="Name" value="<?=$details['postal']['Name']?>"></td>
 									</tr>
 									<tr>
 										<td>Address:</td>
-										<td><input type="text" name="PostalAddress" id="PostalAddress" placeholder="Name" value="<?=$details['postal.Address']?>"></td>
+										<td><input type="text" name="PostalAddress" id="PostalAddress" placeholder="Name" value="<?=$details['postal']['Address']?>"></td>
 									</tr>
 									<tr>
 										<td>Street:</td>
-										<td><input type="text" name="PostalStreet" id="PostalStreet" placeholder="Street" value="<?=$details['postal.Street']?>"></td>
+										<td><input type="text" name="PostalStreet" id="PostalStreet" placeholder="Street" value="<?=$details['postal']['Street']?>"></td>
 									</tr>
 									<tr>
 										<td>City:</td>
-										<td><input type="text" name="PostalCity" id="PostalCity" placeholder="City" value="<?=$details['postal.City']?>"></td>
+										<td><input type="text" name="PostalCity" id="PostalCity" placeholder="City" value="<?=$details['postal']['City']?>"></td>
 									</tr>
 									<tr>
 										<td>Postal / Zip code:</td>
-										<td><input type="text" name="PostalZip" id="PostalZip" placeholder="Zip" value="<?=$details['postal.Zip']?>"></td>
+										<td><input type="text" name="PostalZip" id="PostalZip" placeholder="Zip" value="<?=$details['postal']['Zip']?>"></td>
 									</tr>
 									<tr>
 										<td>Country:</td>
-										<td><input type="text" name="PostalCountry" id="PostalCountry" placeholder="Country" value="<?=$details['postal.Country']?>"></td>
+										<td><input type="text" name="PostalCountry" id="PostalCountry" placeholder="Country" value="<?=$details['postal']['Country']?>"></td>
 									</tr>
 								<tr>
 									<td>Withdrawal Charges </td>
