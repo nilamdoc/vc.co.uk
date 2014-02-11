@@ -1227,8 +1227,11 @@ class UsersController extends \lithium\action\Controller {
 		$AccountName = $this->request->data['AccountName'];
 		$SortCode = $this->request->data['SortCode'];
 		$AccountNumber = $this->request->data['AccountNumber'];		
-		$CompanyName = $this->request->data['CompanyName'];		
-		$CompanyNumber = $this->request->data['CompanyNumber'];				
+		$AccountNameBuss = $this->request->data['AccountNameBuss'];
+		$SortCodeBuss = $this->request->data['SortCodeBuss'];
+		$AccountNumberBuss = $this->request->data['AccountNumberv'];		
+		$CompanyNameBuss = $this->request->data['CompanyNameBuss'];		
+		$CompanyNumberBuss = $this->request->data['CompanyNumberBuss'];				
 		$PostalName = $this->request->data['PostalName'];		
 		$PostalStreet = $this->request->data['PostalStreet'];		
 		$PostalCity = $this->request->data['PostalCity'];		
@@ -1251,8 +1254,11 @@ class UsersController extends \lithium\action\Controller {
 				'AccountName'=>$AccountName,
 				'SortCode'=>$SortCode,
 				'AccountNumber'=>$AccountNumber,
-				'CompanyNumber'=>$CompanyNumber,				
-				'CompanyName'=>$CompanyName,								
+				'AccountNameBuss'=>$AccountNameBuss,
+				'SortCodeBuss'=>$SortCodeBuss,
+				'AccountNumberBuss'=>$AccountNumberBuss,
+				'CompanyNumberBuss'=>$CompanyNumberBuss,				
+				'CompanyNameBuss'=>$CompanyNameBuss,								
 				'WithdrawalMethod' => $WithdrawalMethod,
 				'WithdrawalCharges' => $WithdrawalCharges,
 				'okpayEmail' => $okpayEmail,				

@@ -48,23 +48,23 @@ print_r($data);
 ?>
 		<tr>
 			<td>Account name:</td>
-			<td><?=$data['AccountName']?></td>
+			<td><?=$data['AccountNameBuss']?></td>
 		</tr>
 		<tr>
 			<td>Sort code: </td>
-			<td><?=$data['SortCode']?></td>	
+			<td><?=$data['SortCodeBuss']?></td>	
 		</tr>
 		<tr>
 			<td>Account number:</td>
-			<td><?=$data['AccountNumber']?></td>
+			<td><?=$data['AccountNumberBuss']?></td>
 		</tr>
 		<tr>
-			<td>Account number:</td>
-			<td><?=$data['CompanyNumber']?></td>
+			<td>Company number:</td>
+			<td><?=$data['CompanyNumberBuss']?></td>
 		</tr>
 		<tr>
-			<td>Account number:</td>
-			<td><?=$data['CompanyName']?></td>
+			<td>Company name:</td>
+			<td><?=$data['CompanyNameBuss']?></td>
 		</tr>
 <?php }?>
 <?php 

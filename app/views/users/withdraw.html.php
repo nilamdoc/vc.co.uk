@@ -5,6 +5,7 @@
 <p>You have requested to withdraw money from <?=COMPANY_URL?>.</p>
 <p><strong>Thank you, your request has been sent for clearance.</strong></p>
 <?php 
+print_r($data);
 	if($data['WithdrawalMethod']=='okpay'){
 ?>
 <strong>Withdrawal Method: OKPAY send to <?=$data['okpayEmail']?>.</strong>
@@ -69,7 +70,30 @@
 			<td><?=$data['Postal']['Country']?></td>
 		</tr>
 <?php }?>		
+<?php 
+	if($data['WithdrawalMethod']=='bankBuss'){
+?>
 		<tr>
+			<td>Account name:</td>
+			<td><?=$data['AccountNameBuss']?></td>
+		</tr>
+		<tr>
+			<td>Sort code: </td>
+			<td><?=$data['SortCodeBuss']?></td>	
+		</tr>
+		<tr>
+			<td>Account number:</td>
+			<td><?=$data['AccountNumberBuss']?></td>
+		</tr>
+		<tr>
+			<td>Company number:</td>
+			<td><?=$data['CompanyNumberBuss']?></td>
+		</tr>
+		<tr>
+			<td>Company name:</td>
+			<td><?=$data['CompanyNameBuss']?></td>
+		</tr>
+<?php }?>		<tr>
 			<td>Reference:</td>
 			<td><strong><?=$data['Reference']?></strong></td>
 		</tr>

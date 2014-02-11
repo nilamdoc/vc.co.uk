@@ -232,23 +232,23 @@
 								<table class="table table-condensed table-bordered table-hover">								
 									<tr>
 										<td>Account name:</td>
-										<td><input type="text" name="AccountName" id="AccountName" placeholder="Verified bank account name" value="<?=$details['bankBuss']['bankname']?>"></td>
+										<td><input type="text" name="AccountNameBuss" id="AccountNameBuss" placeholder="Verified bank account name" value="<?=$details['bankBuss']['bankname']?>"></td>
 									</tr>
 									<tr>
 										<td>Sort code: </td>
-										<td><input type="text" name="SortCode" id="SortCode" placeholder="01-01-10" value="<?=$details['bankBuss']['sortcode']?>"></td>
+										<td><input type="text" name="SortCodeBuss" id="SortCodeBuss" placeholder="01-01-10" value="<?=$details['bankBuss']['sortcode']?>"></td>
 									</tr>
 									<tr>
 										<td>Company name:</td>
-										<td><input type="text" name="CompanyName" id="CompanyName" placeholder="12345678" value="<?=$details['bankBuss']['companyname']?>"></td>
+										<td><input type="text" name="CompanyNameBuss" id="CompanyNameBuss" placeholder="12345678" value="<?=$details['bankBuss']['companyname']?>"></td>
 									</tr>
 									<tr>
 										<td>Company number:</td>
-										<td><input type="text" name="CompanyNumber" id="CompanyNumber" placeholder="12345678" value="<?=$details['bankBuss']['companynumber']?>"></td>
+										<td><input type="text" name="CompanyNumberBuss" id="CompanyNumberBuss" placeholder="12345678" value="<?=$details['bankBuss']['companynumber']?>"></td>
 									</tr>
 									<tr>
 										<td>Account number:</td>
-										<td><input type="text" name="AccountNumber" id="AccountNumber" placeholder="12345678" value="<?=$details['bankBuss']['accountnumber']?>"></td>
+										<td><input type="text" name="AccountNumberBuss" id="AccountNumberBuss" placeholder="12345678" value="<?=$details['bankBuss']['accountnumber']?>"></td>
 									</tr>
 									</table>
 									</div>									
