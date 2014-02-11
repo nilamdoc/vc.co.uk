@@ -5,7 +5,7 @@
 
 <p>You have requested to withdraw money from <?=COMPANY_URL?> through <strong><?=$data['WithdrawalMethod']?></strong>.</p>
 <?php 
-print_r($data);
+
 	if($data['WithdrawalMethod']=='okpay'){
 ?>
 <strong>Withdrawal Method: OKPAY send to <?=$data['okpayEmail']?>.</strong>

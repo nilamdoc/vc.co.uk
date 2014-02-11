@@ -5,7 +5,7 @@
 <p>You have requested to withdraw money from <?=COMPANY_URL?>.</p>
 <p><strong>Thank you, your request has been sent for clearance.</strong></p>
 <?php 
-print_r($data);
+
 	if($data['WithdrawalMethod']=='okpay'){
 ?>
 <strong>Withdrawal Method: OKPAY send to <?=$data['okpayEmail']?>.</strong>
