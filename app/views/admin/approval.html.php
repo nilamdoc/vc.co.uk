@@ -42,6 +42,7 @@
 if(count($details)!=0){
 $i = 1;
 	foreach($details as $detail){
+		if($detail['active']=='Yes' || $detail['active']==''){
 ?>
 	<tr>
 		<td><?=$i?> 
@@ -63,7 +64,8 @@ $i = 1;
 		<td style="text-align:center "><a href="/Admin/approve/utility/<?=$detail['_id']?>" target="_blank"><?=$detail['utility.verified']?></a></td>								
 	</tr>
 
-<?php $i++;	}
+<?php } 
+	$i++;	}
 
 } ?>
 </table>
