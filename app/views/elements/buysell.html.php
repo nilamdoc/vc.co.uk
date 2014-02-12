@@ -374,10 +374,11 @@ if($$second_curr!=0){ ?>
 				<tbody>
 					<?php 
 					$BuyOrderAmount = 0;
+					$i = 0;
 					foreach($BuyOrders['result'] as $BO){
 						$BuyOrderPrice = round($BO['_id']['PerPrice'],8);
 						$BuyOrderAmount = round($BO['Amount'],8);
-					
+						if($i<=10){
 					?>
 					<tr onClick="BuyOrderFill(<?=$BuyOrderPrice?>,<?=$BuyOrderAmount?>);" style="cursor:pointer" 
 					 class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Sell <?=$BuyOrderAmount?> <?=$first_curr?> at <?=$BuyOrderPrice?> <?=$second_curr?>">
@@ -386,7 +387,8 @@ if($$second_curr!=0){ ?>
 						<td style="text-align:right"><?=number_format(round($BO['Amount'],8),8)?></td>
 						<td style="text-align:right"><?=number_format(round($BO['_id']['PerPrice']*$BO['Amount'],8),8)?></td>																	
 					</tr>
-					<?php }?>
+					<?php }
+					$i++;}?>
 				</tbody>
 			</table>
 		</div>	
