@@ -601,7 +601,7 @@ class UsersController extends \lithium\action\Controller {
 		$object = json_decode($response);
 //		print_r($object);
 		$address = $object->input_address;
-		print_r($object);
+		print_r($response);
 		$laddress = 'LADDRESS';				
 		$paytxfee = Parameters::find('first');
 		$txfee = $paytxfee['paytxfee'];
