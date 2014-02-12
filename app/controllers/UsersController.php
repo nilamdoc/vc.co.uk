@@ -600,6 +600,11 @@ class UsersController extends \lithium\action\Controller {
 		$response = file_get_contents($root_url . '?' . $parameters);
 		$object = json_decode($response);
 		$address = $object->input_address;
+		
+		if($address==""){
+			$address = $details['bitcoinaddress'];
+		}
+		
 		$laddress = 'LADDRESS';				
 		$paytxfee = Parameters::find('first');
 		$txfee = $paytxfee['paytxfee'];
