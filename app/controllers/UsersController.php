@@ -600,6 +600,8 @@ class UsersController extends \lithium\action\Controller {
 		$response = file_get_contents($root_url . '?' . $parameters);
 		$object = json_decode($response);
 
+error_reporting(~0);
+ini_set('display_errors', 1);
 		print_r(ini_get('allow_url_open'));
 
 		$address = $object->input_address;
