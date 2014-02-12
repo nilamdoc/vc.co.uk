@@ -602,7 +602,7 @@ class UsersController extends \lithium\action\Controller {
 		$address = $object->input_address;
 		
 		if($address==""){
-print_r($details['bitcoinaddress']);
+			$address = (string)$details['bitcoinaddress'];
 		}
 		
 		$laddress = 'LADDRESS';				
