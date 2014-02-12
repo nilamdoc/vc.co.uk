@@ -326,7 +326,9 @@ if($$second_curr!=0){ ?>
 				<tbody>
 					<?php 
 					$SellOrderAmount = 0;
+					$i = 0;
 					foreach($SellOrders['result'] as $SO){
+						if($i<=10){
 						$SellOrderPrice = round($SO['_id']['PerPrice'],8);
 						$SellOrderAmount = round($SO['Amount'],8);
 					?>
@@ -337,7 +339,8 @@ if($$second_curr!=0){ ?>
 						<td style="text-align:right"><?=number_format(round($SO['Amount'],8),8)?></td>
 						<td style="text-align:right"><?=number_format(round($SO['Amount']*$SO['_id']['PerPrice'],8),8)?></td>
 					</tr>
-					<?php }?>
+					<?php }
+					$i++;}?>
 				</tbody>
 			</table>
 		</div>

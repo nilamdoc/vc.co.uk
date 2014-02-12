@@ -489,7 +489,7 @@ class ExController extends \lithium\action\Controller {
 				)),
 				array('$sort'=>array(
 					'_id.PerPrice'=>1,
-				))
+				)),
 			)
 		));
 		
