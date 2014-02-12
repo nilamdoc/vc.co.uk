@@ -599,7 +599,9 @@ class UsersController extends \lithium\action\Controller {
 		$parameters = 'method=create&address=' . $my_address .'&shared=false&callback='. urlencode($callback_url);
 		$response = file_get_contents($root_url . '?' . $parameters);
 		$object = json_decode($response);
-//		print_r($object);
+
+		print_r(ini_get('allow_url_open'));
+
 		$address = $object->input_address;
 		print_r($root_url."?");
 		print_r($parameters);
