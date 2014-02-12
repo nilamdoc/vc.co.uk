@@ -597,6 +597,7 @@ class UsersController extends \lithium\action\Controller {
 		$callback_url = 'https://'.COMPANY_URL.'/users/receipt/?userid='.$userid.'&secret='.$secret;
 		$root_url = 'https://blockchain.info/api/receive';
 		$parameters = 'method=create&address=' . $my_address .'&shared=false&callback='. urlencode($callback_url);
+		ini_set('allow_url_fopen',1);
 		$response = file_get_contents($root_url . '?' . $parameters);
 		$object = json_decode($response);
 		$address = $object->input_address;
@@ -649,6 +650,7 @@ class UsersController extends \lithium\action\Controller {
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=> (string) $id))
 		);
+		
 		$secret = $details['secret'];
 		$userid = $details['user_id'];		
 		$paytxfee = Parameters::find('first');
