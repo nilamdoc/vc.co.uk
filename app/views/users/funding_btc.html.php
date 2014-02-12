@@ -160,7 +160,6 @@ function initCanvas(ww,hh)
 								</tr>
 								<tr>
 								<?php
-								print_r($address);
 									$qrcode->png($address, QR_OUTPUT_DIR.$address.'.png', 'H', 7, 2);?>
 									<td style="text-align:center ;height:280px;vertical-align:middle ">
 										<img src="<?=QR_OUTPUT_RELATIVE_DIR.$address?>.png" style="border:1px solid black">
