@@ -286,7 +286,11 @@ if($$second_curr!=0){ ?>
 								<i class="icon-remove"></i></a> &nbsp; 
 							<?=$YO['Action']?> <?=$YO['FirstCurrency']?>/<?=$YO['SecondCurrency']?></td>
 						<td style="text-align:right "><?=number_format($YO['PerPrice'],3)?>...</td>
-						<td style="text-align:right "><?=number_format($YO['Amount'],3)?>...</td>
+						<td style="text-align:right " 
+						class=" tooltip-x" rel="tooltip-x" data-placement="top" title="<?=$YO['Action']?> <?=number_format($YO['Amount'],3)?> at 
+					<?=number_format($YO['PerPrice'],8)?> on <?=gmdate('Y-m-d H:i:s',$YO['DateTime']->sec)?>"
+						
+						><?=number_format($YO['Amount'],3)?>...</td>
 					</tr>
 				<?php }?>					
 				</tbody>
