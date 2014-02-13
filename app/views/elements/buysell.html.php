@@ -94,7 +94,7 @@ if($$second_curr!=0){ ?>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
 			<tr>
 				<td><?=$t('Your balance')?>:<br>
-					<span class="btn btn-info" style="width:80% "><span id="BalanceSecond"><?=$BalanceSecond?></span> <?=$second_curr?></span>
+					<span class="btn btn-info" style="width:80% " onClick="AutoFillBuy()"><span id="BalanceSecond"><?=$BalanceSecond?></span> <?=$second_curr?></span>
 				</td>
 				<td><?=$t('Lowest Ask Price')?><br>
 					<span class="btn btn-warning" style="width:80% "><span id="LowestAskPrice">0</span> <?=$second_curr?></span>
@@ -208,7 +208,7 @@ if($$second_curr!=0){ ?>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px">
 			<tr>
 			<td><?=$t('Your balance')?>:<br>
-			<span class="btn btn-info " style="width:80%"><span id="BalanceFirst"><?=$BalanceFirst?></span> <?=$first_curr?></span>
+			<span class="btn btn-info " style="width:80%" onClick="AutoFillSell();"><span id="BalanceFirst"><?=$BalanceFirst?></span> <?=$first_curr?></span>
 			</td>
 			<td><?=$t('Highest Bid Price')?><br>
 				<span class="btn btn-success " style="width:80%"><span id="HighestBidPrice">0</span> <?=$second_curr?></span>

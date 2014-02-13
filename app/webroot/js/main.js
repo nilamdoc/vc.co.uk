@@ -387,3 +387,9 @@ function DepositByMethod(value){
 		$("#OkPaySelect").hide();		
 	}
 }
+function AutoFillBuy(){
+	$("#BuyAmount").val($("#BalanceSecond").html());
+}
+function AutoFillSell(){
+	$("#SellAmount").val($("#BalanceFirst").html());
+}
