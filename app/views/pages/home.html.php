@@ -72,7 +72,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 </a><!-- End OKPAY Seal Logo --><br>
 <!--		<a href="http://www.bitcointrezor.com/" target="_blank"><img src="/img/trezor.png" title="Trezor, the Bitcoin Safe"></a><br> -->
 		<a href="http://bitcoinmagazine.com/" target="_blank"><img src="/img/BMlogo.jpg" title="Bitcoin Magazine"  style="margin-bottom:10px" width="150"></a><br>
-<a href="https://multibit.org/" target="_blank"><img src="/img/bitcointalk_logo.jpg.png" width="170px" alt="Multibit"/></a><br>
+<a href="https://multibit.org/" target="_blank"><img src="/img/multibit-banner.png" width="170px" alt="Multibit"/></a><br>
 <!--		<a href="https://bitcoinfoundation.org/" target="_blank"><img src="/img/bitcoin-foundation.jpg" alt="Bitcoin Foundation" width="170px"></a><br>
 -->
 		</div>
