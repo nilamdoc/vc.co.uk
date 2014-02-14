@@ -8,10 +8,9 @@ $Comm = Parameters::find('first');
 
 <strong><?=$t("Please read these Terms carefully and do not use the Site or the Platform unless you accept them.")?></strong>
 <p><a href="https://<?=COMPANY_URL?>/">https://<?=COMPANY_URL?>/</a> <?=$t("is a site operated by of IBWT JD LTD ")?>("<strong>IBWT</strong>"), <?=$t("a company incorporated under the laws of England and Wales. Registered address: 31 North Down Crescent, Keyham, Plymouth, Devon, United Kingdom, company number: 08854667. Our VAT number is 165221136. IBWT is regulated by the Information Commissioners Office, registered no: ZA007784.")?></p>
-<p><?=$t("These Terms of Service ")?>("<strong><?=$t("Terms")?></strong>") <?=$t("set the conditions by which a customer, as a registered user ")?>("<strong><?=$t("Customer(s)")?></strong>")<?=$t(" can use our services for the purposes of becoming buyers ")?>("<strong>Buyers</strong>")<?=$t(" and sellers ")?>("<strong>Sellers</strong>"),<?=$t(" transferring the digital value asset known as  'Crypto-currency(s)' and 'Litecoin(s)'.")?></p>
+<p><?=$t("These Terms of Service ")?>("<strong><?=$t("Terms")?></strong>") <?=$t("set the conditions by which a customer, as a registered user ")?>("<strong><?=$t("Customer(s)")?></strong>")<?=$t(" can use our services for the purposes of becoming buyers ")?>("<strong>Buyers</strong>")<?=$t(" and sellers ")?>("<strong>Sellers</strong>"),<?=$t(" transferring the digital value asset known as  'Crypto-currency(s)', including, but not limited to 'Bitcoin(s)' and 'Litecoin(s)'.")?></p>
 <p><?=$t("The services allow Customers to transfer funds into ('Deposit') or from ('Withdrawal') their IBWT account to their registered OKPAY account, or via limited Royal Mail Special Delivery Service (currently UK residents only). And to interact with other businesses or individuals who accept Crypto-currency.")?></p>
 <p><?=$t("OKPAY is an international company and accepts bank wire transfers from all over the world.")?></p>
-<p><?=$t("The services that this site gives is only currently available to United Kingdom residents.")?></p>
 
 <p><?=$t("By submitting a request to open an account ('Account') customers confirm that they;")?>
 <ul>
@@ -28,7 +27,7 @@ $Comm = Parameters::find('first');
 
 <p><strong><?=$t("Platform")?></strong>: <?=$t("means the software, technical and organisational structure managed by IBWT located at the")?> <a href="https://<?=COMPANY_URL?>/">https://<?=COMPANY_URL?>/</a> <?=$t("address")?>.</p>
 
-<p><strong><?=$t("Bitcoin(s)")?></strong>: <?=$t("means the Peer-to-Peer digital transfer value asset (as described at ")?><a href="http://http://bitcoin.org/en/" target="_blank">http://bitcoin.org/en/</a>).</p>
+<p><strong><?=$t("Bitcoin(s)")?></strong>: <?=$t("means the Peer-to-Peer digital transfer value asset (as described at ")?><a href="https://bitcoin.org/en/" target="_blank">https://bitcoin.org/en/</a>).</p>
 <p><strong><?=$t("Litecoin(s)")?></strong>:<?=$t("means the Peer-to-Peer digital transfer value asset (as described at ")?><a href="https://litecoin.org/" target="_blank">https://litecoin.org/</a></p>
 <p><strong><?=$t("Crypto-Currency(s)")?></strong>:<?=$t("means Crypto-currency and any alternative coin based upon the Bitcoin protocol.")?></p>
 <p><strong><?=$t("Seller(s)")?></strong>: <?=$t("means Customers(s) that submit an offer to sell Crypto-currency(s) on the Platform.")?></p>
