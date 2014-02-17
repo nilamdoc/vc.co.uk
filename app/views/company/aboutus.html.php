@@ -8,7 +8,7 @@
 			<img src="/img/joeld.jpg" width="200" style="padding:1px;border:1px solid black " alt="Joel Dalais"><br>
 			<strong>Joel Dalais</strong><br>
 			<small><strong><?=$t("Director")?></strong></small>
-			<p><?=$t("Joel Dalais is a virtual currency entrepreneur that has found himself within the Bitcoin economy, building and leading the IBWT team. He also holds a BSc (hons) in Criminology with Criminal Justice Studies and Sociology, sits on the Law & Policy Committee of the Bitcoin Foundation, is a member of the Ludwig Von Mises Institute, and is a fellow at the Bitcoin Education Project. His expertise is in: Bitcoin, the social aspects and impacts of a free market monetary unit, regulatory, legal & criminal issues and international standards. He aims to make IBWT an assisting and economically important tool in the developing societal changes.")?></p>
+			<p><?=$t("Joel is a virtual currency entrepreneur. He holds a BSc (hons) in Criminology with Criminal Justice Studies and Sociology, is a member of the Ludwig Von Mises Institute, and is a fellow at the Bitcoin Education Project. His expertise is in the social aspects and impacts of a free market monetary unit, regulatory, legal & criminal issues and international standards. He aims to make IBWT and its associates an assisting and economically important tool in the developing Crypto world.")?></p>
 
 		</td>
 		<td width="50%">

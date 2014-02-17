@@ -57,14 +57,14 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 </ul>
 
 	</div>
-	<div class="span3" style="min-height:732px;border:1px solid gold;padding:4px ">
-		<div style="overflow:auto;height:605px">
+	<div class="span3" style="min-height:792px;border:1px solid gold;padding:4px;text-align:center ">
+		<div style="overflow:auto;height:655px">
 			<ul class="unstyled">
-				<li class="alert alert-danger"><strong>Visit our <a href="/<?=$locale?>/virtualoffice">Virtual Office</a> for the latest IBWT <a href="/<?=$locale?>/news">News</a> and Info.</strong></li>
+				<li class="alert alert-danger" style="text-align:center "><strong>Visit our <a href="/<?=$locale?>/virtualoffice">Virtual Office</a> for the latest IBWT <a href="/<?=$locale?>/news">News</a> and Info.</strong></li>
 			<div style="text-align:center ">
 					<a href="/<?=$locale?>/virtualoffice"><img src="/img/VO-Office.jpg" width="225px"  style="margin-bottom:10px;margin-top:-10px"></a>
 			</div>				
-				<li class="alert" style="background-color:#FCC952"><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank"><strong>Bitcoin - The Future Currency</strong></a></li>
+				<li class="alert" style="background-color:#FCC952;text-align:center"><a href="https://www.youtube.com/watch?v=LP4GSvQUtBw" target="_blank"><strong>Bitcoin - The Future Currency</strong></a></li>
 			</ul>
 		<div style="text-align:center ">
 <!-- Begin OKPAY Seal Logo --><a href="https://www.okpay.com/account/user/456908980" target="_blank"><img src="https://www.okpay.com/img/seals/seal01.png" width="100"  height="100" border="0" style="margin-bottom:10px" alt="Verify OKPAY user information."></a>
@@ -72,13 +72,14 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 </a><!-- End OKPAY Seal Logo --><br>
 <!--		<a href="http://www.bitcointrezor.com/" target="_blank"><img src="/img/trezor.png" title="Trezor, the Bitcoin Safe"></a><br> -->
 		<a href="http://bitcoinmagazine.com/" target="_blank"><img src="/img/BMlogo.jpg" title="Bitcoin Magazine"  style="margin-bottom:10px" width="150"></a><br>
-<a href="https://multibit.org/" target="_blank"><img src="/img/multibit-banner.png" width="170px" alt="Multibit"/></a><br>
+<a href="https://multibit.org/" target="_blank"><img src="/img/multibit-banner.png" width="170px" alt="Multibit"/></a><br><br>
+<a href="http://bitgivefoundation.org/" target="_blank"><img src="/img/bitgivetile.png" width="170px" alt="BitGive"></a><br>
 <!--		<a href="https://bitcoinfoundation.org/" target="_blank"><img src="/img/bitcoin-foundation.jpg" alt="Bitcoin Foundation" width="170px"></a><br>
 -->
 		</div>
 		</div>
 
-		<img src="/img/Stamp.png" class="pull-right" width="250" style="padding:1px;">
+		<img src="/img/Stamp.png"  width="220" style="padding:1px;">
 	</div>
 <!--
 <h3>News</h3>
