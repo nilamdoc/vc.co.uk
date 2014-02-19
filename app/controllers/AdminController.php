@@ -1612,7 +1612,37 @@ $description = "Admin panel for Orders";
 	}
 	
 	public function map(){
-		if($this->__init()==false){			$this->redirect('ex::dashboard');	}	
+//		if($this->__init()==false){			$this->redirect('ex::dashboard');	}	
+		$mongodb = Connections::get('default')->connection;
+		$IPDetails = Details::connection()->connection->command(array(
+			'aggregate' => 'details',
+			'pipeline' => array( 
+				array( '$project' => array(
+					'_id'=>0,
+					'ip' => '$lastconnected.IP',
+					'iso' => '$lastconnected.ISO',					
+				)),
+				array('$group' => array( '_id' => array(
+						'iso'=> '$iso',
+				),
+						'count' => array('$sum' => 1), 
+				)),
+			)
+		));
+		$details = Details::find('all',array(
+			'fields'=>array('lastconnected.loc')
+		));
+		$coun = "{";
+		foreach($IPDetails['result'] as $IP){
+			if($IP["_id"]["iso"]!=""){
+				$coun = $coun . '"'.$IP['_id']['iso'].'":"'. $IP["count"].'",';
+			}
+		}
+		$coun = substr($coun,0,-1);
+		$coun = $coun . '}';
+
+
+		return compact('IPDetails','details','coun');
 	}
 }
 ?>
