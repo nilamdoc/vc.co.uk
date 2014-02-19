@@ -46,6 +46,7 @@ if($this->_request->params['controller']!='api'){
 		<li><a href="/Admin/litecointransaction"><?=$t("LTC")?></a></li>												
 		<li><a href="/Admin/orders"><?=$t("Orders")?></a></li>												
 		<li><a href="/Admin/api"><?=$t("API")?></a></li>														
+		<li><a href="/Admin/map"><?=$t("map")?></a></li>																
 		<li><a href="/Admin/down" class="tooltip-x"  rel="tooltip-x" data-placement="top" title="Danger! All users will be logged out and not able to sign in too... You will have to call Nilam to start it!"><i class="icon-off"></i></a></li>																
 	<?php }	?>	
 </ul>
