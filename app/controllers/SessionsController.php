@@ -46,7 +46,18 @@ class SessionsController extends \lithium\action\Controller {
 				}
 				if($details['oneCode']===$this->request->data['loginpassword']){
 					$data = array(
-						'oneCodeused'=>'Yes'
+						'oneCodeused'=>'Yes',
+						'lastconnected'=>array(									
+									'IP' => $IPResponse->ip,
+									'ISO'=> $IPResponse->country,
+									'hostname'=> $IPResponse->hostname,
+									'city'=> $IPResponse->city,
+									'region'=> $IPResponse->region,									
+									'loc'=> $IPResponse->loc,
+									'org'=> $IPResponse->org,									
+									'postal'=> $IPResponse->postal,									
+									'DateTime' => new \MongoDate(),
+								)
 					);
 					$details = Details::find('first',array(
 						'conditions' => array(
