@@ -61,7 +61,7 @@
 <?php foreach($details as $dd){
 	if($dd['lastconnected.loc']!=""){
 ?>
-	  r.circle().attr({fill: "#00f", stroke: "#f00", r: 2}).attr(world.getXY(<?=$dd['lastconnected.loc']?>));
+	  r.circle().attr({fill: "#00f", stroke: "", r: 1}).attr(world.getXY(<?=$dd['lastconnected.loc']?>));
 <?php }
 }?>
 
