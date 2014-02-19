@@ -21,8 +21,8 @@ class SessionsController extends \lithium\action\Controller {
 			
 			Session::delete('default');				
 			$response = file_get_contents("http://ipinfo.io/{$_SERVER['REMOTE_ADDR']}");
-			$details = json_decode($response);
-			if($details->tor) {
+			$IPResponse = json_decode($response);
+			if($IPResponse->tor) {
 		    // Display error message or something
 					Auth::clear('member');
 					Session::delete('default');
@@ -76,27 +76,17 @@ class SessionsController extends \lithium\action\Controller {
 								$function = new Functions();
 								$IP = $function->get_ip_address();
 
-								$ips = explode(".",$IP);
-								$IP_no =  $ips[3] + $ips[2]*256 + $ips[1]*65536 + $ips[0]*16777216;
-								$Country = Ipaddresses::find('all',array(
-									'conditions'=>array(
-										'start_no'=>array('$lte'=>$IP_no), 
-										'end_no'=>array('$gte'=>$IP_no)
-									),
-									'limit'=>1
-								));
-								if(count($Country)!=0){
-									foreach($Country as $CC){
-										$CountryISO = $CC['ISO'];
-										$Country = $CC['Country'];										
-									}
-								}
-
 								$data = array(
 									'username' => $user['username'],
-									'IP' => $IP,
-									'ISO'=> $CountryISO,
-									'Country'=>$Country,
+									'IP' => $IPResponse->ip,
+									'ISO'=> $IPResponse->country,
+
+									'hostname'=> $IPResponse->hostname,
+									'city'=> $IPResponse->city,
+									'region'=> $IPResponse->region,									
+									'loc'=> $IPResponse->loc,
+									'org'=> $IPResponse->org,									
+									'postal'=> $IPResponse->postal,									
 									'DateTime' => new \MongoDate(),
 								);
 								Logins::create()->save($data);
@@ -115,31 +105,21 @@ class SessionsController extends \lithium\action\Controller {
 								$function = new Functions();
 								$IP = $function->get_ip_address();
 
-								$ips = explode(".",$IP);
-								$IP_no =  $ips[3] + $ips[2]*256 + $ips[1]*65536 + $ips[0]*16777216;
-								$Country = Ipaddresses::find('all',array(
-									'conditions'=>array(
-										'start_no'=>array('$lte'=>$IP_no), 
-										'end_no'=>array('$gte'=>$IP_no)
-									),
-									'limit'=>1
-								));
-								if(count($Country)!=0){
-									foreach($Country as $CC){
-										$CountryISO = $CC['ISO'];
-										$Country = $CC['Country'];										
-									}
-								}
-
 								$data = array(
 									'username' => $user['username'],
-									'IP' => $IP,
-									'ISO'=> $CountryISO,
-									'Country'=>$Country,
+									'IP' => $IPResponse->ip,
+									'ISO'=> $IPResponse->country,
+
+									'hostname'=> $IPResponse->hostname,
+									'city'=> $IPResponse->city,
+									'region'=> $IPResponse->region,									
+									'loc'=> $IPResponse->loc,
+									'org'=> $IPResponse->org,									
+									'postal'=> $IPResponse->postal,									
 									'DateTime' => new \MongoDate(),
 								);
 								Logins::create()->save($data);
-/////////////////////////////////////////////////////////////////////////////////						
+						/////////////////////////////////////////////////////////////////////////////////						
 						return $this->redirect('ex::dashboard');
 						exit;
 					}
