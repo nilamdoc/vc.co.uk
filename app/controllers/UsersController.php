@@ -644,12 +644,23 @@ class UsersController extends \lithium\action\Controller {
 		$user = Session::read('default');
 		if ($user==""){		return $this->redirect('/login');}
 		$id = $user['_id'];
-		$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
-		$address = $litecoin->getnewaddress($user['username']);
-
+		
 		$details = Details::find('first',
 			array('conditions'=>array('user_id'=> (string) $id))
 		);
+
+		$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
+		
+		if($details['LTCnewaddress']=="" || $details['LTCnewaddress']=="No"){
+			$address = $litecoin->getnewaddress($user['username']);
+			
+		}else{
+			if($details['litecoinaddress'][0]==""){
+				$address = $litecoin->getnewaddress($user['username']);
+			}else{
+				$address = $details['litecoinaddress'][0];
+			}
+		}
 		
 		$secret = $details['secret'];
 		$userid = $details['user_id'];		

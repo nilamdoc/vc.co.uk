@@ -5,6 +5,7 @@ use lithium\security\Auth;
 use lithium\util\String;
 use app\models\Users;
 use app\models\Pages;
+use app\models\Ipaddresses;
 use app\models\Logins;
 use app\models\Details;
 use lithium\storage\Session;
@@ -75,9 +76,27 @@ class SessionsController extends \lithium\action\Controller {
 								$function = new Functions();
 								$IP = $function->get_ip_address();
 
+								$ips = explode(".",$IP);
+								$IP_no =  $ips[3] + $ips[2]*256 + $ips[1]*65536 + $ips[0]*16777216;
+								$Country = Ipaddresses::find('all',array(
+									'conditions'=>array(
+										'start_no'=>array('$lte'=>$IP_no), 
+										'end_no'=>array('$gte'=>$IP_no)
+									),
+									'limit'=>1
+								));
+								if(count($Country)!=0){
+									foreach($Country as $CC){
+										$CountryISO = $CC['ISO'];
+										$Country = $CC['Country'];										
+									}
+								}
+
 								$data = array(
 									'username' => $user['username'],
 									'IP' => $IP,
+									'ISO'=> $CountryISO,
+									'Country'=>$Country,
 									'DateTime' => new \MongoDate(),
 								);
 								Logins::create()->save($data);
@@ -96,9 +115,27 @@ class SessionsController extends \lithium\action\Controller {
 								$function = new Functions();
 								$IP = $function->get_ip_address();
 
+								$ips = explode(".",$IP);
+								$IP_no =  $ips[3] + $ips[2]*256 + $ips[1]*65536 + $ips[0]*16777216;
+								$Country = Ipaddresses::find('all',array(
+									'conditions'=>array(
+										'start_no'=>array('$lte'=>$IP_no), 
+										'end_no'=>array('$gte'=>$IP_no)
+									),
+									'limit'=>1
+								));
+								if(count($Country)!=0){
+									foreach($Country as $CC){
+										$CountryISO = $CC['ISO'];
+										$Country = $CC['Country'];										
+									}
+								}
+
 								$data = array(
 									'username' => $user['username'],
 									'IP' => $IP,
+									'ISO'=> $CountryISO,
+									'Country'=>$Country,
 									'DateTime' => new \MongoDate(),
 								);
 								Logins::create()->save($data);
