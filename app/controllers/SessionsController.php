@@ -5,7 +5,6 @@ use lithium\security\Auth;
 use lithium\util\String;
 use app\models\Users;
 use app\models\Pages;
-use app\models\Ipaddresses;
 use app\models\Logins;
 use app\models\Details;
 use lithium\storage\Session;
