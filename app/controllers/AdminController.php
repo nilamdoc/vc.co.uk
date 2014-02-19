@@ -1591,6 +1591,7 @@ $description = "Admin panel for Orders";
 		return compact('$data');
 	}
 	public function activate($id=null){
+		if($this->__init()==false){			$this->redirect('ex::dashboard');	}	
 		$data = array(
 			'active' => 'Yes'
 		);
@@ -1600,6 +1601,7 @@ $description = "Admin panel for Orders";
 		$this->redirect('Admin::approval');	
 	}
 	public function deactivate($id=null){
+		if($this->__init()==false){			$this->redirect('ex::dashboard');	}	
 		$data = array(
 			'active' => 'No'
 		);
@@ -1607,6 +1609,10 @@ $description = "Admin panel for Orders";
 			'_id'=>$id
 		)))->save($data);
 		$this->redirect('Admin::approval');	
+	}
+	
+	public function map(){
+		if($this->__init()==false){			$this->redirect('ex::dashboard');	}	
 	}
 }
 ?>
