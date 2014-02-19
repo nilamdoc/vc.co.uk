@@ -105,7 +105,7 @@
 				if (mycountryarray[country]) {
 					$("#forworldmapcomment").html("<h2>"+country + " " + worldmap.names[country] + ": "+ mycountryarray[country]+"</h2>");
 				} else {
-					$("#forworldmapcomment").html("Not found");
+			$("#forworldmapcomment").html("<h2>"+country + " " + worldmap.names[country] + ": 0</h2>");
 				}
 			}
 </script>
