@@ -1612,7 +1612,7 @@ $description = "Admin panel for Orders";
 	}
 	
 	public function map(){
-//		if($this->__init()==false){			$this->redirect('ex::dashboard');	}	
+		if($this->__init()==false){			$this->redirect('ex::dashboard');	}	
 		$mongodb = Connections::get('default')->connection;
 		$IPDetails = Details::connection()->connection->command(array(
 			'aggregate' => 'details',
