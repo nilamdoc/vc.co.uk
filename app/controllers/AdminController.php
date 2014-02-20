@@ -1612,7 +1612,7 @@ $description = "Admin panel for Orders";
 	}
 	
 	public function map(){
-//		if($this->__init()==false){			$this->redirect('ex::dashboard');	}	
+		if($this->__init()==false){			$this->redirect('ex::dashboard');	}	
 		$mongodb = Connections::get('default')->connection;
 		$IPDetails = Details::connection()->connection->command(array(
 			'aggregate' => 'details',
@@ -1637,7 +1637,7 @@ $description = "Admin panel for Orders";
 		$balance = array();
 		$coun = "{";
 		foreach($IPDetails['result'] as $IP){
-//				$BTC = 0; $LTC = 0; $GBP = 0; $USD = 0; $EUR = 0;
+				$BTC = 0; $LTC = 0; $GBP = 0; $USD = 0; $EUR = 0;
 				foreach($details as $dd){
 					if($IP['_id']['iso']==$dd['lastconnected']['ISO']){
 						$BTC = $BTC + $dd['balance']['BTC'];
