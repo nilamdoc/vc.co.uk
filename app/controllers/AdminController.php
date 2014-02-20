@@ -1612,7 +1612,7 @@ $description = "Admin panel for Orders";
 	}
 	
 	public function map(){
-		if($this->__init()==false){			$this->redirect('ex::dashboard');	}	
+//		if($this->__init()==false){			$this->redirect('ex::dashboard');	}	
 		$mongodb = Connections::get('default')->connection;
 		$IPDetails = Details::connection()->connection->command(array(
 			'aggregate' => 'details',
@@ -1630,17 +1630,31 @@ $description = "Admin panel for Orders";
 			)
 		));
 		$details = Details::find('all',array(
-			'fields'=>array('lastconnected.loc')
+			'conditions'=>array('lastconnected.loc'=>array('$exists'=>true)),
+			'fields'=>array('lastconnected.loc','lastconnected.ISO','balance.BTC','balance.LTC','balance.USD','balance.EUR','balance.GBP'),
+			'sort'=>array('lastconnected.ISO'=>'ASC')
 		));
+		$balance = array();
 		$coun = "{";
 		foreach($IPDetails['result'] as $IP){
+//				$BTC = 0; $LTC = 0; $GBP = 0; $USD = 0; $EUR = 0;
+				foreach($details as $dd){
+					if($IP['_id']['iso']==$dd['lastconnected']['ISO']){
+						$BTC = $BTC + $dd['balance']['BTC'];
+						$LTC = $LTC + $dd['balance']['LTC'];
+						$GBP = $GBP + $dd['balance']['GBP'];
+						$USD = $USD + $dd['balance']['USD'];
+						$EUR = $EUR + $dd['balance']['EUR'];																								
+					}
+				$balance[$IP['_id']['iso']] = " BTC: ".number_format($BTC,3)." LTC: ".number_format($LTC,3)." GBP: ".number_format($GBP,3)." USD: ".number_format($USD,3)." EUR: ".number_format($EUR,3);
+				}
+
 			if($IP["_id"]["iso"]!=""){
-				$coun = $coun . '"'.$IP['_id']['iso'].'":"'. $IP["count"].'",';
+				$coun = $coun . '"'.$IP['_id']['iso'].'":"Users: '. $IP["count"].$balance[$IP["_id"]["iso"]].'",';
 			}
 		}
 		$coun = substr($coun,0,-1);
 		$coun = $coun . '}';
-
 
 		return compact('IPDetails','details','coun');
 	}

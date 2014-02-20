@@ -103,9 +103,9 @@
 			});
 			function showTooltip(country) {
 				if (mycountryarray[country]) {
-					$("#forworldmapcomment").html("<h2>"+country + " " + worldmap.names[country] + ": "+ mycountryarray[country]+"</h2>");
+					$("#forworldmapcomment").html("<h3>"+country + " " + worldmap.names[country] + ": "+ mycountryarray[country]+"</h3>");
 				} else {
-			$("#forworldmapcomment").html("<h2>"+country + " " + worldmap.names[country] + ": 0</h2>");
+			$("#forworldmapcomment").html("<h3>"+country + " " + worldmap.names[country] + ": 0</h3>");
 				}
 			}
 </script>
