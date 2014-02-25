@@ -1,6 +1,7 @@
 <div class="well" style="background-image:url(/img/Stamp.png);background-position:bottom right;background-repeat:no-repeat">
 <h3><?=$t("News")?></h3>
 <ul>
+	<li><a href="/files/News Release 25-02-14.pdf">Commission Fees Reduced to 0.3%</a></li>
 	<li><a href="/files/News Release 10-02-14.pdf">MtGox Problems Are Not Our Problems</a></li>
 	<li><a href="/files/News Release 30-01-14.pdf">Bank Wire Transfers for USD, CAD, Euro and GBP.</a></li>
 	<li><a href="/files/News Release 07-01-14.pdf">IBWT adds bank withdrawals.</a></li>

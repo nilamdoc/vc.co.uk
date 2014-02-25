@@ -33,7 +33,11 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 -->
 			<?php }?>
 				</ul>
-				<?php }?>
+				<?php }else{?>
+				<ul class="nav">				
+					<li><a  style="font-size:30px;color:#000000;font-weight:bold;border-bottom:double red ">Virtual Currency Exchange</a></li>
+				</ul>
+				<?php }?>				
 				</div>
 			</div>
 			<ul class="nav pull-right">
