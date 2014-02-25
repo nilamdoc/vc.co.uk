@@ -16,15 +16,15 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 	</table>
 	<blockquote>"The day science begins to study non-physical phenomena, it will make more progress in one decade than in all the previous 
 	centuries of its existence." <small>Nikola Tesla</small></blockquote>
-	<p class="alert" style="color:#111111;background-color:#FCC952 ;font-size:16px;font-weight:bold ">One wonders how applicable Bitcoin is to Nikola Tesla's statement. Here at IBWT we plan to help put it to the test, by enabling you, our customers, to trade your Bitcoin for sterling with each other in a secure and trusted environment.</p>
+	<p class="alert" style="color:#111111;background-color:#FCC952 ;font-size:16px;font-weight:bold ">Buy and Sell Bitcoins at a low <?=$Comm['value']?>% Commission Fee. Use our free <a href="/print">Paper Wallet</a> cold storage service, your best suited <a href="/company/funding">Alternative Funding</a> system, and use Bank Wire Transfers via <a href="/okpay">OKPAY</a>.</p>
 	<h5>IBWT is a UK Bitcoin/Virtual Currency exchange, offering a fully regulated, secure method, for individuals and businesses to buy or sell bitcoins.</h5>
 	<ul>
 			<li>Fees are <strong><?=$Comm['value']?></strong>% per transaction</li>
 			<li>Simple verification means you could be a full customer in a matter of days</li>
 			<li>Security ensured with Cold Storage, SSL 256bit encryption & 2FA</li>
 			<li>Dedicated Server for an enhanced customer experience</li>
-			<li>Deposits via <A HREF="/okpay" target="_blank">OKPAY</A> or secure mail services.</li>
-			<li>Withdrawal via <A HREF="/okpay" target="_blank">OKPAY</A>, secure mail services or via banks.</li>
+			<li>Deposits via <A HREF="/okpay" target="_blank">OKPAY</A> or secure mail services</li>
+			<li>Withdrawal via <A HREF="/okpay" target="_blank">OKPAY</A>, secure mail services or via banks</li>
 
 	</ul>
 	<h3>About Bitcoin</h3>
