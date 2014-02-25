@@ -16,7 +16,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 			<span class="icon-bar"></span>
 			</a>
 			<!-- Be sure to leave the brand out there if you want it shown -->
-			<a class="brand" href="/<?=$locale?>/"><img src="/img/ibwt.co.uk.gif" alt="ibwt.co.uk"></a>
+			<a class="brand" href="/<?=$locale?>/"><img src="/img/ibwt.co.uk.gif" alt="In Bitcoin We Trust" title="In Bitcoin We Trust"></a>
 			<!-- Everything you want hidden at 940px or less, place within here -->
 		<div>
 
@@ -35,7 +35,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 				</ul>
 				<?php }else{?>
 				<ul class="nav">				
-					<li><a  style="font-size:30px;color:#000000;font-weight:bold;border-bottom:double red ">Virtual Currency Exchange</a></li>
+					<li><a  style="font-size:30px;color:#333;font-weight:bold;" >Virtual Currency Exchange</a></li>
 				</ul>
 				<?php }?>				
 				</div>
