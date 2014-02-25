@@ -36,7 +36,7 @@ $Comm = Parameters::find('first');
 
 <p><strong><?=$t("Customer(s)")?></strong>: <?=$t("Any holder of an account.")?></p>
 <p><strong><?=$t("Price")?></strong>: <?=$t("means 'price per coin' for which Customers are willing to purchase or sell Crypto-currency, using the Platform in a Crypto-currency Purchase Transaction.")?></p>
-<p><strong><?=$t("Commission")?></strong>: <?=$t("refers to the fee which is payable to IBWT on each Transaction. Fee's at this time are 0.6% per transaction. For Purchases and Sales Transactions, commission is charged to each customer per transaction in the received denomination.")?></p>
+<p><strong><?=$t("Commission")?></strong>: <?=$t("refers to the fee which is payable to IBWT on each Transaction. Fee's at this time are")?> <?=$Comm['value']?>% <?=$t("per transaction. For Purchases and Sales Transactions, commission is charged to each customer per transaction in the received denomination.")?></p>
 
 <p><strong><?=$t("Transaction Price")?></strong>: <?=$t("means the total price paid by the Buyer in respect of each Transaction performed on the Platform.")?></p>
 <p><strong><?=$t("Transaction")?></strong>: <?=$t("means;")?> 
