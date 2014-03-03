@@ -464,7 +464,7 @@ $description = "Admin Approve documents ";
 
 		$Fiattransactions = Transactions::find('all',array(
 			'conditions'=>array(
-//				'Currency'=>array('$nin'=>array('BTC','LTC')),
+				'Currency'=>array('$nin'=>array('BTC','LTC')),
 				'Approved'=>'No',
 				'Added'=>true
 			),
