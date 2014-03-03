@@ -419,7 +419,7 @@ if($$second_curr!=0){ ?>
 						<?=$YO['Action']?> <?=$YO['FirstCurrency']?>/<?=$YO['SecondCurrency']?></td>
 						<td style="text-align:right "><?=number_format($YO['PerPrice'],3)?></td>
 						<td style="text-align:right "><?=number_format($YO['Amount'],3)?></td>
-						<td style="text-align:right "><?=number_format($YO['Amount']*$YO['PerPrice'],3)?></td>						
+						<td style="text-align:right "><?=number_format($YO['Amount']*$YO['PerPrice'],2)?></td>						
 					</tr>
 				<?php }?>					
 				</tbody>
