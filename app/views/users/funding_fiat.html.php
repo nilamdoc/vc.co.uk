@@ -205,7 +205,7 @@
 								<td colspan="5">
 									<div id="WithdrawalOKPAY" style="display:block">
 									<?php if($details['okpay']['verified']=='Yes'){?>
-									<p>Your okpay withdrawal email: <strong><?=$details['okpay']['email']?></strong></p>
+									<p>Please use your verified IBWT email with your OKPAY account. You can add your IBWT email address to your OKPAY account even if you used a different email to open your account. We will send the funds to your primary email address: <strong><?=$details['okpay']['email']?></strong></p>
 									<input type="hidden" name="okpay_email" value="<?=$details['okpay']['email']?>">
 									<?php }else{?>
 									<p>Please use your verified IBWT email with your <a href="/users/settings">OKPAY</a> account. You can add your IBWT email address to your <a href="/users/settings">OKPAY</a> account even if you used a different email to open your account. We will send the funds to your primary email address: <strong><?=$user['email']?></strong></p>
