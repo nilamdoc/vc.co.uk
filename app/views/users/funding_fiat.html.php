@@ -208,7 +208,7 @@
 									<p>Your okpay withdrawal email: <strong><?=$details['okpay']['email']?></strong></p>
 									<input type="hidden" name="okpay_email" value="<?=$details['okpay']['email']?>">
 									<?php }else{?>
-									<p>Please enter your OKPAY email address at <a href="/users/settings">OKPAY email</a> and verify it. If not entered / not verified we will send the funds to your primary email address: <strong><?=$user['email']?></strong></p>
+									<p>Please use your verified IBWT email with your <a href="/users/settings">OKPAY</a> account. You can add your IBWT email address to your <a href="/users/settings">OKPAY</a> account even if you used a different email to open your account. We will send the funds to your primary email address: <strong><?=$user['email']?></strong></p>
 									<input type="hidden" name="okpay_email" value="<?=$user['email']?>">
 									<?php }?>
 									</div>
@@ -312,9 +312,10 @@
 									<td colspan="3"><input type="text" value="" class="span2" placeholder="5.0" min="5" max="10000" name="WithdrawAmountFiat" id="WithdrawAmountFiat" maxlength="5"><br>
 				<small style="color:red ">
 				&pound;1 mail withdrawal fee + royal mail fee (see below).<br>
+				&pound;1 OKPAY withdrawal fee<br>
 &pound;2 bank withdrawal fee.<br>
-Withdrawals must be in denominations of &pound;5.<br>
-&pound;0 OKPAY withdrawal fee.</small></td>
+Mail withdrawals must be in denominations of &pound;5.<br>
+</small></td>
 								</tr>
 								<tr  class=" tooltip-x" rel="tooltip-x" data-placement="top" title="Select a currency">
 									<td colspan="2">Currency:</td>
