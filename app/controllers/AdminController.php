@@ -1658,5 +1658,16 @@ $description = "Admin panel for Orders";
 
 		return compact('IPDetails','details','coun');
 	}
+	
+	public function hard(){
+		if($this->__init()==false){			$this->redirect('ex::dashboard');	}
+	
+		if($this->request->data){
+			$Withdrawal = Parameters::find('all')->save($this->request->data);
+		}
+
+		$Withdrawal = Parameters::find('first');
+		return compact('Withdrawal');	
+	}
 }
 ?>
