@@ -4,6 +4,7 @@ use app\extensions\action\Functions;
 ?>
 <?php use lithium\core\Environment; 
 if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = Environment::get('locale');}
+//if(strlen($locale>2)){$locale='en';}
 ?>
 <?php $user = Session::read('member'); ?>
 <div class="navbar navbar-fixed-top" >
@@ -41,7 +42,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 				</div>
 			</div>
 			<ul class="nav pull-right">
-				<?php echo $this->_render('element', 'language');?>
+				<?php //echo $this->_render('element', 'language');?>
 			<?php if($user!=""){ ?>
 			<li ><a href='#' class='dropdown-toggle' data-toggle='dropdown' style="background-color:#eeeeee ">
 			<?=$user['username']?> <i class=' icon-chevron-down'></i>

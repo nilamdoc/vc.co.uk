@@ -2,6 +2,8 @@
 use app\models\Parameters;
 $Comm = Parameters::find('first');
 ?>
+<?php $this->form->config(array( 'templates' => array('error' => '<p class="alert alert-danger">{:content}</p>'))); 
+?>
 <div class="row container">
 	<div class="span4 well">
 		<div class="navbar">
@@ -9,7 +11,7 @@ $Comm = Parameters::find('first');
 			<a class="brand" href="#"><?=$t('Signup')?> </a>
 			</div>
 		</div>
-		<?=$this->form->create($user); ?>
+		<?=$this->form->create($Users); ?>
 		<?php if($refer!=""){?>
 		<?=$this->form->field('refer', array('label'=>'Refered by bitcoin address','value'=>$refer,'readonly'=>'readonly','class'=>'span4' )); ?>
 		<?php }else{?>
