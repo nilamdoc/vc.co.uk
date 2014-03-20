@@ -96,7 +96,7 @@ $ex = Session::read('ex');
 <script type="text/javascript">
 $(function() {
 	$('.tooltip-x').tooltip();
- $("input:text:visible:first").focus();
+  $("input:text:visible:first").focus();
 });
 </script>
 <script>
