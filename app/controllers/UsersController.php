@@ -35,7 +35,7 @@ class UsersController extends \lithium\action\Controller {
       $saved = $Users->save();
 			if($saved==true){
 					
-			$verification = sha1($user->_id);
+			$verification = sha1($Users->_id);
 
 			$bitcoin = new Bitcoin('http://'.BITCOIN_WALLET_SERVER.':'.BITCOIN_WALLET_PORT,BITCOIN_WALLET_USERNAME,BITCOIN_WALLET_PASSWORD);
 			$bitcoinaddress = $bitcoin->getaccountaddress($this->request->data['username']);
