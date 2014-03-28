@@ -46,8 +46,8 @@ class UsersController extends \lithium\action\Controller {
 			$ga = new GoogleAuthenticator();
 			
 			$data = array(
-				'user_id'=>(string)$user->_id,
-				'username'=>(string)$user->username,
+				'user_id'=>(string)$Users->_id,
+				'username'=>(string)$Users->username,
 				'email.verify' => $verification,
 				'mobile.verified' => "No",				
 				'mobile.number' => "",								
