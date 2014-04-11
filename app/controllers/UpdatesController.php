@@ -16,6 +16,7 @@ use lithium\data\Connections;
 use lithium\storage\Session;
 use app\extensions\action\Bitcoin;
 use app\extensions\action\Litecoin;
+use app\extensions\action\Greencoin;
 use lithium\util\String;
 
 class UpdatesController extends \lithium\action\Controller {
@@ -213,6 +214,13 @@ class UpdatesController extends \lithium\action\Controller {
 	public function LTCAddress($address = null){
 		$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
 			$verify = $litecoin->validateaddress($address);
+			return $this->render(array('json' => array(
+			'verify'=> $verify,
+		)));
+	}
+	public function XGCAddress($address = null){
+		$greencoin = new Greencoin('http://'.GREENCOIN_WALLET_SERVER.':'.GREENCOIN_WALLET_PORT,GREENCOIN_WALLET_USERNAME,GREENCOIN_WALLET_PASSWORD);
+			$verify = $greencoin->validateaddress($address);
 			return $this->render(array('json' => array(
 			'verify'=> $verify,
 		)));

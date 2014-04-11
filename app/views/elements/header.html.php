@@ -53,6 +53,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 				<li class="divider"></li>				
 				<li><a href="/<?=$locale?>/users/funding_btc"><?=$t('Funding BTC')?></a></li>							
 				<li><a href="/<?=$locale?>/users/funding_ltc"><?=$t('Funding LTC')?></a></li>											
+				<li><a href="/<?=$locale?>/users/funding_xgc"><?=$t('Funding XGC')?></a></li>															
 				<li><a href="/<?=$locale?>/users/funding_fiat"><?=$t('Funding Fiat')?></a></li>											
 				<li class="divider"></li>								
 				<li><a href="/<?=$locale?>/users/transactions"><?=$t('Transactions')?></a></li>							

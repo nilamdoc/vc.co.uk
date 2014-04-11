@@ -31,7 +31,9 @@ class APIController extends \lithium\action\Controller {
 			'order'=> array('DateTime'=>-1)
 		));
 		Requests::create()->save($data);
-		if($_SERVER['REMOTE_ADDR']=='198.50.222.223'){return true;}
+		if(in_array($_SERVER['REMOTE_ADDR'],array(
+			'198.50.222.223','127.0.0.1'
+		))){return true;}
 		if(in_array($username,array(
 		"IBWTUserA","IBWTUserB","IBWTUserC","IBWTUserD"
 		))){return true;}
@@ -228,6 +230,8 @@ class APIController extends \lithium\action\Controller {
 				),
 				'balance'=>array(
 					'BTC'=>$details['balance.BTC'],
+					'XGC'=>$details['balance.XGC'],										
+					'LTC'=>$details['balance.LTC'],															
 					'USD'=>$details['balance.USD'],					
 					'GBP'=>$details['balance.GBP'],					
 					'EUR'=>$details['balance.EUR']

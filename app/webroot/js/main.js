@@ -260,6 +260,12 @@ function BitCoinAddress(){
   $("#SendAddress").html(address); 	
 	SuccessButtonDisable();
 	}
+function GreenCoinAddress(){
+	address = $("#greencoinaddress").val();
+  $("#SendAddress").html(address); 	
+	SuccessButtonDisable();
+	}
+
 function SuccessButtonDisable(){
 	$("#SendSuccessButton").attr("disabled", "disabled");
 	}
@@ -346,7 +352,33 @@ function CheckLTCPayment(){
 				}
 		});
 	return true;
-	}
+}
+function CheckXGCPayment(){
+	address = $("#greencoinaddress").val();
+	if(address==""){return false;}
+	amount = $("#Amount").val();
+	if(amount==""){return false;}
+	maxValue = $("#maxValue").val();
+	if(parseFloat(amount)==0){return false;}
+	if(parseFloat(amount)>parseFloat(maxValue)){return false;}
+	
+	$("#SendXGCFees").html($("#txFee").val());
+
+	$("#SendXGCAmount").html(amount);	
+	$("#SendXGCTotal").html(parseFloat(amount)-parseFloat($("#txFee").val()));	
+	$("#TransferAmount").val(parseFloat(amount)-parseFloat($("#txFee").val()));
+
+	$.getJSON('/Updates/XGCAddress/'+address,
+		function(ReturnValues){
+			if(ReturnValues['verify']['isvalid']==true){
+			address = "<a href='http://greencoin.io/blockchain/address/"+ address +"' target='_blank'>"+ address +"</a> <i class='icon-ok'></i>";
+			$("#SendXGCAddress").html(address); 	
+			$("#SendXGCSuccessButton").removeAttr('disabled');				
+				}
+		});
+	return true;
+}
+
 function PaymentMethod(value){
 	if(value=="bank"){
 		$("#WithdrawalBank").show();

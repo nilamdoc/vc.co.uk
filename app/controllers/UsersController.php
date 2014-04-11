@@ -12,6 +12,7 @@ use app\extensions\action\Functions;
 
 use app\extensions\action\Bitcoin;
 use app\extensions\action\Litecoin;
+use app\extensions\action\Greencoin;
 use lithium\security\Auth;
 use lithium\storage\Session;
 use app\extensions\action\GoogleAuthenticator;
@@ -660,7 +661,7 @@ class UsersController extends \lithium\action\Controller {
 
 		$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
 		
-		if($details['LTCnewaddress']=="" || $details['LTCnewaddress']=="No"){
+		if($details['LTCnewaddress']=="" || $details['LTCnewaddress']=="Yes"){
 			$address = $litecoin->getnewaddress($user['username']);
 			
 		}else{
@@ -670,6 +671,13 @@ class UsersController extends \lithium\action\Controller {
 				$address = $details['litecoinaddress'][0];
 			}
 		}
+		$data = array(
+				'litecoinaddress.0' => $address,
+				'LTCnewaddress'=>'No'						
+			);
+			Details::find('all',array(
+				'conditions'=>array('username'=>$user['username'])
+			))->save($data);
 		
 		$secret = $details['secret'];
 		$userid = $details['user_id'];		
@@ -681,6 +689,52 @@ class UsersController extends \lithium\action\Controller {
 				'Added'=>false,
 				'Paid'=>'No',
 				'Currency'=>'LTC'
+				)
+		));
+			return compact('details','address','txfee','title','transactions','user')	;
+	}
+	public function funding_xgc(){
+				$title = "Funding XGC";
+
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+		
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+
+		$greencoin = new Greencoin('http://'.GREENCOIN_WALLET_SERVER.':'.GREENCOIN_WALLET_PORT,GREENCOIN_WALLET_USERNAME,GREENCOIN_WALLET_PASSWORD);
+		
+		if($details['XGCnewaddress']=="" || $details['XGCnewaddress']=="Yes"){
+			$address = $greencoin->getnewaddress($user['username']);
+			
+		}else{
+			if($details['greencoinaddress'][0]==""){
+				$address = $greencoin->getnewaddress($user['username']);
+			}else{
+				$address = $details['greencoinaddress'][0];
+			}
+		}
+		
+		$data = array(
+				'greencoinaddress.0' => $address,
+				'XGCnewaddress'=>'No'						
+			);
+			Details::find('all',array(
+				'conditions'=>array('username'=>$user['username'])
+			))->save($data);
+			
+		$secret = $details['secret'];
+		$userid = $details['user_id'];		
+		$paytxfee = Parameters::find('first');
+		$txfee = $paytxfee['payxgctxfee'];
+		$transactions = Transactions::find('first',array(
+				'conditions'=>array(
+				'username'=>$user['username'],
+				'Added'=>false,
+				'Paid'=>'No',
+				'Currency'=>'XGC'
 				)
 		));
 			return compact('details','address','txfee','title','transactions','user')	;
@@ -747,7 +801,20 @@ class UsersController extends \lithium\action\Controller {
 		$transaction = Transactions::find('first',array(
 			'conditions'=>array(
 				'verify.payment'=>$id,
-				'Paid'=>'No'
+				'Paid'=>'No',
+				'Currency'=>'LTC'
+				)
+		));
+		return compact('transaction');
+
+	}
+	public function paymentxgcconfirm($id = null){
+		if ($id==""){return $this->redirect('/login');}
+		$transaction = Transactions::find('first',array(
+			'conditions'=>array(
+				'verify.payment'=>$id,
+				'Paid'=>'No',
+				'Currency'=>'XGC'				
 				)
 		));
 		return compact('transaction');
@@ -884,6 +951,71 @@ class UsersController extends \lithium\action\Controller {
 		return compact('data','details','user');
 	}
 
+	public function paymentxgcverify(){
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+		$email = $user['email'];
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		
+		if ($this->request->data) {
+			$amount = $this->request->data['TransferAmount'];
+			if($details['balance.XGC']<=$amount){return false;}			
+			$fee = $this->request->data['txFee'];
+			$address = $this->request->data['greencoinaddress'];
+
+			$tx = Transactions::create();
+				$data = array(
+					'DateTime' => new \MongoDate(),
+					'username' => $details['username'],
+					'address'=>$address,							
+					'verify.payment' => sha1(openssl_random_pseudo_bytes(4,$cstrong)),
+					'Paid' => 'No',
+					'Amount'=> (float) -$amount,
+					'Currency'=> 'XGC',					
+					'txFee' => (float) -$fee,
+					'Added'=>false,
+				);							
+				$tx->save($data);	
+				
+			$view  = new View(array(
+				'loader' => 'File',
+				'renderer' => 'File',
+				'paths' => array(
+					'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+				)
+			));
+			$body = $view->render(
+				'template',
+				compact('data','details','tx'),
+				array(
+					'controller' => 'users',
+					'template'=>'withdraw_xgc',
+					'type' => 'mail',
+					'layout' => false
+				)
+			);
+
+			$transport = Swift_MailTransport::newInstance();
+			$mailer = Swift_Mailer::newInstance($transport);
+	
+			$message = Swift_Message::newInstance();
+			$message->setSubject("XGC Withdrawal Approval from ".COMPANY_URL);
+			$message->setFrom(array(NOREPLY => 'XGC Withdrawal Approval email '.COMPANY_URL));
+			$message->setTo($email);
+			$message->addBcc(MAIL_1);
+			$message->addBcc(MAIL_2);			
+			$message->addBcc(MAIL_3);		
+
+			$message->setBody($body,'text/html');
+			
+			$mailer->send($message);
+				
+		}	
+		return compact('data','details','user');
+	}
 	
 	public function payment(){
 			$title = "Payment";
@@ -1018,7 +1150,8 @@ class UsersController extends \lithium\action\Controller {
 				'conditions'=>array(
 					'verify.payment'=>$verify,
 					'username'=>$username,
-					'Paid'=>'No'
+					'Paid'=>'No',
+					'Currency'=>'LTC'
 					)
 			));
 
@@ -1078,7 +1211,8 @@ class UsersController extends \lithium\action\Controller {
 							'conditions'=>array(
 								'verify.payment'=>$verify,
 								'username'=>$username,
-								'Paid'=>'No'
+								'Paid'=>'No',
+								'Currency'=>'LTC'
 								)
 						))->save($data);
 						$transaction = Transactions::find('first',array(
@@ -1144,6 +1278,146 @@ class UsersController extends \lithium\action\Controller {
 		}
 	}
 
+	public function paymentxgc(){
+			$title = "Payment XGC";
+			
+		if ($this->request->data) {
+			$verify = $this->request->data['verify'];
+			$username = $this->request->data['username'];
+			$password = $this->request->data['password'];
+			
+			$transaction = Transactions::find('first',array(
+				'conditions'=>array(
+					'verify.payment'=>$verify,
+					'username'=>$username,
+					'Paid'=>'No',
+					'Currency'=>'XGC'					
+					)
+			));
+
+			$user = Users::find('first',array(
+				'conditions' => array(
+					'username' => $username,
+					'password' => String::hash($password),
+				)
+			));
+			$id = $user['_id'];
+			$email = $user['email'];
+		}
+
+		$user = Session::read('default');
+		if ($user==""){		return $this->redirect('/login');}
+		$id = $user['_id'];
+
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		$amount =  abs($transaction['Amount']);
+
+		if($details['balance.XGC']<=$amount){
+			$txmessage = "Not Sent! Amount does not match!";
+			return compact('txmessage');
+		}			
+
+		if($id==""){return $this->redirect('/login');}
+		$details = Details::find('first',
+			array('conditions'=>array('user_id'=> (string) $id))
+		);
+		
+		if ($this->request->data) {
+			$amount =  abs($transaction['Amount']);
+			if($details['balance.XGC']<=$amount){return false;}		
+
+			$fee = abs($transaction['txFee']);
+			$address =  $transaction['address'];
+			$satoshi = (float)$amount * 100000000;
+			$fee_satoshi = (float)$fee * 100000000;
+			$greencoin = new Greencoin('http://'.GREENCOIN_WALLET_SERVER.':'.GREENCOIN_WALLET_PORT,GREENCOIN_WALLET_USERNAME,GREENCOIN_WALLET_PASSWORD);
+ 
+				$comment = "User: ".$details['username']."; Address: ".$address."; Amount:".$amount.";";
+				if((float)$details['balance.XGC']>=(float)$amount){
+						$settxfee = $greencoin->settxfee($fee);
+						$txid = $greencoin->sendfrom('NilamDoctor', $address, (float)$amount,(int)1,$comment);
+					if($txid!=null){
+
+						$data = array(
+							'DateTime' => new \MongoDate(),
+							'TransactionHash' => $txid,
+							'Added'=>false,
+							'Paid'=>'Yes',
+							'Transfer'=>$comment,
+						);							
+						$transaction = Transactions::find('first',array(
+							'conditions'=>array(
+								'verify.payment'=>$verify,
+								'username'=>$username,
+								'Paid'=>'No',
+								'Currency'=>'XGC'
+								)
+						))->save($data);
+						$transaction = Transactions::find('first',array(
+							'conditions'=>array(
+								'verify.payment'=>$verify,
+								'username'=>$username,
+								'Paid'=>'Yes',
+								'Currency'=>'XGC'								
+								)
+						));			
+						
+						$txmessage = number_format($amount,8) . " XGC transfered to ".$address;
+
+			$balance = (float)$details['balance.XGC'] - (float)$amount;
+			$balance = (float)($balance) + (float)$fee;
+
+						$dataDetails = array(
+								'balance.XGC' => (float)number_format($balance,8),
+							);
+						$details = Details::find('all',
+							array(
+									'conditions'=>array(
+										'user_id'=> (string) $id
+									)
+								))->save($dataDetails);
+								
+			$view  = new View(array(
+				'loader' => 'File',
+				'renderer' => 'File',
+				'paths' => array(
+					'template' => '{:library}/views/{:controller}/{:template}.{:type}.php'
+				)
+			));
+			$body = $view->render(
+				'template',
+				compact('transaction','details','txid'),
+				array(
+					'controller' => 'users',
+					'template'=>'withdraw_xgc_sent',
+					'type' => 'mail',
+					'layout' => false
+				)
+			);
+
+			$transport = Swift_MailTransport::newInstance();
+			$mailer = Swift_Mailer::newInstance($transport);
+	
+			$message = Swift_Message::newInstance();
+			$message->setSubject("XGC sent from ".COMPANY_URL);
+			$message->setFrom(array(NOREPLY => 'XGC sent from '.COMPANY_URL));
+			$message->setTo($email);
+			$message->addBcc(MAIL_1);
+			$message->addBcc(MAIL_2);			
+			$message->addBcc(MAIL_3);		
+
+			$message->setBody($body,'text/html');
+			
+			$mailer->send($message);
+								
+								
+				}
+			}
+			return compact('txmessage','txid','json_url','json_feed','title');
+		}
+	}
 
 	
 	public function transactions(){

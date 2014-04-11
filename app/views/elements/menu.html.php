@@ -44,6 +44,7 @@ if($this->_request->params['controller']!='api'){
 		<li><a href="/Admin/user"><?=$t("User")?></a></li>								
 		<li><a href="/Admin/bitcointransaction"><?=$t("BTC")?></a></li>										
 		<li><a href="/Admin/litecointransaction"><?=$t("LTC")?></a></li>												
+		<li><a href="/Admin/greencointransaction"><?=$t("XGC")?></a></li>														
 		<li><a href="/Admin/orders"><?=$t("Orders")?></a></li>												
 		<li><a href="/Admin/api"><?=$t("API")?></a></li>														
 		<li><a href="/Admin/map"><?=$t("map")?></a></li>																

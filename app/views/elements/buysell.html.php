@@ -7,6 +7,7 @@ $first_curr = strtoupper(substr($sel_curr,0,3));
 $second_curr = strtoupper(substr($sel_curr,4,3));
 $BTC = $details['balance']['BTC'];
 $LTC = $details['balance']['LTC'];
+$XGC = $details['balance']['XGC'];
 $USD = $details['balance']['USD'];
 $GBP = $details['balance']['GBP'];
 $EUR = $details['balance']['EUR'];
@@ -32,6 +33,9 @@ switch ($first_curr) {
     case "EUR":
 		$BalanceFirst = $EUR;
         break;
+    case "XGC":
+		$BalanceFirst = $XGC;
+        break;
 }
 if (is_null($BalanceFirst)){$BalanceFirst = 0;}
 switch ($second_curr) {
@@ -52,6 +56,9 @@ switch ($second_curr) {
         break;
     case "EUR":
 		$BalanceSecond = $EUR;
+        break;
+    case "XGC":
+		$BalanceSecond = $XGC;
         break;
 }
 if (is_null($BalanceSecond)){$BalanceSecond = 0;}
@@ -180,9 +187,10 @@ if($$second_curr!=0){ ?>
 				</td>
 			</tr>
 			<tr>
-			<td>Add BTC/LTC or Fiat currency through the links below:<br>
+			<td>Add BTC/LTC/XGC or Fiat currency through the links below:<br>
 				<a href="/users/funding_btc" class="btn btn-primary"><?=$t("Funding BTC")?></a>
 				<a href="/users/funding_ltc" class="btn btn-primary"><?=$t("Funding LTC")?></a>				
+				<a href="/users/funding_xgc" class="btn btn-primary"><?=$t("Funding XGC")?></a>								
 				<a href="/users/funding_fiat" class="btn btn-primary"><?=$t("Funding Fiat")?></a><br><br>
 				<a href="/okpay"><img src="/img/DepositOkPay.png" width="110px"></a>
 			</td>
@@ -254,9 +262,10 @@ if($$second_curr!=0){ ?>
 		<table class="table table-condensed table-bordered table-hover" style="margin-top:-20px;height:288px">
 			<tr>
 				<td>
-				Add BTC/LTC or Fiat currency through the link below:<br>
+				Add BTC/LTC/XGC or Fiat currency through the link below:<br>
 				<a href="/users/funding_btc" class="btn btn-primary"><?=$t("Funding BTC")?></a>
 				<a href="/users/funding_ltc" class="btn btn-primary"><?=$t("Funding LTC")?></a>				
+				<a href="/users/funding_xgc" class="btn btn-primary"><?=$t("Funding XGC")?></a>								
 				<a href="/users/funding_fiat" class="btn btn-primary"><?=$t("Funding Fiat")?></a>								<br><br>
 				<a href="/okpay"><img src="/img/DepositOkPay.png" width="110px"></a>
 				</td>

@@ -6,24 +6,24 @@ use app\models\Details;
 use app\models\Parameters;
 
 
-use app\extensions\action\Litecoin;
+use app\extensions\action\Greencoin;
 
-class Walletltcnotify extends \lithium\console\Command {
+class Walletxgcnotify extends \lithium\console\Command {
     public function index($s=null) {
-			$litecoin = new Litecoin('http://'.LITECOIN_WALLET_SERVER.':'.LITECOIN_WALLET_PORT,LITECOIN_WALLET_USERNAME,LITECOIN_WALLET_PASSWORD);
+			$greencoin = new Greencoin('http://'.GREENCOIN_WALLET_SERVER.':'.GREENCOIN_WALLET_PORT,GREENCOIN_WALLET_USERNAME,GREENCOIN_WALLET_PASSWORD);
 			$paytxfee = Parameters::find('first');
-			$txfee = $paytxfee['payltctxfee'];
+			$txfee = $paytxfee['payxgctxfee'];
 
-		$getrawtransaction = $litecoin->getrawtransaction($s);
-		$decoderawtransaction = $litecoin->decoderawtransaction($getrawtransaction);		
+		$getrawtransaction = $greencoin->getrawtransaction($s);
+		$decoderawtransaction = $greencoin->decoderawtransaction($getrawtransaction);		
 
 			foreach($decoderawtransaction['vout'] as $out){
 				foreach($out['scriptPubKey']['addresses'] as $address){
 				
-					$username = $litecoin->getaccount($address);
+					$username = $greencoin->getaccount($address);
 				
 					$Amount = (float)$out['value'];
-					if($litecoin->getaccount($address)!=""){
+					if($greencoin->getaccount($address)!=""){
 						$Transactions = Transactions::find('first',array(
 							'conditions'=>array('TransactionHash' => $s)
 						));
@@ -31,7 +31,7 @@ class Walletltcnotify extends \lithium\console\Command {
 							$t = Transactions::create();
 							$Amount = $Amount;
 							$comment = "Move from User: ".$username."; Address: ".$address."; Amount:".$Amount.";";
-							$transfer = $litecoin->move($username, "NilamDoctor", (float)$Amount,(int)0,$comment);
+							$transfer = $greencoin->move($username, "NilamDoctor", (float)$Amount,(int)0,$comment);
 
 							if(isset($transfer['error'])){
 								$error = $transfer['error']; 
@@ -43,7 +43,7 @@ class Walletltcnotify extends \lithium\console\Command {
 							'TransactionHash' => $s,
 							'username' => $username,
 							'address'=>$address,							
-							'Currency'=>'LTC',							
+							'Currency'=>'XGC',							
 							'Amount'=> $Amount,
 							'Added'=>true,
 							'Transfer'=>$comment,
@@ -56,8 +56,8 @@ class Walletltcnotify extends \lithium\console\Command {
 
 									
 						$dataDetails = array(
-								'balance.LTC' => (float)((float)$details['balance.LTC'] + (float)$Amount),
-								'LTCnewaddress'=>'Yes'														
+								'balance.XGC' => (float)((float)$details['balance.XGC'] + (float)$Amount),
+								'XGCnewaddress'=>'Yes'						
 							);
 						
 							$details = Details::find('all',

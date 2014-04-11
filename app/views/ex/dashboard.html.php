@@ -12,6 +12,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 			<a class="brand" href="#"><?=$t('Accounts')?> </a>
 			<a href="/<?=$locale?>/users/funding_btc" class="btn btn-primary"><?=$t("Funding BTC")?></a>
 			<a href="/<?=$locale?>/users/funding_ltc" class="btn btn-primary"><?=$t("Funding LTC")?></a>			
+			<a href="/<?=$locale?>/users/funding_xgc" class="btn btn-primary"><?=$t("Funding XGC")?></a>			
 			<a href="/<?=$locale?>/users/funding_fiat" class="btn btn-primary"><?=$t("Funding Fiat")?></a>						
 			<a href="/<?=$locale?>/okpay"><img src="/img/DepositOkPay.png" width="110px" style="margin-top:4px "></a>
 			<a href="/<?=$locale?>/users/transactions" class="btn btn-primary"><?=$t("Transactions")?></a>			
@@ -86,6 +87,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<th><?=$t("Currency")?></th>
 					<th style="text-align:center">BTC</th>
 					<th style="text-align:center">LTC</th> 
+					<th style="text-align:center">XGC</th> 					
 					<th style="text-align:center">USD</th>
 					<th style="text-align:center">EUR</th>
 					<th style="text-align:center">GBP</th>
@@ -119,6 +121,9 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					    case "LTC":
 					        $LTCComm = $C['Commission'];
 				    	    break;
+					    case "XGC":
+					        $XGCComm = $C['Commission'];
+				    	    break;
 					    case "GBP":
 					        $GBPComm = $C['Commission'];
 				    	    break;
@@ -142,6 +147,9 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					    case "LTC":
 					        $CompletedLTCComm = $C['Commission'];
 				    	    break;
+					    case "XGC":
+					        $CompletedXGCComm = $C['Commission'];
+				    	    break;
 					    case "GBP":
 					        $CompletedGBPComm = $C['Commission'];
 				    	    break;
@@ -161,6 +169,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td><strong><?=$t('Opening Balance')?></strong></td>
 					<td style="text-align:right "><?=number_format($details['balance.BTC']+$Sell['BTC'],8)?></td>
 					<td style="text-align:right "><?=number_format($details['balance.LTC']+$Sell['LTC'],8)?></td> 
+					<td style="text-align:right "><?=number_format($details['balance.XGC']+$Sell['XGC'],8)?></td> 					
 					<td style="text-align:right "><?=number_format($details['balance.USD']+$BuyWith['USD'],4)?></td>					
 					<td style="text-align:right "><?=number_format($details['balance.EUR']-$BuyWith['EUR'],4)?></td>										
 					<td style="text-align:right "><?=number_format($details['balance.GBP']-$BuyWith['GBP'],4)?></td>										
@@ -171,6 +180,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<?=$t("(including pending orders)")?></td>
 					<td style="text-align:right "><?=number_format($details['balance.BTC'],8)?></td>
 					<td style="text-align:right "><?=number_format($details['balance.LTC'],8)?></td> 
+					<td style="text-align:right "><?=number_format($details['balance.XGC'],8)?></td> 					
 					<td style="text-align:right "><?=number_format($details['balance.USD'],4)?></td>
 					<td style="text-align:right "><?=number_format($details['balance.EUR'],4)?></td>
 					<td style="text-align:right "><?=number_format($details['balance.GBP'],4)?></td>
@@ -180,6 +190,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td><strong><?=$t('Pending Buy Orders')?></strong></td>
 					<td style="text-align:right ">+<?=number_format($Buy['BTC'],8)?></td>
  					<td style="text-align:right ">+<?=number_format($Buy['LTC'],8)?></td>					
+ 					<td style="text-align:right ">+<?=number_format($Buy['XGC'],8)?></td>										
 					<td style="text-align:right ">-<?=number_format($BuyWith['USD'],4)?></td>										
 					<td style="text-align:right ">-<?=number_format($BuyWith['EUR'],4)?></td>										
 					<td style="text-align:right ">-<?=number_format($BuyWith['GBP'],4)?></td>										
@@ -189,6 +200,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td><strong><?=$t('Pending Sell Orders')?></strong></td>
 					<td style="text-align:right ">-<?=number_format($Sell['BTC'],8)?></td>
 					<td style="text-align:right ">-<?=number_format($Sell['LTC'],8)?></td>					
+					<td style="text-align:right ">-<?=number_format($Sell['XGC'],8)?></td>										
 					<td style="text-align:right ">+<?=number_format($SellWith['USD'],4)?></td>										
 					<td style="text-align:right ">+<?=number_format($SellWith['EUR'],4)?></td>										
 					<td style="text-align:right ">+<?=number_format($SellWith['GBP'],4)?></td>										
@@ -198,6 +210,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td  style="border-top:1px solid black"><strong><?=$t('After Execution')?></strong></td>
 					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.BTC']+$Buy['BTC']-$BTCComm,8)?></td>
 					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.LTC']+$Buy['LTC']-$LTCComm,8)?></td> 
+					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.XGC']+$Buy['XGC']-$XGCComm,8)?></td> 
 					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.USD']+$SellWith['USD']-$USDComm,4)?></td>					
 					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.EUR']+$SellWith['EUR']-$EURComm,4)?></td>										
 					<td style="text-align:right;border-top:1px solid black "><?=number_format($details['balance.GBP']+$SellWith['GBP']-$GBPComm,4)?></td>										
@@ -207,6 +220,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td style="border-bottom:double black;"><strong><?=$t('Commissions')?></strong></td>
 					<td style="text-align:right;border-bottom:double black;"><?=number_format($BTCComm,8)?></td>
  					<td style="text-align:right;border-bottom:double black; "><?=number_format($LTCComm,8)?></td> 
+ 					<td style="text-align:right;border-bottom:double black; "><?=number_format($XGCComm,8)?></td> 					
 					<td style="text-align:right;border-bottom:double black; "><?=number_format($USDComm,4)?></td>
 					<td style="text-align:right;border-bottom:double black; "><?=number_format($EURComm,4)?></td>
 					<td style="text-align:right;border-bottom:double black; "><?=number_format($GBPComm,4)?></td>
@@ -228,6 +242,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<th><?=$t("Currency")?></th>
 					<th style="text-align:center">BTC</th>
 					<th style="text-align:center">LTC</th> 
+					<th style="text-align:center">XGC</th> 					
 					<th style="text-align:center">USD</th>
 					<th style="text-align:center">EUR</th>
 					<th style="text-align:center">GBP</th>
@@ -240,6 +255,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td><strong><?=$t('Complete Buy Orders')?></strong></td>
 					<td style="text-align:right "><?=number_format($ComBuy['BTC'],8)?></td>
 					<td style="text-align:right "><?=number_format($ComBuy['LTC'],8)?></td>				
+					<td style="text-align:right "><?=number_format($ComBuy['XGC'],8)?></td>									
 					<td style="text-align:right "><?=number_format($ComBuyWith['USD'],4)?></td>										
 					<td style="text-align:right "><?=number_format($ComBuyWith['EUR'],4)?></td>										
 					<td style="text-align:right "><?=number_format($ComBuyWith['GBP'],4)?></td>										
@@ -249,6 +265,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td><strong><?=$t('Complete Sell Orders')?></strong></td>
 					<td style="text-align:right "><?=number_format($ComSell['BTC'],8)?></td>
 					<td style="text-align:right "><?=number_format($ComSell['LTC'],8)?></td>		
+					<td style="text-align:right "><?=number_format($ComSell['XGC'],8)?></td>							
 					<td style="text-align:right "><?=number_format($ComSellWith['USD'],4)?></td>										
 					<td style="text-align:right "><?=number_format($ComSellWith['EUR'],4)?></td>										
 					<td style="text-align:right "><?=number_format($ComSellWith['GBP'],4)?></td>										
@@ -258,6 +275,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 					<td><strong><?=$t('Completed Order Commissions')?></strong></td>
 					<td style="text-align:right "><?=number_format($CompletedBTCComm,8)?></td>
 					<td style="text-align:right "><?=number_format($CompletedLTCComm,8)?></td> 
+					<td style="text-align:right "><?=number_format($CompletedXGCComm,8)?></td> 					
 					<td style="text-align:right "><?=number_format($CompletedUSDComm,4)?></td>
 					<td style="text-align:right "><?=number_format($CompletedEURComm,4)?></td>
 					<td style="text-align:right "><?=number_format($CompletedGBPComm,4)?></td>

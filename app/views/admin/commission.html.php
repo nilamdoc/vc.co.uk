@@ -25,17 +25,18 @@ $EndDate=gmdate('Y-m-d',$EndDate->sec);
 	<tr>
 		<th rowspan="2" style="text-align:center;">Date</th>
 		<th rowspan="2" style="text-align:center ">Transactions</th>
-		<th colspan="5" style="text-align:center ;background-color:#D1F4CC">Commission</th>
+		<th colspan="6" style="text-align:center ;background-color:#D1F4CC">Commission</th>
 	</tr>
 	<tr>
 		<th style="text-align:center ;background-color:#D1F4CC">BTC</th>
 		<th style="text-align:center ;background-color:#D1F4CC">LTC</th>		
+		<th style="text-align:center ;background-color:#D1F4CC">XGC</th>				
 		<th style="text-align:center ;background-color:#B8EEB0">GBP</th>		
 		<th style="text-align:center ;background-color:#B8EEB0">EUR</th>		
 		<th style="text-align:center ;background-color:#B8EEB0">USD</th>
 	</tr>	
 <?php 
-$BTC = 0; $LTC = 0; $USD = 0; $EUR = 0; $GBP = 0; $Transactions = 0;
+$BTC = 0; $LTC = 0; $XGC = 0; $USD = 0; $EUR = 0; $GBP = 0; $Transactions = 0;
 foreach ($new	as $key=>$value){
 ?>
 	<tr>
@@ -43,6 +44,7 @@ foreach ($new	as $key=>$value){
 		<td><?=$value['Transactions']?></td>		
 		<td><?=number_format($value['BTC'],8)?></td>
 		<td><?=number_format($value['LTC'],8)?></td>		
+		<td><?=number_format($value['XGC'],8)?></td>				
 		<td><?=number_format($value['GBP'],2)?></td>
 		<td><?=number_format($value['EUR'],2)?></td>
 		<td><?=number_format($value['USD'],2)?></td>						
@@ -51,6 +53,7 @@ foreach ($new	as $key=>$value){
 $Transactions = $Transactions + $value['Transactions'];
 $BTC = $BTC + $value['BTC'];
 $LTC = $LTC + $value['LTC'];
+$XGC = $XGC + $value['XGC'];
 $GBP = $GBP + $value['GBP'];
 $EUR = $EUR + $value['EUR'];
 $USD = $USD + $value['USD'];
@@ -60,6 +63,7 @@ $USD = $USD + $value['USD'];
 		<th><?=$Transactions?></td>		
 		<th><?=number_format($BTC,8)?></td>
 		<th><?=number_format($LTC,8)?></td>		
+		<th><?=number_format($XGC,8)?></td>				
 		<th><?=number_format($GBP,2)?></td>
 		<th><?=number_format($EUR,2)?></td>
 		<th><?=number_format($USD,2)?></td>						
