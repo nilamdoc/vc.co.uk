@@ -1364,7 +1364,7 @@ class UsersController extends \lithium\action\Controller {
 								)
 						));			
 						
-						$txmessage = number_format($amount,8) . " XGC transfered to ".$address;
+						$txmessage = number_format($amount,8) . " XGC transfered to ".$address." txid: ".$txid;
 
 			$balance = (float)$details['balance.XGC'] - (float)$amount;
 			$balance = (float)($balance) + (float)$fee;

@@ -60,7 +60,7 @@ class Greencoin extends \lithium\action\Controller{
 		
 		// process response
 		if (!$response) {
-			return array('error'=>'Unable to connect to Bitcoin server.');
+			return array('error'=>'Unable to connect to GreenCoin server.');
 		}
 		$response = json_decode($response,true);
 		

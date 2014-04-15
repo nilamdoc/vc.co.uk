@@ -85,7 +85,7 @@ $Comm = Parameters::find('first');
 <p><?=$t("Customers acknowledge that they must send OKPAY deposits via deposit@ibwt.co.uk.")?></p>
 <p><?=$t("Customers are liable for the OKPAY transfer fee, which will come out of their withdrawal as per terms and conditions of OKPAY.")?></p>
 <p><?=$t("A withdrawal fee of 0.0001 is charged to all Crypto-currency withdrawals in their respective denomination. IBWT reserves the right to alter this depending upon the market. 100% of this fee goes towards the miners.")?></p>
-
+<p> There is a &pound;1 fee for withdrawal via OKPAY and the equivalent in Euro or USD, taken at the market average via Google.</p>
 </li>
 <li><strong><?=$t("OBLIGATIONS")?></strong>
 <p><u><?=$t("IBWT Obligations")?></u>
