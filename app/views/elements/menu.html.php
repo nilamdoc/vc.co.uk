@@ -4,7 +4,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 <?php
 $howmany = 5;
 use app\models\Trades;
-$trades = Trades::find('all',array('limit'=>$howmany));
+$trades = Trades::find('all',array('limit'=>$howmany,'order'=>array('order'=>1)));
 $tradesall = Trades::find('all');
 $sel_curr = $this->_request->params['args'][0];
 if($this->_request->params['controller']!='api'){
