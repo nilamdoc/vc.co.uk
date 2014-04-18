@@ -551,7 +551,7 @@ class ExController extends \lithium\action\Controller {
 		$keywords = $page['keywords'];
 		$description = $page['description'];
 		
-		return compact('title','details','SellOrders','BuyOrders','TotalSellOrders','TotalBuyOrders','YourOrders','YourCompleteOrders','keywords','description');
+		return compact('title','details','SellOrders','BuyOrders','TotalSellOrders','TotalBuyOrders','YourOrders','YourCompleteOrders','keywords','description','user');
 	}
 	
 	public function dashboard() {

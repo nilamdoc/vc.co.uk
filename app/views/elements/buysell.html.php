@@ -84,7 +84,7 @@ if(Environment::get('locale')=="en_US"){$locale = "en";}else{$locale = Environme
 		</div>
 </div>
 <?php 
-if($$second_curr!=0){ ?>
+if($$second_curr!=0 || (!$user)){ ?>
 	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner1" >
@@ -199,7 +199,7 @@ if($$second_curr!=0){ ?>
 		</div>
 	</div>
 <?php }?>	
-<?php if($$first_curr!=0){ ?>
+<?php if($$first_curr!=0 || (!$user)){ ?>
 	<div class="span4">
 		<div class="navbar">
 			<div class="navbar-inner1">
