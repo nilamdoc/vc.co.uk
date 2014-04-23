@@ -1103,6 +1103,47 @@ $SecondCurrency = $second_curr;
 				}
 			}	
 	}
+	public function bitcoincharts($currency='USD',$filename=null){
+	
+		if($filename==""){
+			return $this->render(array('json' => array('success'=>0,
+			'now'=>time(),
+			'error'=>"No method specified."
+			)));
+		}
+		if($filename=="trades.json"){
+			if($date==null){
+				$StartDate = new MongoDate(strtotime(gmdate('Y-m-d',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time())))));
+				$EndDate = new MongoDate(strtotime(gmdate('Y-m-d',mktime(0,0,0,gmdate('m',time()),gmdate('d',time()),gmdate('Y',time()))+24*60*60)));
+			}else{
+				$StartDate = new MongoDate(strtotime($date));
+				$EndDate = new MongoDate(strtotime($date)+24*60*60);			
+			}
+	
+			$orders = Orders::find('all',array(
+				'conditions'=>array(
+//					'DateTime'=>array( '$gte' => $StartDate, '$lt' => $EndDate ),
+					'SecondCurrency'=>$currency
+				),
+				'order'=>array('DateTime'=>-1)
+			));
+			$i = 0;$result = array();
+			
+			foreach($orders as $or){
 
+				$result[$i]['date'] = $or['DateTime']->sec;
+				$result[$i]['price'] = $or['PerPrice'];			
+				$result[$i]['amount'] = $or['Amount'];									
+				$result[$i]['tid'] = $or['_id']->getInc()	;												
+				$i++;
+			}
+			
+				return $this->render(array('json' => 
+				$result
+				));
+			}
+//[{"date":1306148860,"price":6.87,"amount":1,"tid":"82771"},{"date":1306149340,"price":6.86001,"amount":1,"tid":"82772"
+	}
+	
 }
 ?>
