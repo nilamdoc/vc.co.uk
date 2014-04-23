@@ -1145,7 +1145,7 @@ $SecondCurrency = $second_curr;
 				$result
 				));
 			}
-//[{"date":1306148860,"price":6.87,"amount":1,"tid":"82771"},{"date":1306149340,"price":6.86001,"amount":1,"tid":"82772"
+//[{"date":1306148860,"price":6.87,"amount":1,"tid":"82771"},{"date":1306149340,"price":6.86001,"amount":1,"tid":"82772"}]
 	}
 	
 }

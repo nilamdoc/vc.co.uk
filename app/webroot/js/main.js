@@ -34,11 +34,11 @@ function GetDetails(ex){
 			$("#HighPrice").html(ReturnValues['High']);					
 			$("#LowestAskPrice").html(ReturnValues['High']);	
 			if($("#BuyPriceper").val()=="" || $("#BuyPriceper").val()==0){
-				$("#BuyPriceper").val(ReturnValues['High']);
+				$("#BuyPriceper").val(ReturnValues['No_High']);
 			}
 			$("#HighestBidPrice").html(ReturnValues['Low']);
 			if($("#SellPriceper").val()=="" || $("#SellPriceper").val()==0){
-				$("#SellPriceper").val(ReturnValues['Low']);
+				$("#SellPriceper").val(ReturnValues['No_Low']);
 			}
 			$("#LastPrice").html(ReturnValues['Last']);
 			Volume = ReturnValues['VolumeFirst'] + " " + ReturnValues['VolumeFirstUnit'] +
