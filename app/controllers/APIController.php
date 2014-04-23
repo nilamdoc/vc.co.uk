@@ -1134,7 +1134,9 @@ $SecondCurrency = $second_curr;
 				$result[$i]['date'] = $or['DateTime']->sec;
 				$result[$i]['price'] = $or['PerPrice'];			
 				$result[$i]['amount'] = $or['Amount'];									
-				$result[$i]['tid'] = $or['_id']->getInc()	;												
+				$result[$i]['tid1'] = $or['_id']->getInc()	;												
+				$result[$i]['tid2'] = $or['_id']->getHostname()	;																
+				$result[$i]['tid3'] = $or['_id']->getPID()	;																				
 				$i++;
 			}
 			
