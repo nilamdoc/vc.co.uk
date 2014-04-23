@@ -1146,6 +1146,33 @@ $SecondCurrency = $second_curr;
 				));
 			}
 //[{"date":1306148860,"price":6.87,"amount":1,"tid":"82771"},{"date":1306149340,"price":6.86001,"amount":1,"tid":"82772"}]
+		if($filename=="orderbook.json"){
+			$i = 0;$result = array();$orderbids = array();$orderask = array();
+			$orders = Orders::find('all',array(
+				'conditions'=>array(
+//					'DateTime'=>array( '$gte' => $StartDate, '$lt' => $EndDate ),
+					'SecondCurrency'=>$currency,
+					'Completed'=>'N'
+				),
+				'order'=>array('DateTime'=>-1)
+			));			
+			foreach($orders as $or){
+				if($or['Action']=='Sell'){
+					array_push($orderbids, array($or['PerPrice'],$or['Amount']));
+				}
+				if($or['Action']=='Buy'){
+					array_push($orderask, array($or['PerPrice'],$or['Amount']));
+				}
+
+				$i++;
+			}
+			$result = array('ask'=>$orderask,'bids'=>$orderbids);
+
+				return $this->render(array('json' => 
+				$result
+				));
+		}
+// {"asks":[[7.449,1],[7.4499,6.711]],"bids":[[7.40001,5],[7.3325,27.449]]}
 	}
 	
 }
