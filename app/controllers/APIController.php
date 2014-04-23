@@ -1122,7 +1122,7 @@ $SecondCurrency = $second_curr;
 	
 			$orders = Orders::find('all',array(
 				'conditions'=>array(
-//					'DateTime'=>array( '$gte' => $StartDate, '$lt' => $EndDate ),
+					'DateTime'=>array( '$gte' => $StartDate, '$lt' => $EndDate ),
 					'SecondCurrency'=>$currency,
 					'Completed'=>'Y'
 				),
