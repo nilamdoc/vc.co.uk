@@ -23,7 +23,7 @@
 <html>
 <head>
 	<?php echo $this->html->charset();?>
-	<title><?php echo MAIN_TITLE;?> <?php if(isset($title)){echo $title;} ?></title>
+	<title><?php echo MAIN_TITLE;?><?php if(isset($title)){echo $title;} ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<meta name="keywords" content="<?php if(isset($keywords)){echo $keywords;} ?>">	
 	<meta name="description" content="<?php if(isset($description)){echo $description;} ?>">		
