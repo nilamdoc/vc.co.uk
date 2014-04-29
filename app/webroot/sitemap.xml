@@ -1,84 +1,134 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-  <loc>http://ibwt.co.uk/en/</loc>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/company/contact</loc>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/company/resources</loc>
-  <changefreq>monthly</changefreq>
-</url>
-
-<url>
-  <loc>http://ibwt.co.uk/en/company/aboutus</loc>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/company/riskmanagement</loc>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/company/verification</loc>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/company/privacy</loc>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/company/termsofservice</loc>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/company/legal</loc>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/company/FAQ</loc>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/company/funding</loc>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/news</loc>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/login</loc>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/ex/x/btc_usd</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/ex/x/btc_gbp</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/ex/x/btc_eur</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/ex/x/btc_ltc</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/ex/x/ltc_usd</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://ibwt.co.uk/en/</loc>
-  <changefreq>monthly</changefreq>
-</url>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- IBWT sitemap, version 0.1-->
+  <url>
+    <loc>https://ibwt.co.uk/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/login</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.94</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/ex/x/btc_gbp</loc>
+    <changefreq>always</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/ex/x/btc_eur</loc>
+    <changefreq>always</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/ex/x/btc_usd</loc>
+    <changefreq>always</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/ex/x/btc_ltc</loc>
+    <changefreq>always</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/ex/x/ltc_gbp</loc>
+    <changefreq>always</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/ex/x/ltc_usd</loc>
+    <changefreq>always</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/ex/x/ltc_eur</loc>
+    <changefreq>always</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/ex/x/btc_cad</loc>
+    <changefreq>always</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/ex/x/ltc_cad</loc>
+    <changefreq>always</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/ex/x/btc_xgc</loc>
+    <changefreq>always</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/virtualoffice</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.40</priority>
+  </url>
+  <url>
+    <loc>http://blog.ibwt.co.uk</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/company/contact</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/company/aboutus</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/company/riskmanagement</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/company/verification</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.92</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/company/privacy</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/company/termsofservice</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/company/legal</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/company/FAQ</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/company/funding</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/okpay</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/API</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.86</priority>
+  </url>
+  <url>
+    <loc>https://ibwt.co.uk/company/resources</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.50</priority>
+  </url>
 </urlset>
