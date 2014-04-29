@@ -9,6 +9,15 @@
  use lithium\storage\Session;
  use lithium\g11n\Message;
  use lithium\core\Environment; 
+ use app\models\Pages;
+ if(!isset($title)){
+		$page = Pages::find('first',array(
+			'conditions'=>array('pagename'=>'home')
+		));
+ 		$title = $page['title'];
+		$keywords = $page['keywords'];
+		$description = $page['description'];
+ }
 ?>
 <!doctype html>
 <html>
