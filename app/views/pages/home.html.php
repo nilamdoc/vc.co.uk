@@ -55,7 +55,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 		&nbsp;&nbsp;
 		<a href="https://www.linkedin.com/company/in-bitcoin-we-trust-jd-ltd" target="_blank"><img src="/img/linkedin.jpg" width="30" alt="LinkedIn" title="Linkedin"></a>
 				&nbsp;&nbsp;
-<a href="https://plus.google.com/{+IbwtCoUk}" rel="publisher" /><img src="/img/google.png" width="30px" alt="Google+" title="Google+"></a>
+<a target="_blank" href="https://plus.google.com/+IbwtCoUk" rel="publisher" /><img src="/img/google.png" width="30px" alt="Google+" title="Google+"></a>
 	</li>
 	
 </ul>
