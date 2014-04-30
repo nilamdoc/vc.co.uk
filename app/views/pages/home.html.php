@@ -54,7 +54,8 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 		<a href="https://plus.google.com/b/100582829535245250566/100582829535245250566/about?hl=en" target="_blank"><img src="/img/google.png" width="30px" alt="Google+" title="Google+"></a>
 		&nbsp;&nbsp;
 		<a href="https://www.linkedin.com/company/in-bitcoin-we-trust-jd-ltd" target="_blank"><img src="/img/linkedin.jpg" width="30" alt="LinkedIn" title="Linkedin"></a>
-		
+				&nbsp;&nbsp;
+<a href="https://plus.google.com/{+IbwtCoUk}" rel="publisher" /><img src="/img/google.png" width="30px" alt="Google+" title="Google+"></a>
 	</li>
 	
 </ul>
@@ -79,6 +80,7 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 <a href="http://bitgivefoundation.org/" target="_blank"><img src="/img/bitgivetile.png" width="170px" alt="BitGive"></a><br>
 <!--		<a href="https://bitcoinfoundation.org/" target="_blank"><img src="/img/bitcoin-foundation.jpg" alt="Bitcoin Foundation" width="170px"></a><br>
 -->
+
 		</div>
 		</div>
 
