@@ -51,8 +51,6 @@ if(substr(Environment::get('locale'),0,2)=="en"){$locale = "en";}else{$locale = 
 		&nbsp;&nbsp;
 <a href="https://bitcointalk.org/index.php?topic=397625.0" target="_blank"><img src="/img/bitcointalk_logo.jpg.png" alt="Bitcoin talk" width="30px" title="bitcoin talk"></a>
 		&nbsp;&nbsp;
-		<a href="https://plus.google.com/b/100582829535245250566/100582829535245250566/about?hl=en" target="_blank"><img src="/img/google.png" width="30px" alt="Google+" title="Google+"></a>
-		&nbsp;&nbsp;
 		<a href="https://www.linkedin.com/company/in-bitcoin-we-trust-jd-ltd" target="_blank"><img src="/img/linkedin.jpg" width="30" alt="LinkedIn" title="Linkedin"></a>
 				&nbsp;&nbsp;
 <a target="_blank" href="https://plus.google.com/+IbwtCoUk" rel="publisher" /><img src="/img/google.png" width="30px" alt="Google+" title="Google+"></a>
